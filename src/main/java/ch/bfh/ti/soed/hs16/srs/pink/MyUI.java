@@ -29,10 +29,6 @@ import com.vaadin.ui.VerticalLayout;
 @SuppressWarnings("serial")
 @Theme("mytheme")
 public class MyUI extends UI {
-
-	//test
-	//testtest
-	//testtesttest
 	
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
