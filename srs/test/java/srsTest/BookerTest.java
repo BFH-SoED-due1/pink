@@ -4,8 +4,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import srs.Booker;
-import srs.BookerAddress;
+import srs.Address;
 import srs.BookerName;
+import srs.BookerAddress;
 
 public class BookerTest {
 

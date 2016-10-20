@@ -4,10 +4,11 @@ import static org.junit.Assert.*;
 import java.sql.Time;
 import java.util.Date;
 import org.junit.Test;
+
 import srs.BookerName;
 import srs.Booker;
-import srs.Reservation;
 import srs.BookerAddress;
+import srs.Reservation;
 import srs.Room;
 
 public class ReservationTest {

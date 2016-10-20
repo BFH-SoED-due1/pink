@@ -3,9 +3,9 @@ package srsTest;
 import static org.junit.Assert.*;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.junit.Assert;
 import org.junit.Test;
+
 import srs.Room;
 
 public class RoomTest {
