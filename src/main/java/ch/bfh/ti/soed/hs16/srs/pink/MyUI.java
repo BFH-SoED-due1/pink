@@ -29,7 +29,7 @@ import com.vaadin.ui.VerticalLayout;
 @SuppressWarnings("serial")
 @Theme("mytheme")
 public class MyUI extends UI {
-	
+
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
 		final VerticalLayout layout = new VerticalLayout();
@@ -39,7 +39,7 @@ public class MyUI extends UI {
 
 		Button button = new Button("Click Me");
 		button.addClickListener( e -> {
-			layout.addComponent(new Label("Thanks " + name.getValue()
+			layout.addComponent(new Label("Thank you " + name.getValue()
 			+ ", it works!"));
 		});
 
