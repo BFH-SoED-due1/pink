@@ -26,9 +26,6 @@ import com.vaadin.ui.VerticalLayout;
 @SuppressWarnings("serial")
 @Theme("mytheme")
 public class MyUI extends UI {
-
-	//bob marley
-	//stephen marley
 	
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
