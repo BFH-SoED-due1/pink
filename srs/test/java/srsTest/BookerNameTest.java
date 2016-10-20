@@ -10,8 +10,8 @@ public class BookerNameTest {
 
 	@Test
 	public void testFirstName() {
-		BookerName name1 = new BookerName("Donald", "Duck");
-		assertEquals(name1.getFirstName(), "Donald");
+		BookerName name = new BookerName("Donald", "Duck");
+		assertEquals(name.getFirstName(), "Donald");
 	}
 	
 	@Test
