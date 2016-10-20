@@ -2,8 +2,6 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.*/
 
-//9-11 george bush
-
 package ch.bfh.ti.soed.hs16.srs.pink;
 
 import javax.servlet.annotation.WebServlet;
