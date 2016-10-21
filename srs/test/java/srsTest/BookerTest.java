@@ -15,7 +15,7 @@ public class BookerTest {
 		BookerName name = new BookerName("Bob", "Marley");
 		BookerAddress add = new BookerAddress("Jamaica", "Kingstonstreet", "1", 1123, "Kingston", "bob@marley.com");
 		Booker b = new Booker(name, add);
-		Assert.assertNotNull(b);
+		assertNotNull(b);
 	}
 	
 	@Test

@@ -1,5 +1,5 @@
 package srsTest;
-//a
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class BookerNameTest {
 	@Test
 	public void testLastName() {
 		BookerName name = new BookerName("Donald", "Duck");
-		Assert.assertEquals(name.getLastName(), "Duck");
+		assertEquals(name.getLastName(), "Duck");
 	}
 
 	@Test
@@ -27,7 +27,6 @@ public class BookerNameTest {
 		assertEquals(name1.getFirstName(), "Donald");
 		assertEquals(name2.getFirstName(), "Mickey");
 		
-		Assert.assertFalse(name1.getFirstName().equals(name2.getFirstName()));
+		assertFalse(name1.getFirstName().equals(name2.getFirstName()));
 	}
-
 }
