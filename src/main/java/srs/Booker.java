@@ -1,7 +1,7 @@
 package srs;
 
 public class Booker {
-
+	
 	private BookerName name;
 	private BookerAddress address;
 	
@@ -37,7 +37,7 @@ public class Booker {
 		this.address.setStreet(street);
 	}
 
-	public void setNumber(String streetNumber) {
+	public void setStreetNumber(String streetNumber) {
 		this.address.setStreetNumber(streetNumber);
 	}
 

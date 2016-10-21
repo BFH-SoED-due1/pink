@@ -1,36 +1,50 @@
 package srsTest;
 
 import static org.junit.Assert.*;
-import java.util.Set;
-import java.util.TreeSet;
-import org.junit.Assert;
 import org.junit.Test;
-
 import srs.Room;
 
 public class RoomTest {
-	
-	//methods form room-class
-	@Test
-	public void testRoomSize() {
-		Room r = new Room(100, "N.311", "RoomN.311");
-		assertEquals(100, r.getSize());
-	}
-	
+
 	@Test
 	public void testRoomName() {
-		Room r = new Room(1000, "N.311", "RoomN.311");
-		assertEquals("N.311", r.getName());
+		String name = "N.321";
+		int size = 30;
+		String description = "This is a description!";
+		String newName = "N.522";
+
+		Room room = new Room(size, name, description);
+		assertEquals(room.getName(), name);
+
+		room.setName(newName);
+		assertEquals(room.getName(), newName);
 	}
 
 	@Test
-	public void testRoomDescripton() {
-		Room r = new Room(1000, "N.311", "RoomN.311");
-		assertEquals("RoomN.311", r.getDescription());
+	public void testSize() {
+		String name = "N.322";
+		int size = 30;
+		String description = "This is a description!";
+		int newSize = 36;
+
+		Room room = new Room(size, name, description);
+		assertEquals(room.getSize(), size);
+
+		room.setSize(newSize);
+		assertEquals(room.getSize(), newSize);
 	}
-	
-//	@Test
-//	public void testXy() {
-//		fail("Not yet implemented");
-//	}
+
+	@Test
+	public void testDescription() {
+		String name = "N.323";
+		int size = 30;
+		String description = "This is a description!";
+		String newDescription = "This is a new description!";
+
+		Room room = new Room(size, name, description);
+		assertEquals(room.getDescription(), description);
+
+		room.setDescription(newDescription);
+		assertEquals(room.getDescription(), newDescription);
+	}
 }
