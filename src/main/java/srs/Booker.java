@@ -2,7 +2,7 @@ package srs;
 
 public class Booker {
 
-	//bboooooookkkkkkerrrrrr
+	//quatsch
 	
 	private BookerName name;
 	private BookerAddress address;
