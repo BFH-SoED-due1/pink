@@ -193,6 +193,7 @@ public class ReservationTest {
 		assertEquals(reservation.getDate().getMonth(), 10);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testReservationTimeHourFrom() {
 		Room r = new Room(123, "Room123", "Description");

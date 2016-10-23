@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
 import srs.Booker;
 import srs.BookerAddress;
 import srs.BookerName;
@@ -119,6 +118,7 @@ public class BookerTest {
 		assertEquals(booker.getEmail(), newEmail);
 	}
 	
+	@SuppressWarnings("null")
 	@Test
 	public void testDestrObj() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
