@@ -119,19 +119,12 @@ public class BookerTest {
 	}
 	
 	@SuppressWarnings("null")
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void testDestrObj() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 
 		booker = null;
-		
-		boolean thrown = false;
-		try {
-			assertEquals(booker.getName(), firstName + " " + lastName);
-		} catch (NullPointerException e) {
-		   thrown = true;
-		}
-		
-	  assertTrue(thrown);
+
+		assertEquals(booker.getName(), firstName + " " + lastName);
 	}	
 }
