@@ -14,10 +14,10 @@ public class RoomTest {
 		String newName = "N.522";
 
 		Room room = new Room(size, name, description);
-		assertEquals(room.getName(), name);
+		assertEquals(name, room.getName());
 
 		room.setName(newName);
-		assertEquals(room.getName(), newName);
+		assertEquals(newName, room.getName());
 	}
 
 	@Test
@@ -28,10 +28,10 @@ public class RoomTest {
 		int newSize = 36;
 
 		Room room = new Room(size, name, description);
-		assertEquals(room.getSize(), size);
+		assertEquals(size, room.getSize());
 
 		room.setSize(newSize);
-		assertEquals(room.getSize(), newSize);
+		assertEquals(newSize, room.getSize());
 	}
 
 	@Test
@@ -42,9 +42,9 @@ public class RoomTest {
 		String newDescription = "This is a new description!";
 
 		Room room = new Room(size, name, description);
-		assertEquals(room.getDescription(), description);
+		assertEquals(description, room.getDescription());
 
 		room.setDescription(newDescription);
-		assertEquals(room.getDescription(), newDescription);
+		assertEquals(newDescription,   room.getDescription());
 	}
 }

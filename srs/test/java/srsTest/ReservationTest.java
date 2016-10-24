@@ -12,6 +12,7 @@ import srs.Reservation;
 import srs.Room;
 
 public class ReservationTest {
+	
 
 	@SuppressWarnings("deprecation")
 	@Test
@@ -28,7 +29,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getBooker().getFirstName(), "Fritzli");
+		assertEquals("Fritzli", reservation.getBooker().getFirstName());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -46,7 +47,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getBooker().getLastName(), "Müller");
+		assertEquals("Müller", reservation.getBooker().getLastName());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -64,7 +65,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getBooker().getCountry(), "Switzerland");
+		assertEquals("Switzerland", reservation.getBooker().getCountry());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -100,7 +101,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getBooker().getStreetNumber(), "1");
+		assertEquals("1", reservation.getBooker().getStreetNumber());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -118,7 +119,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getBooker().getPostcode(), 1111);
+		assertEquals(1111, reservation.getBooker().getPostcode());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -136,7 +137,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getBooker().getVillage(), "Musterhausen");
+		assertEquals("Musterhausen", reservation.getBooker().getVillage());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -154,7 +155,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getBooker().getEmail(), "a@b.ch");
+		assertEquals("a@b.ch", reservation.getBooker().getEmail());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -172,7 +173,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getDate().getYear(), 2016);
+		assertEquals(2016, reservation.getDate().getYear());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -190,7 +191,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getDate().getMonth(), 10);
+		assertEquals(10, reservation.getDate().getMonth());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -208,7 +209,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getFrom().getHours(), 16);
+		assertEquals(16, reservation.getFrom().getHours());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -226,7 +227,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getUntil().getHours(), 20);
+		assertEquals(20, reservation.getUntil().getHours());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -244,7 +245,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getFrom().getMinutes(), 01);
+		assertEquals(01, reservation.getFrom().getMinutes());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -262,7 +263,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getUntil().getMinutes(), 30);
+		assertEquals(30, reservation.getUntil().getMinutes());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -280,7 +281,7 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getFrom().getSeconds(), 22);
+		assertEquals(22, reservation.getFrom().getSeconds());
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -298,6 +299,6 @@ public class ReservationTest {
 		
 		Reservation reservation = new Reservation(r, d, from, until, booker);
 		
-		assertEquals(reservation.getUntil().getSeconds(), 44);
+		assertEquals(44, reservation.getUntil().getSeconds());
 	}
 }

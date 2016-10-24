@@ -34,24 +34,24 @@ public class BookerTest {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 		assertEquals(booker.getName(), firstName + " " + lastName);
 		booker.setName(newFirstName, newLastName);
-		assertEquals(booker.getName(), newFirstName + " " + newLastName);
+		assertEquals(newFirstName + " " + newLastName, booker.getName());
 	}
 
 	@Test
 	public void testFirstName() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 		
-		assertEquals(booker.getFirstName(), firstName);
+		assertEquals(firstName, booker.getFirstName());
 		booker.setFirstName(newFirstName);
-		assertEquals(booker.getFirstName(), newFirstName);
+		assertEquals(newFirstName, booker.getFirstName());
 	}
 	
 	public void testLastName() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 
-		assertEquals(booker.getLastName(), lastName);
+		assertEquals(lastName, booker.getLastName());
 		booker.setLastName(newLastName);
-		assertEquals(booker.getLastName(), newLastName);
+		assertEquals(newLastName, booker.getLastName());
 	}
 	
 	//Address
@@ -59,63 +59,63 @@ public class BookerTest {
 	public void testAddress() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 
-		assertEquals(booker.getAddress(), country + " " + street + " " + streetNumber + " " + postcode + " " + village + " " + email);
+		assertEquals(country + " " + street + " " + streetNumber + " " + postcode + " " + village + " " + email, booker.getAddress());
 		booker.setAddress(newCountry, newStreet, newStreetNumber, newPostcode, newVillage, newEmail);
-		assertEquals(booker.getAddress(), newCountry + " " + newStreet + " " + newStreetNumber + " " + newPostcode + " " + newVillage + " " + newEmail);
+		assertEquals(newCountry + " " + newStreet + " " + newStreetNumber + " " + newPostcode + " " + newVillage + " " + newEmail, booker.getAddress());
 	}
 	
 	@Test
 	public void testCountry() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 
-		assertEquals(booker.getCountry(), country);
+		assertEquals(country, booker.getCountry());
 		booker.setCountry(newCountry);
-		assertEquals(booker.getCountry(), newCountry);
+		assertEquals(newCountry, booker.getCountry());
 	}
 	
 	@Test
 	public void testStreet() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 
-		assertEquals(booker.getStreet(), street);
+		assertEquals(street, booker.getStreet());
 		booker.setStreet(newStreet);
-		assertEquals(booker.getStreet(), newStreet);
+		assertEquals(newStreet, booker.getStreet());
 	}
 	
 	@Test
 	public void testStreetNumber() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 
-		assertEquals(booker.getStreetNumber(), streetNumber);
+		assertEquals(streetNumber, booker.getStreetNumber());
 		booker.setStreetNumber(newStreetNumber);
-		assertEquals(booker.getStreetNumber(), newStreetNumber);
+		assertEquals(newStreetNumber, booker.getStreetNumber());
 	}
 	
 	@Test
 	public void testPostcode() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 
-		assertEquals(booker.getPostcode(), postcode);
+		assertEquals(postcode, booker.getPostcode());
 		booker.setPostcode(newPostcode);
-		assertEquals(booker.getPostcode(), newPostcode);
+		assertEquals(newPostcode, booker.getPostcode());
 	}
 	
 	@Test
 	public void testVillage() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 		
-		assertEquals(booker.getVillage(), village);
+		assertEquals(village, booker.getVillage());
 		booker.setVillage(newVillage);
-		assertEquals(booker.getVillage(), newVillage);
+		assertEquals(newVillage, booker.getVillage());
 	}
 	
 	@Test
 	public void testEmail() {
 		Booker booker = new Booker(new BookerName(firstName, lastName), new BookerAddress(country, street, streetNumber, postcode, village, email));
 
-		assertEquals(booker.getEmail(), email);
+		assertEquals(email, booker.getEmail());
 		booker.setEmail(newEmail);
-		assertEquals(booker.getEmail(), newEmail);
+		assertEquals(newEmail, booker.getEmail());
 	}
 	
 	@SuppressWarnings("null")
@@ -125,6 +125,6 @@ public class BookerTest {
 
 		booker = null;
 
-		assertEquals(booker.getName(), firstName + " " + lastName);
+		assertEquals(firstName + " " + lastName, booker.getName());
 	}	
 }
