@@ -1,7 +1,7 @@
 package srs;
 
 public class Booker {
-	//Person who books a room
+	//Person who books a roomss
 	private BookerName name;
 	private BookerAddress address;
 	
