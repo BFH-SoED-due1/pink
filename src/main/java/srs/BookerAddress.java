@@ -4,14 +4,14 @@
 package srs;
 
 public class BookerAddress {
-	//Address from the booker
+	// Address from the booker
 	private String country;
 	private String street;
 	private String streetNumber;
 	private int postcode;
 	private String village;
 	private String email;
-	
+
 	public BookerAddress(String country, String street, String streetNumber, int postcode, String village, String email) {
 		this.country = country;
 		this.street = street;
@@ -20,8 +20,8 @@ public class BookerAddress {
 		this.village = village;
 		this.email = email;
 	}
-	
-	//Setter
+
+	// Setter
 	public void setAddress(String country, String street, String streetNumber, int postcode, String village, String email) {
 		this.country = country;
 		this.street = street;
@@ -31,7 +31,7 @@ public class BookerAddress {
 		this.email = email;
 
 	}
-	
+
 	public void setCountry(String country) {
 		this.country = country;
 	}
@@ -56,12 +56,11 @@ public class BookerAddress {
 		this.email = email;
 	}
 
-	
-	//Getter
+	// Getter
 	public String getAddress() {
 		return country + " " + street + " " + streetNumber + " " + postcode + " " + village + " " + email;
 	}
-	
+
 	public String getCountry() {
 		return country;
 	}
