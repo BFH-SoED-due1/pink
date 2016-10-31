@@ -4,7 +4,7 @@
 package srs;
 
 public class BookerAddress {
-	// Address from the booker THIS IS NEW
+	
 	private String country;
 	private String street;
 	private String streetNumber;
