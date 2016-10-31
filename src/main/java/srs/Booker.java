@@ -1,21 +1,21 @@
 package srs;
 
 public class Booker {
-	
+
 	private BookerName name;
 	private BookerAddress address;
-	
+
 	public Booker(BookerName name, BookerAddress address) {
 		this.name = name;
 		this.address = address;
 	}
-	
-	//Setter
-	//Name
+
+	// Setter
+	// Name
 	public void setName(String firstName, String lastName) {
 		this.name.setName(firstName, lastName);
 	}
-	
+
 	public void setFirstName(String firstName) {
 		this.name.setFirstName(firstName);
 	}
@@ -24,11 +24,11 @@ public class Booker {
 		this.name.setFirstName(lastName);
 	}
 
-	//Address
+	// Address
 	public void setAddress(String country, String street, String streetNumber, int postcode, String village, String email) {
 		this.address.setAddress(country, street, streetNumber, postcode, village, email);
 	}
-	
+
 	public void setCountry(String country) {
 		this.address.setCountry(country);
 	}
@@ -52,10 +52,9 @@ public class Booker {
 	public void setEmail(String email) {
 		this.address.setEmail(email);
 	}
-	
-	
-	//Getter
-	//Name
+
+	// Getter
+	// Name
 	public String getName() {
 		return name.getName();
 	}
@@ -67,8 +66,8 @@ public class Booker {
 	public String getLastName() {
 		return name.getLastName();
 	}
-	
-	//Address
+
+	// Address
 	public String getAddress() {
 		return address.getAddress();
 	}
@@ -97,4 +96,3 @@ public class Booker {
 		return address.getEmail();
 	}
 }
-
