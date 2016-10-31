@@ -4,7 +4,7 @@ import java.sql.Time;
 import java.util.Date;
 
 public class Reservation {
-	
+	//Reservation
 	private Room room;
 	private Date date;
 	private Time from, until;

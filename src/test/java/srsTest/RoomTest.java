@@ -5,7 +5,7 @@ import org.junit.Test;
 import srs.Room;
 
 public class RoomTest {
-
+	//Test room
 	@Test
 	public void testRoomName() {
 		String name = "N.321";

@@ -12,8 +12,7 @@ import srs.Reservation;
 import srs.Room;
 
 public class ReservationTest {
-	
-
+	//Test reservation
 	@SuppressWarnings("deprecation")
 	@Test
 	public void testBookerFirstName() {

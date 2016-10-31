@@ -1,7 +1,7 @@
 package srs;
 
 public class BookerName {
-
+	//Name of the booker
 	private String firstName;
 	private String lastName;
 	

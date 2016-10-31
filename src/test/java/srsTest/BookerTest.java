@@ -9,7 +9,7 @@ import srs.BookerAddress;
 import srs.BookerName;
 
 public class BookerTest {
-
+	//Test booker, bookeraddress and bookername class
 	private final String firstName = "Hans";
 	private String lastName = "Muster";
 	private String country = "Switzerland";
