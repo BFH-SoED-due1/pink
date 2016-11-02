@@ -1,14 +1,17 @@
 /*Copyright (c) 2016 Berner Fachhochschule, Switzerland.
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.*/
+
 package srsTest;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
+
 import srs.Room;
 
 public class RoomTest {
-	//Test room
+	// Test room
 	@Test
 	public void testRoomName() {
 		String name = "N.321";
@@ -48,6 +51,6 @@ public class RoomTest {
 		assertEquals(description, room.getDescription());
 
 		room.setDescription(newDescription);
-		assertEquals(newDescription,   room.getDescription());
+		assertEquals(newDescription, room.getDescription());
 	}
 }
