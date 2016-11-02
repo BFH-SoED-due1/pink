@@ -10,11 +10,13 @@ public class Room {
 	private int size;
 	private String name;
 	private String description;
+	private boolean isBooked;
 
 	public Room(int s, String n, String d) {
 		this.size = s;
 		this.name = n;
 		this.description = d;
+		this.isBooked = false;
 	}
 
 	// Setter
@@ -30,6 +32,14 @@ public class Room {
 		this.description = d;
 	}
 
+	public void setBooked() {
+		this.isBooked = true;
+	}
+
+	public void removeBooking() {
+		this.isBooked = false;
+	}
+
 	// Getter
 	public int getSize() {
 		return this.size;
@@ -41,5 +51,9 @@ public class Room {
 
 	public String getDescription() {
 		return this.description;
+	}
+
+	public boolean isBooked() {
+		return this.isBooked;
 	}
 }

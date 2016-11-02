@@ -12,6 +12,7 @@ public class Reservation {
 	private Date date;
 	private Time from, until;
 	private Booker booker;
+	private boolean isBooked;
 
 	public Reservation(Room r, Date d, Time from, Time until, Booker b) {
 		this.room = r;
@@ -19,6 +20,7 @@ public class Reservation {
 		this.from = from;
 		this.until = until;
 		this.booker = b;
+		this.isBooked = false;
 	}
 
 	// Setter
