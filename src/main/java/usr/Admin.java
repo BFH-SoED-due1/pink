@@ -4,12 +4,12 @@
 
 package usr;
 
-public class User implements I_SystemUser {
+public class Admin implements I_SystemUser {
 
 	private String name, fName, loggin, pw;
 	private boolean isUsr, isAdmin;
 
-	public User(String n, String fn, String l, String pw) {
+	public Admin(String n, String fn, String l, String pw) {
 		this.name = n;
 		this.fName = fn;
 		this.loggin = l;
@@ -53,16 +53,12 @@ public class User implements I_SystemUser {
 	// change rigths (admin, only user)
 	@Override
 	public void removeUser() {
-		this.isUsr = false;
+		this.isAdmin = false;
 	}
 
 	@Override
 	public void removeAdmin() {
 		this.isAdmin = false;
-		/*
-		 * Wenn Admin-Rechte entfernt werden, wird einem ehemaligen Admin das
-		 * User-Recht zugewiesen (im Fall von Ferienvertretung, .... o.ä.)
-		 */
 		setUser();
 	}
 
