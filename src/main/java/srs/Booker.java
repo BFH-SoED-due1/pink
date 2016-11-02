@@ -28,8 +28,12 @@ public class Booker {
 	}
 
 	// Address
+<<<<<<< HEAD
 	public void setAddress(String country, String street, String streetNumber, int postcode, String village,
 			String email) {
+=======
+	public void setAddress(String country, String street, String streetNumber, int postcode, String village, String email) {
+>>>>>>> branch 'master' of https://github.com/BFH-SoED-due1/pink.git
 		this.address.setAddress(country, street, streetNumber, postcode, village, email);
 	}
 

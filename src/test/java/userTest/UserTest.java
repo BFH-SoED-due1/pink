@@ -2,7 +2,7 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.*/
 
-package usrTest;
+package userTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import usr.User;
+import user.User;
 
 public class UserTest {
 
