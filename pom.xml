@@ -41,7 +41,7 @@
 	<developers>
 		<developer>
 			<id>bandn2</id><!-- provide BFH Kürzel -->
-			<name>No Name</name><!-- provide first and last name -->
+			<name>Firstname Lastname</name><!-- provide first and last name -->
 			<email>noEmail@students.bfh.ch</email><!-- provide e-mail address (optional) -->
 			<organization>Berner Fachhochschule / TI</organization>
 			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
@@ -51,7 +51,7 @@
 		</developer>
 		<developer>
 			<id>hanzd1</id><!-- provide BFH Kürzel -->
-			<name>No Name</name><!-- provide first and last name -->
+			<name>Firstname Lastname</name><!-- provide first and last name -->
 			<email>noEmail@students.bfh.ch</email><!-- provide e-mail address (optional) -->
 			<organization>Berner Fachhochschule / TI</organization>
 			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
