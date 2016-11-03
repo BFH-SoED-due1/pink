@@ -3,7 +3,6 @@
  * Distributable under GPL license. See terms of license at gnu.org.*/
 package srs;
 
-//test
 public class Booker {
 
 	private BookerName name;
@@ -29,7 +28,8 @@ public class Booker {
 	}
 
 	// Address
-	public void setAddress(String country, String street, String streetNumber, int postcode, String village, String email) {
+	public void setAddress(String country, String street, String streetNumber, int postcode, String village,
+			String email) {
 		this.address.setAddress(country, street, streetNumber, postcode, village, email);
 	}
 
