@@ -4,7 +4,6 @@
 
 package user;
 
-//Admin
 public class Admin implements I_SystemUser {
 
 	private String name, fName, loggin, pw;
