@@ -402,8 +402,35 @@ public class ReservationTest {
 		assertEquals(res.getTo().getSeconds(), 14);
 	}
 
-	// @Test
-	// public void testSetRoom() {
-	//
-	// }
+	@Test
+	public void setBooker() {
+		Room r = new Room(123, "Room123", "Description132");
+
+		Date d = new Date(2016, 10, 10);
+		Time to = new Time(16, 02, 45); // h, m, s
+		Time to2 = new Time(18, 22, 14);
+
+		BookerName n = new BookerName("Fritzli", "Müller");
+		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
+		Booker booker = new Booker(n, b);
+
+		BookerName n2 = new BookerName("Kari", "Meyer");
+		BookerAddress b2 = new BookerAddress("Switzerland", "Musterstrasse", "2", 2222, "Musterhausen", "c@d.ch");
+		Booker booker2 = new Booker(n, b);
+
+		Reservation res = new Reservation(r, d, to, to, booker);
+		assertEquals("Fritzli", res.getBooker().getFirstName());
+		assertEquals("Müller", res.getBooker().getLastName());
+		assertEquals(1111, res.getBooker().getPostcode());
+		assertEquals("a@b.ch", res.getBooker().getEmail());
+
+		res.setBooker(booker2);
+		res.setBooker(booker2);
+		System.out.println(res.getBooker().getFirstName());
+		// assertEquals("Kari", res.getBooker().getFirstName());
+		// assertEquals("Meyer", res.getBooker().getLastName());
+		// assertEquals(2222, res.getBooker().getPostcode());
+		// assertEquals("c@d.ch", res.getBooker().getEmail());
+
+	}
 }

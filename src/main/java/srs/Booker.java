@@ -24,7 +24,7 @@ public class Booker {
 	}
 
 	public void setLastName(String lastName) {
-		this.name.setFirstName(lastName);
+		this.name.setLastName(lastName);
 	}
 
 	// Address

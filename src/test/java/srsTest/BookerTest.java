@@ -144,4 +144,14 @@ public class BookerTest {
 
 		assertEquals(firstName + " " + lastName, booker.getName());
 	}
+
+	@Test
+	public void setLastName() {
+		Booker booker = new Booker(new BookerName(firstName, lastName),
+				new BookerAddress(country, street, streetNumber, postcode, village, email));
+
+		assertEquals(lastName, booker.getLastName());
+		booker.setLastName(newLastName);
+		assertEquals(newLastName, booker.getLastName());
+	}
 }
