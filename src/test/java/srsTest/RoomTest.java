@@ -67,4 +67,19 @@ public class RoomTest {
 		room.setBooked();
 		assertTrue(room.isBooked());
 	}
+
+	@Test
+	public void testRemoveBooking() {
+		String name = "N.323";
+		int size = 30;
+		String description = "This is a description!";
+
+		Room room = new Room(size, name, description);
+		room.setBooked();
+		assertTrue(room.isBooked());
+
+		room.removeBooking();
+		assertFalse(room.isBooked());
+
+	}
 }
