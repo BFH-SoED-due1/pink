@@ -10,15 +10,15 @@ import java.util.Date;
 public class Reservation {
 	private Room room;
 	private Date date;
-	private Time from, until;
+	private Time from, to;
 	private Booker booker;
 	private boolean isBooked;
 
-	public Reservation(Room r, Date d, Time from, Time until, Booker b) {
+	public Reservation(Room r, Date d, Time from, Time to, Booker b) {
 		this.room = r;
 		this.date = d;
 		this.from = from;
-		this.until = until;
+		this.to = to;
 		this.booker = b;
 		this.isBooked = false;
 	}
@@ -36,8 +36,8 @@ public class Reservation {
 		this.from = from;
 	}
 
-	public void setUntil(Time until) {
-		this.until = until;
+	public void setTo(Time to) {
+		this.to = to;
 	}
 
 	public void setBooker(Booker b) {
@@ -57,8 +57,8 @@ public class Reservation {
 		return from;
 	}
 
-	public Date getUntil() {
-		return until;
+	public Date getTo() {
+		return to;
 	}
 
 	public Booker getBooker() {
