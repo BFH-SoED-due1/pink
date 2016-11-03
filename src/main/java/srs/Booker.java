@@ -3,6 +3,7 @@
  * Distributable under GPL license. See terms of license at gnu.org.*/
 package srs;
 
+//test
 public class Booker {
 
 	private BookerName name;
