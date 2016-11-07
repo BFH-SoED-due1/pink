@@ -1,6 +1,8 @@
-/*Copyright (c) 2016 Berner Fachhochschule, Switzerland.
+/*
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
  * Project Smart Reservation System.
- * Distributable under GPL license. See terms of license at gnu.org.*/
+ * Distributable under GPL license. See terms of license at gnu.org.
+ */
 package srs;
 
 public class Booker {
@@ -28,8 +30,7 @@ public class Booker {
 	}
 
 	// Address
-	public void setAddress(String country, String street, String streetNumber, int postcode, String village,
-			String email) {
+	public void setAddress(String country, String street, String streetNumber, int postcode, String village, String email) {
 		this.address.setAddress(country, street, streetNumber, postcode, village, email);
 	}
 

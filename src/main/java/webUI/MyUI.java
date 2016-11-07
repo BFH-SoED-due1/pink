@@ -1,7 +1,8 @@
-/*Copyright (c) 2016 Berner Fachhochschule, Switzerland.
+/*
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
  * Project Smart Reservation System.
- * Distributable under GPL license. See terms of license at gnu.org.*/
-
+ * Distributable under GPL license. See terms of license at gnu.org.
+ */
 package webUI;
 
 import javax.servlet.annotation.WebServlet;
