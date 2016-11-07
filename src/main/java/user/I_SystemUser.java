@@ -7,6 +7,7 @@ package user;
 public interface I_SystemUser {
 
 	// setter
+	// loggin-data
 	public void setName(String name);
 
 	public void setFristName(String fName);
@@ -15,6 +16,7 @@ public interface I_SystemUser {
 
 	public void setPassword(String pw);
 
+	// rights (admin, user)
 	public void setUser();
 
 	public void setAdmin();
@@ -32,7 +34,7 @@ public interface I_SystemUser {
 
 	public String getPassword();
 
-	// right
+	// rights
 	public boolean isAdmin();
 
 	public boolean isUser();
