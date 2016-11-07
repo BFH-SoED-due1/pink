@@ -12,8 +12,7 @@ public class BookerAddress {
 	private String village;
 	private String email;
 
-	public BookerAddress(String country, String street, String streetNumber, int postcode, String village,
-			String email) {
+	public BookerAddress(String country, String street, String streetNumber, int postcode, String village, String email) {
 		this.country = country;
 		this.street = street;
 		this.streetNumber = streetNumber;
@@ -23,8 +22,7 @@ public class BookerAddress {
 	}
 
 	// Setter
-	public void setAddress(String country, String street, String streetNumber, int postcode, String village,
-			String email) {
+	public void setAddress(String country, String street, String streetNumber, int postcode, String village, String email) {
 		this.country = country;
 		this.street = street;
 		this.streetNumber = streetNumber;
