@@ -5,7 +5,7 @@
  */
 package user;
 
-public class Admin implements I_SystemUser {
+public class Admin implements ISystemUser {
 
 	private String name, fName, loggin, pw;
 	private boolean isUsr, isAdmin;

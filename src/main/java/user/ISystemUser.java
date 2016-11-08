@@ -5,7 +5,7 @@
  */
 package user;
 
-public interface I_SystemUser {
+public interface ISystemUser {
 
 	// setter
 	// loggin-data
