@@ -6,5 +6,6 @@
 package controller;
 
 public interface IReservationController {
+	// Responsible for administrate the reservations
 
 }

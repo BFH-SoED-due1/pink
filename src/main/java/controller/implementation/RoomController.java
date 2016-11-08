@@ -8,5 +8,5 @@ package controller.implementation;
 import controller.IRoomController;
 
 public class RoomController implements IRoomController {
-
+	// Implementation for administrate the rooms
 }

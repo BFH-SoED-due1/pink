@@ -6,5 +6,6 @@
 package controller;
 
 public interface ILogInController {
+	// Responsible for login / logout
 
 }

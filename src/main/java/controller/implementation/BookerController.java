@@ -8,5 +8,5 @@ package controller.implementation;
 import controller.IBookerController;
 
 public class BookerController implements IBookerController {
-
+	// Implementation for administrate booker
 }

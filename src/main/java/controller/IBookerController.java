@@ -6,5 +6,6 @@
 package controller;
 
 public interface IBookerController {
+	// Responsible for administrate booker
 
 }

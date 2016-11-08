@@ -6,5 +6,6 @@
 package controller;
 
 public interface IRoomController {
+	// Responsible for administrate the rooms
 
 }

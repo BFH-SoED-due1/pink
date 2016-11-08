@@ -8,5 +8,5 @@ package controller.implementation;
 import controller.ILogInController;
 
 public class LogInController implements ILogInController {
-
+	// Implementation for login / logout
 }

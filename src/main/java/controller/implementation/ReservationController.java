@@ -8,5 +8,5 @@ package controller.implementation;
 import controller.IReservationController;
 
 public class ReservationController implements IReservationController {
-
+	// Implementation for administrate the reservations
 }
