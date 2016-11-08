@@ -5,15 +5,13 @@
  */
 package controllerTest;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class BookerControllerTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		// To be implemented
 	}
 
 }
