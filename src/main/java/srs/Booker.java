@@ -6,7 +6,7 @@
 package srs;
 
 public class Booker {
-	// test
+
 	private BookerName name;
 	private BookerAddress address;
 
