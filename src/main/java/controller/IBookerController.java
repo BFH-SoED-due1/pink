@@ -15,7 +15,7 @@ public interface IBookerController {
 	 *  login = id
 	 *  @param bookers: the list with all bookers saved
 	 *  @param email: the login
-	 *  @return true if a user with this login allready is in the bookers-list*/
+	 *  @return true there is a user with this login in the bookers-list*/
 	public boolean exists(List<Booker> bookers, String email);
 	
 	/** Save new booker
@@ -27,15 +27,12 @@ public interface IBookerController {
 	/** Delete new booker
 	 * @param bookers: the list with all bookers saved
 	 * @param email: the booker's id */
-	public void deleteBooker(List<Booker> bookers, String email);
+	public List<Booker> deleteBooker(List<Booker> bookers, String email);
 
 	/** Edit an entry of a booker
 	 *  @param bookers: the list with all bookers saved
 	 *  @param email: the bookers id
 	 * */
-	public void editBooker(List<Booker> bookers, String email);
+	public Booker editBooker(List<Booker> bookers, String email);
 
-	/** get bookers list
-	 *  @return list with all bookers from srs*/
-	public List<Booker> getBookers();
 }

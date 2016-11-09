@@ -100,4 +100,8 @@ public class Booker {
 	public String getEmail() {
 		return address.getEmail();
 	}
+
+	public Booker getBooker() {
+		return this;
+	}
 }

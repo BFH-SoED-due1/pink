@@ -3,7 +3,7 @@
  * Distributable under GPL license. See terms of license at gnu.org.*/
 package srsTest;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ import srs.BookerAddress;
 import srs.BookerName;
 
 public class BookerTest {
-	// Test booker, bookeraddress and bookername class
+	/** Test classes booker, bookerName */
 	private final String firstName = "Hans";
 	private String lastName = "Muster";
 	private String country = "Switzerland";
@@ -145,12 +145,19 @@ public class BookerTest {
 	}
 
 	@Test
-	public void setLastName() {
+	public void testSetLastName() {
 		Booker booker = new Booker(new BookerName(firstName, lastName),
 				new BookerAddress(country, street, streetNumber, postcode, village, email));
 
 		assertEquals(lastName, booker.getLastName());
 		booker.setLastName(newLastName);
 		assertEquals(newLastName, booker.getLastName());
+	}
+
+	@Test
+	public void testReturnValueBookerObject() {
+		Booker booker = new Booker(new BookerName(firstName, lastName),
+				new BookerAddress(country, street, streetNumber, postcode, village, email));
+		assertTrue(booker.getBooker() instanceof Booker);
 	}
 }
