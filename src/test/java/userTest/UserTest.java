@@ -19,15 +19,15 @@ public class UserTest {
 	private final String newName = "Mouse";
 	private final String fName = "Donald";
 	private final String newfName = "Mickey";
-	private final String loggin = "donald@duck.ch";
-	private final String newloggin = "mickey@mouse.ch";
+	private final String login = "donald@duck.ch";
+	private final String newLogin = "mickey@mouse.ch";
 	private final String password = "abc123";
 	private final String newPassword = "def456";
 
 	@Test
 	public void test() {
 		// initialization
-		User usr = new User(name, fName, loggin, password);
+		User usr = new User(name, fName, login, password);
 		assertEquals(usr.getName(), name);
 
 		// change value
@@ -38,7 +38,7 @@ public class UserTest {
 	@Test
 	public void testFName() {
 		// initialization
-		User usr = new User(name, fName, loggin, password);
+		User usr = new User(name, fName, login, password);
 		assertEquals(usr.getFirstName(), fName);
 
 		// change value
@@ -49,18 +49,18 @@ public class UserTest {
 	@Test
 	public void testLoogin() {
 		// initialization
-		User usr = new User(name, fName, loggin, password);
-		assertEquals(usr.getLoggin(), loggin);
+		User usr = new User(name, fName, login, password);
+		assertEquals(usr.getLogin(), login);
 
 		// change value
-		usr.setLoggin(newloggin);
-		assertEquals(usr.getLoggin(), newloggin);
+		usr.setLoggin(newLogin);
+		assertEquals(usr.getLogin(), newLogin);
 	}
 
 	@Test
 	public void testPassword() {
 		// initialization
-		User usr = new User(name, fName, loggin, password);
+		User usr = new User(name, fName, login, password);
 		assertEquals(usr.getPassword(), password);
 
 		// change value
@@ -71,7 +71,7 @@ public class UserTest {
 	@Test
 	public void testIsUsr() {
 		// initialization
-		User usr = new User(name, fName, loggin, password);
+		User usr = new User(name, fName, login, password);
 		usr.setUser();
 
 		assertTrue(usr.isUser());
@@ -85,7 +85,7 @@ public class UserTest {
 	@Test
 	public void testIsAdmin() {
 		// initialization
-		User usr = new User(name, fName, loggin, password);
+		User usr = new User(name, fName, login, password);
 		usr.setAdmin();
 
 		assertTrue(usr.isAdmin());

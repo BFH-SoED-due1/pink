@@ -5,7 +5,37 @@
  */
 package controller;
 
-public interface IBookerController {
-	// Responsible for administrate booker
+import java.util.List;
+import srs.Booker;
 
+public interface IBookerController {
+	/** Responsible for administrate booker-class */
+
+	/** control if login already exists in srs
+	 *  login = id
+	 *  @param bookers: the list with all bookers saved
+	 *  @param email: the login
+	 *  @return true if a user with this login allready is in the bookers-list*/
+	public boolean exists(List<Booker> bookers, String email);
+	
+	/** Save new booker
+	 * @param bookers: the list with all bookers saved
+	 * @param booker: the new booker to save 
+	 * */
+	public void saveBooker(List<Booker> bookers, Booker booker);
+
+	/** Delete new booker
+	 * @param bookers: the list with all bookers saved
+	 * @param email: the booker's id */
+	public void deleteBooker(List<Booker> bookers, String email);
+
+	/** Edit an entry of a booker
+	 *  @param bookers: the list with all bookers saved
+	 *  @param email: the bookers id
+	 * */
+	public void editBooker(List<Booker> bookers, String email);
+
+	/** get bookers list
+	 *  @return list with all bookers from srs*/
+	public List<Booker> getBookers();
 }

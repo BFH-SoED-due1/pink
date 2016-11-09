@@ -75,7 +75,7 @@ public class Admin implements ISystemUser {
 	}
 
 	@Override
-	public String getLoggin() {
+	public String getLogin() {
 		return this.loggin;
 	}
 

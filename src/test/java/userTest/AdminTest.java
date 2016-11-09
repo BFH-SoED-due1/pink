@@ -19,15 +19,15 @@ public class AdminTest {
 	private final String newName = "Mouse";
 	private final String fName = "Donald";
 	private final String newfName = "Mickey";
-	private final String loggin = "donald@duck.ch";
-	private final String newloggin = "mickey@mouse.ch";
+	private final String login = "donald@duck.ch";
+	private final String newLogin = "mickey@mouse.ch";
 	private final String password = "abc123";
 	private final String newPassword = "def456";
 
 	@Test
 	public void testName() {
 		// initialization
-		Admin admin = new Admin(name, fName, loggin, password);
+		Admin admin = new Admin(name, fName, login, password);
 		assertEquals(admin.getName(), name);
 
 		// change value
@@ -38,7 +38,7 @@ public class AdminTest {
 	@Test
 	public void testFName() {
 		// initialization
-		Admin admin = new Admin(name, fName, loggin, password);
+		Admin admin = new Admin(name, fName, login, password);
 		assertEquals(admin.getFirstName(), fName);
 
 		// change value
@@ -49,18 +49,18 @@ public class AdminTest {
 	@Test
 	public void testLoogin() {
 		// initialization
-		Admin admin = new Admin(name, fName, loggin, password);
-		assertEquals(admin.getLoggin(), loggin);
+		Admin admin = new Admin(name, fName, login, password);
+		assertEquals(admin.getLogin(), login);
 
 		// change value
-		admin.setLoggin(newloggin);
-		assertEquals(admin.getLoggin(), newloggin);
+		admin.setLoggin(newLogin);
+		assertEquals(admin.getLogin(), newLogin);
 	}
 
 	@Test
 	public void testPassword() {
 		// initialization
-		Admin admin = new Admin(name, fName, loggin, password);
+		Admin admin = new Admin(name, fName, login, password);
 		assertEquals(admin.getPassword(), password);
 
 		// change value
@@ -71,7 +71,7 @@ public class AdminTest {
 	@Test
 	public void testIsUsr() {
 		// initialization
-		Admin admin = new Admin(name, fName, loggin, password);
+		Admin admin = new Admin(name, fName, login, password);
 		admin.setUser();
 
 		assertTrue(admin.isUser());
@@ -86,7 +86,7 @@ public class AdminTest {
 	@Test
 	public void testIsAdmin() {
 		// initialization
-		Admin admin = new Admin(name, fName, loggin, password);
+		Admin admin = new Admin(name, fName, login, password);
 		admin.setAdmin();
 
 		assertTrue(admin.isAdmin());
