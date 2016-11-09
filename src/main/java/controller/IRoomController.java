@@ -9,27 +9,27 @@ import java.util.List;
 import srs.Room;
 
 public interface IRoomController {
-	/**Responsible for administrate the rooms*/
+	/*Responsible for administrate the rooms*/
 
-	/**Add a new room and save it in list
+	/*Add a new room and save it in list
 	 * @param rooms: all rooms saved in srs
 	 * @param r: the room to be added
 	 * */
 	public void addRoom(List<Room> rooms, Room r);
 
-	/**Delete a room from list
+	/*Delete a room from list
 	 * @param rooms: all rooms saved in srs
 	 * @param r: the room to be added
 	 * */
 	public void deleteRoom(List<Room> rooms, String roomName);
 
-	/**Edit a room
+	/*Edit a room
 	 * @param rooms: all rooms saved in srs
 	 * @param r: the room to be added
 	 * */
 	public void editRoom(List<Room> rooms, String roomName);
 	
-	/**Control the room's name, its mostly not possible to have two rooms with the same name
+	/*Control the room's name, its mostly not possible to have two rooms with the same name
 	 * @param rooms: all rooms saved in srs
 	 * @param r: the room to be added
 	 * @return true if a room with the desired name already exits

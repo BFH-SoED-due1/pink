@@ -9,9 +9,9 @@ import java.util.*;
 import user.ISystemUser;
 
 public interface ILogInController {
-	/** Responsible for login / logout */
+	/* Responsible for login / logout */
 
-	/**Controls if user login exists in srs
+	/*Controls if user login exists in srs
 	 * 
 	 * @param users: all users of srs (==>important user && admins)
 	 * @param login: the login of a specific user/admin
@@ -19,7 +19,7 @@ public interface ILogInController {
 	 */
 	public boolean exists(List<ISystemUser> users, String login);
 
-	/**Controls if user/admin password is correct
+	/*Controls if user/admin password is correct
 	 * 
 	 * @param users: all users of srs (==>important user && admins)
 	 * @param login: the login of a specific user/admin
@@ -27,7 +27,7 @@ public interface ILogInController {
 	 */
 	public boolean checkPassword(List<ISystemUser> users, String login, String password);
 
-	/**Sets the status to logged in
+	/*Sets the status to logged in
 	 * 
 	 * @param users: all users of srs (==>important user && admins)
 	 * @param login: the login of a specific user/admin
@@ -35,7 +35,7 @@ public interface ILogInController {
 	 */
 	public boolean login(String login);
 
-	/**Sets the status to logged out
+	/*Sets the status to logged out
 	 * 
 	 * @param users: all users of srs (==>important user && admins)
 	 * @param login: the login of a specific user/admin
@@ -43,7 +43,7 @@ public interface ILogInController {
 	 */
 	public void logout(String logout);
 
-	/**Get the ISystemUsers-List
+	/*Get the ISystemUsers-List
 	 * 
 	 * @param users: all users of srs (==>important user && admins)
 	 * @return the list with all users/admins in srs

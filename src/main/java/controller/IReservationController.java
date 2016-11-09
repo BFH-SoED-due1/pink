@@ -13,9 +13,9 @@ import srs.Reservation;
 import srs.Room;
 
 public interface IReservationController {
-	/**Responsible for administrate the reservations*/
+	/*Responsible for administrate the reservations*/
 
-	/**Reserve a room
+	/*Reserve a room
 	 * @param reservations: all reservations in srs
 	 * @param b: booker who want to reservate a roome
 	 * @param d: date
@@ -33,17 +33,17 @@ public interface IReservationController {
 	 * @param r: the room to reserve*/
 	public void cacel(List<Reservation> reservations, Booker b, Date d, Time from, Time to, Room r);
 
-	/**Show all reservations
+	/*Show all reservations
 	 * @return the list with all reservations
 	 */
 	public List<Reservation> showReservations();
 
-	/**show only the reservated rooms
+	/*show only the reservated rooms
 	 * @param reservations: all reservations in srs
 	 * @return the list with all reservations*/
 	public List<Reservation> showReservatedRooms(List<Reservation> reservations);
 
-	/**show only free rooms
+	/*show only free rooms
 	 * @param reservations: all reservations in srs
 	 * @return the list with all reservations*/
 	public List<Reservation> showFreeRooms(List<Reservation> reservations);
