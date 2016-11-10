@@ -1,21 +1,18 @@
-/**
- * Class SystemUser.java
- * Author dha
+/*
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
+ * Project Smart Reservation System.
+ * Distributable under GPL license. See terms of license at gnu.org.
  */
 package srs;
 
-/**
- * @author dha
- *
- */
 public class SystemUser {
-	private String firstName, lastName, email, password;
-	private boolean isAdmin;
+	private String firstName, lastName, login, password;
+	private boolean isAdmin, isLoggedIn;
 
-	public SystemUser(String firstName, String lastName, String email, String password, Boolean isAdmin) {
+	public SystemUser(String firstName, String lastName, String email, String password, boolean isAdmin) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.email = email;
+		this.login = email;
 		this.password = password;
 		this.isAdmin = isAdmin;
 	}
@@ -29,8 +26,8 @@ public class SystemUser {
 		this.lastName = lastName;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setLogin(String email) {
+		this.login = email;
 	}
 
 	public void setPassword(String password) {
@@ -54,8 +51,8 @@ public class SystemUser {
 		return this.lastName;
 	}
 
-	public String getEmail() {
-		return this.email;
+	public String getLogin() {
+		return this.login;
 	}
 
 	public String getPassword() {

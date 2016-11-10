@@ -55,11 +55,11 @@ public class SystemUserTest {
 	public void testLoogin() {
 		// initialization
 		SystemUser usr = new SystemUser(firstName, lastName, email, password, false);
-		assertEquals(usr.getEmail(), email);
+		assertEquals(usr.getLogin(), email);
 
 		// change value
-		usr.setEmail(newEmail);
-		assertEquals(usr.getEmail(), newEmail);
+		usr.setLogin(newEmail);
+		assertEquals(usr.getLogin(), newEmail);
 	}
 
 	@Test

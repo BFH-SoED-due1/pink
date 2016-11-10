@@ -8,39 +8,54 @@ package controller.implementation;
 import java.util.List;
 
 import controller.ILogInController;
-import user.ISystemUser;
+import srs.SystemUser;
 
 public class LogInController implements ILogInController {
 	/** Implementation for login/lougout */
 
-	@Override
-	public boolean exists(List<ISystemUser> users, String login) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean exists(List<SystemUser> users, String login) {
+		boolean bool = false;
+		for (int i = 0; i < users.size(); i++) {
+			if (users.get(i).getLogin().equals(login))
+				bool = true;
+			else
+				bool = false;
+		}
+		return bool;
+	}
+
+	public boolean checkPassword(List<SystemUser> users, String login, String password) {
+		boolean bool = false;
+		for (int i = 0; i < users.size(); i++) {
+			if (users.get(i).getLogin().equals(login) && users.get(i).getPassword().equals(password))
+				bool = true;
+			else
+				bool = false;
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean checkPassword(List<ISystemUser> users, String login, String password) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean login(String login) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void logout(String logout) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<ISystemUser> getUsers(List<ISystemUser> users) {
+	public List<SystemUser> getUsers(List<SystemUser> users) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
+	public void login(List<SystemUser> users, String login, String password) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void logout(List<SystemUser> users, String login) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean isLoggedIn(List<SystemUser> users, String login) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
