@@ -48,6 +48,8 @@ public interface IRoomController {
 	 * 
 	 * @param rooms
 	 *            all rooms saved in srs
+	 * @param roomName
+	 *            all rooms saved in srs
 	 * @return true if a room with the desired name already exits
 	 */
 	public boolean checkRoomName(List<Room> rooms, String roomName);
