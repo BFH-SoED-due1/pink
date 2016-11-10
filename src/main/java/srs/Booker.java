@@ -6,24 +6,18 @@
 package srs;
 
 public class Booker {
-	private BookerName name;
-	private BookerAddress address;
+	private String firstName, lastName, login;
 
-	public Booker(BookerName name, BookerAddress address) {
-		this.name = name;
-		this.address = address;
+	public Booker(String firstName, String lastName, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.login = login;
 	}
 
-	/**
-	 * Sets the name of the booker
-	 * 
-	 * @param firstName:
-	 *            firstname of the booker
-	 * @param lastName:
-	 *            lastname of the booker
-	 */
-	public void setName(String firstName, String lastName) {
-		this.name.setName(firstName, lastName);
+	public void setBookerInfo(String firstName, String lastName, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.login = email;
 	}
 
 	/**
@@ -33,7 +27,7 @@ public class Booker {
 	 *            firstname of the Booker
 	 */
 	public void setFirstName(String firstName) {
-		this.name.setFirstName(firstName);
+		this.firstName = firstName;
 	}
 
 	/**
@@ -43,85 +37,28 @@ public class Booker {
 	 *            lastname of the booker
 	 */
 	public void setLastName(String lastName) {
-		this.name.setLastName(lastName);
+		this.lastName = lastName;
 	}
 
-	/**
-	 * Sets the address of the booker
-	 * 
-	 * @param lastName
-	 *            lastname of the booker
-	 */
-	public void setAddress(String country, String street, String streetNumber, int postcode, String village,
-			String email) {
-		this.address.setAddress(country, street, streetNumber, postcode, village, email);
-	}
-
-	public void setCountry(String country) {
-		this.address.setCountry(country);
-	}
-
-	public void setStreet(String street) {
-		this.address.setStreet(street);
-	}
-
-	public void setStreetNumber(String streetNumber) {
-		this.address.setStreetNumber(streetNumber);
-	}
-
-	public void setPostcode(int postcode) {
-		this.address.setPostcode(postcode);
-	}
-
-	public void setVillage(String village) {
-		this.address.setVillage(village);
-	}
-
-	public void setEmail(String email) {
-		this.address.setEmail(email);
+	public void setLogin(String email) {
+		this.login = email;
 	}
 
 	// Getter
-	// Name
-	public String getName() {
-		return name.getName();
+	public String getBookerInfo() {
+		return this.firstName + " " + this.lastName + " " + this.login;
 	}
 
 	public String getFirstName() {
-		return name.getFirstName();
+		return this.firstName;
 	}
 
 	public String getLastName() {
-		return name.getLastName();
+		return this.lastName;
 	}
 
-	// Address
-	public String getAddress() {
-		return address.getAddress();
-	}
-
-	public String getCountry() {
-		return address.getCountry();
-	}
-
-	public String getStreet() {
-		return address.getStreet();
-	}
-
-	public String getStreetNumber() {
-		return address.getStreetNumber();
-	}
-
-	public int getPostcode() {
-		return address.getPostcode();
-	}
-
-	public String getVillage() {
-		return address.getVillage();
-	}
-
-	public String getEmail() {
-		return address.getEmail();
+	public String getLogin() {
+		return this.login;
 	}
 
 	public Booker getBooker() {

@@ -11,8 +11,6 @@ import java.util.Date;
 import org.junit.Test;
 
 import srs.Booker;
-import srs.BookerAddress;
-import srs.BookerName;
 import srs.Reservation;
 import srs.Room;
 
@@ -27,9 +25,7 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 00, 00);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
@@ -45,103 +41,11 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 00, 00);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
 		assertEquals("Müller", reservation.getBooker().getLastName());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testBookerAddressCountry() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
-
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals("Switzerland", reservation.getBooker().getCountry());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testBookerAddressStreet() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
-
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals(reservation.getBooker().getStreet(), "Musterstrasse");
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testBookerAddressStreetNumber() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
-
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals("1", reservation.getBooker().getStreetNumber());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testBookerAddressPostcode() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
-
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals(1111, reservation.getBooker().getPostcode());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testBookerAddressVillage() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
-
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals("Musterhausen", reservation.getBooker().getVillage());
 	}
 
 	@SuppressWarnings("deprecation")
@@ -153,13 +57,11 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 00, 00);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
-		assertEquals("a@b.ch", reservation.getBooker().getEmail());
+		assertEquals("a@b.ch", reservation.getBooker().getLogin());
 	}
 
 	@SuppressWarnings("deprecation")
@@ -171,9 +73,7 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 00, 00);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
@@ -189,9 +89,7 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 00, 00);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
@@ -207,9 +105,7 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 00, 00);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
@@ -225,9 +121,7 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 00, 00);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
@@ -243,9 +137,7 @@ public class ReservationTest {
 		Time from = new Time(16, 01, 00);
 		Time to = new Time(20, 00, 00);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
@@ -261,9 +153,7 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 30, 00);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
@@ -279,9 +169,7 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 22);
 		Time to = new Time(20, 00, 00);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
@@ -297,9 +185,7 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 00, 44);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
@@ -316,9 +202,7 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 00, 44);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation res = new Reservation(r1, d, from, to, booker);
 		assertEquals(res.getRoom().getName(), "Room123");
@@ -337,9 +221,7 @@ public class ReservationTest {
 		Time from = new Time(16, 00, 00);
 		Time to = new Time(20, 00, 44);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation res = new Reservation(r, d1, from, to, booker);
 		assertEquals(res.getDate().getYear(), 2016);
@@ -362,9 +244,7 @@ public class ReservationTest {
 
 		Time until = new Time(20, 00, 44);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation res = new Reservation(r, d, from, until, booker);
 		assertEquals(res.getFrom().getHours(), 16);
@@ -386,9 +266,7 @@ public class ReservationTest {
 		Time to = new Time(16, 02, 45); // h, m, s
 		Time to2 = new Time(18, 22, 14);
 
-		BookerName n = new BookerName("Fritzli", "Müller");
-		BookerAddress b = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(n, b);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
 		Reservation res = new Reservation(r, d, to, to, booker);
 		assertEquals(res.getTo().getHours(), 16);
@@ -410,25 +288,19 @@ public class ReservationTest {
 		Time from = new Time(16, 02, 45); // h, m, s
 		Time to = new Time(18, 22, 14);
 
-		BookerName name = new BookerName("Fritzli", "Müller");
-		BookerAddress address = new BookerAddress("Switzerland", "Musterstrasse", "1", 1111, "Musterhausen", "a@b.ch");
-		Booker booker = new Booker(name, address);
+		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 
-		BookerName name2 = new BookerName("Kari", "Meyer");
-		BookerAddress address2 = new BookerAddress("Switzerland", "Musterstrasse", "2", 2222, "Musterhausen", "c@d.ch");
-		Booker booker2 = new Booker(name2, address2);
+		Booker booker2 = new Booker("Kari", "Meyer", "kari@meyer.ch");
 
 		Reservation res = new Reservation(r, d, from, to, booker);
 		assertEquals("Fritzli", res.getBooker().getFirstName());
 		assertEquals("Müller", res.getBooker().getLastName());
-		assertEquals(1111, res.getBooker().getPostcode());
-		assertEquals("a@b.ch", res.getBooker().getEmail());
+		assertEquals("a@b.ch", res.getBooker().getLogin());
 
 		res.setBooker(booker2);
 		assertEquals("Kari", res.getBooker().getFirstName());
 		assertEquals("Meyer", res.getBooker().getLastName());
-		assertEquals(2222, res.getBooker().getPostcode());
-		assertEquals("c@d.ch", res.getBooker().getEmail());
+		assertEquals("c@d.ch", res.getBooker().getLogin());
 
 	}
 }

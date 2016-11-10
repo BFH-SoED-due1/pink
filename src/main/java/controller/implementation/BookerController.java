@@ -17,7 +17,7 @@ public class BookerController implements IBookerController {
 	@Override
 	public boolean exists(List<Booker> bookers, String email) {
 		for (int i = 0; i < bookers.size(); i++) {
-			if (bookers.get(i).getEmail().equals(email))
+			if (bookers.get(i).getLogin().equals(email))
 				return true;
 		}
 		return false;
@@ -25,7 +25,7 @@ public class BookerController implements IBookerController {
 
 	@Override
 	public void saveBooker(List<Booker> bookers, Booker booker) {
-		if (!exists(bookers, booker.getEmail()))
+		if (!exists(bookers, booker.getLogin()))
 			bookers.add(booker);
 		else
 			throw new BookerLoginException("A user with this login allready exists.\nChose another one.");
@@ -35,7 +35,7 @@ public class BookerController implements IBookerController {
 	public List<Booker> deleteBooker(List<Booker> bookers, String email) {
 		if (exists(bookers, email)) {
 			for (int i = 0; i < bookers.size(); i++) {
-				if (bookers.get(i).getEmail().equals(email))
+				if (bookers.get(i).getLogin().equals(email))
 					bookers.remove(i);
 			}
 		}
@@ -47,7 +47,7 @@ public class BookerController implements IBookerController {
 	public Booker editBooker(List<Booker> bookers, String email) throws RuntimeException {
 		if (exists(bookers, email)) {
 			for (int i = 0; i < bookers.size(); i++) {
-				if (bookers.get(i).getEmail().equals(email))
+				if (bookers.get(i).getLogin().equals(email))
 					return bookers.get(i).getBooker();
 				else
 					throw new RuntimeException("Error during editing the booker");

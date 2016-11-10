@@ -5,7 +5,8 @@
  */
 package controllerTest;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,18 +15,12 @@ import org.junit.Test;
 
 import controller.implementation.BookerController;
 import srs.Booker;
-import srs.BookerAddress;
-import srs.BookerName;
 
 public class BookerControllerTest {
-	Booker donald = new Booker(new BookerName("Donald", "Duck"),
-			new BookerAddress("Disneyworld", "Hauptstrasse", "1", 1111, "Entenhausen", "donald@duck.com"));
-	Booker mickey = new Booker(new BookerName("Mickey", "Mouse"),
-			new BookerAddress("Mauseland", "Musterstrasse", "2", 1234, "Musterhausen", "mickey@mouse.com"));
-	Booker bambi = new Booker(new BookerName("Bambi", "Bambini"),
-			new BookerAddress("Disneyworld", "Aarbergstrasse", "3", 5678, "Rehhausen", "bambi@disney.com"));
-	Booker balu = new Booker(new BookerName("Balu", "Bär"),
-			new BookerAddress("Bärenland", "Hauptstrasse", "11", 1598, "Bärenhausen", "balu@disney.com"));
+	Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
+	Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
+	Booker bambi = new Booker("Bambi", "Bambini", "bambi@disney.com");
+	Booker balu = new Booker("Balu", "Bär", "balu@disney.com");
 
 	@Test
 	public void testIfBookerExists() {
@@ -36,7 +31,7 @@ public class BookerControllerTest {
 		list.add(bambi);
 		list.add(balu);
 
-		assertTrue(controller.exists(list, donald.getEmail()));
+		assertTrue(controller.exists(list, donald.getLogin()));
 	}
 
 	@Test
@@ -67,7 +62,7 @@ public class BookerControllerTest {
 
 		Booker b = list.get(0).getBooker();
 		assertEquals("Donald", b.getFirstName());
-		controller.deleteBooker(list, b.getEmail()); // donald will be removed
+		controller.deleteBooker(list, b.getLogin()); // donald will be removed
 
 		size = list.size();
 		assertEquals(2, size);
