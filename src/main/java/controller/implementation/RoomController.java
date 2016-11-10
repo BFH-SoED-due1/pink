@@ -16,7 +16,7 @@ import srs.Room;
 public class RoomController implements IRoomController {
 	/** Implementation for administrate the rooms */
 
-	List<Room> roomList = new ArrayList<Room>();
+	private List<Room> roomList = new ArrayList<Room>();
 
 	public RoomController(List<Room> roomList) {
 		this.roomList = roomList;
