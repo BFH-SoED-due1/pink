@@ -40,7 +40,7 @@ public interface IBookerController {
 	 *            the list with all bookers saved
 	 * @param email
 	 *            the booker's id
-	 * @return List<Booker>
+	 * @return Booker
 	 */
 	public List<Booker> deleteBooker(List<Booker> bookers, String email);
 
