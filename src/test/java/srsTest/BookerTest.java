@@ -14,29 +14,17 @@ public class BookerTest {
 	/** Test classes booker, bookerName */
 	private final String firstName = "Hans";
 	private String lastName = "Muster";
-	private String country = "Switzerland";
-	private String street = "Bernstrasse";
-	private String streetNumber = "27A";
-	private int postcode = 3000;
-	private String village = "Bern";
 	private String email = "d@h.ch";
 
 	private String newFirstName = "Fritz";
 	private String newLastName = "Meier";
-	private String newCountry = "Switzerland";
-	private String newStreet = "Seestrasse";
-	private String newStreetNumber = "45";
-	private int newPostcode = 1200;
-	private String newVillage = "Genf";
 	private String newEmail = "d@ha.ch";
 
 	// Name
 	@Test
-	public void testBookerInfo() {
+	public void testOverridenToString() {
 		Booker booker = new Booker(firstName, lastName, email);
-		assertEquals(booker.getBookerInfo(), firstName + " " + lastName + " " + email);
-		booker.setBookerInfo(newFirstName, newLastName, email);
-		assertEquals(newFirstName + " " + newLastName, booker.getBookerInfo());
+		assertEquals(booker.toString(), firstName + " " + lastName + " " + email);
 	}
 
 	@Test
@@ -72,7 +60,7 @@ public class BookerTest {
 
 		booker = null;
 
-		assertEquals(firstName + " " + lastName, booker.getBookerInfo());
+		assertEquals(firstName + " " + lastName, booker.toString());
 	}
 
 	@Test

@@ -11,12 +11,6 @@ public class Booker {
 	public Booker(String firstName, String lastName, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.login = login;
-	}
-
-	public void setBookerInfo(String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
 		this.login = email;
 	}
 
@@ -45,7 +39,8 @@ public class Booker {
 	}
 
 	// Getter
-	public String getBookerInfo() {
+	@Override
+	public String toString() {
 		return this.firstName + " " + this.lastName + " " + this.login;
 	}
 
