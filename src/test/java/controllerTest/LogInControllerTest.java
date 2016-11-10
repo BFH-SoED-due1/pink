@@ -11,7 +11,7 @@ public class LogInControllerTest {
 
 	@Test
 	public void test() {
-		// To be implemented
+		// To be implementeds
 	}
 
 }
