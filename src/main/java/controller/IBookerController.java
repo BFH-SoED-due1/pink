@@ -10,46 +10,37 @@ import java.util.List;
 import srs.Booker;
 
 public interface IBookerController {
-	/** Responsible for administrate booker-class */// test
-
-	/**
-	 * control if login already exists in srs login = id
-	 * 
-	 * @param bookers:
-	 *            the list with all bookers saved
-	 * @param email:
-	 *            the login
-	 * @return true there is a user with this login in the bookers-list
-	 */
-	public boolean exists(List<Booker> bookers, String email);
+	/** Responsible for administrate booker-class */
 
 	/**
 	 * Save new booker
 	 * 
-	 * @param bookers:
-	 *            the list with all bookers saved
-	 * @param booker:
+	 * @param booker
 	 *            the new booker to save
+	 * @return list of Bookers
 	 */
-	public void saveBooker(List<Booker> bookers, Booker booker);
+	public List<Booker> saveBooker(Booker booker);
 
 	/**
 	 * Delete new booker
 	 * 
-	 * @param bookers:
+	 * @param email
 	 *            the list with all bookers saved
-	 * @param email:
+	 * @param email
 	 *            the booker's id
+	 * @return list of Bookers
 	 */
-	public List<Booker> deleteBooker(List<Booker> bookers, String email);
+	public List<Booker> deleteBooker(String email);
 
 	/**
-	 * Edit an entry of a booker
+	 * Edit a booker
 	 * 
-	 * @param bookers:
-	 *            the list with all bookers saved
-	 * @param email:
-	 *            the bookers id
+	 * @param firstName
+	 *            the bookers firstname
+	 * @param lastName
+	 *            the bookers lastname
+	 * @param booker
+	 *            the booker object
 	 */
-	public Booker editBooker(List<Booker> bookers, String email);
+	public void editBooker(String firstName, String lastName, Booker booker);
 }
