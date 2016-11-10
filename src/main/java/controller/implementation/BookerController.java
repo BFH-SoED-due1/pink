@@ -8,7 +8,7 @@ package controller.implementation;
 import java.util.List;
 
 import controller.IBookerController;
-import controller.implementation.exceptions.LoginException;
+import controller.exceptions.LoginException;
 import srs.Booker;
 
 public class BookerController implements IBookerController {
