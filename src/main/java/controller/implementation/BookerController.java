@@ -6,11 +6,12 @@
 package controller.implementation;
 
 import java.util.List;
+
 import controller.IBookerController;
 import controller.exceptions.BookerLoginException;
 import srs.Booker;
 
-public class BookerController implements IBookerController {
+public class BookerController implements IBookerController {// test
 	/** Implementation for administrate booker */
 
 	@Override

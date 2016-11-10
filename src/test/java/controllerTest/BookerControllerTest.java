@@ -16,7 +16,7 @@ import org.junit.Test;
 import controller.implementation.BookerController;
 import srs.Booker;
 
-public class BookerControllerTest {
+public class BookerControllerTest {// test
 	Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 	Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
 	Booker bambi = new Booker("Bambi", "Bambini", "bambi@disney.com");
