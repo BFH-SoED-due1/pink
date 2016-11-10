@@ -14,7 +14,6 @@ import user.Admin;
 public class AdminTest {
 
 	// Test Admin-class
-
 	private final String name = "Duck";
 	private final String newName = "Mouse";
 	private final String fName = "Donald";
