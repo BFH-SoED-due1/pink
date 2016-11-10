@@ -15,7 +15,6 @@ import srs.SystemUser;
 
 public class SystemUserTest {
 	/* Test SystemUser-class */
-
 	private final String firstName = "Donald";
 	private final String newFirstName = "Mickey";
 	private final String lastName = "Duck";
