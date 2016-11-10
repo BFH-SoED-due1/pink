@@ -16,14 +16,14 @@ import srs.Booker;
 public class BookerController implements IBookerController {
 	/** Implementation for administrate booker */
 
-	private List<Booker> bookerList = new ArrayList();
+	private List<Booker> bookerList = new ArrayList<Booker>();
 
 	public BookerController(List<Booker> bookerList) {
 		this.bookerList = bookerList;
 	}
 
 	/**
-	 * Adds a new Booker
+	 * Adds a new booker
 	 * 
 	 * @param booker
 	 *            the new booker object
@@ -31,27 +31,27 @@ public class BookerController implements IBookerController {
 	 */
 	@Override
 	public List<Booker> saveBooker(Booker booker) {
-		if (!existsForNewBooker(booker.getLogin()) && notEmpty(booker.getFirstName(), booker.getLastName()))
+		if (!bookerExistsForNewBooker(booker.getLogin()) && notEmpty(booker.getFirstName(), booker.getLastName()))
 			bookerList.add(booker);
 		else
-			throw new BookerLoginException("A booker with this login allready exists.\nChose another one.");
+			throw new BookerLoginException("A booker with this login allready exists.\nChose another email.");
 
 		return bookerList;
 	}
 
 	/**
-	 * Deletes a Booker
+	 * Deletes a booker
 	 * 
 	 * @param email
 	 *            the uniqe email of the booker
-	 * @return the list of Bookers
+	 * @return the list of bookers
 	 */
 	@Override
 	public List<Booker> deleteBooker(String email) {
-		if (exists(email)) {
-			for (int i = 0; i < bookerList.size(); i++) {
-				if (bookerList.get(i).getLogin().equals(email)) {
-					bookerList.remove(i);
+		if (bookerExists(email)) {
+			for (Booker booker : bookerList) {
+				if (booker.getLogin().equals(email)) {
+					bookerList.remove(booker);
 					break;
 				}
 			}
@@ -70,50 +70,49 @@ public class BookerController implements IBookerController {
 	 *            the booker object
 	 */
 	@Override
-	public void editBooker(String firstName, String lastName, Booker booker) {
-		if (exists(booker.getLogin()) && notEmpty(firstName, lastName)) {
-			for (int i = 0; i < bookerList.size(); i++) {
-				if (bookerList.get(i).getLogin().equals(booker.getLogin())) {
-					bookerList.get(i).setFirstName(firstName);
-					bookerList.get(i).setLastName(lastName);
+	public void editBooker(String firstName, String lastName, Booker b) {
+		if (bookerExists(b.getLogin()) && notEmpty(firstName, lastName)) {
+			for (Booker booker : bookerList) {
+				if (booker.getLogin().equals(b.getLogin())) {
+					booker.setFirstName(firstName);
+					booker.setLastName(lastName);
 					break;
 				}
 			}
-
 		}
 	}
 
 	/**
-	 * Checks if a user exists
+	 * Checks if a booker exists
 	 * 
 	 * @param email
 	 *            the uniqe email of the booker
 	 * @return true if booker exists
 	 */
-	public boolean exists(String email) {
+	public boolean bookerExists(String email) {
 		boolean exists = false;
-		for (int i = 0; i < bookerList.size(); i++) {
-			if (bookerList.get(i).getLogin().equals(email)) {
+		for (Booker booker : bookerList) {
+			if (booker.getLogin().equals(email)) {
 				exists = true;
 				break;
 			}
 		}
 		if (!exists)
-			throw new BookerNotFoundException("User does not exist!");
+			throw new BookerNotFoundException("Booker does not exist!");
 
 		return exists;
 	}
 
 	/**
-	 * Checks if a user exists. Only used for save a new booker
+	 * Checks if a booker exists. Only used for save a new booker
 	 * 
 	 * @param email
 	 *            the uniqe email of the booker
 	 * @return true if booker exists
 	 */
-	public boolean existsForNewBooker(String email) {
-		for (int i = 0; i < bookerList.size(); i++) {
-			if (bookerList.get(i).getLogin().equals(email))
+	public boolean bookerExistsForNewBooker(String email) {
+		for (Booker booker : bookerList) {
+			if (booker.getLogin().equals(email))
 				return true;
 		}
 		return false;

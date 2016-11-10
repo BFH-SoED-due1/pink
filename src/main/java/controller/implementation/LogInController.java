@@ -31,10 +31,10 @@ public class LogInController implements ILogInController {
 	 */
 	@Override
 	public void userLogin(String login, String password) {
-		if (exists(login) && checkPassword(login, password) && !isLoggedIn(login)) {
-			for (int i = 0; i < userList.size(); i++) {
-				if (userList.get(i).getLogin().equals(login)) {
-					userList.get(i).login();
+		if (userExists(login) && checkPassword(login, password) && !isLoggedIn(login)) {
+			for (SystemUser user : userList) {
+				if (user.getLogin().equals(login)) {
+					user.login();
 					break;
 				}
 			}
@@ -49,10 +49,10 @@ public class LogInController implements ILogInController {
 	 */
 	@Override
 	public void userLogout(String login) {
-		if (exists(login)) {
-			for (int i = 0; i < userList.size(); i++) {
-				if (userList.get(i).getLogin().equals(login)) {
-					userList.get(i).logout();
+		if (userExists(login)) {
+			for (SystemUser user : userList) {
+				if (user.getLogin().equals(login)) {
+					user.logout();
 					break;
 				}
 			}
@@ -66,10 +66,10 @@ public class LogInController implements ILogInController {
 	 *            the login of a specific user
 	 * @return true if user exists
 	 */
-	public boolean exists(String login) {
+	public boolean userExists(String login) {
 		boolean exists = false;
-		for (int i = 0; i < userList.size(); i++) {
-			if (userList.get(i).getLogin().equals(login)) {
+		for (SystemUser user : userList) {
+			if (user.getLogin().equals(login)) {
 				exists = true;
 				break;
 			}
@@ -91,8 +91,8 @@ public class LogInController implements ILogInController {
 	 */
 	public boolean checkPassword(String login, String password) {
 		boolean checkPassword = false;
-		for (int i = 0; i < userList.size(); i++) {
-			if (userList.get(i).getLogin().equals(login) && userList.get(i).getPassword().equals(password)) {
+		for (SystemUser user : userList) {
+			if (user.getLogin().equals(login) && user.getPassword().equals(password)) {
 				checkPassword = true;
 				break;
 			}
@@ -112,8 +112,8 @@ public class LogInController implements ILogInController {
 	 */
 	public boolean isLoggedIn(String login) {
 		boolean isLoggedIn = false;
-		for (int i = 0; i < userList.size(); i++) {
-			if (userList.get(i).getLogin().equals(login) && userList.get(i).isLoggedIn()) {
+		for (SystemUser user : userList) {
+			if (user.getLogin().equals(login) && user.isLoggedIn()) {
 				isLoggedIn = true;
 				break;
 			}

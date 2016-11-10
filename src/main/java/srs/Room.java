@@ -13,10 +13,10 @@ public class Room {
 	private String description;
 	private boolean isBooked;
 
-	public Room(int s, String n, String d) {
-		this.size = s;
-		this.name = n;
-		this.description = d;
+	public Room(int size, String name, String descr) {
+		this.size = size;
+		this.name = name;
+		this.description = descr;
 		this.isBooked = false;
 	}
 

@@ -17,10 +17,6 @@ import controller.implementation.BookerController;
 import srs.Booker;
 
 public class BookerControllerTest {
-	// Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
-	// Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
-	// Booker bambi = new Booker("Bambi", "Bambini", "bambi@disney.com");
-	// Booker balu = new Booker("Balu", "Bär", "balu@disney.com");
 
 	@Test
 	public void saveBookerTest() {

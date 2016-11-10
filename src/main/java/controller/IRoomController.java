@@ -42,5 +42,5 @@ public interface IRoomController {
 	 * @param roomName
 	 *            the room to be added
 	 */
-	public void editRoom(String roomName);
+	public void editRoom(int size, String descr, Room room);
 }
