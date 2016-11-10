@@ -49,10 +49,12 @@ public class LogInController implements ILogInController {
 	 */
 	@Override
 	public void userLogout(String login) {
-		for (int i = 0; i < userList.size(); i++) {
-			if (userList.get(i).getLogin().equals(login)) {
-				userList.get(i).logout();
-				break;
+		if (exists(login)) {
+			for (int i = 0; i < userList.size(); i++) {
+				if (userList.get(i).getLogin().equals(login)) {
+					userList.get(i).logout();
+					break;
+				}
 			}
 		}
 	}
