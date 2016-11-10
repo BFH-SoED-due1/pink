@@ -26,10 +26,9 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 00);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
-		assertEquals("Fritzli", reservation.getBooker().getFirstName());
+		assertEquals("Hans", reservation.getBooker().getFirstName());
 	}
 
 	@SuppressWarnings("deprecation")
@@ -42,10 +41,9 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 00);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
-		assertEquals("Müller", reservation.getBooker().getLastName());
+		assertEquals("Zimmer", reservation.getBooker().getLastName());
 	}
 
 	@SuppressWarnings("deprecation")
@@ -58,10 +56,9 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 00);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
-		assertEquals("a@b.ch", reservation.getBooker().getLogin());
+		assertEquals("hans@zimmer.ch", reservation.getBooker().getLogin());
 	}
 
 	@SuppressWarnings("deprecation")
@@ -74,7 +71,6 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 00);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
 		assertEquals(2016, reservation.getDate().getYear());
@@ -90,7 +86,6 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 00);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
 		assertEquals(10, reservation.getDate().getMonth());
@@ -106,7 +101,6 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 00);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
 		assertEquals(16, reservation.getFrom().getHours());
@@ -122,7 +116,6 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 00);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
 		assertEquals(20, reservation.getTo().getHours());
@@ -138,7 +131,6 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 00);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
 		assertEquals(01, reservation.getFrom().getMinutes());
@@ -154,7 +146,6 @@ public class ReservationTest {
 		Time to = new Time(20, 30, 00);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
 		assertEquals(30, reservation.getTo().getMinutes());
@@ -170,7 +161,6 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 00);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
 		assertEquals(22, reservation.getFrom().getSeconds());
@@ -186,7 +176,6 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 44);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation reservation = new Reservation(r, d, from, to, booker);
 
 		assertEquals(44, reservation.getTo().getSeconds());
@@ -203,7 +192,6 @@ public class ReservationTest {
 		Time to = new Time(20, 00, 44);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Reservation res = new Reservation(r1, d, from, to, booker);
 		assertEquals(res.getRoom().getName(), "Room123");
 
@@ -289,18 +277,17 @@ public class ReservationTest {
 		Time to = new Time(18, 22, 14);
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
 		Booker booker2 = new Booker("Kari", "Meyer", "kari@meyer.ch");
 
 		Reservation res = new Reservation(r, d, from, to, booker);
-		assertEquals("Fritzli", res.getBooker().getFirstName());
-		assertEquals("Müller", res.getBooker().getLastName());
-		assertEquals("a@b.ch", res.getBooker().getLogin());
+		assertEquals("Hans", res.getBooker().getFirstName());
+		assertEquals("Zimmer", res.getBooker().getLastName());
+		assertEquals("hans@zimmer.ch", res.getBooker().getLogin());
 
 		res.setBooker(booker2);
 		assertEquals("Kari", res.getBooker().getFirstName());
 		assertEquals("Meyer", res.getBooker().getLastName());
-		assertEquals("c@d.ch", res.getBooker().getLogin());
+		assertEquals("kari@meyer.ch", res.getBooker().getLogin());
 
 	}
 }

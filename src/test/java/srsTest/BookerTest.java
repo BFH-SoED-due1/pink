@@ -14,11 +14,11 @@ public class BookerTest {
 	/** Test classes booker, bookerName */
 	private final String firstName = "Hans";
 	private String lastName = "Muster";
-	private String email = "d@h.ch";
+	private String email = "hans@muster.ch";
 
 	private String newFirstName = "Fritz";
 	private String newLastName = "Meier";
-	private String newEmail = "d@ha.ch";
+	private String newEmail = "fritz@meier.ch";
 
 	// Name
 	@Test
