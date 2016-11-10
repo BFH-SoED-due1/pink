@@ -14,9 +14,9 @@ public interface ILogInController {
 	/**
 	 * Sets the status to logged in
 	 * 
-	 * @param users:
+	 * @param users
 	 *            all users of srs (==>important user && admins)
-	 * @param login:
+	 * @param login
 	 *            the login of a specific user/admin
 	 * @return status is logged in
 	 */
@@ -25,9 +25,9 @@ public interface ILogInController {
 	/**
 	 * Sets the status to logged out
 	 * 
-	 * @param users:
+	 * @param users
 	 *            all users of srs (==>important user && admins)
-	 * @param login:
+	 * @param login
 	 *            the login of a specific user/admin
 	 * @return status is logged out
 	 */
