@@ -6,23 +6,30 @@
 package srs;
 
 /**
- * This Class recommends our Booker. A Booker can reserve Rooms
+ * This Class recommends our Booker. A Booker can reserve Rooms.
  */
 public class Booker {
 	private BookerName name;
 	private BookerAddress address;
 
+	/**
+	 * Creates a Booker
+	 */
 	public Booker(BookerName name, BookerAddress address) {
 		this.name = name;
 		this.address = address;
 	}
 
-	// Setter
-	// Name
+	/**
+	 * Set the First- and Lastname of the Booker
+	 */
 	public void setName(String firstName, String lastName) {
 		this.name.setName(firstName, lastName);
 	}
 
+	/**
+	 * Set the Name of the Booker
+	 */
 	public void setFirstName(String firstName) {
 		this.name.setFirstName(firstName);
 	}
