@@ -5,13 +5,22 @@
  */
 package controllerTest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
+
+import srs.SystemUser;
 
 public class LogInControllerTest {
 
+	private List<SystemUser> userList = new ArrayList<SystemUser>();
+
+	SystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
+
 	@Test
-	public void test() {
-		// To be implementeds
+	public void loginTest() {
+		userList.add(hans);
 	}
 
 }
