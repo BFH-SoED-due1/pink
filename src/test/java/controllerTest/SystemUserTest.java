@@ -31,8 +31,8 @@ public class SystemUserTest {
 		assertEquals(usr.getFirstName(), firstName);
 
 		// change value
-		usr.setFirstName(firstName);
-		assertEquals(usr.getFirstName(), firstName);
+		usr.setFirstName(newFirstName);
+		assertEquals(usr.getFirstName(), newFirstName);
 	}
 
 	@Test
