@@ -42,8 +42,8 @@ public class RoomController implements IRoomController {
 	/**
 	 * Deletes a room
 	 * 
-	 * @param email
-	 *            the uniqe email of the booker
+	 * @param roomName
+	 *            the uniqe name of the room
 	 * @return the list of room
 	 */
 	@Override
@@ -66,7 +66,7 @@ public class RoomController implements IRoomController {
 	 *            the size of the room
 	 * @param descr
 	 *            the description of the room
-	 * @param booker
+	 * @param r
 	 *            the room object
 	 */
 	@Override

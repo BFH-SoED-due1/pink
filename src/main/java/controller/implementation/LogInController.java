@@ -15,7 +15,7 @@ import srs.SystemUser;
 public class LogInController implements ILogInController {
 	/** Implementation for login/lougout */
 
-	private List<SystemUser> userList = new ArrayList();
+	private List<SystemUser> userList = new ArrayList<SystemUser>();
 
 	public LogInController(List<SystemUser> userList) {
 		this.userList = userList;

@@ -23,14 +23,14 @@ public class BookerControllerTest {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 
 		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> oldList = new ArrayList<Booker>();
+		List<Booker> expectedList = new ArrayList<Booker>();
 
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
-		oldList.add(donald);
+		expectedList.add(donald);
 
-		assertEquals(oldList, list);
+		assertEquals(expectedList, list);
 	}
 
 	@Test(expected = BookerLoginException.class)
@@ -50,14 +50,10 @@ public class BookerControllerTest {
 		Booker donald = new Booker("", "", "");
 
 		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> oldList = new ArrayList<Booker>();
 
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
-		oldList.add(donald);
-
-		assertEquals(oldList, list);
 	}
 
 	@Test
@@ -65,17 +61,17 @@ public class BookerControllerTest {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 
 		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> oldList = new ArrayList<Booker>();
+		List<Booker> expectedList = new ArrayList<Booker>();
 
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
-		oldList.add(donald);
+		expectedList.add(donald);
 
 		list = bc.deleteBooker(donald.getLogin());
-		oldList.remove(donald);
+		expectedList.remove(donald);
 
-		assertEquals(oldList, list);
+		assertEquals(expectedList, list);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -84,12 +80,12 @@ public class BookerControllerTest {
 		Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
 
 		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> oldList = new ArrayList<Booker>();
+		List<Booker> expectedList = new ArrayList<Booker>();
 
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
-		oldList.add(donald);
+		expectedList.add(donald);
 
 		list = bc.deleteBooker(mickey.getLogin());
 	}
@@ -100,12 +96,12 @@ public class BookerControllerTest {
 		Booker mickey = new Booker("", "", "");
 
 		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> oldList = new ArrayList<Booker>();
+		List<Booker> expectedList = new ArrayList<Booker>();
 
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
-		oldList.add(donald);
+		expectedList.add(donald);
 
 		list = bc.deleteBooker(mickey.getLogin());
 	}

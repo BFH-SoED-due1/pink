@@ -37,10 +37,12 @@ public interface IRoomController {
 	/**
 	 * Edit a room
 	 * 
-	 * @param roomName
-	 *            all rooms saved in srs
-	 * @param roomName
-	 *            the room to be added
+	 * @param size
+	 *            size of the room
+	 * @param descr
+	 *            description of the room
+	 * @param room
+	 *            the room object
 	 */
 	public void editRoom(int size, String descr, Room room);
 }

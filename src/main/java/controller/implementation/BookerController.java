@@ -66,7 +66,7 @@ public class BookerController implements IBookerController {
 	 *            the bookers firstname
 	 * @param lastName
 	 *            the bookers lastname
-	 * @param booker
+	 * @param b
 	 *            the booker object
 	 */
 	@Override
