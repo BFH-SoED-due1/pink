@@ -6,7 +6,6 @@
 package controller;
 
 import java.util.List;
-
 import srs.SystemUser;;
 
 public interface ILogInController {
