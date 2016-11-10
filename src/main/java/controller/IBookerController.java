@@ -39,8 +39,8 @@ public interface IBookerController {
 	 * @param bookers
 	 *            the list with all bookers saved
 	 * @param email
-	 *            the bookers id
-	 * @return List<Booker> the edited list, without the booker
+	 *            the booker's id
+	 * @return Booker
 	 */
 	public List<Booker> deleteBooker(List<Booker> bookers, String email);
 
