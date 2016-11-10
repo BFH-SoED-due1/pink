@@ -23,7 +23,6 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Sets the status to logged in
-	 * 
 	 * @param login
 	 *            the login of a specific user
 	 * @param password
@@ -43,7 +42,6 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Sets the status to logged out
-	 * 
 	 * @param login
 	 *            the login of a specific user
 	 */
@@ -61,7 +59,6 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Checks if a user exists
-	 * 
 	 * @param login
 	 *            the login of a specific user
 	 * @return true if user exists
@@ -82,7 +79,6 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Checks if user entered the right password
-	 * 
 	 * @param login
 	 *            the login of a specific user
 	 * @param password
@@ -105,7 +101,6 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Checks if a user is allready logged in
-	 * 
 	 * @param login
 	 *            the login of a specific user
 	 * @return true if user is allready logged in

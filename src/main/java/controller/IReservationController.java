@@ -18,7 +18,6 @@ public interface IReservationController {
 
 	/**
 	 * Reserve a room
-	 * 
 	 * @param reservations
 	 *            all reservations in srs
 	 * @param b
@@ -36,7 +35,6 @@ public interface IReservationController {
 
 	/**
 	 * Cancel a reservation
-	 * 
 	 * @param reservations
 	 *            all reservations in srs
 	 * @param b

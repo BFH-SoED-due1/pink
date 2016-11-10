@@ -24,7 +24,6 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Adds a new room
-	 * 
 	 * @param room
 	 *            the new room object
 	 * @return the list of rooms
@@ -41,7 +40,6 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Deletes a room
-	 * 
 	 * @param roomName
 	 *            the uniqe name of the room
 	 * @return the list of room
@@ -61,7 +59,6 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Edit a room
-	 * 
 	 * @param size
 	 *            the size of the room
 	 * @param descr
@@ -84,7 +81,6 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Checks if a room exists
-	 * 
 	 * @param roomName
 	 *            the uniqe name of the room
 	 * @return true if room exists
@@ -105,7 +101,6 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Checks if a room exists. Only used for save a new room
-	 * 
 	 * @param roomName
 	 *            the uniqe name of the room
 	 * @return true if room exists
@@ -120,7 +115,6 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Checks if the size or the description are not empty
-	 * 
 	 * @param size
 	 *            the rooms size
 	 * @param description

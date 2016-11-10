@@ -9,7 +9,6 @@ public interface ILogInController {
 
 	/**
 	 * Sets the status to logged in
-	 * 
 	 * @param login
 	 *            the login of a specific user
 	 * @param password
@@ -19,7 +18,6 @@ public interface ILogInController {
 
 	/**
 	 * Sets the status to logged out
-	 * 
 	 * @param login
 	 *            the login of a specific user
 	 */

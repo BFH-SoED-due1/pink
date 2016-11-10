@@ -14,7 +14,6 @@ public interface IBookerController {
 
 	/**
 	 * Save new booker
-	 * 
 	 * @param booker
 	 *            the new booker to save
 	 * @return list of Bookers
@@ -23,7 +22,6 @@ public interface IBookerController {
 
 	/**
 	 * Delete new booker
-	 * 
 	 * @param email
 	 *            the list with all bookers saved
 	 * @param email
@@ -34,7 +32,6 @@ public interface IBookerController {
 
 	/**
 	 * Edit a booker
-	 * 
 	 * @param firstName
 	 *            the bookers firstname
 	 * @param lastName

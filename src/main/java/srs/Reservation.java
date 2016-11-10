@@ -22,7 +22,7 @@ public class Reservation {
 		this.booker = b;
 	}
 
-	// Setter
+	///////////////////////// Setter /////////////////////////
 	public void setRoom(Room r) {
 		this.room = r;
 	}
@@ -43,7 +43,7 @@ public class Reservation {
 		this.booker = b;
 	}
 
-	// Getter
+	///////////////////////// Getter /////////////////////////
 	public Room getRoom() {
 		return room;
 	}

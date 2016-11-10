@@ -14,22 +14,11 @@ public class Booker {
 		this.login = email;
 	}
 
-	/**
-	 * Sets the firstname of the booker
-	 * 
-	 * @param firstName:
-	 *            firstname of the Booker
-	 */
+	///////////////////////// Setter /////////////////////////
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-	/**
-	 * Sets the lastname of the booker
-	 * 
-	 * @param lastName
-	 *            lastname of the booker
-	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -38,7 +27,7 @@ public class Booker {
 		this.login = email;
 	}
 
-	// Getter
+	///////////////////////// Getter /////////////////////////
 	@Override
 	public String toString() {
 		return this.firstName + " " + this.lastName + " " + this.login;

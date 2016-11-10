@@ -14,7 +14,6 @@ public interface IRoomController {
 
 	/**
 	 * Add a new room and save it in list
-	 * 
 	 * @param roomName
 	 *            all rooms saved in srs
 	 * @param roomName
@@ -25,7 +24,6 @@ public interface IRoomController {
 
 	/**
 	 * Delete a room from list
-	 * 
 	 * @param roomName
 	 *            all rooms saved in srs
 	 * @param roomName
@@ -36,7 +34,6 @@ public interface IRoomController {
 
 	/**
 	 * Edit a room
-	 * 
 	 * @param size
 	 *            size of the room
 	 * @param descr

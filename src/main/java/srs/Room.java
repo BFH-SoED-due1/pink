@@ -20,7 +20,7 @@ public class Room {
 		this.isBooked = false;
 	}
 
-	// Setter
+	///////////////////////// Setter /////////////////////////
 	public void setSize(int s) {
 		this.size = s;
 	}
@@ -41,7 +41,7 @@ public class Room {
 		this.isBooked = false;
 	}
 
-	// Getter
+	///////////////////////// Getter /////////////////////////
 	public int getSize() {
 		return this.size;
 	}
