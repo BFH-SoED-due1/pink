@@ -5,40 +5,53 @@
  */
 package srs;
 
-/**
- * This Class recommends our Booker. A Booker can reserve Rooms.
- */
 public class Booker {
 	private BookerName name;
 	private BookerAddress address;
 
-	/**
-	 * Creates a Booker
-	 */
 	public Booker(BookerName name, BookerAddress address) {
 		this.name = name;
 		this.address = address;
 	}
 
 	/**
-	 * Set the First- and Lastname of the Booker
+	 * Sets the name of the booker
+	 * 
+	 * @param firstName
+	 *            firstname of the booker
+	 * @param lastName
+	 *            lastname of the booker
 	 */
 	public void setName(String firstName, String lastName) {
 		this.name.setName(firstName, lastName);
 	}
 
 	/**
-	 * Set the Name of the Booker
+	 * Sets the firstname of the booker
+	 * 
+	 * @param firstName
+	 *            firstname of the Booker
 	 */
 	public void setFirstName(String firstName) {
 		this.name.setFirstName(firstName);
 	}
 
+	/**
+	 * Sets the lastname of the booker
+	 * 
+	 * @param lastName
+	 *            lastname of the booker
+	 */
 	public void setLastName(String lastName) {
 		this.name.setLastName(lastName);
 	}
 
-	// Address
+	/**
+	 * Sets the address of the booker
+	 * 
+	 * @param lastName
+	 *            lastname of the booker
+	 */
 	public void setAddress(String country, String street, String streetNumber, int postcode, String village, String email) {
 		this.address.setAddress(country, street, streetNumber, postcode, village, email);
 	}

@@ -5,9 +5,6 @@
  */
 package srs;
 
-/**
- * This Class recommends our BookerAddress. A Booker has exactly one Address.
- */
 public class BookerAddress {
 
 	private String country;
