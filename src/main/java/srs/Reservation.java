@@ -22,28 +22,33 @@ public class Reservation {
 		this.booker = b;
 	}
 
-	///////////////////////// Setter /////////////////////////
+	/*Setter*/
+	/**@param r room*/
 	public void setRoom(Room r) {
 		this.room = r;
 	}
-
+	
+	/**@param d date*/
 	public void setDate(Date d) {
 		this.date = d;
 	}
 
+	/**@param from starting time*/
 	public void setFrom(Time from) {
 		this.from = from;
 	}
 
+	/**@param from starting time*/
 	public void setTo(Time to) {
 		this.to = to;
 	}
 
+	/**@param b booker*/
 	public void setBooker(Booker b) {
 		this.booker = b;
 	}
 
-	///////////////////////// Getter /////////////////////////
+	/*Getter*/
 	public Room getRoom() {
 		return room;
 	}

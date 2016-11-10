@@ -9,6 +9,7 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
+import controller.exceptions.ReservationNotFoundException;
 import srs.Booker;
 import srs.Reservation;
 import srs.Room;
@@ -18,61 +19,31 @@ public interface IReservationController {
 
 	/**
 	 * Reserve a room
-	 * @param reservations
-	 *            all reservations in srs
-	 * @param b
-	 *            booker who want to reservate a roome
-	 * @param d
-	 *            date
-	 * @param from
-	 *            starting time
-	 * @param to
-	 *            end time
-	 * @param r
-	 *            the room to reserve
+	 * 
+	 * @param b booker who want to reservate a roome
+	 * @param d date
+	 * @param from starting time
+	 * @param to end time
+	 * @param r the room to reserve
 	 */
-	public void reservate(List<Reservation> reservations, Booker b, Date d, Time from, Time to, Room r);
+	public List<Reservation> reservate(Booker b, Date d, Time from, Time to, Room r);
 
 	/**
 	 * Cancel a reservation
-	 * @param reservations
-	 *            all reservations in srs
-	 * @param b
-	 *            booker who want to reservate a roome
-	 * @param d
-	 *            date
-	 * @param from
-	 *            starting time
-	 * @param to
-	 *            end time
-	 * @param r
-	 *            the room to reserve
+	 * 
+	 * @param b booker who want to reservate a roome
+	 * @param d date
+	 * @param from starting time
+	 * @param to end time
+	 * @param r the room to reserve
+	 * @throws ReservationNotFoundException if reservation will not be found
 	 */
-	public void cacel(List<Reservation> reservations, Booker b, Date d, Time from, Time to, Room r);
+	public List<Reservation> cancel(Booker b, Date d, Time from, Time to, Room r) throws ReservationNotFoundException;
 
 	/**
 	 * Show all reservations
-	 * 
 	 * @return the list with all reservations
 	 */
 	public List<Reservation> showReservations();
-
-	/**
-	 * Show only the reservated rooms
-	 * 
-	 * @param reservations
-	 *            all reservations in srs
-	 * @return the list with all reservations
-	 */
-	public List<Reservation> showReservatedRooms(List<Reservation> reservations);
-
-	/**
-	 * Show only free rooms
-	 * 
-	 * @param reservations
-	 *            all reservations in srs
-	 * @return the list with all reservations
-	 */
-	public List<Reservation> showFreeRooms(List<Reservation> reservations);
 
 }
