@@ -17,9 +17,9 @@ public class Booker {
 	/**
 	 * Sets the name of the booker
 	 * 
-	 * @param firstName
+	 * @param firstName:
 	 *            firstname of the booker
-	 * @param lastName
+	 * @param lastName:
 	 *            lastname of the booker
 	 */
 	public void setName(String firstName, String lastName) {
@@ -29,7 +29,7 @@ public class Booker {
 	/**
 	 * Sets the firstname of the booker
 	 * 
-	 * @param firstName
+	 * @param firstName:
 	 *            firstname of the Booker
 	 */
 	public void setFirstName(String firstName) {
@@ -52,7 +52,8 @@ public class Booker {
 	 * @param lastName
 	 *            lastname of the booker
 	 */
-	public void setAddress(String country, String street, String streetNumber, int postcode, String village, String email) {
+	public void setAddress(String country, String street, String streetNumber, int postcode, String village,
+			String email) {
 		this.address.setAddress(country, street, streetNumber, postcode, village, email);
 	}
 

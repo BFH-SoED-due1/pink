@@ -31,7 +31,6 @@ public class BookerControllerTest {
 	public void testIfBookerExists() {
 		List<Booker> list = new ArrayList<Booker>();
 		BookerController controller = new BookerController();
-
 		list.add(donald);
 		list.add(mickey);
 		list.add(bambi);
@@ -44,7 +43,6 @@ public class BookerControllerTest {
 	public void testSaveBookerOk() {
 		List<Booker> list = new ArrayList<Booker>();
 		BookerController controller = new BookerController();
-
 		list.add(donald);
 		list.add(mickey);
 		list.add(bambi);
@@ -60,7 +58,6 @@ public class BookerControllerTest {
 	public void testDeleteBooker() {
 		List<Booker> list = new ArrayList<Booker>();
 		BookerController controller = new BookerController();
-
 		list.add(donald);
 		list.add(mickey);
 		list.add(bambi);
@@ -80,12 +77,12 @@ public class BookerControllerTest {
 	public void testEditBooker() {
 		List<Booker> list = new ArrayList<Booker>();
 		BookerController controller = new BookerController();
-
 		list.add(donald);
 		list.add(mickey);
 		list.add(bambi);
 
 		// to be continued....
-		// assertTrue(controller.editBooker(list, bambi.getEmail()) instanceof Booker);
+		// assertTrue(controller.editBooker(list, bambi.getEmail()) instanceof
+		// Booker);
 	}
 }

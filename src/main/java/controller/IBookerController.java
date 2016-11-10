@@ -11,7 +11,7 @@ import srs.Booker;
 public interface IBookerController {
 	/** Responsible for administrate booker-class */
 
-	/**  control if login already exists in srs
+	/** control if login already exists in srs
 	 *  login = id
 	 *  @param bookers: the list with all bookers saved
 	 *  @param email: the login

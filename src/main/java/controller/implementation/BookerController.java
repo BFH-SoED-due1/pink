@@ -45,14 +45,14 @@ public class BookerController implements IBookerController {
 	// to be continued
 	@Override
 	public Booker editBooker(List<Booker> bookers, String email) throws RuntimeException {
-		// if (exists(bookers, email)) {
-		// for (int i = 0; i < bookers.size(); i++) {
-		// if (bookers.get(i).getEmail().equals(email))
-		// return bookers.get(i).getBooker();
-		// else
-		// throw new RuntimeException("Error during editing the booker");
-		// }
-		// }
+		if (exists(bookers, email)) {
+			for (int i = 0; i < bookers.size(); i++) {
+				if (bookers.get(i).getEmail().equals(email))
+					return bookers.get(i).getBooker();
+				else
+					throw new RuntimeException("Error during editing the booker");
+			}
+		}
 		return null;
 	}
 }
