@@ -42,6 +42,14 @@ public class SystemUser {
 		this.isAdmin = false;
 	}
 
+	public void login() {
+		this.isLoggedIn = true;
+	}
+
+	public void logout() {
+		this.isLoggedIn = false;
+	}
+
 	///////////////////////// Getter /////////////////////////
 	public String getFirstName() {
 		return this.firstName;
@@ -61,5 +69,9 @@ public class SystemUser {
 
 	public boolean isAdmin() {
 		return this.isAdmin;
+	}
+
+	public boolean isLoggedIn() {
+		return this.isLoggedIn;
 	}
 }
