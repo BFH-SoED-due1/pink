@@ -15,7 +15,7 @@ public interface ILogInController {
 	 * Sets the status to logged in
 	 * 
 	 * @param users
-	 *            all users of srs, user && admins
+	 *            all users of srs, user admins
 	 * @param login
 	 *            the login of a specific user
 	 * @param password
