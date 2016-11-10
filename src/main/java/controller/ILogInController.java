@@ -15,21 +15,16 @@ public interface ILogInController {
 	 * Sets the status to logged in
 	 * 
 	 * @param users
-	 *            all users of srs (==>important user && admins)
+	 *            all users of srs, user && admins
 	 * @param login
-	 *            the login of a specific user/admin
-	 * @return status is logged in
+	 *            the login of a specific user
+	 * @param password
+	 *            the password of a specific user
 	 */
 	public void login(List<SystemUser> users, String login, String password);
 
 	/**
 	 * Sets the status to logged out
-	 * 
-	 * @param users
-	 *            all users of srs (==>important user && admins)
-	 * @param login
-	 *            the login of a specific user/admin
-	 * @return status is logged out
 	 */
 	public void logout();
 }

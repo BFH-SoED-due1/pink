@@ -14,7 +14,7 @@ import srs.SystemUser;
 public class LogInController implements ILogInController {
 	/** Implementation for login/lougout */
 
-	private List<SystemUser> userList = new ArrayList<SystemUser>();
+	private List<SystemUser> userList = new ArrayList();
 
 	@Override
 	public void login(List<SystemUser> users, String login, String password) {
