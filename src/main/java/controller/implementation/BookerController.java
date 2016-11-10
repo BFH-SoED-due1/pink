@@ -9,6 +9,7 @@ import java.util.List;
 
 import controller.IBookerController;
 import controller.exceptions.BookerLoginException;
+import controller.exceptions.BookerNotFoundException;
 import srs.Booker;
 
 public class BookerController implements IBookerController {
@@ -25,7 +26,7 @@ public class BookerController implements IBookerController {
 
 	@Override
 	public void saveBooker(List<Booker> bookers, Booker booker) {
-		if (!exists(bookers, booker.getLogin()))
+		if (exists(bookers, booker.getLogin()))
 			bookers.add(booker);
 		else
 			throw new BookerLoginException("A user with this login allready exists.\nChose another one.");
@@ -42,17 +43,16 @@ public class BookerController implements IBookerController {
 		return bookers;
 	}
 
-	// to be continued
 	@Override
-	public Booker editBooker(List<Booker> bookers, String email) throws RuntimeException {
+	public void editBooker(List<Booker> bookers, String email, String newFName, String newLName, String newEmail)
+			throws BookerNotFoundException {
 		if (exists(bookers, email)) {
 			for (int i = 0; i < bookers.size(); i++) {
-				if (bookers.get(i).getLogin().equals(email))
-					return bookers.get(i).getBooker();
-				else
-					throw new RuntimeException("Error during editing the booker");
+				bookers.get(i).setFirstName(newFName);
+				bookers.get(i).setLastName(newLName);
+				bookers.get(i).setLogin(newEmail);
 			}
-		}
-		return null;
+		} else
+			throw new BookerNotFoundException("The booker was not found");
 	}
 }

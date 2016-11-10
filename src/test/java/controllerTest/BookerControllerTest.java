@@ -13,14 +13,16 @@ import java.util.List;
 
 import org.junit.Test;
 
+import controller.exceptions.BookerLoginException;
+import controller.exceptions.BookerNotFoundException;
 import controller.implementation.BookerController;
 import srs.Booker;
 
 public class BookerControllerTest {
-	Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
-	Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
+	Booker donald = new Booker("Donald", "Duck", "donald@disney.com");
+	Booker mickey = new Booker("Mickey", "Mouse", "mickey@disney.com");
 	Booker bambi = new Booker("Bambi", "Bambini", "bambi@disney.com");
-	Booker balu = new Booker("Balu", "Bär", "balu@disney.com");
+	Booker balu = new Booker("Balu", "Bär", "donald@disney.com");
 
 	@Test
 	public void testIfBookerExists() {
@@ -29,24 +31,24 @@ public class BookerControllerTest {
 		list.add(donald);
 		list.add(mickey);
 		list.add(bambi);
-		list.add(balu);
 
 		assertTrue(controller.exists(list, donald.getLogin()));
 	}
 
-	@Test
+	@Test(expected = BookerLoginException.class)
 	public void testSaveBookerOk() {
 		List<Booker> list = new ArrayList<Booker>();
 		BookerController controller = new BookerController();
 		list.add(donald);
 		list.add(mickey);
-		list.add(bambi);
 
+		assertEquals(2, list.size());
+		controller.saveBooker(list, bambi);
 		assertEquals(3, list.size());
-		controller.saveBooker(list, balu);
-		assertEquals(4, list.size());
 
-		assertTrue(list.get(list.size() - 1).getFirstName().equals(balu.getFirstName()));
+		assertTrue(list.get(list.size() - 1).getFirstName().equals(bambi.getFirstName()));
+
+		list.add(balu);
 	}
 
 	@Test
@@ -69,15 +71,17 @@ public class BookerControllerTest {
 	}
 
 	@Test
-	public void testEditBooker() {
+	public void testEditBooker() throws BookerNotFoundException {
 		List<Booker> list = new ArrayList<Booker>();
 		BookerController controller = new BookerController();
 		list.add(donald);
 		list.add(mickey);
 		list.add(bambi);
 
-		// to be continued....
-		// assertTrue(controller.editBooker(list, bambi.getEmail()) instanceof
-		// Booker);
+		controller.editBooker(list, donald.getLogin(), balu.getFirstName(), balu.getLastName(), balu.getLogin());
+		assertEquals(balu.getFirstName(), list.get(0).getFirstName());
+		assertEquals(balu.getLastName(), list.get(0).getLastName());
+		assertEquals(balu.getLogin(), list.get(0).getLogin());
+
 	}
 }

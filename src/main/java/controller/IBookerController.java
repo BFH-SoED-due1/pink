@@ -7,6 +7,7 @@ package controller;
 
 import java.util.List;
 
+import controller.exceptions.BookerNotFoundException;
 import srs.Booker;
 
 public interface IBookerController {
@@ -51,8 +52,15 @@ public interface IBookerController {
 	 *            the list with all bookers saved
 	 * @param email
 	 *            the bookers id
-	 * @return Booker
+	 * @param newFName
+	 *            the edited first name
+	 * @param newLName
+	 *            the edited last name
+	 * @param newEmail
+	 *            the edited new email address
+	 * 
 	 */
-	public Booker editBooker(List<Booker> bookers, String email);
+	public void editBooker(List<Booker> bookers, String email, String newFName, String newLName, String newEmail)
+			throws BookerNotFoundException;
 
 }
