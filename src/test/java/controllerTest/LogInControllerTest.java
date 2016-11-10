@@ -15,7 +15,7 @@ public class LogInControllerTest {
 
 	@Test
 	public void loginTest() {
-
+		// asdf
 	}
 
 }
