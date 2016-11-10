@@ -23,43 +23,73 @@ public class Reservation {
 	}
 
 	// Setter
+	/**
+	 * @param r
+	 */
 	public void setRoom(Room r) {
 		this.room = r;
 	}
 
+	/**
+	 * @param d
+	 */
 	public void setDate(Date d) {
 		this.date = d;
 	}
 
+	/**
+	 * @param from
+	 */
 	public void setFrom(Time from) {
 		this.from = from;
 	}
 
+	/**
+	 * @param to
+	 */
 	public void setTo(Time to) {
 		this.to = to;
 	}
 
+	/**
+	 * @param b
+	 */
 	public void setBooker(Booker b) {
 		this.booker = b;
 	}
 
 	// Getter
+	/**
+	 * @return
+	 */
 	public Room getRoom() {
 		return room;
 	}
 
+	/**
+	 * @return
+	 */
 	public Date getDate() {
 		return date;
 	}
 
+	/**
+	 * @return
+	 */
 	public Date getFrom() {
 		return from;
 	}
 
+	/**
+	 * @return
+	 */
 	public Date getTo() {
 		return to;
 	}
 
+	/**
+	 * @return
+	 */
 	public Booker getBooker() {
 		return booker;
 	}

@@ -21,39 +21,66 @@ public class Room {
 	}
 
 	// Setter
+	/**
+	 * @param s
+	 */
 	public void setSize(int s) {
 		this.size = s;
 	}
 
+	/**
+	 * @param n
+	 */
 	public void setName(String n) {
 		this.name = n;
 	}
 
+	/**
+	 * @param d
+	 */
 	public void setDescription(String d) {
 		this.description = d;
 	}
 
+	/**
+	 * 
+	 */
 	public void setBooked() {
 		this.isBooked = true;
 	}
 
+	/**
+	 * 
+	 */
 	public void removeBooking() {
 		this.isBooked = false;
 	}
 
 	// Getter
+	/**
+	 * @return
+	 */
 	public int getSize() {
 		return this.size;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getName() {
 		return this.name;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getDescription() {
 		return this.description;
 	}
 
+	/**
+	 * @return
+	 */
 	public boolean isBooked() {
 		return this.isBooked;
 	}

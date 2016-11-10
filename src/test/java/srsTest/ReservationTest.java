@@ -401,6 +401,7 @@ public class ReservationTest {
 		assertEquals(res.getTo().getSeconds(), 14);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void setBooker() {
 		Room r = new Room(123, "Room123", "Description132");
