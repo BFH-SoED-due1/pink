@@ -1,6 +1,7 @@
-/**
- * Class SystemUserTest.java
- * Author dha
+/*
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
+ * Project Smart Reservation System.
+ * Distributable under GPL license. See terms of license at gnu.org.
  */
 package controllerTest;
 
@@ -12,13 +13,8 @@ import org.junit.Test;
 
 import srs.SystemUser;
 
-/**
- * @author dha
- *
- */
 public class SystemUserTest {
-
-	// Test SystemUser-class
+	/* Test SystemUser-class */
 
 	private final String firstName = "Donald";
 	private final String newFirstName = "Mickey";
