@@ -14,17 +14,6 @@ public interface IBookerController {
 	/** Responsible for administrate booker-class */
 
 	/**
-	 * control if login already exists in srs login = id
-	 * 
-	 * @param bookers
-	 *            the list with all bookers saved
-	 * @param email
-	 *            the login
-	 * @return true there is a user with this login in the bookers-list
-	 */
-	public boolean exists(List<Booker> bookers, String email);
-
-	/**
 	 * Save new booker
 	 * 
 	 * @param bookers
@@ -42,6 +31,7 @@ public interface IBookerController {
 	 * @param email
 	 *            the booker's id
 	 * @return Booker
+	 * @throws BookerNotFoundException
 	 */
 	public List<Booker> deleteBooker(List<Booker> bookers, String email);
 
