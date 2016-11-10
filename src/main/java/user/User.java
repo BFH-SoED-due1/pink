@@ -60,10 +60,8 @@ public class User implements ISystemUser {
 	@Override
 	public void removeAdmin() {
 		this.isAdmin = false;
-		/*
-		 * Wenn Admin-Rechte entfernt werden, wird einem ehemaligen Admin das
-		 * User-Recht zugewiesen (im Fall von Ferienvertretung, .... o.ä.)
-		 */
+		/*Wenn Admin-Rechte entfernt werden, wird einem ehemaligen Admin das
+		 * User-Recht zugewiesen (im Fall von Ferienvertretung, .... o.ä.)*/
 		setUser();
 	}
 
