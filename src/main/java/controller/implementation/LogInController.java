@@ -5,6 +5,7 @@
  */
 package controller.implementation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import controller.ILogInController;
@@ -12,6 +13,20 @@ import srs.SystemUser;
 
 public class LogInController implements ILogInController {
 	/** Implementation for login/lougout */
+
+	private List<SystemUser> userList = new ArrayList<SystemUser>();
+
+	@Override
+	public void login(List<SystemUser> users, String login, String password) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void logout() {
+		// TODO Auto-generated method stub
+
+	}
 
 	public boolean exists(List<SystemUser> users, String login) {
 		boolean bool = false;
@@ -35,25 +50,6 @@ public class LogInController implements ILogInController {
 		return bool;
 	}
 
-	@Override
-	public List<SystemUser> getUsers(List<SystemUser> users) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void login(List<SystemUser> users, String login, String password) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void logout(List<SystemUser> users, String login) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public boolean isLoggedIn(List<SystemUser> users, String login) {
 		// TODO Auto-generated method stub
 		return false;

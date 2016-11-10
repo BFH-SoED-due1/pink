@@ -5,7 +5,8 @@
  */
 package controller;
 
-import java.util.*;
+import java.util.List;
+
 import srs.SystemUser;;
 
 public interface ILogInController {
@@ -30,25 +31,5 @@ public interface ILogInController {
 	 *            the login of a specific user/admin
 	 * @return status is logged out
 	 */
-	public void logout(List<SystemUser> users, String login);
-
-	/**
-	 * Check if user is logged in
-	 * 
-	 * @param users:
-	 *            all users of srs (==>important user && admins)
-	 * @param login:
-	 *            the login of a specific user/admin
-	 * @return true if user is logged in, otherwise false
-	 */
-	public boolean isLoggedIn(List<SystemUser> users, String login);
-
-	/**
-	 * Get the SystemUsers-List
-	 * 
-	 * @param users:
-	 *            all users of srs (==>important user && admins)
-	 * @return the list with all users/admins in srs
-	 */
-	public List<SystemUser> getUsers(List<SystemUser> users);
+	public void logout();
 }
