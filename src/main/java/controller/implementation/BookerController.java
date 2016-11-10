@@ -8,7 +8,7 @@ package controller.implementation;
 import java.util.List;
 
 import controller.IBookerController;
-import controller.exceptions.LoginException;
+import controller.exceptions.BookerLoginException;
 import srs.Booker;
 
 public class BookerController implements IBookerController {
@@ -28,7 +28,7 @@ public class BookerController implements IBookerController {
 		if (!exists(bookers, booker.getEmail()))
 			bookers.add(booker);
 		else
-			throw new LoginException("A user with this login allready exists.\nChose another one.");
+			throw new BookerLoginException("A user with this login allready exists.\nChose another one.");
 	}
 
 	@Override
