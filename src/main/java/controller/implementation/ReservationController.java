@@ -26,7 +26,6 @@ public class ReservationController implements IReservationController {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see controller.IReservationController#showReservations()
 	 */
 	@Override
@@ -36,7 +35,6 @@ public class ReservationController implements IReservationController {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see controller.IReservationController#reservate(srs.Booker,
 	 * java.util.Date, java.sql.Time, java.sql.Time, srs.Room)
 	 */
@@ -48,7 +46,6 @@ public class ReservationController implements IReservationController {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see controller.IReservationController#cancel(srs.Booker, java.util.Date,
 	 * java.sql.Time, java.sql.Time, srs.Room)
 	 */

@@ -19,7 +19,6 @@ public interface IReservationController {
 
 	/**
 	 * Reserve a room
-	 * 
 	 * @param b booker who want to reservate a roome
 	 * @param d date
 	 * @param from starting time
@@ -31,7 +30,6 @@ public interface IReservationController {
 
 	/**
 	 * Cancel a reservation
-	 * 
 	 * @param b booker who want to reservate a roome
 	 * @param d date
 	 * @param from starting time
