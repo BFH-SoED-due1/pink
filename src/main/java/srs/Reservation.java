@@ -38,7 +38,7 @@ public class Reservation {
 		this.from = from;
 	}
 
-	/**@param from starting time*/
+	/**@param to starting time*/
 	public void setTo(Time to) {
 		this.to = to;
 	}
@@ -49,22 +49,27 @@ public class Reservation {
 	}
 
 	/*Getter*/
+	/**@return the room*/
 	public Room getRoom() {
 		return room;
 	}
 
+	/**@return the date*/
 	public Date getDate() {
 		return date;
 	}
 
+	/**@return time from*/
 	public Date getFrom() {
 		return from;
 	}
 
+	/**@return time to*/
 	public Date getTo() {
 		return to;
 	}
 
+	/**@return the booker*/
 	public Booker getBooker() {
 		return booker;
 	}
