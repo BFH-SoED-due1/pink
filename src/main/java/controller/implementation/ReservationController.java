@@ -18,10 +18,10 @@ import srs.Room;
 public class ReservationController implements IReservationController {
 	/** Implementation for administrate the reservations */
 
-	private List<Reservation> reservation;
+	private List<Reservation> reservations;
 
 	public ReservationController(List<Reservation> reservations) {
-		this.reservation = reservations;
+		this.reservations = reservations;
 	}
 
 	/*
@@ -30,7 +30,7 @@ public class ReservationController implements IReservationController {
 	 */
 	@Override
 	public List<Reservation> showReservations() {
-		return this.reservation;
+		return this.reservations;
 	}
 
 	/*
@@ -40,8 +40,8 @@ public class ReservationController implements IReservationController {
 	 */
 	@Override
 	public List<Reservation> reservate(Booker booker, Date date, Time from, Time to, Room room) {
-		this.reservation.add(new Reservation(room, date, from, to, booker));
-		return this.reservation;
+		this.reservations.add(new Reservation(room, date, from, to, booker));
+		return this.reservations;
 	}
 
 	/*
@@ -52,14 +52,14 @@ public class ReservationController implements IReservationController {
 	@Override
 	public List<Reservation> cancel(Booker booker, Date date, Time from, Time to, Room room)
 			throws ReservationNotFoundException {
-		for (int i = 0; i < this.reservation.size(); i++) {
-			if (this.reservation.get(i).getBooker().equals(booker) && this.reservation.get(i).getDate().equals(date)
-					&& this.reservation.get(i).getFrom().equals(from) && this.reservation.get(i).getTo().equals(to)
-					&& this.reservation.get(i).getRoom().equals(room))
-				this.reservation.remove(i);
+		for (int i = 0; i < this.reservations.size(); i++) {
+			if (this.reservations.get(i).getBooker().equals(booker) && this.reservations.get(i).getDate().equals(date)
+					&& this.reservations.get(i).getFrom().equals(from) && this.reservations.get(i).getTo().equals(to)
+					&& this.reservations.get(i).getRoom().equals(room))
+				this.reservations.remove(i);
 			else
 				throw new ReservationNotFoundException("The reservation you are looking for, was not found.");
 		}
-		return this.reservation;
+		return this.reservations;
 	}
 }
