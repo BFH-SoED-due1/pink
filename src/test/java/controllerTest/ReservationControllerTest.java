@@ -117,10 +117,9 @@ public class ReservationControllerTest {
 		assertEquals(list.get(1).getDate(), temp.get(1).getDate());
 		assertEquals(list.get(1).getRoom(), temp.get(1).getRoom());
 
-		// /*
-		// * not same objects <=> hashcode first object != hashcode second
-		// object
-		// */
-		// assertNotEquals(list, temp);
+		/*
+		 * not same objects <=> hashcode first object != hashcode second object
+		 */
+		assertNotEquals(list, temp);
 	}
 }
