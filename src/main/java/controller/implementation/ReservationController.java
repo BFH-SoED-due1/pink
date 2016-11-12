@@ -18,10 +18,10 @@ import srs.Room;
 public class ReservationController implements IReservationController {
 	/** Implementation for administrate the reservations */
 
-	private List<Reservation> reservations;
+	private List<Reservation> reservationList;
 
 	public ReservationController(List<Reservation> reservations) {
-		this.reservations = reservations;
+		this.reservationList = reservations;
 	}
 
 	/*
@@ -30,7 +30,7 @@ public class ReservationController implements IReservationController {
 	 */
 	@Override
 	public List<Reservation> showReservations() {
-		return this.reservations;
+		return this.reservationList;
 	}
 
 	/*
@@ -40,8 +40,8 @@ public class ReservationController implements IReservationController {
 	 */
 	@Override
 	public List<Reservation> reservate(Booker booker, Date date, Time from, Time to, Room room) {
-		this.reservations.add(new Reservation(room, date, from, to, booker));
-		return this.reservations;
+		this.reservationList.add(new Reservation(room, date, from, to, booker));
+		return this.reservationList;
 	}
 
 	/*
@@ -52,14 +52,14 @@ public class ReservationController implements IReservationController {
 	@Override
 	public List<Reservation> cancel(Booker booker, Date date, Time from, Time to, Room room)
 			throws ReservationNotFoundException {
-		for (int i = 0; i < this.reservations.size(); i++) {
-			if (this.reservations.get(i).getBooker().equals(booker) && this.reservations.get(i).getDate().equals(date)
-					&& this.reservations.get(i).getFrom().equals(from) && this.reservations.get(i).getTo().equals(to)
-					&& this.reservations.get(i).getRoom().equals(room))
-				this.reservations.remove(i);
+		for (int i = 0; i < this.reservationList.size(); i++) {
+			if (this.reservationList.get(i).getBooker().equals(booker) && this.reservationList.get(i).getDate().equals(date)
+					&& this.reservationList.get(i).getFrom().equals(from) && this.reservationList.get(i).getTo().equals(to)
+					&& this.reservationList.get(i).getRoom().equals(room))
+				this.reservationList.remove(i);
 			else
 				throw new ReservationNotFoundException("The reservation you are looking for, was not found.");
 		}
-		return this.reservations;
+		return this.reservationList;
 	}
 }
