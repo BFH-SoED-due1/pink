@@ -117,7 +117,7 @@ public class RoomController implements IRoomController {
 		if (size <= 0 || description.isEmpty())
 			notEmpty = false;
 		if (!notEmpty)
-			throw new IllegalArgumentException("Input is empty!");
+			throw new IllegalArgumentException("Input is empty! Size have to be greater than 0!");
 		return notEmpty;
 	}
 }
