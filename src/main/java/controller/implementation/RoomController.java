@@ -51,12 +51,6 @@ public class RoomController implements IRoomController {
 					break;
 				}
 			}
-//			for (Room room : roomList) {
-//				if (room.getName().equals(roomName)) {
-//					roomList.remove(room);
-//					break;
-//				}
-//			}
 		}
 		return roomList;
 	}
@@ -77,14 +71,6 @@ public class RoomController implements IRoomController {
 					break;
 				}
 			}
-			
-//			for (Room room : roomList) {
-//				if (room.getName().equals(r.getName())) {
-//					room.setSize(size);
-//					room.setDescription(descr);
-//					break;
-//				}
-//			}
 		}
 	}
 
