@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 import controller.IReservationController;
+import controller.exceptions.ReservationException;
 import controller.exceptions.ReservationNotFoundException;
 import srs.Booker;
 import srs.Reservation;
@@ -26,6 +27,7 @@ public class ReservationController implements IReservationController {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see controller.IReservationController#showReservations()
 	 */
 	@Override
@@ -35,17 +37,24 @@ public class ReservationController implements IReservationController {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see controller.IReservationController#reservate(srs.Booker,
 	 * java.util.Date, java.sql.Time, java.sql.Time, srs.Room)
 	 */
 	@Override
 	public List<Reservation> reservate(Booker booker, Date date, Time from, Time to, Room room) {
-		this.reservationList.add(new Reservation(room, date, from, to, booker));
-		return this.reservationList;
+		if (validateInput(booker, date, from, to, room)) {
+			this.reservationList.add(new Reservation(room, date, from, to, booker));
+			room.setBooked();
+			return this.reservationList;
+		} else
+			throw new ReservationException(
+					"Check your input. A booker needs a first name, last name, login, the room has to be free.");
 	}
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see controller.IReservationController#cancel(srs.Booker, java.util.Date,
 	 * java.sql.Time, java.sql.Time, srs.Room)
 	 */
@@ -53,13 +62,27 @@ public class ReservationController implements IReservationController {
 	public List<Reservation> cancel(Booker booker, Date date, Time from, Time to, Room room)
 			throws ReservationNotFoundException {
 		for (int i = 0; i < this.reservationList.size(); i++) {
-			if (this.reservationList.get(i).getBooker().equals(booker) && this.reservationList.get(i).getDate().equals(date)
-					&& this.reservationList.get(i).getFrom().equals(from) && this.reservationList.get(i).getTo().equals(to)
+			if (this.reservationList.get(i).getBooker().equals(booker)
+					&& this.reservationList.get(i).getDate().equals(date)
+					&& this.reservationList.get(i).getFrom().equals(from)
+					&& this.reservationList.get(i).getTo().equals(to)
 					&& this.reservationList.get(i).getRoom().equals(room))
 				this.reservationList.remove(i);
 			else
 				throw new ReservationNotFoundException("The reservation you are looking for, was not found.");
 		}
 		return this.reservationList;
+	}
+
+	public boolean validateInput(Booker booker, Date date, Time from, Time to, Room room) {
+		boolean isValid = false;
+
+		if (booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || room.isBooked()
+				|| booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || booker.getLogin().isEmpty())
+			isValid = false;
+		else
+			isValid = true;
+
+		return isValid;
 	}
 }

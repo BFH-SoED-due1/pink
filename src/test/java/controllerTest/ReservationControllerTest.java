@@ -15,6 +15,7 @@ import java.util.List;
 import org.junit.Test;
 
 import controller.exceptions.ReservationNotFoundException;
+import controller.exceptions.ReservationException;
 import controller.implementation.ReservationController;
 import srs.Booker;
 import srs.Reservation;
@@ -47,7 +48,7 @@ public class ReservationControllerTest {
 	Room r4 = new Room(20, "Pause 2", "Coffeemashine, Sandwich");
 
 	@Test
-	public void testReservate() {
+	public void testReservateNormal() {
 		List<Reservation> list = new ArrayList<Reservation>();
 		ReservationController ctrl = new ReservationController(list);
 		list = ctrl.reservate(donald, d1, from1, to1, r1);
@@ -57,6 +58,14 @@ public class ReservationControllerTest {
 		temp = list;
 
 		assertEquals(list, temp);
+	}
+
+	@Test(expected = ReservationException.class)
+	public void testReservateExpectException() {
+		List<Reservation> list = new ArrayList<Reservation>();
+		ReservationController ctrl = new ReservationController(list);
+		list = ctrl.reservate(donald, d1, from1, to1, r1);
+		list = ctrl.reservate(micky, d1, from1, to1, r1);
 	}
 
 	@Test
