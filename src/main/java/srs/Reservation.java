@@ -15,7 +15,7 @@ public class Reservation {
 	private Booker booker;
 
 	public Reservation(Room r, Date d, Time from, Time to, Booker b) {
-		setRoom(room);
+		setRoom(r);
 		setDate(d);
 		setFrom(from);
 		setTo(to);
@@ -24,7 +24,7 @@ public class Reservation {
 
 	/* Setter */
 	public void setRoom(Room r) {
-		if (booker == null) {
+		if (r == null) {
 			throw new IllegalArgumentException("A reservation needs a room!");
 		} else
 			this.room = r;

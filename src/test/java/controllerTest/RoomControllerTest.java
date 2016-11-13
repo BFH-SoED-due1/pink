@@ -109,7 +109,7 @@ public class RoomControllerTest {
 	@Test(expected = RoomNotFoundException.class)
 	public void deleteEmptyRoomTest() {
 		Room room = new Room(24, "321", "Classroom");
-		Room room2 = new Room(-1, "", "");
+		Room room2 = new Room(2, "222", "");
 
 		List<Room> list = new ArrayList<Room>();
 		List<Room> expectedList = new ArrayList<Room>();
