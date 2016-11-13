@@ -24,10 +24,10 @@ public class Reservation {
 
 	/* Setter */
 	public void setRoom(Room r) {
-		if (r == null) {
-			throw new IllegalArgumentException("A reservation needs a room!");
-		} else
-			this.room = r;
+		// if (r == null) {
+		// throw new IllegalArgumentException("A reservation needs a room!");
+		// } else
+		this.room = r;
 	}
 
 	public void setDate(Date d) {
@@ -43,10 +43,10 @@ public class Reservation {
 	}
 
 	public void setBooker(Booker b) {
-		if (b == null) {
-			throw new IllegalArgumentException("A reservation needs a booker!");
-		} else
-			this.booker = b;
+		// if (b == null) {
+		// throw new IllegalArgumentException("A reservation needs a booker!");
+		// } else
+		this.booker = b;
 	}
 
 	/* Getter */
