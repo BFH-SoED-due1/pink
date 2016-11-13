@@ -10,10 +10,10 @@ public class SystemUser {
 	private boolean isAdmin, isLoggedIn;
 
 	public SystemUser(String firstName, String lastName, String email, String password, boolean isAdmin) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.login = email;
-		this.password = password;
+		setFirstName(firstName);
+		setLastName(lastName);
+		setLogin(email);
+		setPassword(password);
 		this.isAdmin = isAdmin;
 	}
 
@@ -27,11 +27,17 @@ public class SystemUser {
 	}
 
 	public void setLogin(String email) {
-		this.login = email;
+		if (email.length() <= 0 || !email.contains("@")) {
+			throw new IllegalArgumentException("Email can not be empty, and needs to contain '@'!");
+		} else
+			this.login = email;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		if (password.length() <= 0 || password.contains(" ")) {
+			throw new IllegalArgumentException("Password can not be empty or contain whitespace!");
+		} else
+			this.password = password;
 	}
 
 	public void setAdmin() {

@@ -27,6 +27,16 @@ public class RoomTest {
 		assertEquals(newName, room.getName());
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void testEmptyRoomName() {
+		String name = "";
+		int size = 30;
+		String description = "This is a description!";
+		String newName = "N.522";
+
+		Room room = new Room(size, name, description);
+	}
+
 	@Test
 	public void testSize() {
 		String name = "N.322";
@@ -39,6 +49,16 @@ public class RoomTest {
 
 		room.setSize(newSize);
 		assertEquals(newSize, room.getSize());
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testNegativeSize() {
+		String name = "N.322";
+		int size = -1;
+		String description = "This is a description!";
+		int newSize = 36;
+
+		Room room = new Room(size, name, description);
 	}
 
 	@Test

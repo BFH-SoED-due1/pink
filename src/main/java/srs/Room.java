@@ -14,19 +14,25 @@ public class Room {
 	private boolean isBooked;
 
 	public Room(int size, String name, String descr) {
-		this.size = size;
-		this.name = name;
-		this.description = descr;
+		setSize(size);
+		setName(name);
+		setDescription(descr);
 		this.isBooked = false;
 	}
 
 	///////////////////////// Setter /////////////////////////
 	public void setSize(int s) {
-		this.size = s;
+		if (s <= 0) {
+			throw new IllegalArgumentException("The size of a Room can not be 0 or smaller!");
+		} else
+			this.size = s;
 	}
 
 	public void setName(String n) {
-		this.name = n;
+		if (n.length() <= 0) {
+			throw new IllegalArgumentException("The name of a Room can not be empty!");
+		} else
+			this.name = n;
 	}
 
 	public void setDescription(String d) {

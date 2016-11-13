@@ -15,76 +15,57 @@ public class Reservation {
 	private Booker booker;
 
 	public Reservation(Room r, Date d, Time from, Time to, Booker b) {
-		this.room = r;
-		this.date = d;
-		this.from = from;
-		this.to = to;
-		this.booker = b;
+		setRoom(room);
+		setDate(d);
+		setFrom(from);
+		setTo(to);
+		setBooker(b);
 	}
 
 	/* Setter */
-	/**
-	 * @param r
-	 *            room
-	 */
 	public void setRoom(Room r) {
-		this.room = r;
+		if (booker == null) {
+			throw new IllegalArgumentException("A reservation needs a room!");
+		} else
+			this.room = r;
 	}
 
-	/**
-	 * @param d
-	 *            date
-	 */
 	public void setDate(Date d) {
 		this.date = d;
 	}
 
-	/**
-	 * @param from
-	 *            starting time
-	 */
 	public void setFrom(Time from) {
 		this.from = from;
 	}
 
-	/**
-	 * @param to
-	 *            starting time
-	 */
 	public void setTo(Time to) {
 		this.to = to;
 	}
 
-	/**
-	 * @param b
-	 *            booker
-	 */
 	public void setBooker(Booker b) {
-		this.booker = b;
+		if (b == null) {
+			throw new IllegalArgumentException("A reservation needs a booker!");
+		} else
+			this.booker = b;
 	}
 
 	/* Getter */
-	/** @return the room */
 	public Room getRoom() {
 		return room;
 	}
 
-	/** @return the date */
 	public Date getDate() {
 		return date;
 	}
 
-	/** @return time from */
 	public Date getFrom() {
 		return from;
 	}
 
-	/** @return time to */
 	public Date getTo() {
 		return to;
 	}
 
-	/** @return the booker */
 	public Booker getBooker() {
 		return booker;
 	}

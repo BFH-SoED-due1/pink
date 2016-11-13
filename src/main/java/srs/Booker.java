@@ -9,9 +9,9 @@ public class Booker {
 	private String firstName, lastName, login;
 
 	public Booker(String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.login = email;
+		setFirstName(firstName);
+		setLastName(lastName);
+		setLogin(email);
 	}
 
 	///////////////////////// Setter /////////////////////////
@@ -24,7 +24,10 @@ public class Booker {
 	}
 
 	public void setLogin(String email) {
-		this.login = email;
+		if (email.length() <= 0 || !email.contains("@")) {
+			throw new IllegalArgumentException("Email can not be empty, and needs to contain '@'!");
+		} else
+			this.login = email;
 	}
 
 	///////////////////////// Getter /////////////////////////

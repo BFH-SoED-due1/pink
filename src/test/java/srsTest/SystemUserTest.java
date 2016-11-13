@@ -57,6 +57,16 @@ public class SystemUserTest {
 		assertEquals(usr.getLogin(), newEmail);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void testEmptyEmail() {
+		SystemUser usr = new SystemUser(firstName, lastName, "", password, false);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testEmailWithoutAt() {
+		SystemUser usr = new SystemUser(firstName, lastName, "testemail", password, false);
+	}
+
 	@Test
 	public void testPassword() {
 		// initialization
@@ -66,6 +76,18 @@ public class SystemUserTest {
 		// change value
 		usr.setPassword(newPassword);
 		assertEquals(usr.getPassword(), newPassword);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testEmptyPassword() {
+		// initialization
+		SystemUser usr = new SystemUser(firstName, lastName, email, "", false);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testWhitespacePassword() {
+		// initialization
+		SystemUser usr = new SystemUser(firstName, lastName, email, "12 23", false);
 	}
 
 	@Test
