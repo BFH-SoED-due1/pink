@@ -33,8 +33,8 @@
             <item name="Use Case Diagram" href="doc/UseCaseDiagram.pdf"/>
             <item name="User Stories" href="doc/UserStories.pdf"/>
             <item name="Domain Model" href="doc/DomainModel.pdf"/>
-            <item name="Product Backlog" href="ProductBacklog.pdf"/>
-            <item name="Sprint Backlog" href="SprintBacklog.pdf"/>
+            <item name="Product Backlog" href="doc/ProductBacklog.pdf"/>
+            <item name="Sprint Backlog" href="doc/SprintBacklog.pdf"/>
             <!--
             <item name="System Sequence Diagram" href="system_sequence_diagram.html" />
             <item name="Detailed Design Document" href="detailed_design_document.html" />
