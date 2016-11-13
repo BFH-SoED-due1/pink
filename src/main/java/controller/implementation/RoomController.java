@@ -45,12 +45,18 @@ public class RoomController implements IRoomController {
 	@Override
 	public List<Room> deleteRoom(String roomName) {
 		if (roomExists(roomName)) {
-			for (Room room : roomList) {
-				if (room.getName().equals(roomName)) {
-					roomList.remove(room);
+			for(int i=0; i<this.roomList.size(); i++) {
+				if(this.roomList.get(i).getName().equals(roomName)) {
+					this.roomList.remove(i);
 					break;
 				}
 			}
+//			for (Room room : roomList) {
+//				if (room.getName().equals(roomName)) {
+//					roomList.remove(room);
+//					break;
+//				}
+//			}
 		}
 		return roomList;
 	}
@@ -64,13 +70,21 @@ public class RoomController implements IRoomController {
 	@Override
 	public void editRoom(int size, String descr, Room r) {
 		if (roomExists(r.getName()) && notEmpty(size, descr)) {
-			for (Room room : roomList) {
-				if (room.getName().equals(r.getName())) {
-					room.setSize(size);
-					room.setDescription(descr);
+			for(int i=0; i<this.roomList.size(); i++) {
+				if(this.roomList.get(i).getName().equals(r.getName())) {
+					this.roomList.get(i).setSize(size);
+					this.roomList.get(i).setDescription(descr);
 					break;
 				}
 			}
+			
+//			for (Room room : roomList) {
+//				if (room.getName().equals(r.getName())) {
+//					room.setSize(size);
+//					room.setDescription(descr);
+//					break;
+//				}
+//			}
 		}
 	}
 
