@@ -15,8 +15,7 @@ public interface IBookerController {
 	/**
 	 * Save new booker
 	 * 
-	 * @param booker
-	 *            the new booker to save
+	 * @param booker the new booker to save
 	 * @return list of Bookers
 	 */
 	public List<Booker> saveBooker(Booker booker);
@@ -24,10 +23,8 @@ public interface IBookerController {
 	/**
 	 * Delete new booker
 	 * 
-	 * @param email
-	 *            the list with all bookers saved
-	 * @param email
-	 *            the booker's id
+	 * @param email the list with all bookers saved
+	 * @param email the booker's id
 	 * @return list of Bookers
 	 */
 	public List<Booker> deleteBooker(String email);
@@ -35,12 +32,9 @@ public interface IBookerController {
 	/**
 	 * Edit a booker
 	 * 
-	 * @param firstName
-	 *            the bookers firstname
-	 * @param lastName
-	 *            the bookers lastname
-	 * @param booker
-	 *            the booker object
+	 * @param firstName the bookers firstname
+	 * @param lastName the bookers lastname
+	 * @param booker the booker object
 	 */
 	public void editBooker(String firstName, String lastName, Booker booker);
 }
