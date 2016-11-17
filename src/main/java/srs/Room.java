@@ -6,6 +6,7 @@
 package srs;
 
 public class Room {
+
 	// Room
 	private int size;
 	private String name;
