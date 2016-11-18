@@ -1,43 +1,32 @@
-////////////////////////////////////////////////////////////////////////////////
-// checkstyle: Checks Java source code for adherence to a set of rules.
-// Copyright (C) 2001-2016 the original author or authors.
-//
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 2.1 of the License, or (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library; if not, write to the Free Software
-// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-////////////////////////////////////////////////////////////////////////////////
+/*
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
+ * Project Smart Reservation System.
+ * Distributable under GPL license. See terms of license at gnu.org.
+ */
 package srs;
 
 import java.sql.Time;
 import java.util.Date;
 
 public class Reservation {
-
 	private Room room;
 	private Date date;
-	private Time from, until;
+	private Time from, to;
 	private Booker booker;
 
-	public Reservation(Room r, Date d, Time from, Time until, Booker b) {
-		this.room = r;
-		this.date = d;
-		this.from = from;
-		this.until = until;
-		this.booker = b;
+	public Reservation(Room r, Date d, Time from, Time to, Booker b) {
+		setRoom(r);
+		setDate(d);
+		setFrom(from);
+		setTo(to);
+		setBooker(b);
 	}
 
-	// Setter
+	/* Setter */
 	public void setRoom(Room r) {
+		// if (r == null) {
+		// throw new IllegalArgumentException("A reservation needs a room!");
+		// } else
 		this.room = r;
 	}
 
@@ -49,15 +38,18 @@ public class Reservation {
 		this.from = from;
 	}
 
-	public void setUntil(Time until) {
-		this.until = until;
+	public void setTo(Time to) {
+		this.to = to;
 	}
 
 	public void setBooker(Booker b) {
+		// if (b == null) {
+		// throw new IllegalArgumentException("A reservation needs a booker!");
+		// } else
 		this.booker = b;
 	}
 
-	// Getter
+	/* Getter */
 	public Room getRoom() {
 		return room;
 	}
@@ -70,8 +62,8 @@ public class Reservation {
 		return from;
 	}
 
-	public Date getUntil() {
-		return until;
+	public Date getTo() {
+		return to;
 	}
 
 	public Booker getBooker() {

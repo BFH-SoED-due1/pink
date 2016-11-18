@@ -1,8 +1,11 @@
-/*Copyright (c) 2016 Berner Fachhochschule, Switzerland.
+/*
+ * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
  * Project Smart Reservation System.
- * Distributable under GPL license. See terms of license at gnu.org.*/
+ * Distributable under GPL license. See terms of license at gnu.org.
+ */
+package webUI;
 
-package ch.bfh.ti.soed.hs16.srs.pink;
+//test
 
 import javax.servlet.annotation.WebServlet;
 
@@ -25,6 +28,7 @@ import com.vaadin.ui.VerticalLayout;
  * intended to be overridden to add component to the user interface and
  * initialize non-component functionality.
  */
+
 @SuppressWarnings("serial")
 @Theme("mytheme")
 public class MyUI extends UI {
