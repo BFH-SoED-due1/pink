@@ -3,7 +3,7 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package srs;
+package jpa;
 
 import java.sql.Time;
 import java.util.Date;

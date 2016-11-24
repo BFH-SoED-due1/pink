@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import srs.Room;
+import jpa.Room;
 
 public class RoomTest {
 	// Test room

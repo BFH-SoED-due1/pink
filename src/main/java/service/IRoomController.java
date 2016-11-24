@@ -3,11 +3,11 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package controller;
+package service;
 
 import java.util.List;
 
-import srs.Room;
+import jpa.Room;
 
 public interface IRoomController {
 	/** Responsible for administrate the rooms */

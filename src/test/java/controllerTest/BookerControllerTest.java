@@ -12,9 +12,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import controller.exceptions.BookerLoginException;
-import controller.implementation.BookerController;
-import srs.Booker;
+import jpa.Booker;
+import service.implementation.BookerController;
+import service.implementation.exceptions.BookerLoginException;
 
 public class BookerControllerTest {
 

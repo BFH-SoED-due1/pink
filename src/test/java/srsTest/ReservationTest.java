@@ -10,9 +10,9 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import srs.Booker;
-import srs.Reservation;
-import srs.Room;
+import jpa.Booker;
+import jpa.Reservation;
+import jpa.Room;
 
 public class ReservationTest {
 	// Test reservation

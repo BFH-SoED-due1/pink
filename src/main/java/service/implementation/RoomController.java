@@ -3,15 +3,15 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package controller.implementation;
+package service.implementation;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.IRoomController;
-import controller.exceptions.RoomNameException;
-import controller.exceptions.RoomNotFoundException;
-import srs.Room;
+import jpa.Room;
+import service.IRoomController;
+import service.implementation.exceptions.RoomNameException;
+import service.implementation.exceptions.RoomNotFoundException;
 
 public class RoomController implements IRoomController {
 	/** Implementation for administrate the rooms */

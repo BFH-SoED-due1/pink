@@ -3,15 +3,15 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package controller.implementation;
+package service.implementation;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.IBookerController;
-import controller.exceptions.BookerLoginException;
-import controller.exceptions.BookerNotFoundException;
-import srs.Booker;
+import jpa.Booker;
+import service.IBookerController;
+import service.implementation.exceptions.BookerLoginException;
+import service.implementation.exceptions.BookerNotFoundException;
 
 public class BookerController implements IBookerController {
 	/** Implementation for administrate booker */

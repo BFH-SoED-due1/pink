@@ -12,9 +12,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import controller.exceptions.UserLoginFailedException;
-import controller.implementation.LogInController;
-import srs.SystemUser;
+import jpa.SystemUser;
+import service.implementation.LogInController;
+import service.implementation.exceptions.UserLoginFailedException;
 
 public class LogInControllerTest {
 

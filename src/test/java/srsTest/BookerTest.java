@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import srs.Booker;
+import jpa.Booker;
 
 public class BookerTest {
 	/** Test classes booker, bookerName */

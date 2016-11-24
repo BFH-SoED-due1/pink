@@ -3,14 +3,14 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package controller.implementation;
+package service.implementation;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.ILogInController;
-import controller.exceptions.UserLoginFailedException;
-import srs.SystemUser;
+import jpa.SystemUser;
+import service.ILogInController;
+import service.implementation.exceptions.UserLoginFailedException;
 
 public class LogInController implements ILogInController {
 	/** Implementation for login/lougout */

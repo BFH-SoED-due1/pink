@@ -3,18 +3,18 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package controller.implementation;
+package service.implementation;
 
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
-import controller.IReservationController;
-import controller.exceptions.ReservationException;
-import controller.exceptions.ReservationNotFoundException;
-import srs.Booker;
-import srs.Reservation;
-import srs.Room;
+import jpa.Booker;
+import jpa.Reservation;
+import jpa.Room;
+import service.IReservationController;
+import service.implementation.exceptions.ReservationException;
+import service.implementation.exceptions.ReservationNotFoundException;
 
 public class ReservationController implements IReservationController {
 	/** Implementation for administrate the reservations */

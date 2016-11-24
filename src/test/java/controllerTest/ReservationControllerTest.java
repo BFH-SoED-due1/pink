@@ -14,12 +14,12 @@ import java.util.List;
 
 import org.junit.Test;
 
-import controller.exceptions.ReservationNotFoundException;
-import controller.exceptions.ReservationException;
-import controller.implementation.ReservationController;
-import srs.Booker;
-import srs.Reservation;
-import srs.Room;
+import jpa.Booker;
+import jpa.Reservation;
+import jpa.Room;
+import service.implementation.ReservationController;
+import service.implementation.exceptions.ReservationException;
+import service.implementation.exceptions.ReservationNotFoundException;
 
 @SuppressWarnings("deprecation")
 public class ReservationControllerTest {

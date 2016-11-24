@@ -12,10 +12,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import controller.exceptions.RoomNameException;
-import controller.exceptions.RoomNotFoundException;
-import controller.implementation.RoomController;
-import srs.Room;
+import jpa.Room;
+import service.implementation.RoomController;
+import service.implementation.exceptions.RoomNameException;
+import service.implementation.exceptions.RoomNotFoundException;
 
 public class RoomControllerTest {
 
