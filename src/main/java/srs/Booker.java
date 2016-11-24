@@ -6,7 +6,7 @@
 package srs;
 
 public class Booker {
-	private String firstName, lastName, login;
+	private String firstName, lastName, login, id;
 
 	public Booker(String firstName, String lastName, String email) {
 		setFirstName(firstName);
