@@ -7,9 +7,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import jpa.Room;
+import jpa.RoomEquipment;
 
 public class RoomTest {
 	// Test room
@@ -100,5 +104,35 @@ public class RoomTest {
 		room.removeBooking();
 		assertFalse(room.isBooked());
 
+	}
+
+	@Test
+	public void testRoomEquipment() {
+		Room room = new Room(30, "N.321", "This is a description!");
+
+		RoomEquipment eq1 = new RoomEquipment("Blackboard", 1);
+		RoomEquipment eq2 = new RoomEquipment("Beamer", 2);
+
+		List<RoomEquipment> testList = new ArrayList<RoomEquipment>();
+
+		room.addEquipment(eq1);
+		testList.add(eq1);
+		assertEquals(testList, room.getEquipmentList());
+
+		room.addEquipment(eq2);
+		testList.add(eq2);
+		assertEquals(testList, room.getEquipmentList());
+
+		List<RoomEquipment> eqList = room.getEquipmentList();
+
+		for (RoomEquipment eq : eqList) {
+			if (eq.getName().equals("Beamer")) {
+				room.removeEquipment(eq);
+				break;
+			}
+		}
+		testList.remove(eq2);
+
+		assertEquals(testList, room.getEquipmentList());
 	}
 }

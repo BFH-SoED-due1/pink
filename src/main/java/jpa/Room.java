@@ -5,18 +5,33 @@
  */
 package jpa;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Room {
 	// Room
 	private int size;
 	private String name;
 	private String description;
+	private List<RoomEquipment> equipmentList;
 	private boolean isBooked;
 
 	public Room(int size, String name, String descr) {
+		equipmentList = new ArrayList<RoomEquipment>();
 		setSize(size);
 		setName(name);
 		setDescription(descr);
 		this.isBooked = false;
+	}
+
+	public List<RoomEquipment> addEquipment(RoomEquipment equipment) {
+		this.equipmentList.add(equipment);
+		return equipmentList;
+	}
+
+	public List<RoomEquipment> removeEquipment(RoomEquipment equipment) {
+		this.equipmentList.remove(equipment);
+		return equipmentList;
 	}
 
 	///////////////////////// Setter /////////////////////////
@@ -61,5 +76,9 @@ public class Room {
 
 	public boolean isBooked() {
 		return this.isBooked;
+	}
+
+	public List<RoomEquipment> getEquipmentList() {
+		return equipmentList;
 	}
 }
