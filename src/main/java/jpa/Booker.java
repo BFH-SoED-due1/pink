@@ -5,8 +5,21 @@
  */
 package jpa;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity(name = "Booker")
 public class Booker {
+	@Id
+	@GeneratedValue
+	private Long id;
+
 	private String firstName, lastName, login;
+
+	public Booker() {
+
+	}
 
 	public Booker(String firstName, String lastName, String email) {
 		setFirstName(firstName);
