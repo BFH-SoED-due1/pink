@@ -37,15 +37,15 @@ public interface IBooker {
 	@Override
 	public String toString();
 
-	/** return bookers first name */
+	/** @return bookers first name */
 	public String getFirstName();
 
-	/** return bookers last name */
+	/** @return bookers last name */
 	public String getLastName();
 
-	/** return bookers loggin */
+	/** @return bookers loggin */
 	public String getLogin();
 
-	/** return instance */
+	/** @return instance */
 	public Booker getBooker();
 }

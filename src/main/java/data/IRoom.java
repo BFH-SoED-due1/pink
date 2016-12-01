@@ -37,15 +37,27 @@ public interface IRoom {
 	/** remove the booking */
 	public void removeBooking();
 
-	/** get the size of the room */
+	/**
+	 * get the size of the room
+	 * @return the Room's size
+	 */
 	public int getSize();
 
-	/** get the name of th room */
+	/**
+	 * get the name of th room
+	 * @return the Room's name
+	 */
 	public String getName();
 
-	/** get the description of the room */
+	/**
+	 * get the description of the room
+	 * @return the Room's description
+	 */
 	public String getDescription();
 
-	/** returns true if room is booked */
+	/**
+	 * returns true if room is booked
+	 * @return true if Room is booked
+	 */
 	public boolean isBooked();
 }

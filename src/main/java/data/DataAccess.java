@@ -145,34 +145,30 @@ public abstract class DataAccess {
 	// Methods for roomEquipment
 	/**
 	 * Inserts Room into DB
-	 * @param size
-	 *            the Room's size
 	 * @param name
-	 *            the Room's name
-	 * @param descr
-	 *            the Room's description
-	 * @return the inserted Room
+	 *            the Eqiupment's name
+	 * @param qty
+	 *            the Eqiupment's quantity
+	 * @return the inserted Eqiupment
 	 */
 	public abstract RoomEquipment insertRoomEquipment(String name, int qty);
 
 	/**
 	 * Edits the Room's name and description
-	 * @param size
-	 *            the Room's size
 	 * @param name
-	 *            the Room's name
-	 * @param description
-	 *            the Room's description
+	 *            the Eqiupment's name
+	 * @param qty
+	 *            the Eqiupment's quantity
 	 * @param id
-	 *            the Room's id
-	 * @return the inserted Room
+	 *            the Eqiupment's id
+	 * @return the inserted Eqiupment
 	 */
 	public abstract RoomEquipment editRoomEquipment(String name, int qty, Long id);
 
 	/**
 	 * Delets Room from DB
 	 * @param id
-	 *            the Room's id
+	 *            the Eqiupment's id
 	 */
 	public abstract void deleteRoomRoomEquipment(Long id);
 
