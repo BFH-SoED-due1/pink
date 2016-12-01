@@ -14,22 +14,23 @@ public interface IRoomController {
 
 	/**
 	 * Add a new room and save it in list
-	 * @param size
-	 *            all Room's size
-	 * @param name
-	 *            the Room's name
-	 * @param descr
-	 *            the Rooms description
-	 * @return the Room
+	 * @param roomName
+	 *            all rooms saved in srs
+	 * @param roomName
+	 *            the room to be added
+	 * @return List of rooms
 	 */
-	public Room addRoom(int size, String name, String descr);
+	public List<Room> addRoom(Room roomName);
 
 	/**
 	 * Delete a room from list
-	 * @param room
-	 *            the Room to delete
+	 * @param roomName
+	 *            all rooms saved in srs
+	 * @param roomName
+	 *            the room to be added
+	 * @return list of rooms
 	 */
-	public void deleteRoom(Room room);
+	public List<Room> deleteRoom(String roomName);
 
 	/**
 	 * Edit a room
@@ -41,9 +42,4 @@ public interface IRoomController {
 	 *            the room object
 	 */
 	public void editRoom(int size, String descr, Room room);
-
-	/**
-	 * @return list of rooms
-	 */
-	public List<Room> getAllRooms();
 }
