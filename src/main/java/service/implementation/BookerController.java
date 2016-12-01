@@ -5,9 +5,9 @@
  */
 package service.implementation;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import data.DataAccess;
 import jpa.Booker;
 import service.IBookerController;
 import service.implementation.exceptions.BookerLoginException;
@@ -16,46 +16,45 @@ import service.implementation.exceptions.BookerNotFoundException;
 public class BookerController implements IBookerController {
 	/** Implementation for administrate booker */
 
+	private List<Booker> bookerList = new ArrayList<Booker>();
+
+	public BookerController(List<Booker> bookerList) {
+		this.bookerList = bookerList;
+	}
+
 	/**
 	 * Adds a new booker
-	 * @param firstName
-	 *            the Booker's firstname
-	 * @param lastName
-	 *            the Booker's lastname
-	 * @param email
-	 *            the Booker's email
+	 * @param booker
+	 *            the new booker object
 	 * @return the list of Bookers
 	 */
 	@Override
-	public Booker saveBooker(String firstName, String lastName, String email) {
-		Booker booker;
-		try {
-			DataAccess dataAccess = DataAccess.getInstance();
-			if (!bookerExistsForNewBooker(email) && notEmpty(firstName, lastName))
-				booker = dataAccess.registerBooker(firstName, lastName, email);
-			else
-				throw new BookerLoginException("A booker with this login allready exists.\nChose another email.");
-		} catch (Exception ex) {
-			// ex.printStackTrace();
+	public List<Booker> saveBooker(Booker booker) {
+		if (!bookerExistsForNewBooker(booker.getLogin()) && notEmpty(booker.getFirstName(), booker.getLastName()))
+			bookerList.add(booker);
+		else
 			throw new BookerLoginException("A booker with this login allready exists.\nChose another email.");
-		}
 
-		return booker;
+		return bookerList;
 	}
 
 	/**
 	 * Deletes a booker
-	 * @param booker
-	 *            the Booker
+	 * @param email
+	 *            the uniqe email of the booker
+	 * @return the list of bookers
 	 */
 	@Override
-	public void deleteBooker(Booker booker) {
-		try {
-			DataAccess dataAccess = DataAccess.getInstance();
-			dataAccess.deleteBooker(booker.getId());
-		} catch (Exception ex) {
-			throw new BookerNotFoundException("No Room Found");
+	public List<Booker> deleteBooker(String email) {
+		if (bookerExists(email)) {
+			for (Booker booker : bookerList) {
+				if (booker.getLogin().equals(email)) {
+					bookerList.remove(booker);
+					break;
+				}
+			}
 		}
+		return bookerList;
 	}
 
 	/**
@@ -64,14 +63,19 @@ public class BookerController implements IBookerController {
 	 *            the bookers firstname
 	 * @param lastName
 	 *            the bookers lastname
-	 * @param booker
+	 * @param b
 	 *            the booker object
 	 */
 	@Override
-	public void editBooker(String firstName, String lastName, Booker booker) {
-		DataAccess dataAccess = DataAccess.getInstance();
-		if (bookerExists(booker.getLogin()) && notEmpty(firstName, lastName)) {
-			dataAccess.editBooker(firstName, lastName, booker.getId());
+	public void editBooker(String firstName, String lastName, Booker b) {
+		if (bookerExists(b.getLogin()) && notEmpty(firstName, lastName)) {
+			for (Booker booker : bookerList) {
+				if (booker.getLogin().equals(b.getLogin())) {
+					booker.setFirstName(firstName);
+					booker.setLastName(lastName);
+					break;
+				}
+			}
 		}
 	}
 
@@ -82,8 +86,6 @@ public class BookerController implements IBookerController {
 	 * @return true if booker exists
 	 */
 	public boolean bookerExists(String email) {
-		DataAccess dataAccess = DataAccess.getInstance();
-		List<Booker> bookerList = dataAccess.getAllBookers();
 		boolean exists = false;
 		for (Booker booker : bookerList) {
 			if (booker.getLogin().equals(email)) {
@@ -104,8 +106,6 @@ public class BookerController implements IBookerController {
 	 * @return true if booker exists
 	 */
 	public boolean bookerExistsForNewBooker(String email) {
-		DataAccess dataAccess = DataAccess.getInstance();
-		List<Booker> bookerList = dataAccess.getAllBookers();
 		for (Booker booker : bookerList) {
 			if (booker.getLogin().equals(email))
 				return true;
@@ -130,16 +130,6 @@ public class BookerController implements IBookerController {
 			throw new IllegalArgumentException("Input is empty!");
 
 		return notEmpty;
-	}
-
-	/**
-	 * Gets all Bookers
-	 * @return List of Bookers
-	 */
-	@Override
-	public List<Booker> getAllBookers() {
-		DataAccess dataAccess = DataAccess.getInstance();
-		return dataAccess.getAllBookers();
 	}
 
 }

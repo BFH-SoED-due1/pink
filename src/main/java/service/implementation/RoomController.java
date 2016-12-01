@@ -5,9 +5,9 @@
  */
 package service.implementation;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import data.DataAccess;
 import jpa.Room;
 import service.IRoomController;
 import service.implementation.exceptions.RoomNameException;
@@ -16,44 +16,45 @@ import service.implementation.exceptions.RoomNotFoundException;
 public class RoomController implements IRoomController {
 	/** Implementation for administrate the rooms */
 
+	private List<Room> roomList = new ArrayList<Room>();
+
+	public RoomController(List<Room> roomList) {
+		this.roomList = roomList;
+	}
+
 	/**
 	 * Adds a new room
-	 * @param size
-	 *            the Room's size
-	 * @param name
-	 *            the Room's name
-	 * @param descr
-	 *            the Room's description
+	 * @param room
+	 *            the new room object
 	 * @return the list of rooms
 	 */
 	@Override
-	public Room addRoom(int size, String name, String descr) {
-		Room room;
-		try {
-			DataAccess dataAccess = DataAccess.getInstance();
-			if (!roomExistsForNewRoom(name) && notEmpty(size, descr))
-				room = dataAccess.insertRoom(size, name, descr);
-			else
-				throw new RoomNameException("A Room with this name allready exists.\nChose another name");
-		} catch (Exception ex) {
+	public List<Room> addRoom(Room room) {
+		if (!roomExistsForNewRoom(room.getName()) && notEmpty(room.getSize(), room.getDescription()))
+			roomList.add(room);
+		else
 			throw new RoomNameException("A Room with this name allready exists.\nChose another name");
-		}
-		return room;
+
+		return roomList;
 	}
 
 	/**
 	 * Deletes a room
-	 * @param room
-	 *            the Room
+	 * @param roomName
+	 *            the uniqe name of the room
+	 * @return the list of room
 	 */
 	@Override
-	public void deleteRoom(Room room) {
-		try {
-			DataAccess dataAccess = DataAccess.getInstance();
-			dataAccess.deleteRoom(room.getId());
-		} catch (Exception ex) {
-			throw new RoomNotFoundException("No Room Found");
+	public List<Room> deleteRoom(String roomName) {
+		if (roomExists(roomName)) {
+			for (int i = 0; i < this.roomList.size(); i++) {
+				if (this.roomList.get(i).getName().equals(roomName)) {
+					this.roomList.remove(i);
+					break;
+				}
+			}
 		}
+		return roomList;
 	}
 
 	/**
@@ -62,14 +63,19 @@ public class RoomController implements IRoomController {
 	 *            the size of the room
 	 * @param descr
 	 *            the description of the room
-	 * @param room
+	 * @param r
 	 *            the room object
 	 */
 	@Override
-	public void editRoom(int size, String descr, Room room) {
-		DataAccess dataAccess = DataAccess.getInstance();
-		if (roomExists(room.getName()) && notEmpty(size, descr)) {
-			dataAccess.editRoom(size, room.getName(), descr, room.getId());
+	public void editRoom(int size, String descr, Room r) {
+		if (roomExists(r.getName()) && notEmpty(size, descr)) {
+			for (int i = 0; i < this.roomList.size(); i++) {
+				if (this.roomList.get(i).getName().equals(r.getName())) {
+					this.roomList.get(i).setSize(size);
+					this.roomList.get(i).setDescription(descr);
+					break;
+				}
+			}
 		}
 	}
 
@@ -80,8 +86,6 @@ public class RoomController implements IRoomController {
 	 * @return true if room exists
 	 */
 	public boolean roomExists(String roomName) {
-		DataAccess dataAccess = DataAccess.getInstance();
-		List<Room> roomList = dataAccess.getAllRooms();
 		boolean exists = false;
 		for (int i = 0; i < roomList.size(); i++) {
 			if (roomList.get(i).getName().equals(roomName)) {
@@ -102,8 +106,6 @@ public class RoomController implements IRoomController {
 	 * @return true if room exists
 	 */
 	public boolean roomExistsForNewRoom(String roomName) {
-		DataAccess dataAccess = DataAccess.getInstance();
-		List<Room> roomList = dataAccess.getAllRooms();
 		for (int i = 0; i < roomList.size(); i++) {
 			if (roomList.get(i).getName().equals(roomName))
 				return true;
@@ -126,15 +128,5 @@ public class RoomController implements IRoomController {
 		if (!notEmpty)
 			throw new IllegalArgumentException("Input is empty! Size have to be greater than 0!");
 		return notEmpty;
-	}
-
-	/**
-	 * Gets all Rooms
-	 * @return List of Rooms
-	 */
-	@Override
-	public List<Room> getAllRooms() {
-		DataAccess dataAccess = DataAccess.getInstance();
-		return dataAccess.getAllRooms();
 	}
 }

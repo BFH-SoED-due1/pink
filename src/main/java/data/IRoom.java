@@ -5,10 +5,6 @@
  */
 package data;
 
-import java.util.List;
-
-import jpa.Reservation;
-
 /**
  * @author Nathalie
  *
@@ -16,77 +12,40 @@ import jpa.Reservation;
 public interface IRoom {
 	/**
 	 * set room size
-	 * @param size
+	 * @param s
 	 *            the size of the room
 	 */
-	public void setSize(int size);
+	public void setSize(int s);
 
 	/**
 	 * set the room name
-	 * @param name
+	 * @param n
 	 *            the name of the room
 	 */
-	public void setName(String name);
+	public void setName(String n);
 
 	/**
 	 * set the description of the room
-	 * @param descr
+	 * @param d
 	 *            the room description
 	 */
-	public void setDescription(String descr);
+	public void setDescription(String d);
 
-	/**
-	 * true if the room is reservated
-	 */
+	/** true if the room is reservated */
 	public void setBooked();
 
-	/**
-	 * remove the booking
-	 */
+	/** remove the booking */
 	public void removeBooking();
 
-	/**
-	 * get the size of the Room
-	 * @return Room's size
-	 */
+	/** get the size of the room */
 	public int getSize();
 
-	/**
-	 * get the name of the Room
-	 * @return Room's name
-	 */
+	/** get the name of th room */
 	public String getName();
 
-	/**
-	 * get the description of the Room
-	 * @return Room's description
-	 */
+	/** get the description of the room */
 	public String getDescription();
 
-	/**
-	 * true if room is booked
-	 * @return Room's booked state
-	 */
+	/** returns true if room is booked */
 	public boolean isBooked();
-
-	/**
-	 * get the Booker's Reservation list
-	 * @return the List of Reservations
-	 */
-	public List<Reservation> getReservations();
-
-	/**
-	 * add a Reservation
-	 * @param reservation
-	 *            the Reservation
-	 */
-	public void addReservation(Reservation reservation);
-
-	/**
-	 * remove a Reservation
-	 * @param reservation
-	 *            the Reservation
-	 */
-	public void removeReservation(Reservation reservation);
-
 }
