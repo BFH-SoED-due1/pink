@@ -12,9 +12,9 @@ import org.junit.Test;
 
 import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.due1.time.TimeSlotFactory;
-import jpa.Booker;
-import jpa.Reservation;
-import jpa.Room;
+import model.Booker;
+import model.Reservation;
+import model.Room;
 
 public class ReservationTest {
 	public final String DEFAULTTIMESLOTFACTORYNAME = "ch.bfh.due1.time.pojo.TimeSlotFactoryImpl";

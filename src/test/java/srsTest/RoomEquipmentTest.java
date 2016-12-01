@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import jpa.RoomEquipment;
+import model.RoomEquipment;
 
 public class RoomEquipmentTest {
 

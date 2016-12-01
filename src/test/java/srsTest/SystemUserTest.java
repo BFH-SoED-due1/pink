@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import jpa.SystemUser;
+import model.SystemUser;
 
 public class SystemUserTest {
 	/* Test SystemUser-class */

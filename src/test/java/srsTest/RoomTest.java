@@ -12,8 +12,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import jpa.Room;
-import jpa.RoomEquipment;
+import model.Room;
+import model.RoomEquipment;
 
 public class RoomTest {
 	// Test room
