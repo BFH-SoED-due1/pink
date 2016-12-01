@@ -173,6 +173,41 @@ public class JPADataAccess extends DataAccess {
 		this.entityManager.getTransaction().commit();
 	}
 
+	///////////////////////// RoomEquipment /////////////////////////
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#insertRoomEquipment(java.lang.String, int)
+	 */
+	@Override
+	public RoomEquipment insertRoomEquipment(String name, int qty) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#editRoomEquipment(java.lang.String, int,
+	 * java.lang.Long)
+	 */
+	@Override
+	public RoomEquipment editRoomEquipment(String name, int qty, Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#deleteRoomRoomEquipment(java.lang.Long)
+	 */
+	@Override
+	public void deleteRoomRoomEquipment(Long id) {
+		// TODO Auto-generated method stub
+
+	}
+
 	///////////////////////// SystemUser /////////////////////////
 	/*
 	 * (non-Javadoc)
@@ -180,8 +215,7 @@ public class JPADataAccess extends DataAccess {
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
-	public SystemUser registerSystemUser(String firstName, String lastName, String email, String password,
-			boolean isAdmin) {
+	public SystemUser registerSystemUser(String firstName, String lastName, String email, String password, boolean isAdmin) {
 		this.entityManager.getTransaction().begin();
 		SystemUser user = new SystemUser(firstName, lastName, email, password, isAdmin);
 		this.entityManager.persist(user);

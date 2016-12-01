@@ -25,7 +25,7 @@ public class Room implements IRoom {
 	private String name;
 	private String description;
 
-	@OneToMany(targetEntity = RoomEquipment.class)
+	@OneToMany
 	private List<RoomEquipment> equipmentList;
 
 	private boolean isBooked;

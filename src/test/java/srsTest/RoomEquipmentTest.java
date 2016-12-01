@@ -14,19 +14,6 @@ import jpa.RoomEquipment;
 public class RoomEquipmentTest {
 
 	@Test
-	public void testEquipmentName() {
-		String name = "Blackboard";
-		int qty = 1;
-		String newName = "Beamer";
-
-		RoomEquipment eq = new RoomEquipment(name, qty);
-		assertEquals(name, eq.getName());
-
-		eq.setName(newName);
-		assertEquals(newName, eq.getName());
-	}
-
-	@Test
 	public void testEquipmentQuantity() {
 		String name = "Beamer";
 		int qty = 1;

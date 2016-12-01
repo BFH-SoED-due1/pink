@@ -34,10 +34,6 @@ public class RoomEquipment {
 		return quantity;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public void setQuantity(int qty) {
 		this.quantity = qty;
 	}
