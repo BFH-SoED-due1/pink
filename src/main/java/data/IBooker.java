@@ -5,10 +5,7 @@
  */
 package data;
 
-import java.util.List;
-
 import jpa.Booker;
-import jpa.Reservation;
 
 /**
  * @author Nathalie
@@ -17,74 +14,38 @@ import jpa.Reservation;
 public interface IBooker {
 
 	/**
-	 * set Booker's firstname
+	 * set bookers fist name
 	 * @param firstName
-	 *            the Bookers firstname
+	 *            bookers first name
 	 */
 	public void setFirstName(String firstName);
 
 	/**
-	 * set Bookers lastname
+	 * et bookers last name
 	 * @param lastName
-	 *            the Bookers lastname
+	 *            bookers last name
 	 */
 	public void setLastName(String lastName);
 
 	/**
-	 * set Bookers email
 	 * @param email
-	 *            the BBookers email
+	 *            bookers email
 	 */
 	public void setLogin(String email);
 
-	/**
-	 * get the Booker
-	 * @return Booker
-	 */
+	/** override original-toString() */
 	@Override
 	public String toString();
 
-	/**
-	 * get the Booker's firstname
-	 * @return the Booker's firstname
-	 */
+	/** return bookers first name */
 	public String getFirstName();
 
-	/**
-	 * get the Booker's lastname
-	 * @return the Booker's lastname
-	 */
+	/** return bookers last name */
 	public String getLastName();
 
-	/**
-	 * get the Booker's email
-	 * @return the Booker's email
-	 */
+	/** return bookers loggin */
 	public String getLogin();
 
-	/**
-	 * get the Booker object
-	 * @return the Booker object
-	 */
+	/** return instance */
 	public Booker getBooker();
-
-	/**
-	 * get the Booker's Reservation list
-	 * @return the List of Reservations
-	 */
-	public List<Reservation> getReservations();
-
-	/**
-	 * add a Reservation
-	 * @param reservation
-	 *            the Reservation
-	 */
-	public void addReservation(Reservation reservation);
-
-	/**
-	 * remove a Reservation
-	 * @param reservation
-	 *            the Reservation
-	 */
-	public void removeReservation(Reservation reservation);
 }
