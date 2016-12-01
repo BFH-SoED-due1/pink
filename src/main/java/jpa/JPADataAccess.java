@@ -1,8 +1,4 @@
-/*
- * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
- * Project Smart Reservation System.
- * Distributable under GPL license. See terms of license at gnu.org.
- */
+/**Copyright(c)2016 Berner Fachhochschule,Switzerland.*Project Smart Reservation System.*Distributable under GPL license.See terms of license at gnu.org.*/
 package jpa;
 
 import java.util.List;
@@ -22,15 +18,10 @@ public class JPADataAccess extends DataAccess {
 	}
 
 	///////////////////////// Booker /////////////////////////
-	/**
-	 * Inserts Booker into DB
-	 * @param firstName
-	 *            the Booker's firstname
-	 * @param lastName
-	 *            the Booker's lastname
-	 * @param email
-	 *            the Booker's email
-	 * @return the inserted Booker
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public Booker registerBooker(String firstName, String lastName, String email) {
@@ -41,9 +32,10 @@ public class JPADataAccess extends DataAccess {
 		return booker;
 	}
 
-	/**
-	 * Gets all Bookers from DB
-	 * @return List of Bookers
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -52,15 +44,10 @@ public class JPADataAccess extends DataAccess {
 		return query.getResultList();
 	}
 
-	/**
-	 * Edits the Room's name and description
-	 * @param firstName
-	 *            the Booker's new firstname
-	 * @param lastName
-	 *            the Booker's new lastname
-	 * @param id
-	 *            the Booker's id
-	 * @return the inserted Booker
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public Booker editBooker(String firstName, String lastName, Long id) {
@@ -73,10 +60,10 @@ public class JPADataAccess extends DataAccess {
 		return booker;
 	}
 
-	/**
-	 * Delets Booker from DB
-	 * @param id
-	 *            the Booker's id
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public void deleteBooker(Long id) {
@@ -87,15 +74,11 @@ public class JPADataAccess extends DataAccess {
 	}
 
 	///////////////////////// Room /////////////////////////
-	/**
-	 * Inserts Room into DB
-	 * @param size
-	 *            the Room's size
-	 * @param name
-	 *            the Room's name
-	 * @param descr
-	 *            the Room's description
-	 * @return the inserted Room
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public Room insertRoom(int size, String name, String descr) {
@@ -106,9 +89,10 @@ public class JPADataAccess extends DataAccess {
 		return room;
 	}
 
-	/**
-	 * Gets all Rooms from DB
-	 * @return List of Rooms
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -117,15 +101,10 @@ public class JPADataAccess extends DataAccess {
 		return query.getResultList();
 	}
 
-	/**
-	 * Edits the Room's name and description
-	 * @param size
-	 *            the Room's size
-	 * @param name
-	 *            the Room's name
-	 * @param description
-	 *            the Room's description
-	 * @return the inserted Room
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public Room editRoom(int size, String name, String description, Long id) {
@@ -139,9 +118,10 @@ public class JPADataAccess extends DataAccess {
 		return room;
 	}
 
-	/**
-	 * Gets all Equipments from Room
-	 * @return List of Equipments
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public List<RoomEquipment> getAllEquipments(Long id) {
@@ -150,13 +130,10 @@ public class JPADataAccess extends DataAccess {
 		return room.getEquipmentList();
 	}
 
-	/**
-	 * Adds an equipment to the Room
-	 * @param equipment
-	 *            the new equipment
-	 * @param id
-	 *            the Room's id
-	 * @return the Room
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public Room addEquipment(RoomEquipment equipment, Long id) {
@@ -168,13 +145,10 @@ public class JPADataAccess extends DataAccess {
 		return room;
 	}
 
-	/**
-	 * Adds an equipment to the Room
-	 * @param equipment
-	 *            the new equipment
-	 * @param id
-	 *            the Room's id
-	 * @return the Room
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public Room removeEquipment(RoomEquipment equipment, Long id) {
@@ -186,10 +160,10 @@ public class JPADataAccess extends DataAccess {
 		return room;
 	}
 
-	/**
-	 * Delets Room from DB
-	 * @param id
-	 *            the Room's id
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public void deleteRoom(Long id) {
@@ -200,22 +174,14 @@ public class JPADataAccess extends DataAccess {
 	}
 
 	///////////////////////// SystemUser /////////////////////////
-	/**
-	 * Inserts SystemUser into DB
-	 * @param firstName
-	 *            the SystemUser's firstname
-	 * @param lastName
-	 *            the SystemUser's lastname
-	 * @param email
-	 *            the SystemUser's email
-	 * @param password
-	 *            the SystemUser's password
-	 * @param isAdmin
-	 *            true if User is Admin
-	 * @return the inserted SystemUser
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
-	public SystemUser registerSystemUser(String firstName, String lastName, String email, String password, boolean isAdmin) {
+	public SystemUser registerSystemUser(String firstName, String lastName, String email, String password,
+			boolean isAdmin) {
 		this.entityManager.getTransaction().begin();
 		SystemUser user = new SystemUser(firstName, lastName, email, password, isAdmin);
 		this.entityManager.persist(user);
@@ -223,9 +189,10 @@ public class JPADataAccess extends DataAccess {
 		return user;
 	}
 
-	/**
-	 * Gets all SystemUsers from DB
-	 * @return List of SystemUsers
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -234,17 +201,10 @@ public class JPADataAccess extends DataAccess {
 		return query.getResultList();
 	}
 
-	/**
-	 * Edits the Users's name and description
-	 * @param firstName
-	 *            the Users's new firstname
-	 * @param lastName
-	 *            the Users's new lastname
-	 * @param password
-	 *            the Users's new password
-	 * @param id
-	 *            the Users's id
-	 * @return the Users
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public SystemUser editSystemUser(String firstName, String lastName, String password, Long id) {
@@ -258,10 +218,10 @@ public class JPADataAccess extends DataAccess {
 		return user;
 	}
 
-	/**
-	 * Delets SystemUser from DB
-	 * @param id
-	 *            the SystemUser's id
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public void deleteSystemUser(Long id) {
@@ -272,15 +232,10 @@ public class JPADataAccess extends DataAccess {
 	}
 
 	///////////////////////// Reservation /////////////////////////
-	/**
-	 * Inserts Reservation into DB
-	 * @param room
-	 *            the reserved room
-	 * @param timeSlot
-	 *            the time slot of the reservation
-	 * @param booker
-	 *            the booker who reservs
-	 * @return the inserted Reservation
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public Reservation insertReservation(Room room, TimeSlot timeSlot, Booker booker) {
@@ -291,9 +246,10 @@ public class JPADataAccess extends DataAccess {
 		return reservation;
 	}
 
-	/**
-	 * Gets all Reservations from DB
-	 * @return List of Reservations
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -302,10 +258,10 @@ public class JPADataAccess extends DataAccess {
 		return query.getResultList();
 	}
 
-	/**
-	 * Delets Reservation from DB
-	 * @param id
-	 *            the Reservations's id
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
 	public void cancelReservation(Long id) {

@@ -1,22 +1,13 @@
-/*
- * Copyright (c) 2016 Berner Fachhochschule, Switzerland.
- * Project Smart Reservation System.
- * Distributable under GPL license. See terms of license at gnu.org.
- */
+/**Copyright(c)2016 Berner Fachhochschule,Switzerland.
+ * *Project Smart Reservation System.
+ * *Distributable under GPL license.See terms of license at gnu.org.*/
 package controllerTest;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import jpa.Booker;
 import service.implementation.BookerController;
-import service.implementation.exceptions.BookerLoginException;
 
 public class BookerControllerTest {
 	private BookerController bookerController;
@@ -26,37 +17,36 @@ public class BookerControllerTest {
 		this.bookerController = new BookerController();
 	}
 
-	@Test
-	public void saveaBookerTest() {
-		Booker booker = bookerController.saveBooker("Donald", "Duck", "donald@duckius.com");
+	// @Test
+	// public void saveBookerTest() {
+	// Booker booker = bookerController.saveBooker("Donald", "Duck",
+	// "donald@duckius.com");
+	// List<Booker> list = bookerController.getAllBookers();
+	// assertTrue(list.contains(booker));
+	// }
 
-		List<Booker> list = bookerController.getAllBookers();
+	// @Test(expected = BookerLoginException.class)
+	// public void saveBookerTwiceTest() {
+	// Booker booker = bookerController.saveBooker("Donald", "Duck",
+	// "donald@duck1.com");
+	// Booker booker1 = bookerController.saveBooker("Donald", "Duck",
+	// "donald@duck1.com");
+	//
+	// }
+	//
+	// @Test(expected = IllegalArgumentException.class)
+	// public void saveEmptyBookerTest() {
+	// Booker booker = bookerController.saveBooker("", "", "");
+	// }
 
-		assertTrue(list.contains(booker));
-	}
-
-	@Test(expected = BookerLoginException.class)
-	public void saveBookerTwiceTest() {
-		Booker booker = bookerController.saveBooker("Donald", "Duck", "donald@duck1.com");
-		Booker booker1 = bookerController.saveBooker("Donald", "Duck", "donald@duck1.com");
-
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void saveEmptyBookerTest() {
-		Booker booker = bookerController.saveBooker("", "", "");
-	}
-
-	@Test
-	public void deleteBookerTest() {
-		Booker booker = bookerController.saveBooker("Donald", "Duck", "donald@duckis2.com");
-
-		bookerController.deleteBooker(booker);
-
-		List<Booker> list = bookerController.getAllBookers();
-
-		assertFalse(list.contains(booker));
-	}
+	// @Test
+	// public void deleteBookerTest() {
+	// Booker booker = bookerController.saveBooker("Donald", "Duck",
+	// "donald@duckis2.com");
+	// bookerController.deleteBooker(booker);
+	// List<Booker> list = bookerController.getAllBookers();
+	// assertFalse(list.contains(booker));
+	// }
 
 	@Test(expected = IllegalArgumentException.class)
 	public void deleteNotExistingBookerTest() {
@@ -72,18 +62,19 @@ public class BookerControllerTest {
 		bookerController.deleteBooker(booker);
 	}
 
-	@Test
-	public void editaBookerTest() { // TODO
-		Booker booker = bookerController.saveBooker("Donald", "Duck", "asdf@ddd.com");
-
-		String newFirstName = "Mickey";
-		String newLastName = "Mouse";
-
-		bookerController.editBooker(newFirstName, newLastName, booker);
-
-		assertEquals(newFirstName, booker.getFirstName());
-		assertEquals(newLastName, booker.getLastName());
-	}
+	// @Test
+	// public void editBookerTest() { // TODO
+	// Booker booker = bookerController.saveBooker("Donald", "Duck",
+	// "asdf@ddd.com");
+	//
+	// String newFirstName = "Mickey";
+	// String newLastName = "Mouse";
+	//
+	// bookerController.editBooker(newFirstName, newLastName, booker);
+	//
+	// assertEquals(newFirstName, booker.getFirstName());
+	// assertEquals(newLastName, booker.getLastName());
+	// }
 
 	@Test(expected = IllegalArgumentException.class)
 	public void editWrongBookerTest() {
