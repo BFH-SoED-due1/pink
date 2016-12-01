@@ -15,7 +15,6 @@ import ch.bfh.due1.time.TimeSlotFactory;
 import data.DataAccess;
 import jpa.Booker;
 import jpa.Room;
-import jpa.RoomEquipment;
 import jpa.SystemUser;
 
 public class DataAccessTest {
@@ -100,19 +99,20 @@ public class DataAccessTest {
 		assertEquals(newDescription, r.getDescription());
 	}
 
-	@Test
-	public void testAddEquipment() {
-		Room r = this.dataAccess.insertRoom(68, "123", "Classroom");
-		RoomEquipment equipment = this.dataAccess.insertRoomEquipment("Beamer", 2);
-
-		this.dataAccess.addEquipment(equipment, r.getId());
-
-		List<RoomEquipment> all = this.dataAccess.getAllEquipments(r.getId());
-		all = r.getEquipmentList();
-
-		assertTrue(all.size() > 0);
-		assertTrue(all.contains(equipment));
-	}
+	// @Test
+	// public void testAddEquipment() {
+	// Room r = this.dataAccess.insertRoom(68, "123", "Classroom");
+	// RoomEquipment equipment = this.dataAccess.insertRoomEquipment("Beamer",
+	// 2);
+	//
+	// this.dataAccess.addEquipment(equipment, r.getId());
+	//
+	// List<RoomEquipment> all = this.dataAccess.getAllEquipments(r.getId());
+	// all = r.getEquipmentList();
+	//
+	// assertTrue(all.size() > 0);
+	// assertTrue(all.contains(equipment));
+	// }
 
 	// @Test
 	// public void testRemoveEquipment() {
