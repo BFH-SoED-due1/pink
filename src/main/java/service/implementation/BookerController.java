@@ -18,7 +18,12 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Adds a new booker
-	 * @param booker the new booker object
+	 * @param firstName
+	 *            the Booker's firstname
+	 * @param lastName
+	 *            the Booker's lastname
+	 * @param email
+	 *            the Booker's email
 	 * @return the list of Bookers
 	 */
 	@Override
@@ -40,8 +45,8 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Deletes a booker
-	 * @param email the uniqe email of the booker
-	 * @return the list of bookers
+	 * @param booker
+	 *            the Booker
 	 */
 	@Override
 	public void deleteBooker(Booker booker) {
@@ -55,9 +60,12 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Edit a booker
-	 * @param firstName the bookers firstname
-	 * @param lastName the bookers lastname
-	 * @param booker the booker object
+	 * @param firstName
+	 *            the bookers firstname
+	 * @param lastName
+	 *            the bookers lastname
+	 * @param booker
+	 *            the booker object
 	 */
 	@Override
 	public void editBooker(String firstName, String lastName, Booker booker) {
@@ -69,7 +77,8 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Checks if a booker exists
-	 * @param email the uniqe email of the booker
+	 * @param email
+	 *            the uniqe email of the booker
 	 * @return true if booker exists
 	 */
 	public boolean bookerExists(String email) {

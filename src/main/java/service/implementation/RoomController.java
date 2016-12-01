@@ -18,8 +18,12 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Adds a new room
-	 * @param room
-	 *            the new room object
+	 * @param size
+	 *            the Room's size
+	 * @param name
+	 *            the Room's name
+	 * @param descr
+	 *            the Room's description
 	 * @return the list of rooms
 	 */
 	@Override
@@ -39,9 +43,8 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Deletes a room
-	 * @param roomName
-	 *            the uniqe name of the room
-	 * @return the list of room
+	 * @param room
+	 *            the Room
 	 */
 	@Override
 	public void deleteRoom(Room room) {
@@ -59,7 +62,7 @@ public class RoomController implements IRoomController {
 	 *            the size of the room
 	 * @param descr
 	 *            the description of the room
-	 * @param r
+	 * @param room
 	 *            the room object
 	 */
 	@Override
