@@ -5,67 +5,69 @@
  */
 package jpa;
 
-import java.sql.Time;
-import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-public class Reservation {
+import ch.bfh.due1.time.TimeSlot;
+import data.IReservation;
+
+@Entity(name = "Reservation")
+public class Reservation implements IReservation {
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	@ManyToOne(targetEntity = Room.class)
 	private Room room;
-	private Date date;
-	private Time from, to;
+
+	private TimeSlot timeSlot;
+
+	@ManyToOne(targetEntity = Booker.class)
 	private Booker booker;
 
-	public Reservation(Room r, Date d, Time from, Time to, Booker b) {
-		setRoom(r);
-		setDate(d);
-		setFrom(from);
-		setTo(to);
-		setBooker(b);
+	public Reservation() {
+	}
+
+	public Reservation(Room room, TimeSlot timeSlot, Booker booker) {
+		this.room = room;
+		this.timeSlot = timeSlot;
+		this.booker = booker;
 	}
 
 	/* Setter */
-	public void setRoom(Room r) {
-		// if (r == null) {
-		// throw new IllegalArgumentException("A reservation needs a room!");
-		// } else
-		this.room = r;
+	@Override
+	public void setRoom(Room room) {
+		this.room = room;
 	}
 
-	public void setDate(Date d) {
-		this.date = d;
+	@Override
+	public void setTimeSlot(TimeSlot timeSlot) {
+		this.timeSlot = timeSlot;
 	}
 
-	public void setFrom(Time from) {
-		this.from = from;
-	}
-
-	public void setTo(Time to) {
-		this.to = to;
-	}
-
-	public void setBooker(Booker b) {
-		// if (b == null) {
-		// throw new IllegalArgumentException("A reservation needs a booker!");
-		// } else
-		this.booker = b;
+	@Override
+	public void setBooker(Booker booker) {
+		this.booker = booker;
 	}
 
 	/* Getter */
+	public Long getId() {
+		return this.id;
+	}
+
+	@Override
 	public Room getRoom() {
 		return room;
 	}
 
-	public Date getDate() {
-		return date;
+	@Override
+	public TimeSlot getTimeSlot() {
+		return timeSlot;
 	}
 
-	public Date getFrom() {
-		return from;
-	}
-
-	public Date getTo() {
-		return to;
-	}
-
+	@Override
 	public Booker getBooker() {
 		return booker;
 	}

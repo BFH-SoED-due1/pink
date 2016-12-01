@@ -5,38 +5,88 @@
  */
 package data;
 
+import java.util.List;
+
+import jpa.Reservation;
+
 /**
  * @author Nathalie
  *
  */
 public interface IRoom {
-	/**set room size
-	 * @param s the size of the room*/
-	public void setSize(int s);
+	/**
+	 * set room size
+	 * @param size
+	 *            the size of the room
+	 */
+	public void setSize(int size);
 
-	/**set the room name
-	 * @param n the name of the room*/
-	public void setName(String n);
+	/**
+	 * set the room name
+	 * @param name
+	 *            the name of the room
+	 */
+	public void setName(String name);
 
-	/**set the description of the room
-	 * @param d the room description*/
-	public void setDescription(String d);
-	
-	/**true if the room is reservated*/
+	/**
+	 * set the description of the room
+	 * @param descr
+	 *            the room description
+	 */
+	public void setDescription(String descr);
+
+	/**
+	 * true if the room is reservated
+	 */
 	public void setBooked();
-	
-	/**remove the booking*/
+
+	/**
+	 * remove the booking
+	 */
 	public void removeBooking();
 
-	/**get the size of the room*/
+	/**
+	 * get the size of the Room
+	 * @return Room's size
+	 */
 	public int getSize();
 
-	/**get the name of th room*/
+	/**
+	 * get the name of the Room
+	 * @return Room's name
+	 */
 	public String getName();
 
-	/**get the description of the room*/
+	/**
+	 * get the description of the Room
+	 * @return Room's description
+	 */
 	public String getDescription();
-	
-	/**returns true if room is booked*/
+
+	/**
+	 * true if room is booked
+	 * @return Room's booked state
+	 */
 	public boolean isBooked();
+
+	/**
+	 * get the Booker's Reservation list
+	 * @return the List of Reservations
+	 */
+	public List<Reservation> getReservations();
+
+	/**
+	 * add a Reservation
+	 * @param reservation
+	 *            the Reservation
+	 */
+	public void addReservation(Reservation reservation);
+
+	/**
+	 * remove a Reservation
+	 * @param reservation
+	 *            the Reservation
+	 */
+	public void removeReservation(Reservation reservation);
+
 }

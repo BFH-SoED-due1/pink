@@ -5,9 +5,7 @@
  */
 package data;
 
-import java.sql.Time;
-import java.util.Date;
-
+import ch.bfh.due1.time.TimeSlot;
 import jpa.Booker;
 import jpa.Room;
 
@@ -18,39 +16,43 @@ import jpa.Room;
 public interface IReservation {
 	/* Setter */
 
-	/**room to reservate
-	 * @param r the room*/
-	public void setRoom(Room r);
+	/**
+	 * room to reservate
+	 * @param room
+	 *            the room
+	 */
+	public void setRoom(Room room);
 
-	/**date of the reservation
-	 * @param d the date*/
-	public void setDate(Date d);
+	/**
+	 * date of the reservation
+	 * @param timeSlot
+	 *            the time slot
+	 */
+	public void setTimeSlot(TimeSlot timeSlot);
 
-	/**set start time
-	 * @param from start time*/
-	public void setFrom(Time from);
-
-	/**set end time
-	 * @param to end time*/
-	public void setTo(Time to);
-	
-	/**booker of the room
-	 * @param b booker instance*/
-	public void setBooker(Booker b);
+	/**
+	 * booker of the room
+	 * @param booker
+	 *            booker instance
+	 */
+	public void setBooker(Booker booker);
 
 	/* Getter */
-	/**return reservated room*/
+	/**
+	 * get the Reservation's Room
+	 * @return the Reservation's Room
+	 */
 	public Room getRoom();
 
-	/**return reservation date*/
-	public Date getDate();
-	
-	/**return reservation start time*/
-	public Date getFrom();
+	/**
+	 * get the Reservation's time slot
+	 * @return the Reservation's time slot
+	 */
+	public TimeSlot getTimeSlot();
 
-	/**return reservation end time*/
-	public Date getTo();
-
-	/**return the booker of the reservation*/
+	/**
+	 * get the Reservation's Booker
+	 * @return the Reservation's Booker
+	 */
 	public Booker getBooker();
 }

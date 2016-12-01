@@ -5,15 +5,29 @@
  */
 package jpa;
 
-public class SystemUser {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import data.ISystemUser;
+
+@Entity(name = "SystemUser")
+public class SystemUser implements ISystemUser {
+	@Id
+	@GeneratedValue
+	private Long id;
+
 	private String firstName, lastName, login, password;
 	private boolean isAdmin, isLoggedIn;
 
+	public SystemUser() {
+	}
+
 	public SystemUser(String firstName, String lastName, String email, String password, boolean isAdmin) {
-		setFirstName(firstName);
-		setLastName(lastName);
-		setLogin(email);
-		setPassword(password);
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.login = email;
+		this.password = password;
 		this.isAdmin = isAdmin;
 	}
 
@@ -27,17 +41,11 @@ public class SystemUser {
 	}
 
 	public void setLogin(String email) {
-		if (email.length() <= 0 || !email.contains("@")) {
-			throw new IllegalArgumentException("Email can not be empty, and needs to contain '@'!");
-		} else
-			this.login = email;
+		this.login = email;
 	}
 
 	public void setPassword(String password) {
-		if (password.length() <= 0 || password.contains(" ")) {
-			throw new IllegalArgumentException("Password can not be empty or contain whitespace!");
-		} else
-			this.password = password;
+		this.password = password;
 	}
 
 	public void setAdmin() {
@@ -57,6 +65,10 @@ public class SystemUser {
 	}
 
 	///////////////////////// Getter /////////////////////////
+	public Long getId() {
+		return this.id;
+	}
+
 	public String getFirstName() {
 		return this.firstName;
 	}

@@ -5,281 +5,121 @@ package srsTest;
 
 import static org.junit.Assert.assertEquals;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDateTime;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import ch.bfh.due1.time.TimeSlot;
+import ch.bfh.due1.time.TimeSlotFactory;
 import jpa.Booker;
 import jpa.Reservation;
 import jpa.Room;
 
 public class ReservationTest {
-	// Test reservation
-	@SuppressWarnings("deprecation")
+	public final String DEFAULTTIMESLOTFACTORYNAME = "ch.bfh.due1.time.pojo.TimeSlotFactoryImpl";
+
+	private TimeSlotFactory factory;
+
+	/**
+	 * Constructs a time slot factory object by using the
+	 * <code>timeslotfactory.name</code> property. If not set then the
+	 * <code>ch.bfh.due1.time.TimeSlotFactoryImpl</code> is used.
+	 */
+	@Before
+	public void setUp() throws Exception {
+		String className = System.getProperty("timeslotfactory.name", DEFAULTTIMESLOTFACTORYNAME);
+		Class<?> clazz = Class.forName(className);
+		this.factory = (TimeSlotFactory) clazz.newInstance();
+	}
+
 	@Test
 	public void testBookerFirstName() {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+
 		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
+		Reservation reservation = new Reservation(r, timeSlot, booker);
 
 		assertEquals("Hans", reservation.getBooker().getFirstName());
 	}
 
-	@SuppressWarnings("deprecation")
 	@Test
 	public void testBookerLastName() {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+
 		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
+		Reservation reservation = new Reservation(r, timeSlot, booker);
 
 		assertEquals("Zimmer", reservation.getBooker().getLastName());
 	}
 
-	@SuppressWarnings("deprecation")
 	@Test
 	public void testBookerAddressEmail() {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+
 		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
+		Reservation reservation = new Reservation(r, timeSlot, booker);
 
 		assertEquals("hans@zimmer.ch", reservation.getBooker().getLogin());
 	}
 
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testReservationYear() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
-		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals(2016, reservation.getDate().getYear());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testReservationMonth() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
-		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals(10, reservation.getDate().getMonth());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testReservationTimeHourFrom() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
-		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals(16, reservation.getFrom().getHours());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testReservationTimeHourUntil() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 00);
-
-		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals(20, reservation.getTo().getHours());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testReservationTimeMinuteFrom() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 01, 00);
-		Time to = new Time(20, 00, 00);
-
-		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals(01, reservation.getFrom().getMinutes());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testReservationTimeMinuteUntil() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 30, 00);
-
-		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals(30, reservation.getTo().getMinutes());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testReservationTimeSecondFrom() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 22);
-		Time to = new Time(20, 00, 00);
-
-		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals(22, reservation.getFrom().getSeconds());
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testReservationTimeSecondUntil() {
-		Room r = new Room(123, "Room123", "Description");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 44);
-
-		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation reservation = new Reservation(r, d, from, to, booker);
-
-		assertEquals(44, reservation.getTo().getSeconds());
-	}
-
-	@SuppressWarnings("deprecation")
 	@Test
 	public void testSetRoom() {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+
 		Room r1 = new Room(123, "Room123", "Description132");
 		Room r2 = new Room(124, "Room124", "Description124");
 
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 44);
-
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-		Reservation res = new Reservation(r1, d, from, to, booker);
+		Reservation res = new Reservation(r1, timeSlot, booker);
 		assertEquals(res.getRoom().getName(), "Room123");
 
 		res.setRoom(r2);
 		assertEquals(res.getRoom().getName(), "Room124");
 	}
 
-	@SuppressWarnings("deprecation")
 	@Test
-	public void testSetDate() {
+	public void testSetTimeSlot() {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+		LocalDateTime newStart = LocalDateTime.of(2016, 11, 24, 10, 15);
+		LocalDateTime newFinish = LocalDateTime.of(2016, 11, 24, 10, 45);
+		TimeSlot newTimeSlot = this.factory.createTimeSlot(newStart, newFinish);
+
 		Room r = new Room(123, "Room123", "Description132");
 
-		Date d1 = new Date(2016, 10, 10);
-		Date d2 = new Date(2016, 11, 11);
-		Time from = new Time(16, 00, 00);
-		Time to = new Time(20, 00, 44);
-
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
+		Reservation res = new Reservation(r, timeSlot, booker);
+		assertEquals(res.getRoom().getName(), "Room123");
 
-		Reservation res = new Reservation(r, d1, from, to, booker);
-		assertEquals(res.getDate().getYear(), 2016);
-		assertEquals(res.getDate().getMonth(), 10);
-
-		res.setDate(d2);
-		assertEquals(res.getDate().getYear(), 2016);
-		assertEquals(res.getDate().getMonth(), 11);
-
+		res.setTimeSlot(newTimeSlot);
+		assertEquals(res.getTimeSlot(), newTimeSlot);
 	}
 
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testSetFrom() {
-		Room r = new Room(123, "Room123", "Description132");
-
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 02, 45);
-		Time from2 = new Time(18, 22, 14);
-
-		Time until = new Time(20, 00, 44);
-
-		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
-		Reservation res = new Reservation(r, d, from, until, booker);
-		assertEquals(res.getFrom().getHours(), 16);
-		assertEquals(res.getFrom().getMinutes(), 02);
-		assertEquals(res.getFrom().getSeconds(), 45);
-
-		res.setFrom(from2);
-		assertEquals(res.getFrom().getHours(), 18);
-		assertEquals(res.getFrom().getMinutes(), 22);
-		assertEquals(res.getFrom().getSeconds(), 14);
-	}
-
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testSetTo() {
-		Room r = new Room(123, "Room123", "Description132");
-
-		Date d = new Date(2016, 10, 10);
-		Time to = new Time(16, 02, 45); // h, m, s
-		Time to2 = new Time(18, 22, 14);
-
-		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
-
-		Reservation res = new Reservation(r, d, to, to, booker);
-		assertEquals(res.getTo().getHours(), 16);
-		assertEquals(res.getTo().getMinutes(), 02);
-		assertEquals(res.getTo().getSeconds(), 45);
-
-		res.setTo(to2);
-		assertEquals(res.getTo().getHours(), 18);
-		assertEquals(res.getTo().getMinutes(), 22);
-		assertEquals(res.getTo().getSeconds(), 14);
-	}
-
-	@SuppressWarnings("deprecation")
 	@Test
 	public void setBooker() {
-		Room r = new Room(123, "Room123", "Description132");
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
 
-		Date d = new Date(2016, 10, 10);
-		Time from = new Time(16, 02, 45); // h, m, s
-		Time to = new Time(18, 22, 14);
+		Room r = new Room(123, "Room123", "Description132");
 
 		Booker booker = new Booker("Hans", "Zimmer", "hans@zimmer.ch");
 		Booker booker2 = new Booker("Kari", "Meyer", "kari@meyer.ch");
 
-		Reservation res = new Reservation(r, d, from, to, booker);
+		Reservation res = new Reservation(r, timeSlot, booker);
 		assertEquals("Hans", res.getBooker().getFirstName());
 		assertEquals("Zimmer", res.getBooker().getLastName());
 		assertEquals("hans@zimmer.ch", res.getBooker().getLogin());

@@ -53,16 +53,6 @@ public class BookerTest {
 		assertEquals(newEmail, booker.getLogin());
 	}
 
-	@Test(expected = IllegalArgumentException.class)
-	public void testEmptyEmail() {
-		Booker booker = new Booker(firstName, lastName, "");
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void testEmailWithoutAt() {
-		Booker booker = new Booker(firstName, lastName, "testmail");
-	}
-
 	@SuppressWarnings("null")
 	@Test(expected = NullPointerException.class)
 	public void testDestrObj() {

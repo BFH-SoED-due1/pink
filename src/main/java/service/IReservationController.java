@@ -5,10 +5,9 @@
  */
 package service;
 
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
+import ch.bfh.due1.time.TimeSlot;
 import jpa.Booker;
 import jpa.Reservation;
 import jpa.Room;
@@ -19,26 +18,29 @@ public interface IReservationController {
 
 	/**
 	 * Reserve a room
-	 * @param b booker who want to reservate a roome
-	 * @param d date
-	 * @param from starting time
-	 * @param to end time
-	 * @param r the room to reserve
+	 * @param booker
+	 *            booker who want to reservate a roome
+	 * @param timeSlot
+	 *            time slot
+	 * @param room
+	 *            the room to reserve
 	 * @return the adapted list
 	 */
-	public List<Reservation> reservate(Booker b, Date d, Time from, Time to, Room r);
+	public List<Reservation> reservate(Booker booker, TimeSlot timeSlot, Room room);
 
 	/**
 	 * Cancel a reservation
-	 * @param b booker who want to reservate a roome
-	 * @param d date
-	 * @param from starting time
-	 * @param to end time
-	 * @param r the room to reserve
-	 * @throws ReservationNotFoundException if reservation will not be found
+	 * @param booker
+	 *            booker who want to reservate a roome
+	 * @param timeSlot
+	 *            time slot
+	 * @param room
+	 *            the room to reserve
+	 * @throws ReservationNotFoundException
+	 *             if reservation will not be found
 	 * @return the adapted list
 	 */
-	public List<Reservation> cancel(Booker b, Date d, Time from, Time to, Room r) throws ReservationNotFoundException;
+	public List<Reservation> cancel(Booker booker, TimeSlot timeSlot, Room room) throws ReservationNotFoundException;
 
 	/**
 	 * Show all reservations

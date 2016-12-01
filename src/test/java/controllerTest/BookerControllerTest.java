@@ -6,10 +6,12 @@
 package controllerTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import jpa.Booker;
@@ -17,138 +19,84 @@ import service.implementation.BookerController;
 import service.implementation.exceptions.BookerLoginException;
 
 public class BookerControllerTest {
+	private BookerController bookerController;
+
+	@Before
+	public void setUp() {
+		this.bookerController = new BookerController();
+	}
 
 	@Test
-	public void saveBookerTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
+	public void saveaBookerTest() {
+		Booker booker = bookerController.saveBooker("Donald", "Duck", "donald@duckius.com");
 
-		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> expectedList = new ArrayList<Booker>();
+		List<Booker> list = bookerController.getAllBookers();
 
-		BookerController bc = new BookerController(list);
-
-		list = bc.saveBooker(donald);
-		expectedList.add(donald);
-
-		assertEquals(expectedList, list);
+		assertTrue(list.contains(booker));
 	}
 
 	@Test(expected = BookerLoginException.class)
 	public void saveBookerTwiceTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
+		Booker booker = bookerController.saveBooker("Donald", "Duck", "donald@duck1.com");
+		Booker booker1 = bookerController.saveBooker("Donald", "Duck", "donald@duck1.com");
 
-		List<Booker> list = new ArrayList<Booker>();
-
-		BookerController bc = new BookerController(list);
-
-		list = bc.saveBooker(donald);
-		list = bc.saveBooker(donald);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void saveEmptyBookerTest() {
-		Booker donald = new Booker("", "", "");
-
-		List<Booker> list = new ArrayList<Booker>();
-
-		BookerController bc = new BookerController(list);
-
-		list = bc.saveBooker(donald);
+		Booker booker = bookerController.saveBooker("", "", "");
 	}
 
 	@Test
 	public void deleteBookerTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
+		Booker booker = bookerController.saveBooker("Donald", "Duck", "donald@duckis2.com");
 
-		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> expectedList = new ArrayList<Booker>();
+		bookerController.deleteBooker(booker);
 
-		BookerController bc = new BookerController(list);
+		List<Booker> list = bookerController.getAllBookers();
 
-		list = bc.saveBooker(donald);
-		expectedList.add(donald);
-
-		list = bc.deleteBooker(donald.getLogin());
-		expectedList.remove(donald);
-
-		assertEquals(expectedList, list);
+		assertFalse(list.contains(booker));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void deleteNotExistingBookerTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
-		Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
+		Booker booker = new Booker("Donald", "Duck", "donald@duck3.com");
 
-		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> expectedList = new ArrayList<Booker>();
-
-		BookerController bc = new BookerController(list);
-
-		list = bc.saveBooker(donald);
-		expectedList.add(donald);
-
-		list = bc.deleteBooker(mickey.getLogin());
+		bookerController.deleteBooker(booker);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void deleteEmptyBookerTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
-		Booker mickey = new Booker("", "", "");
+		Booker booker = new Booker("", "", "");
 
-		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> expectedList = new ArrayList<Booker>();
-
-		BookerController bc = new BookerController(list);
-
-		list = bc.saveBooker(donald);
-		expectedList.add(donald);
-
-		list = bc.deleteBooker(mickey.getLogin());
+		bookerController.deleteBooker(booker);
 	}
 
 	@Test
-	public void editBookerTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
-		Booker donald1 = new Booker("Donald", "Duck", "donald@duck1.com");
+	public void editaBookerTest() { // TODO
+		Booker booker = bookerController.saveBooker("Donald", "Duck", "asdf@ddd.com");
 
-		List<Booker> list = new ArrayList<Booker>();
+		String newFirstName = "Mickey";
+		String newLastName = "Mouse";
 
-		BookerController bc = new BookerController(list);
+		bookerController.editBooker(newFirstName, newLastName, booker);
 
-		list = bc.saveBooker(donald);
-
-		bc.editBooker("Donaldius", "Duckius", donald);
-		donald1.setFirstName("Donaldius");
-		donald1.setLastName("Duckius");
-
-		assertEquals(donald1.getFirstName(), donald.getFirstName());
-		assertEquals(donald1.getLastName(), donald.getLastName());
+		assertEquals(newFirstName, booker.getFirstName());
+		assertEquals(newLastName, booker.getLastName());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void editWrongBookerTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
+		Booker booker = bookerController.saveBooker("Donald", "Duck", "donald@duck5.com");
 		Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
 
-		List<Booker> list = new ArrayList<Booker>();
-
-		BookerController bc = new BookerController(list);
-
-		list = bc.saveBooker(donald);
-
-		bc.editBooker("Mickey", "Mausius", mickey);
+		bookerController.editBooker("Mini", "Mouse", mickey);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void editEmptyBookerTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
+		Booker booker = bookerController.saveBooker("Donald", "Duck", "donald@duck6.com");
 
-		List<Booker> list = new ArrayList<Booker>();
-
-		BookerController bc = new BookerController(list);
-
-		list = bc.saveBooker(donald);
-
-		bc.editBooker("", "", donald);
+		bookerController.editBooker("", "", booker);
 	}
 }

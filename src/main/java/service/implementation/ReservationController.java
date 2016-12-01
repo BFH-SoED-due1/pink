@@ -5,10 +5,9 @@
  */
 package service.implementation;
 
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
+import ch.bfh.due1.time.TimeSlot;
 import jpa.Booker;
 import jpa.Reservation;
 import jpa.Room;
@@ -38,9 +37,9 @@ public class ReservationController implements IReservationController {
 	 * java.util.Date, java.sql.Time, java.sql.Time, srs.Room)
 	 */
 	@Override
-	public List<Reservation> reservate(Booker booker, Date date, Time from, Time to, Room room) {
-		if (validateInput(booker, date, from, to, room)) {
-			this.reservationList.add(new Reservation(room, date, from, to, booker));
+	public List<Reservation> reservate(Booker booker, TimeSlot timeSlot, Room room) {
+		if (validateInput(booker, timeSlot, room)) {
+			this.reservationList.add(new Reservation(room, timeSlot, booker));
 			room.setBooked();
 			return this.reservationList;
 		} else
@@ -52,10 +51,9 @@ public class ReservationController implements IReservationController {
 	 * java.sql.Time, java.sql.Time, srs.Room)
 	 */
 	@Override
-	public List<Reservation> cancel(Booker booker, Date date, Time from, Time to, Room room) throws ReservationNotFoundException {
+	public List<Reservation> cancel(Booker booker, TimeSlot timeSlot, Room room) throws ReservationNotFoundException {
 		for (int i = 0; i < this.reservationList.size(); i++) {
-			if (this.reservationList.get(i).getBooker().equals(booker) && this.reservationList.get(i).getDate().equals(date)
-					&& this.reservationList.get(i).getFrom().equals(from) && this.reservationList.get(i).getTo().equals(to)
+			if (this.reservationList.get(i).getBooker().equals(booker) && this.reservationList.get(i).getTimeSlot().equals(timeSlot)
 					&& this.reservationList.get(i).getRoom().equals(room))
 				this.reservationList.remove(i);
 			else
@@ -64,11 +62,11 @@ public class ReservationController implements IReservationController {
 		return this.reservationList;
 	}
 
-	public boolean validateInput(Booker booker, Date date, Time from, Time to, Room room) {
+	public boolean validateInput(Booker booker, TimeSlot timeSlot, Room room) {
 		boolean isValid = false;
 
 		if (booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || room.isBooked() || booker.getFirstName().isEmpty()
-				|| booker.getLastName().isEmpty() || booker.getLogin().isEmpty())
+				|| booker.getLastName().isEmpty() || booker.getLogin().isEmpty() || timeSlot == null)
 			isValid = false;
 		else
 			isValid = true;

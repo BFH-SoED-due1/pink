@@ -5,15 +5,18 @@
  */
 package controllerTest;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
-import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import ch.bfh.due1.time.TimeSlot;
+import ch.bfh.due1.time.TimeSlotFactory;
 import jpa.Booker;
 import jpa.Reservation;
 import jpa.Room;
@@ -21,8 +24,10 @@ import service.implementation.ReservationController;
 import service.implementation.exceptions.ReservationException;
 import service.implementation.exceptions.ReservationNotFoundException;
 
-@SuppressWarnings("deprecation")
 public class ReservationControllerTest {
+	public final String DEFAULTTIMESLOTFACTORYNAME = "ch.bfh.due1.time.pojo.TimeSlotFactoryImpl";
+
+	private TimeSlotFactory factory;
 
 	String fNameDonald = "Donald";
 	String lNameDonald = "Duck";
@@ -35,24 +40,36 @@ public class ReservationControllerTest {
 	Booker donald = new Booker(fNameDonald, lNameDonald, emailDonald);
 	Booker micky = new Booker(fNameDonald, lNameMicky, emailMicky);
 
-	Date d1 = new Date(2016, 11, 11);
-	Time from1 = new Time(8, 00, 00);
-	Time to1 = new Time(17, 00, 00);
-	Date d2 = new Date(2016, 11, 10);
-	Time from2 = new Time(9, 00, 00);
-	Time to2 = new Time(18, 00, 00);
-
 	Room r1 = new Room(100, "Room 1", "Beamer, Seats, Computer");
 	Room r2 = new Room(200, "Room 2", "Beamer, Seats, Computer, TV");
 	Room r3 = new Room(10, "Pause 1", "Coffeemashine, Sandwich");
 	Room r4 = new Room(20, "Pause 2", "Coffeemashine, Sandwich");
 
+	/**
+	 * Constructs a time slot factory object by using the
+	 * <code>timeslotfactory.name</code> property. If not set then the
+	 * <code>ch.bfh.due1.time.TimeSlotFactoryImpl</code> is used.
+	 */
+	@Before
+	public void setUp() throws Exception {
+		String className = System.getProperty("timeslotfactory.name", DEFAULTTIMESLOTFACTORYNAME);
+		Class<?> clazz = Class.forName(className);
+		this.factory = (TimeSlotFactory) clazz.newInstance();
+	}
+
 	@Test
 	public void testReservateNormal() {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+		LocalDateTime newStart = LocalDateTime.of(2016, 11, 24, 10, 15);
+		LocalDateTime newFinish = LocalDateTime.of(2016, 11, 24, 10, 45);
+		TimeSlot newTimeSlot = this.factory.createTimeSlot(newStart, newFinish);
+
 		List<Reservation> list = new ArrayList<Reservation>();
 		ReservationController ctrl = new ReservationController(list);
-		list = ctrl.reservate(donald, d1, from1, to1, r1);
-		list = ctrl.reservate(donald, d2, from1, to1, r2);
+		list = ctrl.reservate(donald, timeSlot, r1);
+		list = ctrl.reservate(donald, newTimeSlot, r2);
 
 		List<Reservation> temp = new ArrayList<Reservation>();
 		temp = list;
@@ -62,18 +79,32 @@ public class ReservationControllerTest {
 
 	@Test(expected = ReservationException.class)
 	public void testReservateExpectException() {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+		LocalDateTime newStart = LocalDateTime.of(2016, 11, 24, 10, 15);
+		LocalDateTime newFinish = LocalDateTime.of(2016, 11, 24, 10, 45);
+		TimeSlot newTimeSlot = this.factory.createTimeSlot(newStart, newFinish);
+
 		List<Reservation> list = new ArrayList<Reservation>();
 		ReservationController ctrl = new ReservationController(list);
-		list = ctrl.reservate(donald, d1, from1, to1, r1);
-		list = ctrl.reservate(micky, d1, from1, to1, r1);
+		list = ctrl.reservate(donald, timeSlot, r1);
+		list = ctrl.reservate(micky, newTimeSlot, r1);
 	}
 
 	@Test
 	public void testCancel() throws ReservationNotFoundException {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+		LocalDateTime newStart = LocalDateTime.of(2016, 11, 24, 10, 15);
+		LocalDateTime newFinish = LocalDateTime.of(2016, 11, 24, 10, 45);
+		TimeSlot newTimeSlot = this.factory.createTimeSlot(newStart, newFinish);
+
 		List<Reservation> list = new ArrayList<Reservation>();
 		ReservationController ctrl = new ReservationController(list);
-		list = ctrl.reservate(donald, d1, from1, to1, r1);
-		list = ctrl.reservate(donald, d2, from1, to1, r2);
+		list = ctrl.reservate(donald, timeSlot, r1);
+		list = ctrl.reservate(donald, newTimeSlot, r2);
 
 		List<Reservation> temp = new ArrayList<Reservation>();
 		temp = list;
@@ -81,7 +112,7 @@ public class ReservationControllerTest {
 		assertEquals(list, temp);
 		assertEquals(list.size(), 2);
 
-		list = ctrl.cancel(donald, d1, from1, to1, r1);
+		list = ctrl.cancel(donald, timeSlot, r1);
 		temp = list;
 
 		assertEquals(list, temp);
@@ -90,9 +121,16 @@ public class ReservationControllerTest {
 
 	@Test(expected = ReservationNotFoundException.class)
 	public void testCancelThrowException() throws ReservationNotFoundException {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+		LocalDateTime newStart = LocalDateTime.of(2016, 11, 24, 10, 15);
+		LocalDateTime newFinish = LocalDateTime.of(2016, 11, 24, 10, 45);
+		TimeSlot newTimeSlot = this.factory.createTimeSlot(newStart, newFinish);
+
 		List<Reservation> list = new ArrayList<Reservation>();
 		ReservationController ctrl = new ReservationController(list);
-		list = ctrl.reservate(donald, d1, from1, to1, r1);
+		list = ctrl.reservate(donald, timeSlot, r1);
 
 		List<Reservation> temp = new ArrayList<Reservation>();
 		temp = list;
@@ -100,7 +138,7 @@ public class ReservationControllerTest {
 		assertEquals(list, temp);
 		assertEquals(list.size(), 1);
 
-		list = ctrl.cancel(donald, d2, from1, to1, r2);
+		list = ctrl.cancel(donald, newTimeSlot, r2);
 		temp = list;
 
 		assertEquals(list, temp);
@@ -109,21 +147,28 @@ public class ReservationControllerTest {
 
 	@Test
 	public void testShowReservations() {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+		LocalDateTime newStart = LocalDateTime.of(2016, 11, 24, 10, 15);
+		LocalDateTime newFinish = LocalDateTime.of(2016, 11, 24, 10, 45);
+		TimeSlot newTimeSlot = this.factory.createTimeSlot(newStart, newFinish);
+
 		List<Reservation> list = new ArrayList<Reservation>();
 		ReservationController ctrl = new ReservationController(list);
-		list = ctrl.reservate(donald, d1, from1, to1, r1);
-		list = ctrl.reservate(micky, d2, from2, to2, r2);
+		list = ctrl.reservate(donald, timeSlot, r1);
+		list = ctrl.reservate(micky, newTimeSlot, r2);
 
 		List<Reservation> temp = new ArrayList<Reservation>();
-		temp.add(new Reservation(r1, d1, from1, to1, donald));
-		temp.add(new Reservation(r2, d2, from2, to2, micky));
+		temp.add(new Reservation(r1, timeSlot, donald));
+		temp.add(new Reservation(r2, newTimeSlot, micky));
 
 		assertEquals(list.get(0).getBooker(), temp.get(0).getBooker());
-		assertEquals(list.get(0).getDate(), temp.get(0).getDate());
+		assertEquals(list.get(0).getTimeSlot(), temp.get(0).getTimeSlot());
 		assertEquals(list.get(0).getRoom(), temp.get(0).getRoom());
 
 		assertEquals(list.get(1).getBooker(), temp.get(1).getBooker());
-		assertEquals(list.get(1).getDate(), temp.get(1).getDate());
+		assertEquals(list.get(1).getTimeSlot(), temp.get(1).getTimeSlot());
 		assertEquals(list.get(1).getRoom(), temp.get(1).getRoom());
 
 		/*
