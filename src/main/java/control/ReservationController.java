@@ -52,8 +52,8 @@ public class ReservationController implements IReservationController {
 	public List<AReservation> cancel(AReservation reservation) throws ReservationNotFoundException {
 		for (int i = 0; i < this.reservationList.size(); i++) {
 			if (this.reservationList.get(i).getBooker().equals(reservation.getBooker())
-					&& this.reservationList.get(i).getBooker().equals(reservation.getRoom())
-					&& this.reservationList.get(i).getBooker().equals(reservation.getTimeSlot())) {
+					&& this.reservationList.get(i).getRoom().equals(reservation.getRoom())
+					&& this.reservationList.get(i).getTimeSlot().equals(reservation.getTimeSlot())) {
 				this.reservationList.remove(i);
 				reservation.getRoom().removeBooking();
 				break;

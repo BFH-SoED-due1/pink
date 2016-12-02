@@ -2,6 +2,8 @@
 package controllerTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -113,32 +115,34 @@ public class ReservationControllerTest {
 	}
 
 	/* TODO */
-	// @Test
-	// public void testCancel() throws ReservationNotFoundException {
-	// LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
-	// LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
-	// TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
-	// LocalDateTime otherStart = LocalDateTime.of(2016, 12, 24, 10, 15);
-	// LocalDateTime otherFinish = LocalDateTime.of(2016, 12, 24, 10, 45);
-	// TimeSlot otherTimeSlot = this.factory.createTimeSlot(otherStart,
-	// otherFinish);
-	//
-	// List<AReservation> list = new ArrayList<AReservation>();
-	// ReservationController ctrl = new ReservationController(list);
-	// AReservation res = new Reservation(r1, timeSlot, donald);
-	//
-	// list = ctrl.reservate(res);
-	//
-	// List<AReservation> temp = new ArrayList<AReservation>();
-	// temp = list;
-	//
-	// assertEquals(list.size(), 1);
-	//
-	// list = ctrl.cancel(res);
-	// temp = list;
-	// assertEquals(list, temp);
-	// assertEquals(list.size(), 0);
-	// }
+	@Test
+	public void testCancel() throws ReservationNotFoundException {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+		LocalDateTime otherStart = LocalDateTime.of(2016, 12, 24, 10, 15);
+		LocalDateTime otherFinish = LocalDateTime.of(2016, 12, 24, 10, 45);
+		TimeSlot otherTimeSlot = this.factory.createTimeSlot(otherStart, otherFinish);
+
+		List<AReservation> list = new ArrayList<AReservation>();
+		ReservationController ctrl = new ReservationController(list);
+		AReservation res = new Reservation(r1, timeSlot, donald);
+		AReservation res2 = new Reservation(r2, otherTimeSlot, donald);
+
+		ctrl.reservate(res);
+		ctrl.reservate(res2);
+
+		list = ctrl.showReservations();
+
+		assertTrue(list.contains(res));
+		assertTrue(list.contains(res2));
+
+		ctrl.cancel(res);
+		list = ctrl.showReservations();
+
+		assertTrue(list.contains(res2));
+		assertFalse(list.contains(res));
+	}
 
 	@Test
 	public void testShowReservations() {
