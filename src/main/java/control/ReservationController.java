@@ -40,25 +40,38 @@ public class ReservationController implements IReservationController {
 			this.reservationList.add(reservation);
 			return this.reservationList;
 		} else
-			throw new ReservationException("Check your input. A booker needs a first name, last name, login, the room has to be free.");
+			throw new ReservationException(
+					"Check your input. A booker needs a first name, last name, login, the room has to be free.");
 	}
 
 	/*
 	 * @see controller.IReservationController#cancel(srs.Booker, java.util.Date,
 	 * java.sql.Time, java.sql.Time, srs.Room)
 	 */
+	@SuppressWarnings("unused")
 	@Override
 	public List<AReservation> cancel(AReservation reservation) throws ReservationNotFoundException {
-		this.reservationList.remove(reservation);
-		return this.reservationList;
+		for (int i = 0; i < this.reservationList.size(); i++) {
+			if (this.reservationList.get(i).getBooker().equals(reservation.getBooker())
+					&& this.reservationList.get(i).getBooker().equals(reservation.getRoom())
+					&& this.reservationList.get(i).getBooker().equals(reservation.getTimeSlot())) {
+				this.reservationList.remove(i);
+				reservation.getRoom().removeBooking();
+				break;
+			} else {
+				throw new ReservationNotFoundException("Reservation not found");
+			}
 
+		}
+		return this.reservationList;
 	}
 
 	public boolean validateInput(ABooker booker, TimeSlot timeSlot, ARoom room) {
 		boolean isValid = false;
 
-		if (booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || room.isBooked() || booker.getFirstName().isEmpty()
-				|| booker.getLastName().isEmpty() || booker.getLogin().isEmpty() || timeSlot == null)
+		if (booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || room.isBooked()
+				|| booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || booker.getLogin().isEmpty()
+				|| timeSlot == null)
 			isValid = false;
 		else
 			isValid = true;

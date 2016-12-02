@@ -32,8 +32,8 @@ public class Reservation extends AReservation {
 	public Reservation() {
 	}
 
-	public Reservation(Room room, TimeSlot timeSlot, Booker booker) {
-		this.room = room;
+	public Reservation(Room r2, TimeSlot timeSlot, Booker booker) {
+		this.room = r2;
 		this.timeSlot = timeSlot;
 		this.booker = booker;
 	}
