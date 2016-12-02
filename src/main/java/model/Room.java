@@ -13,8 +13,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import control.ARoom;
-
 @Entity(name = "Room")
 public class Room extends ARoom {
 	@Id

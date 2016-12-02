@@ -3,7 +3,7 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package control;
+package model;
 
 public abstract class ARoom {
 	/**

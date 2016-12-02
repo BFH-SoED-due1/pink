@@ -8,8 +8,9 @@ package control;
 import java.util.ArrayList;
 import java.util.List;
 
-import control.exceptions.BookerLoginException;
-import control.exceptions.BookerNotFoundException;
+import exceptions.BookerLoginException;
+import exceptions.BookerNotFoundException;
+import model.ABooker;
 import view.IBookerController;
 
 public class BookerController implements IBookerController {

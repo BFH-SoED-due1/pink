@@ -3,12 +3,14 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package control.exceptions;
+package exceptions;
 
-public class RoomNotFoundException extends IllegalArgumentException {
+public class UserLoginFailedException extends IllegalArgumentException {
+
 	private static final long serialVersionUID = 1L;
 
-	public RoomNotFoundException(String m) {
-		super(m);
+	public UserLoginFailedException(String string) {
+		super(string);
 	}
+
 }

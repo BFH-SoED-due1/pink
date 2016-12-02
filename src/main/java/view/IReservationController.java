@@ -7,8 +7,8 @@ package view;
 
 import java.util.List;
 
-import control.AReservation;
-import control.exceptions.ReservationNotFoundException;
+import exceptions.ReservationNotFoundException;
+import model.AReservation;
 
 public interface IReservationController {
 	/** Responsible for administrate the reservations */

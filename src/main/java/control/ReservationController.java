@@ -8,8 +8,11 @@ package control;
 import java.util.List;
 
 import ch.bfh.due1.time.TimeSlot;
-import control.exceptions.ReservationException;
-import control.exceptions.ReservationNotFoundException;
+import exceptions.ReservationException;
+import exceptions.ReservationNotFoundException;
+import model.ABooker;
+import model.AReservation;
+import model.ARoom;
 import view.IReservationController;
 
 public class ReservationController implements IReservationController {

@@ -3,15 +3,12 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package control.exceptions;
+package exceptions;
 
-import java.io.IOException;
-
-public class ReservationNotFoundException extends IOException {
-
+public class RoomNotFoundException extends IllegalArgumentException {
 	private static final long serialVersionUID = 1L;
 
-	public ReservationNotFoundException(String m) {
+	public RoomNotFoundException(String m) {
 		super(m);
 	}
 }

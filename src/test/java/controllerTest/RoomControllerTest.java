@@ -12,10 +12,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import control.ARoom;
 import control.RoomController;
-import control.exceptions.RoomNameException;
-import control.exceptions.RoomNotFoundException;
+import exceptions.RoomNameException;
+import exceptions.RoomNotFoundException;
+import model.ARoom;
 import model.Room;
 
 public class RoomControllerTest {

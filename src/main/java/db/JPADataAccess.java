@@ -3,7 +3,7 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package model;
+package db;
 
 import java.util.List;
 
@@ -12,7 +12,11 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import ch.bfh.due1.time.TimeSlot;
-import control.DataAccess;
+import model.Booker;
+import model.Reservation;
+import model.Room;
+import model.RoomEquipment;
+import model.SystemUser;
 
 public class JPADataAccess extends DataAccess {
 	private EntityManager entityManager;

@@ -3,14 +3,13 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package control.exceptions;
+package exceptions;
 
-public class UserLoginFailedException extends IllegalArgumentException {
+public class BookerLoginException extends IllegalArgumentException {
 
 	private static final long serialVersionUID = 1L;
 
-	public UserLoginFailedException(String string) {
-		super(string);
+	public BookerLoginException(String m) {
+		super(m);
 	}
-
 }

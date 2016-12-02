@@ -14,10 +14,10 @@ import org.junit.Test;
 
 import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.due1.time.TimeSlotFactory;
-import control.AReservation;
 import control.ReservationController;
-import control.exceptions.ReservationException;
-import control.exceptions.ReservationNotFoundException;
+import exceptions.ReservationException;
+import exceptions.ReservationNotFoundException;
+import model.AReservation;
 import model.Booker;
 import model.Reservation;
 import model.Room;

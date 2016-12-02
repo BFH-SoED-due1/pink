@@ -12,8 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import control.ABooker;
-
 @Entity(name = "Booker")
 public class Booker extends ABooker {
 	@Id

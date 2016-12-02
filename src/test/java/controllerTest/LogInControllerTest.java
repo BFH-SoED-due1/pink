@@ -7,10 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
-import control.ASystemUser;
+
 import control.LogInController;
+import exceptions.UserLoginFailedException;
+import model.ASystemUser;
 import model.SystemUser;
-import control.exceptions.UserLoginFailedException;
 
 public class LogInControllerTest {
 

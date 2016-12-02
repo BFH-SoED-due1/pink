@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.due1.time.TimeSlotFactory;
-import control.DataAccess;
+import db.DataAccess;
 import model.Booker;
 import model.Reservation;
 import model.Room;

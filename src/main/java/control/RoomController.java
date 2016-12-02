@@ -8,8 +8,9 @@ package control;
 import java.util.ArrayList;
 import java.util.List;
 
-import control.exceptions.RoomNameException;
-import control.exceptions.RoomNotFoundException;
+import exceptions.RoomNameException;
+import exceptions.RoomNotFoundException;
+import model.ARoom;
 import view.IRoomController;
 
 public class RoomController implements IRoomController {

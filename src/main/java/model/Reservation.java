@@ -11,9 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import ch.bfh.due1.time.TimeSlot;
-import control.ABooker;
-import control.AReservation;
-import control.ARoom;
 
 @Entity(name = "Reservation")
 public class Reservation extends AReservation {

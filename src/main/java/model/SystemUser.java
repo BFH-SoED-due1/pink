@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import control.ASystemUser;
-
 @Entity(name = "SystemUser")
 public class SystemUser extends ASystemUser {
 	@Id

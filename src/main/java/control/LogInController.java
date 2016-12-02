@@ -8,7 +8,8 @@ package control;
 import java.util.ArrayList;
 import java.util.List;
 
-import control.exceptions.UserLoginFailedException;
+import exceptions.UserLoginFailedException;
+import model.ASystemUser;
 import view.ILogInController;
 
 public class LogInController implements ILogInController {

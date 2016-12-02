@@ -7,7 +7,7 @@ package view;
 
 import java.util.List;
 
-import control.ABooker;
+import model.ABooker;
 
 public interface IBookerController {
 	/** Responsible for administrate booker-class */
