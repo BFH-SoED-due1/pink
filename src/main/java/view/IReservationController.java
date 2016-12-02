@@ -26,6 +26,7 @@ public interface IReservationController {
 	 * @param reservation
 	 *            the reservation
 	 * @return the adapted list
+	 * @throws ReservationNotFoundException
 	 */
 	public List<AReservation> cancel(AReservation reservation) throws ReservationNotFoundException;
 

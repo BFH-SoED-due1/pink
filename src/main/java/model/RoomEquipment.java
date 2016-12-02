@@ -34,6 +34,10 @@ public class RoomEquipment {
 		return quantity;
 	}
 
+	public long getId() {
+		return id;
+	}
+
 	public void setQuantity(int qty) {
 		this.quantity = qty;
 	}

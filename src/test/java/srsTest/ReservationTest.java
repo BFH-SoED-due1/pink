@@ -21,11 +21,6 @@ public class ReservationTest {
 
 	private TimeSlotFactory factory;
 
-	/**
-	 * Constructs a time slot factory object by using the
-	 * <code>timeslotfactory.name</code> property. If not set then the
-	 * <code>ch.bfh.due1.time.TimeSlotFactoryImpl</code> is used.
-	 */
 	@Before
 	public void setUp() throws Exception {
 		String className = System.getProperty("timeslotfactory.name", DEFAULTTIMESLOTFACTORYNAME);

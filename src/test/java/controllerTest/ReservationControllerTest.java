@@ -2,6 +2,7 @@
 package controllerTest;
 
 import static org.junit.Assert.assertEquals;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +41,6 @@ public class ReservationControllerTest {
 	Room r3 = new Room(10, "Pause 1", "Coffeemashine, Sandwich");
 	Room r4 = new Room(20, "Pause 2", "Coffeemashine, Sandwich");
 
-	/**
-	 * Constructs a time slot factory object by using the
-	 * <code>timeslotfactory.name</code> property. If not set then the
-	 * <code>ch.bfh.due1.time.TimeSlotFactoryImpl</code> is used.
-	 */
 	@Before
 	public void setUp() throws Exception {
 		String className = System.getProperty("timeslotfactory.name", DEFAULTTIMESLOTFACTORYNAME);

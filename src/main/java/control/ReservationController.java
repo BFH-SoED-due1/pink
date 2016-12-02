@@ -40,8 +40,7 @@ public class ReservationController implements IReservationController {
 			this.reservationList.add(reservation);
 			return this.reservationList;
 		} else
-			throw new ReservationException(
-					"Check your input. A booker needs a first name, last name, login, the room has to be free.");
+			throw new ReservationException("Check your input. A booker needs a first name, last name, login, the room has to be free.");
 	}
 
 	/*
@@ -69,9 +68,8 @@ public class ReservationController implements IReservationController {
 	public boolean validateInput(ABooker booker, TimeSlot timeSlot, ARoom room) {
 		boolean isValid = false;
 
-		if (booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || room.isBooked()
-				|| booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || booker.getLogin().isEmpty()
-				|| timeSlot == null)
+		if (booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || room.isBooked() || booker.getFirstName().isEmpty()
+				|| booker.getLastName().isEmpty() || booker.getLogin().isEmpty() || timeSlot == null)
 			isValid = false;
 		else
 			isValid = true;
