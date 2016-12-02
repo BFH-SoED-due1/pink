@@ -16,7 +16,7 @@ import model.SystemUser;
 
 public abstract class DataAccess {
 
-	public static final String DATA_ACCESS_CLASS = "model.JPADataAccess";
+	public static final String DATA_ACCESS_CLASS = "db.JPADataAccess";
 
 	private static DataAccess instance = null;
 
