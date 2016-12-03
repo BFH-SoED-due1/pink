@@ -12,18 +12,18 @@ import java.util.List;
 
 import org.junit.Test;
 
-import control.RoomController;
-import exceptions.RoomNameException;
-import exceptions.RoomNotFoundException;
-import model.ARoom;
+import controller.RoomController;
+import controller.exceptions.RoomNameException;
+import controller.exceptions.RoomNotFoundException;
+import model.IRoom;
 import model.Room;
 
 public class RoomControllerTest {
 
 	@Test
 	public void addRoomTest() {
-		ARoom room = new Room(24, "321", "Classroom");
-		List<ARoom> list = new ArrayList<ARoom>();
+		IRoom room = new Room(24, "321", "Classroom");
+		List<IRoom> list = new ArrayList<IRoom>();
 		RoomController ctrl = new RoomController(list);
 
 		list = ctrl.addRoom(room);
@@ -33,8 +33,8 @@ public class RoomControllerTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void addMinusSizeRoomTest() {
 		Room room = new Room(-1, "321", "Classroom");
-		List<ARoom> list = new ArrayList<ARoom>();
-		List<ARoom> expectedList = new ArrayList<ARoom>();
+		List<IRoom> list = new ArrayList<IRoom>();
+		List<IRoom> expectedList = new ArrayList<IRoom>();
 		RoomController ctrl = new RoomController(list);
 
 		list = ctrl.addRoom(room);
@@ -45,8 +45,8 @@ public class RoomControllerTest {
 
 	@Test(expected = RoomNameException.class)
 	public void addRoomTwiceTest() {
-		ARoom room = new Room(24, "321", "Classroom");
-		List<ARoom> list = new ArrayList<ARoom>();
+		IRoom room = new Room(24, "321", "Classroom");
+		List<IRoom> list = new ArrayList<IRoom>();
 		RoomController ctrl = new RoomController(list);
 
 		list = ctrl.addRoom(room);
@@ -55,8 +55,8 @@ public class RoomControllerTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void addEmptyRoomTest() {
-		ARoom room = new Room(0, "", "");
-		List<ARoom> list = new ArrayList<ARoom>();
+		IRoom room = new Room(0, "", "");
+		List<IRoom> list = new ArrayList<IRoom>();
 		RoomController ctrl = new RoomController(list);
 
 		list = ctrl.addRoom(room);
@@ -64,9 +64,9 @@ public class RoomControllerTest {
 
 	@Test
 	public void deleteRoomTest() {
-		ARoom room = new Room(24, "321", "Classroom");
-		List<ARoom> list = new ArrayList<ARoom>();
-		List<ARoom> expectedList = new ArrayList<ARoom>();
+		IRoom room = new Room(24, "321", "Classroom");
+		List<IRoom> list = new ArrayList<IRoom>();
+		List<IRoom> expectedList = new ArrayList<IRoom>();
 		RoomController ctrl = new RoomController(list);
 
 		list = ctrl.addRoom(room);
@@ -80,11 +80,11 @@ public class RoomControllerTest {
 
 	@Test(expected = RoomNotFoundException.class)
 	public void deleteNotExistingRoomTest() {
-		ARoom room = new Room(24, "321", "Classroom");
-		ARoom room2 = new Room(24, "399", "Classroom");
+		IRoom room = new Room(24, "321", "Classroom");
+		IRoom room2 = new Room(24, "399", "Classroom");
 
-		List<ARoom> list = new ArrayList<ARoom>();
-		List<ARoom> expectedList = new ArrayList<ARoom>();
+		List<IRoom> list = new ArrayList<IRoom>();
+		List<IRoom> expectedList = new ArrayList<IRoom>();
 		RoomController rc = new RoomController(list);
 
 		list = rc.addRoom(room);
@@ -95,10 +95,10 @@ public class RoomControllerTest {
 
 	@Test(expected = RoomNotFoundException.class)
 	public void deleteEmptyRoomTest() {
-		ARoom room = new Room(24, "321", "Classroom");
-		ARoom room2 = new Room(2, "222", "");
-		List<ARoom> list = new ArrayList<ARoom>();
-		List<ARoom> expectedList = new ArrayList<ARoom>();
+		IRoom room = new Room(24, "321", "Classroom");
+		IRoom room2 = new Room(2, "222", "");
+		List<IRoom> list = new ArrayList<IRoom>();
+		List<IRoom> expectedList = new ArrayList<IRoom>();
 		RoomController ctrl = new RoomController(list);
 
 		list = ctrl.addRoom(room);
@@ -109,9 +109,9 @@ public class RoomControllerTest {
 
 	@Test
 	public void editRoomTest() {
-		ARoom room = new Room(24, "321", "Classroom");
-		ARoom room2 = new Room(24, "322", "Classroom");
-		List<ARoom> list = new ArrayList<ARoom>();
+		IRoom room = new Room(24, "321", "Classroom");
+		IRoom room2 = new Room(24, "322", "Classroom");
+		List<IRoom> list = new ArrayList<IRoom>();
 		RoomController ctrl = new RoomController(list);
 
 		list = ctrl.addRoom(room);
@@ -125,9 +125,9 @@ public class RoomControllerTest {
 
 	@Test(expected = RoomNotFoundException.class)
 	public void editWrongRoomTest() {
-		ARoom room = new Room(24, "321", "Classroom");
-		ARoom room2 = new Room(24, "322", "Classroom");
-		List<ARoom> list = new ArrayList<ARoom>();
+		IRoom room = new Room(24, "321", "Classroom");
+		IRoom room2 = new Room(24, "322", "Classroom");
+		List<IRoom> list = new ArrayList<IRoom>();
 		RoomController ctrl = new RoomController(list);
 
 		list = ctrl.addRoom(room);
@@ -136,8 +136,8 @@ public class RoomControllerTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void editEmtyRoomTest() {
-		ARoom room = new Room(24, "321", "Classroom");
-		List<ARoom> list = new ArrayList<ARoom>();
+		IRoom room = new Room(24, "321", "Classroom");
+		List<IRoom> list = new ArrayList<IRoom>();
 		RoomController ctrl = new RoomController(list);
 
 		list = ctrl.addRoom(room);

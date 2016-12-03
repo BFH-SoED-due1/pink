@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name = "SystemUser")
-public class SystemUser extends ASystemUser {
+public class SystemUser implements ISystemUser {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -30,34 +30,42 @@ public class SystemUser extends ASystemUser {
 	}
 
 	///////////////////////// Setter /////////////////////////
+	@Override
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
+	@Override
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
+	@Override
 	public void setLogin(String email) {
 		this.login = email;
 	}
 
+	@Override
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	@Override
 	public void setAdmin() {
 		this.isAdmin = true;
 	}
 
+	@Override
 	public void removeAdmin() {
 		this.isAdmin = false;
 	}
 
+	@Override
 	public void login() {
 		this.isLoggedIn = true;
 	}
 
+	@Override
 	public void logout() {
 		this.isLoggedIn = false;
 	}
@@ -67,26 +75,32 @@ public class SystemUser extends ASystemUser {
 		return this.id;
 	}
 
+	@Override
 	public String getFirstName() {
 		return this.firstName;
 	}
 
+	@Override
 	public String getLastName() {
 		return this.lastName;
 	}
 
+	@Override
 	public String getLogin() {
 		return this.login;
 	}
 
+	@Override
 	public String getPassword() {
 		return this.password;
 	}
 
+	@Override
 	public boolean isAdmin() {
 		return this.isAdmin;
 	}
 
+	@Override
 	public boolean isLoggedIn() {
 		return this.isLoggedIn;
 	}

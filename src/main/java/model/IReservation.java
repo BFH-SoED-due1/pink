@@ -7,46 +7,52 @@ package model;
 
 import ch.bfh.due1.time.TimeSlot;
 
-public abstract class AReservation {
+/**
+ * @author Nathalie
+ *
+ */
+public interface IReservation {
 	/* Setter */
 
 	/**
 	 * room to reservate
-	 * @param room
-	 *            the room
+	 * @param room the room
 	 */
-	public abstract void setRoom(ARoom room);
+	public void setRoom(IRoom room);
 
 	/**
 	 * date of the reservation
-	 * @param timeSlot
-	 *            the time slot
+	 * @param timeSlot the time slot
 	 */
-	public abstract void setTimeSlot(TimeSlot timeSlot);
+	public void setTimeSlot(TimeSlot timeSlot);
 
 	/**
 	 * booker of the room
-	 * @param booker
-	 *            booker instance
+	 * @param booker booker instance
 	 */
-	public abstract void setBooker(ABooker booker);
+	public void setBooker(IBooker booker);
 
 	/* Getter */
 	/**
 	 * get the Reservation's Room
 	 * @return the Reservation's Room
 	 */
-	public abstract ARoom getRoom();
+	public IRoom getRoom();
 
 	/**
 	 * get the Reservation's time slot
 	 * @return the Reservation's time slot
 	 */
-	public abstract TimeSlot getTimeSlot();
+	public TimeSlot getTimeSlot();
 
 	/**
 	 * get the Reservation's Booker
 	 * @return the Reservation's Booker
 	 */
-	public abstract ABooker getBooker();
+	public IBooker getBooker();
+
+	/**
+	 * @return return the reservation-id
+	 */
+	public Long getId();
 }

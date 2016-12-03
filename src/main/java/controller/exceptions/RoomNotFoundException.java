@@ -3,13 +3,12 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package exceptions;
+package controller.exceptions;
 
-public class BookerNotFoundException extends IllegalArgumentException {
-
+public class RoomNotFoundException extends IllegalArgumentException {
 	private static final long serialVersionUID = 1L;
 
-	public BookerNotFoundException(String m) {
+	public RoomNotFoundException(String m) {
 		super(m);
 	}
 }

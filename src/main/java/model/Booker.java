@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity(name = "Booker")
-public class Booker extends ABooker {
+public class Booker implements IBooker {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -21,7 +21,7 @@ public class Booker extends ABooker {
 	private String firstName, lastName, login;
 
 	@OneToMany(targetEntity = Reservation.class)
-	private List<Reservation> reservations;
+	private List<IReservation> reservations;
 
 	public Booker() {
 
@@ -75,7 +75,7 @@ public class Booker extends ABooker {
 	}
 
 	// @Override
-	// public List<Reservation> getReservations() {
+	// public List<IReservation> getReservations() {
 	// return this.reservations;
 	// }
 	//
@@ -90,7 +90,7 @@ public class Booker extends ABooker {
 	// }
 
 	@Override
-	public Booker getBooker() {
+	public IBooker getBooker() {
 		return this;
 	}
 }

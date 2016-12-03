@@ -26,18 +26,22 @@ public class RoomEquipment {
 		this.quantity = quantity;
 	}
 
+	/** @return name of room */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
+	/** @return quantity of an equipment */
 	public int getQuantity() {
-		return quantity;
+		return this.quantity;
 	}
 
-	public long getId() {
-		return id;
+	/** @return the id */
+	public Long getId() {
+		return this.id;
 	}
 
+	/** @param qty set the quantity */
 	public void setQuantity(int qty) {
 		this.quantity = qty;
 	}

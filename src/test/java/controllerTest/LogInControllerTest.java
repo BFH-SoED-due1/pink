@@ -8,17 +8,17 @@ import java.util.List;
 
 import org.junit.Test;
 
-import control.LogInController;
-import exceptions.UserLoginFailedException;
-import model.ASystemUser;
+import controller.LogInController;
+import controller.exceptions.UserLoginFailedException;
+import model.ISystemUser;
 import model.SystemUser;
 
 public class LogInControllerTest {
 
 	@Test
 	public void loginTest() {
-		ASystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
-		List<ASystemUser> userList = new ArrayList<ASystemUser>();
+		ISystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
+		List<ISystemUser> userList = new ArrayList<ISystemUser>();
 		userList.add(hans);
 
 		LogInController lc = new LogInController(userList);
@@ -28,8 +28,8 @@ public class LogInControllerTest {
 
 	@Test
 	public void logoutTest() {
-		ASystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
-		List<ASystemUser> userList = new ArrayList<ASystemUser>();
+		ISystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
+		List<ISystemUser> userList = new ArrayList<ISystemUser>();
 		userList.add(hans);
 
 		LogInController lc = new LogInController(userList);
@@ -39,8 +39,8 @@ public class LogInControllerTest {
 
 	@Test(expected = UserLoginFailedException.class)
 	public void userNotExistsTest() {
-		ASystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
-		List<ASystemUser> userList = new ArrayList<ASystemUser>();
+		ISystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
+		List<ISystemUser> userList = new ArrayList<ISystemUser>();
 		userList.add(hans);
 
 		LogInController lc = new LogInController(userList);
@@ -49,8 +49,8 @@ public class LogInControllerTest {
 
 	@Test(expected = UserLoginFailedException.class)
 	public void wrongPwTest() {
-		ASystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
-		List<ASystemUser> userList = new ArrayList<ASystemUser>();
+		ISystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
+		List<ISystemUser> userList = new ArrayList<ISystemUser>();
 		userList.add(hans);
 
 		LogInController lc = new LogInController(userList);
@@ -59,8 +59,8 @@ public class LogInControllerTest {
 
 	@Test(expected = UserLoginFailedException.class)
 	public void allreadyLoggedInTest() {
-		ASystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
-		List<ASystemUser> userList = new ArrayList<ASystemUser>();
+		ISystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
+		List<ISystemUser> userList = new ArrayList<ISystemUser>();
 		userList.add(hans);
 
 		LogInController lc = new LogInController(userList);
@@ -71,8 +71,8 @@ public class LogInControllerTest {
 
 	@Test(expected = UserLoginFailedException.class)
 	public void emptyUserLoginTest() {
-		ASystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
-		List<ASystemUser> userList = new ArrayList<ASystemUser>();
+		ISystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
+		List<ISystemUser> userList = new ArrayList<ISystemUser>();
 		userList.add(hans);
 
 		LogInController lc = new LogInController(userList);
@@ -82,8 +82,8 @@ public class LogInControllerTest {
 
 	@Test(expected = UserLoginFailedException.class)
 	public void emptyUserLogoutTest() {
-		ASystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
-		List<ASystemUser> userList = new ArrayList<ASystemUser>();
+		ISystemUser hans = new SystemUser("Hans", "Zimmer", "hans@zimmer.ch", "111", false);
+		List<ISystemUser> userList = new ArrayList<ISystemUser>();
 		userList.add(hans);
 
 		LogInController lc = new LogInController(userList);

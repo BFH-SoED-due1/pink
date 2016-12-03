@@ -16,6 +16,10 @@ import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.due1.time.TimeSlotFactory;
 import db.DataAccess;
 import model.Booker;
+import model.IBooker;
+import model.IReservation;
+import model.IRoom;
+import model.ISystemUser;
 import model.Reservation;
 import model.Room;
 import model.RoomEquipment;
@@ -44,8 +48,8 @@ public class DataAccessTest {
 	///////////////////////// Booker /////////////////////////
 	@Test
 	public void testregisterBooker() {
-		Booker b = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster.ch");
-		List<Booker> all = this.dataAccess.getAllBookers();
+		IBooker b = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster.ch");
+		List<IBooker> all = this.dataAccess.getAllBookers();
 		assertNotNull(all);
 		assertTrue(all.size() > 0);
 		assertTrue(all.contains(b));
@@ -53,7 +57,7 @@ public class DataAccessTest {
 
 	@Test
 	public void testEditBooker() {
-		Booker b1 = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster1.ch");
+		IBooker b1 = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster1.ch");
 		String newFirstName = "Hansli";
 		String newLastName = "Musterli";
 
@@ -65,9 +69,9 @@ public class DataAccessTest {
 
 	@Test
 	public void testDeleteBooker() {
-		Booker b1 = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster2.ch");
-		Booker b2 = this.dataAccess.registerBooker("Fritz", "Meier", "fritz@meier.ch");
-		List<Booker> all = this.dataAccess.getAllBookers();
+		IBooker b1 = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster2.ch");
+		IBooker b2 = this.dataAccess.registerBooker("Fritz", "Meier", "fritz@meier.ch");
+		List<IBooker> all = this.dataAccess.getAllBookers();
 
 		assertTrue(all.contains(b1));
 		assertTrue(all.contains(b2));
@@ -82,8 +86,8 @@ public class DataAccessTest {
 	///////////////////////// Room /////////////////////////
 	@Test
 	public void testInsertRoom() {
-		Room r = this.dataAccess.insertRoom(68, "121", "Classroom");
-		List<Room> all = this.dataAccess.getAllRooms();
+		IRoom r = this.dataAccess.insertRoom(68, "121", "Classroom");
+		List<IRoom> all = this.dataAccess.getAllRooms();
 		assertNotNull(all);
 		assertTrue(all.size() > 0);
 		assertTrue(all.contains(r));
@@ -91,7 +95,7 @@ public class DataAccessTest {
 
 	@Test
 	public void testEditRoom() {
-		Room r = this.dataAccess.insertRoom(68, "122", "Classroom");
+		IRoom r = this.dataAccess.insertRoom(68, "122", "Classroom");
 		int newSize = 72;
 		String newName = "521";
 		String newDescription = "Conference room";
@@ -105,7 +109,7 @@ public class DataAccessTest {
 
 	@Test
 	public void testAddEquipment() {
-		Room r = this.dataAccess.insertRoom(68, "123", "Classroom");
+		IRoom r = this.dataAccess.insertRoom(68, "123", "Classroom");
 		RoomEquipment equipment = this.dataAccess.insertRoomEquipment("Beamer", 2);
 
 		this.dataAccess.addEquipment(equipment, r.getId());
@@ -119,7 +123,7 @@ public class DataAccessTest {
 
 	@Test
 	public void testRemoveaEquipment() {
-		Room r = this.dataAccess.insertRoom(68, "124", "Classroom");
+		IRoom r = this.dataAccess.insertRoom(68, "124", "Classroom");
 		RoomEquipment equipment = this.dataAccess.insertRoomEquipment("Beamer", 2);
 
 		this.dataAccess.addEquipment(equipment, r.getId());
@@ -133,9 +137,9 @@ public class DataAccessTest {
 
 	@Test
 	public void testDeleteRoom() {
-		Room r1 = this.dataAccess.insertRoom(68, "125", "Classroom");
-		Room r2 = this.dataAccess.insertRoom(78, "521", "Comference Room");
-		List<Room> all = this.dataAccess.getAllRooms();
+		IRoom r1 = this.dataAccess.insertRoom(68, "125", "Classroom");
+		IRoom r2 = this.dataAccess.insertRoom(78, "521", "Comference Room");
+		List<IRoom> all = this.dataAccess.getAllRooms();
 
 		assertTrue(all.contains(r1));
 		assertTrue(all.contains(r2));
@@ -151,7 +155,7 @@ public class DataAccessTest {
 
 	@Test
 	public void testEditRoomEquipment() {
-		Room r = this.dataAccess.insertRoom(68, "123", "Classroom");
+		IRoom r = this.dataAccess.insertRoom(68, "123", "Classroom");
 		RoomEquipment equipment = this.dataAccess.insertRoomEquipment("Beamer", 2);
 
 		this.dataAccess.addEquipment(equipment, r.getId());
@@ -182,8 +186,8 @@ public class DataAccessTest {
 	///////////////////////// SystemUser /////////////////////////
 	@Test
 	public void testregisterUser() {
-		SystemUser u = this.dataAccess.registerSystemUser("Hans", "Muster", "hans@muster3.ch", "111", true);
-		List<SystemUser> all = this.dataAccess.getAllSystemUsers();
+		ISystemUser u = this.dataAccess.registerSystemUser("Hans", "Muster", "hans@muster3.ch", "111", true);
+		List<ISystemUser> all = this.dataAccess.getAllSystemUsers();
 		assertNotNull(all);
 		assertTrue(all.size() > 0);
 		assertTrue(all.contains(u));
@@ -191,7 +195,7 @@ public class DataAccessTest {
 
 	@Test
 	public void testEditUser() {
-		SystemUser u = this.dataAccess.registerSystemUser("Hans", "Muster", "hans@muster4.ch", "111", true);
+		ISystemUser u = this.dataAccess.registerSystemUser("Hans", "Muster", "hans@muster4.ch", "111", true);
 		String newFirstName = "Hansli";
 		String newLastName = "Musterli";
 		String newPassword = "222";
@@ -205,9 +209,9 @@ public class DataAccessTest {
 
 	@Test
 	public void testDeleteUser() {
-		SystemUser u1 = this.dataAccess.registerSystemUser("Hans", "Muster", "hans@muster5.ch", "111", true);
-		SystemUser u2 = this.dataAccess.registerSystemUser("Fritz", "Meier", "fritz@meier2.ch", "222", false);
-		List<SystemUser> all = this.dataAccess.getAllSystemUsers();
+		ISystemUser u1 = this.dataAccess.registerSystemUser("Hans", "Muster", "hans@muster5.ch", "111", true);
+		ISystemUser u2 = this.dataAccess.registerSystemUser("Fritz", "Meier", "fritz@meier2.ch", "222", false);
+		List<ISystemUser> all = this.dataAccess.getAllSystemUsers();
 
 		assertTrue(all.contains(u1));
 		assertTrue(all.contains(u2));
@@ -222,14 +226,14 @@ public class DataAccessTest {
 	///////////////////////// Reservation /////////////////////////
 	@Test
 	public void testInsertReservation() {
-		Room room = this.dataAccess.insertRoom(68, "321", "Classroom");
-		Booker booker = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster6.ch");
+		IRoom room = this.dataAccess.insertRoom(68, "321", "Classroom");
+		IBooker booker = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster6.ch");
 		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
 		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
 		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
 
-		Reservation r = this.dataAccess.insertReservation(room, timeSlot, booker);
-		List<Reservation> all = this.dataAccess.getAllReservations();
+		IReservation r = this.dataAccess.insertReservation(room, timeSlot, booker);
+		List<IReservation> all = this.dataAccess.getAllReservations();
 		assertNotNull(all);
 		assertTrue(all.size() > 0);
 		assertTrue(all.contains(r));
@@ -237,10 +241,10 @@ public class DataAccessTest {
 
 	@Test
 	public void testDeleteReservation() {
-		Room room = this.dataAccess.insertRoom(68, "126", "Classroom");
-		Room otherRoom = this.dataAccess.insertRoom(68, "127", "Classroom");
-		Booker booker = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster7.ch");
-		Booker otherBbooker = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster8.ch");
+		IRoom room = this.dataAccess.insertRoom(68, "126", "Classroom");
+		IRoom otherRoom = this.dataAccess.insertRoom(68, "127", "Classroom");
+		IBooker booker = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster7.ch");
+		IBooker otherBbooker = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster8.ch");
 		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
 		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
 		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
@@ -248,9 +252,9 @@ public class DataAccessTest {
 		LocalDateTime otherFinish = LocalDateTime.of(2016, 11, 24, 9, 45);
 		TimeSlot otherRimeSlot = this.factory.createTimeSlot(otherStart, otherFinish);
 
-		Reservation r = this.dataAccess.insertReservation(room, timeSlot, booker);
-		Reservation otherr = this.dataAccess.insertReservation(otherRoom, otherRimeSlot, otherBbooker);
-		List<Reservation> all = this.dataAccess.getAllReservations();
+		IReservation r = this.dataAccess.insertReservation(room, timeSlot, booker);
+		IReservation otherr = this.dataAccess.insertReservation(otherRoom, otherRimeSlot, otherBbooker);
+		List<IReservation> all = this.dataAccess.getAllReservations();
 
 		assertTrue(all.contains(r));
 		assertTrue(all.contains(otherr));

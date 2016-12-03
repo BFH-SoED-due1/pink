@@ -5,56 +5,69 @@
  */
 package model;
 
-public abstract class ARoom {
+import java.util.List;
+
+/**
+ * @author Nathalie
+ *
+ */
+public interface IRoom {
 	/**
 	 * set room size
-	 * @param s
-	 *            the size of the room
+	 * @param s the size of the room
 	 */
-	public abstract void setSize(int s);
+	public void setSize(int s);
 
 	/**
 	 * set the room name
-	 * @param n
-	 *            the name of the room
+	 * @param n the name of the room
 	 */
-	public abstract void setName(String n);
+	public void setName(String n);
 
 	/**
 	 * set the description of the room
-	 * @param d
-	 *            the room description
+	 * @param d the room description
 	 */
-	public abstract void setDescription(String d);
+	public void setDescription(String d);
 
 	/** true if the room is reservated */
-	public abstract void setBooked();
+	public void setBooked();
 
 	/** remove the booking */
-	public abstract void removeBooking();
+	public void removeBooking();
 
 	/**
 	 * get the size of the room
 	 * @return the Room's size
 	 */
-	public abstract int getSize();
+	public int getSize();
 
 	/**
 	 * get the name of th room
 	 * @return the Room's name
 	 */
-	public abstract String getName();
+	public String getName();
 
 	/**
 	 * get the description of the room
 	 * @return the Room's description
 	 */
-	public abstract String getDescription();
+	public String getDescription();
 
 	/**
 	 * returns true if room is booked
 	 * @return true if Room is booked
 	 */
-	public abstract boolean isBooked();
+	public boolean isBooked();
+
+	/**
+	 * @return the id of the room
+	 */
+	public long getId();
+
+	/**
+	 * @return list of available equipment
+	 */
+	public List<RoomEquipment> getEquipmentList();
 
 }

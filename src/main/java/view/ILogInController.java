@@ -9,17 +9,14 @@ public interface ILogInController {
 
 	/**
 	 * Sets the status to logged in
-	 * @param login
-	 *            the login of a specific user
-	 * @param password
-	 *            the password of a specific user
+	 * @param login the login of a specific user
+	 * @param password the password of a specific user
 	 */
 	public void userLogin(String login, String password);
 
 	/**
 	 * Sets the status to logged out
-	 * @param login
-	 *            the login of a specific user
+	 * @param login  the login of a specific user
 	 */
 	public void userLogout(String login);
 }

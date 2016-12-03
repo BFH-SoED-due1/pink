@@ -8,11 +8,11 @@ package db;
 import java.util.List;
 
 import ch.bfh.due1.time.TimeSlot;
-import model.Booker;
-import model.Reservation;
-import model.Room;
+import model.IBooker;
+import model.IReservation;
+import model.IRoom;
+import model.ISystemUser;
 import model.RoomEquipment;
-import model.SystemUser;
 
 public abstract class DataAccess {
 
@@ -39,75 +39,59 @@ public abstract class DataAccess {
 	// Methods for bookers
 	/**
 	 * Inserts Booker into DB
-	 * @param firstName
-	 *            the Booker's firstname
-	 * @param lastName
-	 *            the Booker's lastname
-	 * @param email
-	 *            the Booker's email
+	 * @param firstName the Booker's firstname
+	 * @param lastName the Booker's lastname
+	 * @param email the Booker's email
 	 * @return the inserted Booker
 	 */
-	public abstract Booker registerBooker(String firstName, String lastName, String email);
+	public abstract IBooker registerBooker(String firstName, String lastName, String email);
 
 	/**
 	 * Gets all Bookers from DB
 	 * @return List of Bookers
 	 */
-	public abstract List<Booker> getAllBookers();
+	public abstract List<IBooker> getAllBookers();
 
 	/**
 	 * Edits the Room's name and description
-	 *
-	 * @param firstName
-	 *            the Booker's new firstname
-	 * @param lastName
-	 *            the Booker's new lastname
-	 * @param id
-	 *            the Booker's id
+	 * @param firstName the Booker's new firstname
+	 * @param lastName the Booker's new lastname
+	 * @param id the Booker's id
 	 * @return the inserted Booker
 	 */
-	public abstract Booker editBooker(String firstName, String lastName, Long id);
+	public abstract IBooker editBooker(String firstName, String lastName, Long id);
 
 	/**
 	 * Delets Booker from DB
-	 *
-	 * @param id
-	 *            the Booker's id
+	 * @param id the Booker's id
 	 */
 	public abstract void deleteBooker(Long id);
 
 	// Methods for rooms
 	/**
 	 * Inserts Room into DB
-	 * @param size
-	 *            the Room's size
-	 * @param name
-	 *            the Room's name
-	 * @param descr
-	 *            the Room's description
+	 * @param size the Room's size
+	 * @param name the Room's name
+	 * @param descr the Room's description
 	 * @return the inserted Room
 	 */
-	public abstract Room insertRoom(int size, String name, String descr);
+	public abstract IRoom insertRoom(int size, String name, String descr);
 
 	/**
 	 * Gets all Rooms from DB
 	 * @return List of Rooms
 	 */
-	public abstract List<Room> getAllRooms();
+	public abstract List<IRoom> getAllRooms();
 
 	/**
 	 * Edits the Room's name and description
-	 * @param size
-	 *            the Room's size
-	 * @param name
-	 *            the Room's name
-	 * @param description
-	 *            the Room's description
-	 * @param id
-	 *            the Room's id
+	 * @param size the Room's size
+	 * @param name the Room's name
+	 * @param description the Room's description
+	 * @param id the Room's id
 	 * @return the inserted Room
 	 */
-	public abstract Room editRoom(int size, String name, String description, Long id);
+	public abstract IRoom editRoom(int size, String name, String description, Long id);
 
 	/**
 	 * Gets all Equipments from Room
@@ -117,38 +101,31 @@ public abstract class DataAccess {
 
 	/**
 	 * Adds an equipment to the Room
-	 * @param equipment
-	 *            the new equipment
-	 * @param id
-	 *            the Room's id
+	 * @param equipment the new equipment
+	 * @param id the Room's id
 	 * @return the Room
 	 */
-	public abstract Room addEquipment(RoomEquipment equipment, Long id);
+	public abstract IRoom addEquipment(RoomEquipment equipment, Long id);
 
 	/**
 	 * Adds an equipment to the Room
-	 * @param equipment
-	 *            the new equipment
-	 * @param id
-	 *            the Room's id
+	 * @param equipment the new equipment
+	 * @param id the Room's id
 	 * @return the Room
 	 */
-	public abstract Room removeEquipment(RoomEquipment equipment, Long id);
+	public abstract IRoom removeEquipment(RoomEquipment equipment, Long id);
 
 	/**
 	 * Delets Room from DB
-	 * @param id
-	 *            the Room's id
+	 * @param id the Room's id
 	 */
 	public abstract void deleteRoom(Long id);
 
 	// Methods for roomEquipment
 	/**
 	 * Inserts Room into DB
-	 * @param name
-	 *            the Eqiupment's name
-	 * @param qty
-	 *            the Eqiupment's quantity
+	 * @param name the Eqiupment's name
+	 * @param qty the Eqiupment's quantity
 	 * @return the inserted Eqiupment
 	 */
 	public abstract RoomEquipment insertRoomEquipment(String name, int qty);
@@ -160,90 +137,73 @@ public abstract class DataAccess {
 	public abstract List<RoomEquipment> getAllRoomEquipments();
 
 	/**
-	 * Edits the Room's name and description
-	 * @param qty
-	 *            the Eqiupment's quantity
-	 * @param id
-	 *            the Eqiupment's id
+	 * Edits the Room's name and descriptio
+	 * @param qty the Eqiupment's quantity
+	 * @param id the Eqiupment's id
 	 * @return the inserted Eqiupment
 	 */
 	public abstract RoomEquipment editRoomEquipment(int qty, Long id);
 
 	/**
 	 * Delets Room from DB
-	 * @param id
-	 *            the Eqiupment's id
+	 * @param id the Eqiupment's id
 	 */
 	public abstract void deleteRoomRoomEquipment(Long id);
 
 	// Methods for systemUser
 	/**
 	 * Inserts SystemUser into DB
-	 * @param firstName
-	 *            the SystemUser's firstname
-	 * @param lastName
-	 *            the SystemUser's lastname
-	 * @param email
-	 *            the SystemUser's email
-	 * @param password
-	 *            the SystemUser's password
-	 * @param isAdmin
-	 *            true if User is Admin
+	 * @param firstName the SystemUser's firstname
+	 * @param lastName the SystemUser's lastname
+	 * @param email the SystemUser's email
+	 * @param password the SystemUser's password
+	 * @param isAdmin true if User is Admin
 	 * @return the inserted SystemUser
 	 */
-	public abstract SystemUser registerSystemUser(String firstName, String lastName, String email, String password, boolean isAdmin);
+	public abstract ISystemUser registerSystemUser(String firstName, String lastName, String email, String password,
+			boolean isAdmin);
 
 	/**
 	 * Gets all SystemUsers from DB
 	 * @return List of SystemUsers
 	 */
-	public abstract List<SystemUser> getAllSystemUsers();
+	public abstract List<ISystemUser> getAllSystemUsers();
 
 	/**
 	 * Edits the Users's name and description
-	 * @param firstName
-	 *            the Users's new firstname
-	 * @param lastName
-	 *            the Users's new lastname
-	 * @param password
-	 *            the Users's new password
-	 * @param id
-	 *            the Users's id
-	 * @return the Users
+	 * @param firstName the Users's new firstname
+	 * @param lastName the Users's new lastname
+	 * @param password the Users's new password
+	 * @param id the Users's id
+	 * @return all users
 	 */
-	public abstract SystemUser editSystemUser(String firstName, String lastName, String password, Long id);
+	public abstract ISystemUser editSystemUser(String firstName, String lastName, String password, Long id);
 
 	/**
 	 * Delets SystemUser from DB
-	 * @param id
-	 *            the SystemUser's id
+	 * @param id the SystemUser's id
 	 */
 	public abstract void deleteSystemUser(Long id);
 
 	// Methods for reservations
 	/**
 	 * Inserts Reservation into DB
-	 * @param room
-	 *            the reserved room
-	 * @param timeSlot
-	 *            the time slot of the reservation
-	 * @param booker
-	 *            the booker who reservs
+	 * @param room the reserved room
+	 * @param timeSlot the time slot of the reservation
+	 * @param booker the booker who reservs
 	 * @return the inserted Reservation
 	 */
-	public abstract Reservation insertReservation(Room room, TimeSlot timeSlot, Booker booker);
+	public abstract IReservation insertReservation(IRoom room, TimeSlot timeSlot, IBooker booker);
 
 	/**
 	 * Gets all Reservations from DB
 	 * @return List of Reservations
 	 */
-	public abstract List<Reservation> getAllReservations();
+	public abstract List<IReservation> getAllReservations();
 
 	/**
 	 * Delets Reservation from DB
-	 * @param id
-	 *            the Reservations's id
+	 * @param id the Reservations's id
 	 */
 	public abstract void cancelReservation(Long id);
-
 }

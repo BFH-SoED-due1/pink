@@ -3,24 +3,24 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package control;
+package controller;
 
 import java.util.List;
 
 import ch.bfh.due1.time.TimeSlot;
-import exceptions.ReservationException;
-import exceptions.ReservationNotFoundException;
-import model.ABooker;
-import model.AReservation;
-import model.ARoom;
+import controller.exceptions.ReservationException;
+import controller.exceptions.ReservationNotFoundException;
+import model.IBooker;
+import model.IReservation;
+import model.IRoom;
 import view.IReservationController;
 
 public class ReservationController implements IReservationController {
 	/** Implementation for administrate the reservations */
 
-	private List<AReservation> reservationList;
+	private List<IReservation> reservationList;
 
-	public ReservationController(List<AReservation> reservations) {
+	public ReservationController(List<IReservation> reservations) {
 		this.reservationList = reservations;
 	}
 
@@ -28,7 +28,7 @@ public class ReservationController implements IReservationController {
 	 * @see controller.IReservationController#showReservations()
 	 */
 	@Override
-	public List<AReservation> showReservations() {
+	public List<IReservation> showReservations() {
 		return this.reservationList;
 	}
 
@@ -37,13 +37,14 @@ public class ReservationController implements IReservationController {
 	 * java.util.Date, java.sql.Time, java.sql.Time, srs.Room)
 	 */
 	@Override
-	public List<AReservation> reservate(AReservation reservation) {
+	public List<IReservation> reservate(IReservation reservation) {
 		if (validateInput(reservation.getBooker(), reservation.getTimeSlot(), reservation.getRoom())) {
 			reservation.getRoom().setBooked();
 			this.reservationList.add(reservation);
 			return this.reservationList;
 		} else
-			throw new ReservationException("Check your input. A booker needs a first name, last name, login, the room has to be free.");
+			throw new ReservationException(
+					"Check your input. A booker needs a first name, last name, login, the room has to be free.");
 	}
 
 	/*
@@ -52,7 +53,7 @@ public class ReservationController implements IReservationController {
 	 */
 	@SuppressWarnings("unused")
 	@Override
-	public List<AReservation> cancel(AReservation reservation) throws ReservationNotFoundException {
+	public List<IReservation> cancel(IReservation reservation) throws ReservationNotFoundException {
 		for (int i = 0; i < this.reservationList.size(); i++) {
 			if (this.reservationList.get(i).getBooker().equals(reservation.getBooker())
 					&& this.reservationList.get(i).getRoom().equals(reservation.getRoom())
@@ -68,11 +69,12 @@ public class ReservationController implements IReservationController {
 		return this.reservationList;
 	}
 
-	public boolean validateInput(ABooker booker, TimeSlot timeSlot, ARoom room) {
+	public boolean validateInput(IBooker booker, TimeSlot timeSlot, IRoom room) {
 		boolean isValid = false;
 
-		if (booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || room.isBooked() || booker.getFirstName().isEmpty()
-				|| booker.getLastName().isEmpty() || booker.getLogin().isEmpty() || timeSlot == null)
+		if (booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || room.isBooked()
+				|| booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || booker.getLogin().isEmpty()
+				|| timeSlot == null)
 			isValid = false;
 		else
 			isValid = true;

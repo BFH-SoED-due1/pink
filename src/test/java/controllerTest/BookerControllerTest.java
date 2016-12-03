@@ -12,17 +12,17 @@ import java.util.List;
 
 import org.junit.Test;
 
-import control.BookerController;
-import exceptions.BookerLoginException;
-import model.ABooker;
+import controller.BookerController;
+import controller.exceptions.BookerLoginException;
 import model.Booker;
+import model.IBooker;
 
 public class BookerControllerTest {
 
 	@Test
 	public void saveBookerTest() {
-		ABooker donald = new Booker("Donald", "Duck", "donald@duck.com");
-		List<ABooker> list = new ArrayList<ABooker>();
+		IBooker donald = new Booker("Donald", "Duck", "donald@duck.com");
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
@@ -31,8 +31,8 @@ public class BookerControllerTest {
 
 	@Test(expected = BookerLoginException.class)
 	public void saveBookerTwiceTest() {
-		ABooker donald = new Booker("Donald", "Duck", "donald@duck.com");
-		List<ABooker> list = new ArrayList<ABooker>();
+		IBooker donald = new Booker("Donald", "Duck", "donald@duck.com");
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
@@ -42,7 +42,7 @@ public class BookerControllerTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void saveEmptyBookerTest() {
 		Booker donald = new Booker("", "", "");
-		List<ABooker> list = new ArrayList<ABooker>();
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
@@ -52,7 +52,7 @@ public class BookerControllerTest {
 	public void deleteBookerTest() {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 
-		List<ABooker> list = new ArrayList<ABooker>();
+		List<IBooker> list = new ArrayList<IBooker>();
 		List<Booker> expectedList = new ArrayList<Booker>();
 		BookerController bc = new BookerController(list);
 
@@ -70,8 +70,8 @@ public class BookerControllerTest {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 		Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
 
-		List<ABooker> list = new ArrayList<ABooker>();
-		List<ABooker> expectedList = new ArrayList<ABooker>();
+		List<IBooker> list = new ArrayList<IBooker>();
+		List<IBooker> expectedList = new ArrayList<IBooker>();
 
 		BookerController bc = new BookerController(list);
 
@@ -86,8 +86,8 @@ public class BookerControllerTest {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 		Booker mickey = new Booker("", "", "");
 
-		List<ABooker> list = new ArrayList<ABooker>();
-		List<ABooker> expectedList = new ArrayList<ABooker>();
+		List<IBooker> list = new ArrayList<IBooker>();
+		List<IBooker> expectedList = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
@@ -101,7 +101,7 @@ public class BookerControllerTest {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 		Booker donald1 = new Booker("Donald", "Duck", "donald@duck1.com");
 
-		List<ABooker> list = new ArrayList<ABooker>();
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
@@ -118,7 +118,7 @@ public class BookerControllerTest {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 		Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
 
-		List<ABooker> list = new ArrayList<ABooker>();
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 		list = bc.saveBooker(donald);
 
@@ -129,7 +129,7 @@ public class BookerControllerTest {
 	public void editEmptyBookerTest() {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 
-		List<ABooker> list = new ArrayList<ABooker>();
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 		list = bc.saveBooker(donald);
 

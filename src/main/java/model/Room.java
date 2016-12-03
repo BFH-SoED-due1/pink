@@ -7,14 +7,13 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity(name = "Room")
-public class Room extends ARoom {
+public class Room implements IRoom {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -51,47 +50,58 @@ public class Room extends ARoom {
 	}
 
 	///////////////////////// Setter /////////////////////////
+	@Override
 	public void setSize(int size) {
 		this.size = size;
 	}
 
+	@Override
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	@Override
 	public void setDescription(String descr) {
 		this.description = descr;
 	}
 
+	@Override
 	public void setBooked() {
 		this.isBooked = true;
 	}
 
+	@Override
 	public void removeBooking() {
 		this.isBooked = false;
 	}
 
 	///////////////////////// Getter /////////////////////////
-	public Long getId() {
+	@Override
+	public long getId() {
 		return this.id;
 	}
 
+	@Override
 	public int getSize() {
 		return this.size;
 	}
 
+	@Override
 	public String getName() {
 		return this.name;
 	}
 
+	@Override
 	public String getDescription() {
 		return this.description;
 	}
 
+	@Override
 	public boolean isBooked() {
 		return this.isBooked;
 	}
 
+	@Override
 	public List<RoomEquipment> getEquipmentList() {
 		return equipmentList;
 	}
@@ -110,5 +120,4 @@ public class Room extends ARoom {
 	// public void removeReservation(Reservation reservation) {
 	// this.reservations.remove(reservation);
 	// }
-
 }

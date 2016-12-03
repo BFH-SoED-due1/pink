@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import ch.bfh.due1.time.TimeSlot;
 
 @Entity(name = "Reservation")
-public class Reservation extends AReservation {
+public class Reservation implements IReservation {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -29,15 +29,15 @@ public class Reservation extends AReservation {
 	public Reservation() {
 	}
 
-	public Reservation(Room r2, TimeSlot timeSlot, Booker booker) {
-		this.room = r2;
+	public Reservation(IRoom r2, TimeSlot timeSlot, IBooker booker) {
+		this.room = (Room) r2;
 		this.timeSlot = timeSlot;
-		this.booker = booker;
+		this.booker = (Booker) booker;
 	}
 
 	/* Setter */
 	@Override
-	public void setRoom(ARoom room) {
+	public void setRoom(IRoom room) {
 		this.room = (Room) room;
 	}
 
@@ -47,17 +47,18 @@ public class Reservation extends AReservation {
 	}
 
 	@Override
-	public void setBooker(ABooker booker) {
+	public void setBooker(IBooker booker) {
 		this.booker = (Booker) booker;
 	}
 
 	/* Getter */
+	@Override
 	public Long getId() {
 		return this.id;
 	}
 
 	@Override
-	public Room getRoom() {
+	public IRoom getRoom() {
 		return room;
 	}
 

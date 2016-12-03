@@ -7,37 +7,31 @@ package view;
 
 import java.util.List;
 
-import model.ABooker;
+import model.IBooker;
 
 public interface IBookerController {
 	/** Responsible for administrate booker-class */
 
 	/**
 	 * Save new booker
-	 * @param booker
-	 *            the new booker to save
+	 * @param booker the new booker to save
 	 * @return list of Bookers
 	 */
-	public List<ABooker> saveBooker(ABooker booker);
+	public List<IBooker> saveBooker(IBooker booker);
 
 	/**
 	 * Delete new booker
-	 * @param email
-	 *            the list with all bookers saved
-	 * @param email
-	 *            the booker's id
+	 * @param email the list with all bookers saved
+	 * @param email the booker's id
 	 * @return list of Bookers
 	 */
-	public List<ABooker> deleteBooker(String email);
+	public List<IBooker> deleteBooker(String email);
 
 	/**
 	 * Edit a booker
-	 * @param firstName
-	 *            the bookers firstname
-	 * @param lastName
-	 *            the bookers lastname
-	 * @param booker
-	 *            the booker object
+	 * @param firstName the bookers firstname
+	 * @param lastName the bookers lastname
+	 * @param booker the booker object
 	 */
-	public void editBooker(String firstName, String lastName, ABooker booker);
+	public void editBooker(String firstName, String lastName, IBooker booker);
 }

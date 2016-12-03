@@ -3,33 +3,32 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package control;
+package controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import exceptions.RoomNameException;
-import exceptions.RoomNotFoundException;
-import model.ARoom;
+import controller.exceptions.RoomNameException;
+import controller.exceptions.RoomNotFoundException;
+import model.IRoom;
 import view.IRoomController;
 
 public class RoomController implements IRoomController {
 	/** Implementation for administrate the rooms */
 
-	private List<ARoom> roomList = new ArrayList<ARoom>();
+	private List<IRoom> roomList = new ArrayList<IRoom>();
 
-	public RoomController(List<ARoom> roomList) {
+	public RoomController(List<IRoom> roomList) {
 		this.roomList = roomList;
 	}
 
 	/**
 	 * Adds a new room
-	 * @param room
-	 *            the new room object
+	 * @param room the new room object
 	 * @return the list of rooms
 	 */
 	@Override
-	public List<ARoom> addRoom(ARoom room) {
+	public List<IRoom> addRoom(IRoom room) {
 		if (!roomExistsForNewRoom(room.getName()) && notEmpty(room.getSize(), room.getDescription()))
 			roomList.add(room);
 		else
@@ -40,12 +39,11 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Deletes a room
-	 * @param roomName
-	 *            the uniqe name of the room
+	 * @param roomName the uniqe name of the room
 	 * @return the list of room
 	 */
 	@Override
-	public List<ARoom> deleteRoom(String roomName) {
+	public List<IRoom> deleteRoom(String roomName) {
 		if (roomExists(roomName)) {
 			for (int i = 0; i < this.roomList.size(); i++) {
 				if (this.roomList.get(i).getName().equals(roomName)) {
@@ -59,15 +57,12 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Edit a room
-	 * @param size
-	 *            the size of the room
-	 * @param descr
-	 *            the description of the room
-	 * @param r
-	 *            the room object
+	 * @param size the size of the room
+	 * @param descr the description of the room
+	 * @param r the room object
 	 */
 	@Override
-	public void editRoom(int size, String descr, ARoom r) {
+	public void editRoom(int size, String descr, IRoom r) {
 		if (roomExists(r.getName()) && notEmpty(size, descr)) {
 			for (int i = 0; i < this.roomList.size(); i++) {
 				if (this.roomList.get(i).getName().equals(r.getName())) {
@@ -81,8 +76,7 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Checks if a room exists
-	 * @param roomName
-	 *            the uniqe name of the room
+	 * @param roomName the uniqe name of the room
 	 * @return true if room exists
 	 */
 	public boolean roomExists(String roomName) {
@@ -101,8 +95,7 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Checks if a room exists. Only used for save a new room
-	 * @param roomName
-	 *            the uniqe name of the room
+	 * @param roomName the uniqe name of the room
 	 * @return true if room exists
 	 */
 	public boolean roomExistsForNewRoom(String roomName) {
@@ -115,10 +108,8 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Checks if the size or the description are not empty
-	 * @param size
-	 *            the rooms size
-	 * @param description
-	 *            the roooms description
+	 * @param size the rooms size
+	 * @param description the roooms description
 	 * @return true if size and description are not empty
 	 */
 	private boolean notEmpty(int size, String description) {

@@ -5,84 +5,89 @@
  */
 package model;
 
-public abstract class ASystemUser {
+/**
+ * @author Nathalie
+ *
+ */
+public interface ISystemUser {
 	/**
-	 * @param firstName
-	 *            users first name
+	 * @param firstName users first name
 	 */
-	public abstract void setFirstName(String firstName);
+	public void setFirstName(String firstName);
 
 	/**
-	 * @param lastName
-	 *            users last name
+	 * @param lastName users last name
 	 */
-	public abstract void setLastName(String lastName);
+	public void setLastName(String lastName);
 
 	/**
-	 * @param email
-	 *            users email
+	 * @param email users email
 	 */
-	public abstract void setLogin(String email);
+	public void setLogin(String email);
 
 	/**
-	 * @param password
-	 *            users password
+	 * @param password users password
 	 */
-	public abstract void setPassword(String password);
+	public void setPassword(String password);
 
 	/**
 	 * if true, user has admin-rights
 	 */
-	public abstract void setAdmin();
+	public void setAdmin();
 
 	/**
 	 * set false to remove admin-rigths
 	 */
-	public abstract void removeAdmin();
+	public void removeAdmin();
 
 	/**
 	 * log in in srs
 	 */
-	public abstract void login();
+	public void login();
 
 	/**
 	 * log out from srs
 	 */
-	public abstract void logout();
+	public void logout();
 
 	/**
 	 * get the firstname of the User
 	 * @return User's firstname
 	 */
-	public abstract String getFirstName();
+	public String getFirstName();
 
 	/**
 	 * get the lastname of the User
 	 * @return User's lastname
 	 */
-	public abstract String getLastName();
+	public String getLastName();
 
 	/**
 	 * get the email of the User
 	 * @return User's email
 	 */
-	public abstract String getLogin();
+	public String getLogin();
 
 	/**
 	 * get the password of the User
 	 * @return User's password
 	 */
-	public abstract String getPassword();
+	public String getPassword();
 
 	/**
 	 * test if user is admin true, if user is admin
 	 * @return User's admin state
 	 */
-	public abstract boolean isAdmin();
+	public boolean isAdmin();
 
 	/**
 	 * test if user is logged in srs true, if user is logged in
 	 * @return User's login state
 	 */
-	public abstract boolean isLoggedIn();
+	public boolean isLoggedIn();
+
+	/**
+	 * @return the user's id
+	 */
+	public Long getId();
 }

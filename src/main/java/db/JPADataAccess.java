@@ -13,6 +13,10 @@ import javax.persistence.Query;
 
 import ch.bfh.due1.time.TimeSlot;
 import model.Booker;
+import model.IBooker;
+import model.IReservation;
+import model.IRoom;
+import model.ISystemUser;
 import model.Reservation;
 import model.Room;
 import model.RoomEquipment;
@@ -47,7 +51,7 @@ public class JPADataAccess extends DataAccess {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Booker> getAllBookers() {
+	public List<IBooker> getAllBookers() {
 		Query query = this.entityManager.createQuery("select b from Booker b");
 		return query.getResultList();
 	}
@@ -104,7 +108,7 @@ public class JPADataAccess extends DataAccess {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Room> getAllRooms() {
+	public List<IRoom> getAllRooms() {
 		Query query = this.entityManager.createQuery("select r from Room r");
 		return query.getResultList();
 	}
@@ -245,7 +249,8 @@ public class JPADataAccess extends DataAccess {
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
-	public SystemUser registerSystemUser(String firstName, String lastName, String email, String password, boolean isAdmin) {
+	public SystemUser registerSystemUser(String firstName, String lastName, String email, String password,
+			boolean isAdmin) {
 		this.entityManager.getTransaction().begin();
 		SystemUser user = new SystemUser(firstName, lastName, email, password, isAdmin);
 		this.entityManager.persist(user);
@@ -260,7 +265,7 @@ public class JPADataAccess extends DataAccess {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<SystemUser> getAllSystemUsers() {
+	public List<ISystemUser> getAllSystemUsers() {
 		Query query = this.entityManager.createQuery("select u from SystemUser u");
 		return query.getResultList();
 	}
@@ -302,7 +307,7 @@ public class JPADataAccess extends DataAccess {
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
-	public Reservation insertReservation(Room room, TimeSlot timeSlot, Booker booker) {
+	public IReservation insertReservation(IRoom room, TimeSlot timeSlot, IBooker booker) {
 		this.entityManager.getTransaction().begin();
 		Reservation reservation = new Reservation(room, timeSlot, booker);
 		this.entityManager.persist(reservation);
@@ -317,7 +322,7 @@ public class JPADataAccess extends DataAccess {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Reservation> getAllReservations() {
+	public List<IReservation> getAllReservations() {
 		Query query = this.entityManager.createQuery("select r from Reservation r");
 		return query.getResultList();
 	}
