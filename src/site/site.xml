@@ -29,7 +29,7 @@
             -->
             <item name="About" href="index.html"/>
             <item name="The Vision" href="doc/vision.pdf"/>
-            <item name="Product Documentation" href="doc/ProjectDocumentation.pdf"/>
+            <item name="Project Documentation" href="doc/ProjectDocumentation.pdf"/>
             <item name="Introduction" href="doc/Intro.pdf"/>
             <item name="Use Case Diagram" href="doc/UseCaseDiagram.pdf"/>
             <item name="User Stories" href="doc/UserStories.pdf"/>
