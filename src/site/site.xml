@@ -33,6 +33,7 @@
             <item name="Use Case Diagram" href="doc/UseCaseDiagram.pdf"/>
             <item name="User Stories" href="doc/UserStories.pdf"/>
             <item name="Domain Model" href="doc/DomainModel.pdf"/>
+            <item name="Package Diagram" href="doc/PackageDiagram.pdf"/>
             <item name="Product Backlog" href="doc/ProductBacklog.pdf"/>
             <item name="Sprint Backlog" href="doc/SprintBacklog.pdf"/>
             <!--
