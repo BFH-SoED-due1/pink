@@ -29,7 +29,6 @@
             -->
             <item name="About" href="index.html"/>
             <item name="The Vision" href="doc/vision.pdf"/>
-            <item name="Project Documentation" href="doc/ProjectDocumentation.pdf"/>
             <item name="Introduction" href="doc/Intro.pdf"/>
             <item name="Use Case Diagram" href="doc/UseCaseDiagram.pdf"/>
             <item name="User Stories" href="doc/UserStories.pdf"/>
@@ -44,6 +43,8 @@
             <item name="Other Specs" href="other_specs.html" />
             -->
             <item name="Glossary" href="doc/Glossary.pdf"/>
+            <item name="Project Documentation - All-In-One" href="doc/ProjectDocumentation.pdf"/>
+            
         </menu>
         <menu name="Project Evaluation">
             <item name="Sprint Plan" href="eval/sprints.html"/>
