@@ -3,11 +3,11 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package controller;
+package view;
 
 import java.util.List;
 
-import srs.Booker;
+import model.IBooker;
 
 public interface IBookerController {
 	/** Responsible for administrate booker-class */
@@ -17,7 +17,7 @@ public interface IBookerController {
 	 * @param booker the new booker to save
 	 * @return list of Bookers
 	 */
-	public List<Booker> saveBooker(Booker booker);
+	public List<IBooker> saveBooker(IBooker booker);
 
 	/**
 	 * Delete new booker
@@ -25,7 +25,7 @@ public interface IBookerController {
 	 * @param email the booker's id
 	 * @return list of Bookers
 	 */
-	public List<Booker> deleteBooker(String email);
+	public List<IBooker> deleteBooker(String email);
 
 	/**
 	 * Edit a booker
@@ -33,5 +33,5 @@ public interface IBookerController {
 	 * @param lastName the bookers lastname
 	 * @param booker the booker object
 	 */
-	public void editBooker(String firstName, String lastName, Booker booker);
+	public void editBooker(String firstName, String lastName, IBooker booker);
 }

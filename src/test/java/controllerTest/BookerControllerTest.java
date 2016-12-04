@@ -5,40 +5,34 @@
  */
 package controllerTest;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
+import controller.BookerController;
 import controller.exceptions.BookerLoginException;
-import controller.implementation.BookerController;
-import srs.Booker;
+import model.Booker;
+import model.IBooker;
 
 public class BookerControllerTest {
 
 	@Test
 	public void saveBookerTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
-
-		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> expectedList = new ArrayList<Booker>();
-
+		IBooker donald = new Booker("Donald", "Duck", "donald@duck.com");
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
-		expectedList.add(donald);
-
-		assertEquals(expectedList, list);
+		assertTrue(list.contains(donald));
 	}
 
 	@Test(expected = BookerLoginException.class)
 	public void saveBookerTwiceTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
-
-		List<Booker> list = new ArrayList<Booker>();
-
+		IBooker donald = new Booker("Donald", "Duck", "donald@duck.com");
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
@@ -48,9 +42,7 @@ public class BookerControllerTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void saveEmptyBookerTest() {
 		Booker donald = new Booker("", "", "");
-
-		List<Booker> list = new ArrayList<Booker>();
-
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
@@ -60,9 +52,8 @@ public class BookerControllerTest {
 	public void deleteBookerTest() {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 
-		List<Booker> list = new ArrayList<Booker>();
+		List<IBooker> list = new ArrayList<IBooker>();
 		List<Booker> expectedList = new ArrayList<Booker>();
-
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
@@ -79,8 +70,8 @@ public class BookerControllerTest {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 		Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
 
-		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> expectedList = new ArrayList<Booker>();
+		List<IBooker> list = new ArrayList<IBooker>();
+		List<IBooker> expectedList = new ArrayList<IBooker>();
 
 		BookerController bc = new BookerController(list);
 
@@ -95,9 +86,8 @@ public class BookerControllerTest {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 		Booker mickey = new Booker("", "", "");
 
-		List<Booker> list = new ArrayList<Booker>();
-		List<Booker> expectedList = new ArrayList<Booker>();
-
+		List<IBooker> list = new ArrayList<IBooker>();
+		List<IBooker> expectedList = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
@@ -111,12 +101,10 @@ public class BookerControllerTest {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 		Booker donald1 = new Booker("Donald", "Duck", "donald@duck1.com");
 
-		List<Booker> list = new ArrayList<Booker>();
-
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
 
 		list = bc.saveBooker(donald);
-
 		bc.editBooker("Donaldius", "Duckius", donald);
 		donald1.setFirstName("Donaldius");
 		donald1.setLastName("Duckius");
@@ -130,10 +118,8 @@ public class BookerControllerTest {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 		Booker mickey = new Booker("Mickey", "Mouse", "mickey@mouse.com");
 
-		List<Booker> list = new ArrayList<Booker>();
-
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
-
 		list = bc.saveBooker(donald);
 
 		bc.editBooker("Mickey", "Mausius", mickey);
@@ -143,10 +129,8 @@ public class BookerControllerTest {
 	public void editEmptyBookerTest() {
 		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
 
-		List<Booker> list = new ArrayList<Booker>();
-
+		List<IBooker> list = new ArrayList<IBooker>();
 		BookerController bc = new BookerController(list);
-
 		list = bc.saveBooker(donald);
 
 		bc.editBooker("", "", donald);

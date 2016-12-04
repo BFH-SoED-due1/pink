@@ -3,80 +3,104 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package srs;
+package model;
 
-public class SystemUser {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity(name = "SystemUser")
+public class SystemUser implements ISystemUser {
+	@Id
+	@GeneratedValue
+	private Long id;
+
 	private String firstName, lastName, login, password;
 	private boolean isAdmin, isLoggedIn;
 
+	public SystemUser() {
+	}
+
 	public SystemUser(String firstName, String lastName, String email, String password, boolean isAdmin) {
-		setFirstName(firstName);
-		setLastName(lastName);
-		setLogin(email);
-		setPassword(password);
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.login = email;
+		this.password = password;
 		this.isAdmin = isAdmin;
 	}
 
 	///////////////////////// Setter /////////////////////////
+	@Override
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
+	@Override
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
+	@Override
 	public void setLogin(String email) {
-		if (email.length() <= 0 || !email.contains("@")) {
-			throw new IllegalArgumentException("Email can not be empty, and needs to contain '@'!");
-		} else
-			this.login = email;
+		this.login = email;
 	}
 
+	@Override
 	public void setPassword(String password) {
-		if (password.length() <= 0 || password.contains(" ")) {
-			throw new IllegalArgumentException("Password can not be empty or contain whitespace!");
-		} else
-			this.password = password;
+		this.password = password;
 	}
 
+	@Override
 	public void setAdmin() {
 		this.isAdmin = true;
 	}
 
+	@Override
 	public void removeAdmin() {
 		this.isAdmin = false;
 	}
 
+	@Override
 	public void login() {
 		this.isLoggedIn = true;
 	}
 
+	@Override
 	public void logout() {
 		this.isLoggedIn = false;
 	}
 
 	///////////////////////// Getter /////////////////////////
+	public Long getId() {
+		return this.id;
+	}
+
+	@Override
 	public String getFirstName() {
 		return this.firstName;
 	}
 
+	@Override
 	public String getLastName() {
 		return this.lastName;
 	}
 
+	@Override
 	public String getLogin() {
 		return this.login;
 	}
 
+	@Override
 	public String getPassword() {
 		return this.password;
 	}
 
+	@Override
 	public boolean isAdmin() {
 		return this.isAdmin;
 	}
 
+	@Override
 	public boolean isLoggedIn() {
 		return this.isLoggedIn;
 	}

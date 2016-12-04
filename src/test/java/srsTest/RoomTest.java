@@ -7,9 +7,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
-import srs.Room;
+import model.Room;
+import model.RoomEquipment;
 
 public class RoomTest {
 	// Test room
@@ -27,16 +31,6 @@ public class RoomTest {
 		assertEquals(newName, room.getName());
 	}
 
-	@Test(expected = IllegalArgumentException.class)
-	public void testEmptyRoomName() {
-		String name = "";
-		int size = 30;
-		String description = "This is a description!";
-		String newName = "N.522";
-
-		Room room = new Room(size, name, description);
-	}
-
 	@Test
 	public void testSize() {
 		String name = "N.322";
@@ -49,16 +43,6 @@ public class RoomTest {
 
 		room.setSize(newSize);
 		assertEquals(newSize, room.getSize());
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void testNegativeSize() {
-		String name = "N.322";
-		int size = -1;
-		String description = "This is a description!";
-		int newSize = 36;
-
-		Room room = new Room(size, name, description);
 	}
 
 	@Test
@@ -100,5 +84,35 @@ public class RoomTest {
 		room.removeBooking();
 		assertFalse(room.isBooked());
 
+	}
+
+	@Test
+	public void testRoomEquipment() {
+		Room room = new Room(30, "N.321", "This is a description!");
+
+		RoomEquipment eq1 = new RoomEquipment("Blackboard", 1);
+		RoomEquipment eq2 = new RoomEquipment("Beamer", 2);
+
+		List<RoomEquipment> testList = new ArrayList<RoomEquipment>();
+
+		room.addEquipment(eq1);
+		testList.add(eq1);
+		assertEquals(testList, room.getEquipmentList());
+
+		room.addEquipment(eq2);
+		testList.add(eq2);
+		assertEquals(testList, room.getEquipmentList());
+
+		List<RoomEquipment> eqList = room.getEquipmentList();
+
+		for (RoomEquipment eq : eqList) {
+			if (eq.getName().equals("Beamer")) {
+				room.removeEquipment(eq);
+				break;
+			}
+		}
+		testList.remove(eq2);
+
+		assertEquals(testList, room.getEquipmentList());
 	}
 }

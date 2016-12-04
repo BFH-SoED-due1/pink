@@ -8,7 +8,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import srs.Booker;
+import model.Booker;
+import model.IBooker;
 
 public class BookerTest {
 	/** Test classes booker, bookerName */
@@ -23,13 +24,13 @@ public class BookerTest {
 	// Name
 	@Test
 	public void testOverridenToString() {
-		Booker booker = new Booker(firstName, lastName, email);
+		IBooker booker = new Booker(firstName, lastName, email);
 		assertEquals(booker.toString(), firstName + " " + lastName + " " + email);
 	}
 
 	@Test
 	public void testFirstName() {
-		Booker booker = new Booker(firstName, lastName, email);
+		IBooker booker = new Booker(firstName, lastName, email);
 
 		assertEquals(firstName, booker.getFirstName());
 		booker.setFirstName(newFirstName);
@@ -37,7 +38,7 @@ public class BookerTest {
 	}
 
 	public void testLastName() {
-		Booker booker = new Booker(firstName, lastName, email);
+		IBooker booker = new Booker(firstName, lastName, email);
 
 		assertEquals(lastName, booker.getLastName());
 		booker.setLastName(newLastName);
@@ -46,27 +47,17 @@ public class BookerTest {
 
 	@Test
 	public void testEmail() {
-		Booker booker = new Booker(firstName, lastName, email);
+		IBooker booker = new Booker(firstName, lastName, email);
 
 		assertEquals(email, booker.getLogin());
 		booker.setLogin(newEmail);
 		assertEquals(newEmail, booker.getLogin());
 	}
 
-	@Test(expected = IllegalArgumentException.class)
-	public void testEmptyEmail() {
-		Booker booker = new Booker(firstName, lastName, "");
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void testEmailWithoutAt() {
-		Booker booker = new Booker(firstName, lastName, "testmail");
-	}
-
 	@SuppressWarnings("null")
 	@Test(expected = NullPointerException.class)
 	public void testDestrObj() {
-		Booker booker = new Booker(firstName, lastName, email);
+		IBooker booker = new Booker(firstName, lastName, email);
 
 		booker = null;
 
@@ -75,7 +66,7 @@ public class BookerTest {
 
 	@Test
 	public void testReturnValueBookerObject() {
-		Booker booker = new Booker(firstName, lastName, email);
+		IBooker booker = new Booker(firstName, lastName, email);
 		assertTrue(booker.getBooker() instanceof Booker);
 	}
 }

@@ -3,22 +3,22 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package controller.implementation;
+package controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.IRoomController;
 import controller.exceptions.RoomNameException;
 import controller.exceptions.RoomNotFoundException;
-import srs.Room;
+import model.IRoom;
+import view.IRoomController;
 
 public class RoomController implements IRoomController {
 	/** Implementation for administrate the rooms */
 
-	private List<Room> roomList = new ArrayList<Room>();
+	private List<IRoom> roomList = new ArrayList<IRoom>();
 
-	public RoomController(List<Room> roomList) {
+	public RoomController(List<IRoom> roomList) {
 		this.roomList = roomList;
 	}
 
@@ -28,7 +28,7 @@ public class RoomController implements IRoomController {
 	 * @return the list of rooms
 	 */
 	@Override
-	public List<Room> addRoom(Room room) {
+	public List<IRoom> addRoom(IRoom room) {
 		if (!roomExistsForNewRoom(room.getName()) && notEmpty(room.getSize(), room.getDescription()))
 			roomList.add(room);
 		else
@@ -43,10 +43,10 @@ public class RoomController implements IRoomController {
 	 * @return the list of room
 	 */
 	@Override
-	public List<Room> deleteRoom(String roomName) {
+	public List<IRoom> deleteRoom(String roomName) {
 		if (roomExists(roomName)) {
-			for(int i=0; i<this.roomList.size(); i++) {
-				if(this.roomList.get(i).getName().equals(roomName)) {
+			for (int i = 0; i < this.roomList.size(); i++) {
+				if (this.roomList.get(i).getName().equals(roomName)) {
 					this.roomList.remove(i);
 					break;
 				}
@@ -62,10 +62,10 @@ public class RoomController implements IRoomController {
 	 * @param r the room object
 	 */
 	@Override
-	public void editRoom(int size, String descr, Room r) {
+	public void editRoom(int size, String descr, IRoom r) {
 		if (roomExists(r.getName()) && notEmpty(size, descr)) {
-			for(int i=0; i<this.roomList.size(); i++) {
-				if(this.roomList.get(i).getName().equals(r.getName())) {
+			for (int i = 0; i < this.roomList.size(); i++) {
+				if (this.roomList.get(i).getName().equals(r.getName())) {
 					this.roomList.get(i).setSize(size);
 					this.roomList.get(i).setDescription(descr);
 					break;

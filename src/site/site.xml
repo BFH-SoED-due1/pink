@@ -33,6 +33,7 @@
             <item name="Use Case Diagram" href="doc/UseCaseDiagram.pdf"/>
             <item name="User Stories" href="doc/UserStories.pdf"/>
             <item name="Domain Model" href="doc/DomainModel.pdf"/>
+            <item name="Package Diagram" href="doc/PackageDiagram.pdf"/>
             <item name="Product Backlog" href="doc/ProductBacklog.pdf"/>
             <item name="Sprint Backlog" href="doc/SprintBacklog.pdf"/>
             <!--
@@ -42,7 +43,8 @@
             <item name="Other Specs" href="other_specs.html" />
             -->
             <item name="Glossary" href="doc/Glossary.pdf"/>
-            <item name="All in One" href="doc/ProjectDocumentation.pdf"/>
+            <item name="Project Documentation - All-In-One" href="doc/ProjectDocumentation.pdf"/>
+            
         </menu>
         <menu name="Project Evaluation">
             <item name="Sprint Plan" href="eval/sprints.html"/>

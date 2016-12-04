@@ -3,22 +3,22 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package controller.implementation;
+package controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.IBookerController;
 import controller.exceptions.BookerLoginException;
 import controller.exceptions.BookerNotFoundException;
-import srs.Booker;
+import model.IBooker;
+import view.IBookerController;
 
 public class BookerController implements IBookerController {
 	/** Implementation for administrate booker */
 
-	private List<Booker> bookerList = new ArrayList<Booker>();
+	private List<IBooker> bookerList = new ArrayList<IBooker>();
 
-	public BookerController(List<Booker> bookerList) {
+	public BookerController(List<IBooker> bookerList) {
 		this.bookerList = bookerList;
 	}
 
@@ -28,7 +28,7 @@ public class BookerController implements IBookerController {
 	 * @return the list of Bookers
 	 */
 	@Override
-	public List<Booker> saveBooker(Booker booker) {
+	public List<IBooker> saveBooker(IBooker booker) {
 		if (!bookerExistsForNewBooker(booker.getLogin()) && notEmpty(booker.getFirstName(), booker.getLastName()))
 			bookerList.add(booker);
 		else
@@ -43,9 +43,9 @@ public class BookerController implements IBookerController {
 	 * @return the list of bookers
 	 */
 	@Override
-	public List<Booker> deleteBooker(String email) {
+	public List<IBooker> deleteBooker(String email) {
 		if (bookerExists(email)) {
-			for (Booker booker : bookerList) {
+			for (IBooker booker : bookerList) {
 				if (booker.getLogin().equals(email)) {
 					bookerList.remove(booker);
 					break;
@@ -62,9 +62,9 @@ public class BookerController implements IBookerController {
 	 * @param b the booker object
 	 */
 	@Override
-	public void editBooker(String firstName, String lastName, Booker b) {
+	public void editBooker(String firstName, String lastName, IBooker b) {
 		if (bookerExists(b.getLogin()) && notEmpty(firstName, lastName)) {
-			for (Booker booker : bookerList) {
+			for (IBooker booker : bookerList) {
 				if (booker.getLogin().equals(b.getLogin())) {
 					booker.setFirstName(firstName);
 					booker.setLastName(lastName);
@@ -81,7 +81,7 @@ public class BookerController implements IBookerController {
 	 */
 	public boolean bookerExists(String email) {
 		boolean exists = false;
-		for (Booker booker : bookerList) {
+		for (IBooker booker : bookerList) {
 			if (booker.getLogin().equals(email)) {
 				exists = true;
 				break;
@@ -99,7 +99,7 @@ public class BookerController implements IBookerController {
 	 * @return true if booker exists
 	 */
 	public boolean bookerExistsForNewBooker(String email) {
-		for (Booker booker : bookerList) {
+		for (IBooker booker : bookerList) {
 			if (booker.getLogin().equals(email))
 				return true;
 		}
@@ -122,5 +122,4 @@ public class BookerController implements IBookerController {
 
 		return notEmpty;
 	}
-
 }
