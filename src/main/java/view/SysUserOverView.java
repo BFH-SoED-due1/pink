@@ -5,6 +5,10 @@
  */
 package view;
 
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.ui.AbstractComponent;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -17,7 +21,21 @@ public class SysUserOverView {
 
 	}
 
-	public VerticalLayout displayOverView() {
-		return null;
+	public VerticalLayout displayOverView(VaadinRequest vaadinRequest) {
+		Button userAdmin = new Button("User Administration");
+		Button bookerAdmin = new Button("Booker Administration");
+		Button roomAdmin = new Button("Room Administration");
+		Button reservationAdmin = new Button("Reservation Administration");
+
+		VerticalLayout layout = new VerticalLayout();
+
+		layout.addComponents(userAdmin, bookerAdmin, roomAdmin, reservationAdmin);
+		layout.setSpacing(true);
+		layout.setMargin(true);
+		layout.setVisible(true);
+		((UI) vaadinRequest).setContent(layout);
+		((AbstractComponent) vaadinRequest).setVisible(true);
+
+		return layout;
 	}
 }

@@ -7,13 +7,16 @@ package view;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.VerticalLayout;
-import controller.LogInController;
-import model.ISystemUser;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+
+import controller.LogInController;
+import model.ISystemUser;
 
 /**
  * @author Nathalie
@@ -24,33 +27,32 @@ public class SysUserLoginView {
 	private ILogInController loginCtr;
 	private List<ISystemUser> sysUsrList;
 
-	public SysUserLoginView(ILogInController controller) {
+	public SysUserLoginView() {
 		this.sysUsrList = new ArrayList<ISystemUser>();
 		this.loginCtr = new LogInController(this.sysUsrList);
 	}
 
-	public void load(UI myUI) {
-		final VerticalLayout layout = new VerticalLayout();
+	protected void init(VaadinRequest vaadinRequest) {
+		VerticalLayout layout = new VerticalLayout();
 
-		final TextField loginTxtFld = new TextField();
-		final PasswordField pwFld = new PasswordField();
+		TextField loginTxtFld = new TextField();
+		PasswordField pwFld = new PasswordField();
+		loginTxtFld.setCaption("Enter your login: ");
+		pwFld.setCaption("Enter your password: ");
 
 		String login = loginTxtFld.getValue();
 		String pw = pwFld.getValue();
 		Button loginBtn = new Button("Login");
-
-		loginTxtFld.setCaption("Enter your login: ");
-		pwFld.setCaption("Enter your password: ");
 		loginBtn.addClickListener(e -> {
 			this.loginCtr.userLogin(login, pw);
 			if (this.loginCtr.isLoggedIn(login)) {
-				myUI.setContent(new SysUserOverView().displayOverView());
+				/** TODO */
 			}
 		});
 
 		layout.addComponents(loginTxtFld, pwFld, loginBtn);
 		layout.setMargin(true);
 		layout.setSpacing(true);
-		myUI.setContent(layout);
+		((UI) vaadinRequest).setContent(layout);
 	}
 }
