@@ -59,6 +59,7 @@ public class LogInController implements ILogInController {
 	 * @param login the login of a specific user
 	 * @return true if user exists
 	 */
+	@Override
 	public boolean userExists(String login) {
 		boolean exists = false;
 		for (ISystemUser user : userList) {
@@ -79,6 +80,7 @@ public class LogInController implements ILogInController {
 	 * @param password the password of a specific user
 	 * @return true if password is correct
 	 */
+	@Override
 	public boolean checkPassword(String login, String password) {
 		boolean checkPassword = false;
 		for (ISystemUser user : userList) {
@@ -98,6 +100,7 @@ public class LogInController implements ILogInController {
 	 * @param login the login of a specific user
 	 * @return true if user is allready logged in
 	 */
+	@Override
 	public boolean isLoggedIn(String login) {
 		boolean isLoggedIn = false;
 		for (ISystemUser user : userList) {
