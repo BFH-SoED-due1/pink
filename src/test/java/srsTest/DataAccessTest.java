@@ -15,15 +15,11 @@ import org.junit.Test;
 import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.due1.time.TimeSlotFactory;
 import db.DataAccess;
-import model.Booker;
 import model.IBooker;
 import model.IReservation;
 import model.IRoom;
 import model.ISystemUser;
-import model.Reservation;
-import model.Room;
 import model.RoomEquipment;
-import model.SystemUser;
 
 public class DataAccessTest {
 	public final String DEFAULTTIMESLOTFACTORYNAME = "ch.bfh.due1.time.pojo.TimeSlotFactoryImpl";
