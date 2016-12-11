@@ -24,7 +24,9 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Adds a new booker
-	 * @param booker the new booker object
+	 * 
+	 * @param booker
+	 *            the new booker object
 	 * @return the list of Bookers
 	 */
 	@Override
@@ -39,7 +41,9 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Deletes a booker
-	 * @param email the uniqe email of the booker
+	 * 
+	 * @param email
+	 *            the unique email of the booker
 	 * @return the list of bookers
 	 */
 	@Override
@@ -57,9 +61,13 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Edit a booker
-	 * @param firstName the bookers firstname
-	 * @param lastName the bookers lastname
-	 * @param b the booker object
+	 * 
+	 * @param firstName
+	 *            the bookers firstname
+	 * @param lastName
+	 *            the bookers lastname
+	 * @param b
+	 *            the booker object
 	 */
 	@Override
 	public void editBooker(String firstName, String lastName, IBooker b) {
@@ -76,7 +84,9 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Checks if a booker exists
-	 * @param email the uniqe email of the booker
+	 * 
+	 * @param email
+	 *            the uniqe email of the booker
 	 * @return true if booker exists
 	 */
 	public boolean bookerExists(String email) {
@@ -95,7 +105,9 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Checks if a booker exists. Only used for save a new booker
-	 * @param email the uniqe email of the booker
+	 * 
+	 * @param email
+	 *            the uniqe email of the booker
 	 * @return true if booker exists
 	 */
 	public boolean bookerExistsForNewBooker(String email) {
@@ -108,8 +120,11 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Checks if the firstname or the lastname are not empty
-	 * @param firstName the bookers firstname
-	 * @param lastName the bookers lastname
+	 * 
+	 * @param firstName
+	 *            the bookers firstname
+	 * @param lastName
+	 *            the bookers lastname
 	 * @return true if firstname and lastname are not empty
 	 */
 	public boolean notEmpty(String firstName, String lastName) {

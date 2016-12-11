@@ -3,7 +3,7 @@
 		-------------
 		Eric Dubuis
 		-------------
-		November 18, 2016
+		November 18, 2016; updated December 11, 2016
 
 
 Deliverable 3
@@ -112,6 +112,47 @@ example, in the Iteration Plan document, however.)
 	50 points at most per team member are attributed to this deliverable. Points may
 not be equally distributed among team members. (However, this is the goal.)
 
+*-------------------------------------------+---------------*-----------------*
+| Item										| Max. points	| Points received |
+*-------------------------------------------+---------------*-----------------*
+| Product backlog items at the beginning\	| 		 6		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - Okay									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Sprint backlog items / tasks and their states\ | 	6		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - Okay									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Package structure meets SOLID principles, JDepend\ | 8	| 		 8		  |
+| COMMENTS:\								| 				| 				  |
+| - Package names, see below\ 				| 				| 				  |
+| - Okay 									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Production classes and interfaces\		| 		 8		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - Link UI with lower-layer code missing (-2)\ | 			| 				  |
+| - Common prefix for all package names missing (-)\ | 		| 				  |
+| - Correct in sprint 4 					| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Working infrastructure with persistence\	| 		 8		| 		 8		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Good 									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| JUnit tests, code coverage\				| 		 8		| 		 8		  |
+| COMMENTS:\								| 				| 			  	  |
+| - High coverage, good 					| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Checkstyle report\						| 		 6		| 		 6		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Good 									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Miscellaneous\							| 				| 		 		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Modified POM to use time-slot 1.1 		| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Total										| 		50		| 		48		  |
+*-------------------------------------------+---------------*-----------------*
+Distribution of points for this deliverable.
 
 
 * Deadline
