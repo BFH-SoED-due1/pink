@@ -8,10 +8,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import controller.LogInController;
-import controller.exceptions.UserLoginFailedException;
-import model.ISystemUser;
-import model.SystemUser;
+import ch.bfh.ti.soed.hs16.srs.controller.LogInController;
+import ch.bfh.ti.soed.hs16.srs.controller.exceptions.UserLoginFailedException;
+import ch.bfh.ti.soed.hs16.srs.model.ISystemUser;
+import ch.bfh.ti.soed.hs16.srs.model.SystemUser;
 
 public class LogInControllerTest {
 

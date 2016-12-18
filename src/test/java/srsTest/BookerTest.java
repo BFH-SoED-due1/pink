@@ -8,8 +8,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import model.Booker;
-import model.IBooker;
+import ch.bfh.ti.soed.hs16.srs.model.Booker;
+import ch.bfh.ti.soed.hs16.srs.model.IBooker;
 
 public class BookerTest {
 	/** Test classes booker, bookerName */

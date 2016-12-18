@@ -12,10 +12,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import controller.BookerController;
-import controller.exceptions.BookerLoginException;
-import model.Booker;
-import model.IBooker;
+import ch.bfh.ti.soed.hs16.srs.controller.BookerController;
+import ch.bfh.ti.soed.hs16.srs.controller.exceptions.BookerLoginException;
+import ch.bfh.ti.soed.hs16.srs.model.Booker;
+import ch.bfh.ti.soed.hs16.srs.model.IBooker;
 
 public class BookerControllerTest {
 

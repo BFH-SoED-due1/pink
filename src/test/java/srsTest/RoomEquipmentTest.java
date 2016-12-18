@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import model.RoomEquipment;
+import ch.bfh.ti.soed.hs16.srs.model.RoomEquipment;
 
 public class RoomEquipmentTest {
 

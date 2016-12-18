@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import model.SystemUser;
+import ch.bfh.ti.soed.hs16.srs.model.SystemUser;
 
 public class SystemUserTest {
 	/* Test SystemUser-class */

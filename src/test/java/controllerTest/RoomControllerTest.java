@@ -12,11 +12,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import controller.RoomController;
-import controller.exceptions.RoomNameException;
-import controller.exceptions.RoomNotFoundException;
-import model.IRoom;
-import model.Room;
+import ch.bfh.ti.soed.hs16.srs.controller.RoomController;
+import ch.bfh.ti.soed.hs16.srs.controller.exceptions.RoomNameException;
+import ch.bfh.ti.soed.hs16.srs.controller.exceptions.RoomNotFoundException;
+import ch.bfh.ti.soed.hs16.srs.model.IRoom;
+import ch.bfh.ti.soed.hs16.srs.model.Room;
 
 public class RoomControllerTest {
 

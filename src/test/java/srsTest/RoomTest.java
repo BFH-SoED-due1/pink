@@ -12,8 +12,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import model.Room;
-import model.RoomEquipment;
+import ch.bfh.ti.soed.hs16.srs.model.Room;
+import ch.bfh.ti.soed.hs16.srs.model.RoomEquipment;
 
 public class RoomTest {
 	// Test room

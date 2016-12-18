@@ -14,12 +14,12 @@ import org.junit.Test;
 
 import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.due1.time.TimeSlotFactory;
-import db.DataAccess;
-import model.IBooker;
-import model.IReservation;
-import model.IRoom;
-import model.ISystemUser;
-import model.RoomEquipment;
+import ch.bfh.ti.soed.hs16.srs.db.DataAccess;
+import ch.bfh.ti.soed.hs16.srs.model.IBooker;
+import ch.bfh.ti.soed.hs16.srs.model.IReservation;
+import ch.bfh.ti.soed.hs16.srs.model.IRoom;
+import ch.bfh.ti.soed.hs16.srs.model.ISystemUser;
+import ch.bfh.ti.soed.hs16.srs.model.RoomEquipment;
 
 public class DataAccessTest {
 	public final String DEFAULTTIMESLOTFACTORYNAME = "ch.bfh.due1.time.pojo.TimeSlotFactoryImpl";
