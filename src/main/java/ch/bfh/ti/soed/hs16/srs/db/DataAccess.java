@@ -9,10 +9,10 @@ import java.util.List;
 
 import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.ti.soed.hs16.srs.model.RoomEquipment;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IBooker;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IReservation;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IRoom;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.ISystemUser;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IBooker;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IReservation;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoom;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.ISystemUser;
 
 public abstract class DataAccess {
 

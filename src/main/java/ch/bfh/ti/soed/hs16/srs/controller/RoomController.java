@@ -10,8 +10,8 @@ import java.util.List;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.RoomNameException;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.RoomNotFoundException;
 import ch.bfh.ti.soed.hs16.srs.db.DataAccess;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IRoom;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IRoomController;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoom;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoomController;
 
 public class RoomController implements IRoomController {
 	/** Implementation for administrate the rooms */

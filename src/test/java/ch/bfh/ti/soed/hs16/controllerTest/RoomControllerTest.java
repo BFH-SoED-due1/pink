@@ -19,7 +19,7 @@ import ch.bfh.ti.soed.hs16.srs.controller.RoomController;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.RoomNameException;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.RoomNotFoundException;
 import ch.bfh.ti.soed.hs16.srs.model.Room;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IRoom;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoom;
 
 public class RoomControllerTest {
 	private RoomController roomController;

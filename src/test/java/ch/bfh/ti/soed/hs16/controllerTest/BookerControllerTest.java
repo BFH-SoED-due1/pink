@@ -17,7 +17,7 @@ import org.junit.Test;
 import ch.bfh.ti.soed.hs16.srs.controller.BookerController;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.BookerLoginException;
 import ch.bfh.ti.soed.hs16.srs.model.Booker;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IBooker;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IBooker;
 
 public class BookerControllerTest {
 	private BookerController bookerController;

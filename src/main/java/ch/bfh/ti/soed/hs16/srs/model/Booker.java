@@ -12,8 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IBooker;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IReservation;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IBooker;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IReservation;
 
 @Entity(name = "Booker")
 public class Booker implements IBooker {

@@ -10,10 +10,10 @@ import java.util.List;
 import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.ReservationException;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.ReservationNotFoundException;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IBooker;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IReservation;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IReservationController;
-import ch.bfh.ti.soed.hs16.srs.srsSurface.IRoom;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IBooker;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IReservation;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IReservationController;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoom;
 
 public class ReservationController implements IReservationController {
 	/** Implementation for administrate the reservations */
