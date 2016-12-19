@@ -3,7 +3,7 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package controllerTest;
+package ch.bfh.ti.soed.hs16.controllerTest;
 
 import static org.junit.Assert.*;
 
