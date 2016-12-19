@@ -25,7 +25,6 @@ public class BookerController implements IBookerController {
 		if (!bookerExistsForNewBooker(email) && notEmpty(firstName, lastName)) {
 			DataAccess dataAccess = DataAccess.getInstance();
 			dataAccess.registerBooker(firstName, lastName, email);
-
 		} else
 			throw new BookerLoginException("A booker with this login allready exists.\nChose another email.");
 	}
