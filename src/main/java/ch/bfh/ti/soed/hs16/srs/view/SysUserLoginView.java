@@ -38,9 +38,9 @@ public class SysUserLoginView {
 		PasswordField pwFld = new PasswordField();
 		loginTxtFld.setCaption("Enter your login: ");
 		pwFld.setCaption("Enter your password: ");
-
 		String login = loginTxtFld.getValue();
 		String pw = pwFld.getValue();
+
 		Button loginBtn = new Button("Login");
 		loginBtn.addClickListener(e -> {
 			this.loginCtr.userLogin(login, pw);
