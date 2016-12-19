@@ -18,7 +18,7 @@ import ch.bfh.ti.soed.hs16.srs.srsInterface.ISystemUser;
 
 /**
  * @author Nathalie
- *
+ * 
  */
 public class LoginView {
 

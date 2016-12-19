@@ -11,4 +11,5 @@ package ch.bfh.ti.soed.hs16.srs.view;
  */
 public class BookerView {
 
+	// BookerView
 }
