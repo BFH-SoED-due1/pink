@@ -1,5 +1,5 @@
 /**Copyright(c)2016 Berner Fachhochschule,Switzerland.*Project Smart Reservation System.*Distributable under GPL license.See terms of license at gnu.org.*/
-package ch.bfh.ti.soed.hs16.srsTest;
+package ch.bfh.ti.soed.hs16.dbTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
