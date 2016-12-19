@@ -45,7 +45,8 @@ public class StartScreenView extends UI {
 		btn.addClickListener(e -> {
 			// layout.addComponent(new Label(title.getValue()));
 			/** TODO */
-
+			SysUserLoginView gui = new SysUserLoginView();
+			gui.load((UI) vaadinRequest);
 		});
 
 		layout.addComponents(logoLbl, titleLbl, btn);
