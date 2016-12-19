@@ -36,10 +36,10 @@ public class StartScreenView extends UI {
 	protected void init(VaadinRequest vaadinRequest) {
 		final VerticalLayout layout = new VerticalLayout();
 
-		final Label title = new Label("SRS - Smart Reservation System");
-		Label logo = new Label();
+		final Label titleLbl = new Label("SRS - Smart Reservation System");
+		Label logoLbl = new Label();
 		Image pic = new Image("src.site.resoruces.images.srs-logo.jpg");
-		logo.setIcon((Resource) pic);
+		logoLbl.setIcon((Resource) pic);
 
 		Button btn = new Button("Login");
 		btn.addClickListener(e -> {
@@ -48,7 +48,7 @@ public class StartScreenView extends UI {
 
 		});
 
-		layout.addComponents(logo, title, btn);
+		layout.addComponents(logoLbl, titleLbl, btn);
 		layout.setMargin(true);
 		layout.setSpacing(true);
 		setContent(layout);
