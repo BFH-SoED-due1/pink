@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.server.Resource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -34,8 +36,10 @@ public class StartScreenView extends UI {
 	protected void init(VaadinRequest vaadinRequest) {
 		final VerticalLayout layout = new VerticalLayout();
 
-		final Label title = new Label();
-		title.setCaption("SRS - Smart Reservation System");
+		final Label title = new Label("SRS - Smart Reservation System");
+		Label logo = new Label();
+		Image pic = new Image("src.site.resoruces.images.srs-logo.jpg");
+		logo.setIcon((Resource) pic);
 
 		Button btn = new Button("Login");
 		btn.addClickListener(e -> {
@@ -44,7 +48,7 @@ public class StartScreenView extends UI {
 
 		});
 
-		layout.addComponents(title, btn);
+		layout.addComponents(logo, title, btn);
 		layout.setMargin(true);
 		layout.setSpacing(true);
 		setContent(layout);
