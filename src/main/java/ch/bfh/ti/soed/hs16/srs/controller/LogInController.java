@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.UserLoginFailedException;
-import ch.bfh.ti.soed.hs16.srs.model.ISystemUser;
-import ch.bfh.ti.soed.hs16.srs.view.ILogInController;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.ILogInController;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.ISystemUser;
 
 public class LogInController implements ILogInController {
 	/** Implementation for login/lougout */

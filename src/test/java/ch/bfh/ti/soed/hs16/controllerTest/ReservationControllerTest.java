@@ -18,11 +18,11 @@ import ch.bfh.ti.soed.hs16.srs.controller.ReservationController;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.ReservationException;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.ReservationNotFoundException;
 import ch.bfh.ti.soed.hs16.srs.model.Booker;
-import ch.bfh.ti.soed.hs16.srs.model.IBooker;
-import ch.bfh.ti.soed.hs16.srs.model.IReservation;
-import ch.bfh.ti.soed.hs16.srs.model.IRoom;
 import ch.bfh.ti.soed.hs16.srs.model.Reservation;
 import ch.bfh.ti.soed.hs16.srs.model.Room;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IBooker;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IReservation;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IRoom;
 
 public class ReservationControllerTest {
 	public final String DEFAULTTIMESLOTFACTORYNAME = "ch.bfh.due1.time.pojo.TimeSlotFactoryImpl";

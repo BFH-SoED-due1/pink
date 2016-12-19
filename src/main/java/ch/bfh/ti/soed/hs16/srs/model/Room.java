@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IRoom;
+
 @Entity(name = "Room")
 public class Room implements IRoom {
 	@Id

@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import ch.bfh.due1.time.TimeSlot;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IBooker;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IReservation;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IRoom;
 
 @Entity(name = "Reservation")
 public class Reservation implements IReservation {

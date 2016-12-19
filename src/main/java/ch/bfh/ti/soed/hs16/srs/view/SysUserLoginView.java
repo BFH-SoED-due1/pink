@@ -16,6 +16,8 @@ import com.vaadin.ui.VerticalLayout;
 
 import ch.bfh.ti.soed.hs16.srs.controller.LogInController;
 import ch.bfh.ti.soed.hs16.srs.model.*;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.ILogInController;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.ISystemUser;
 
 /**
  * @author Nathalie

@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import ch.bfh.ti.soed.hs16.srs.model.Booker;
-import ch.bfh.ti.soed.hs16.srs.model.IBooker;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IBooker;
 
 public class BookerTest {
 	/** Test classes booker, bookerName */

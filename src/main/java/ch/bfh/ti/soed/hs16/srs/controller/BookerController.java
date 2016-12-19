@@ -11,8 +11,8 @@ import ch.bfh.ti.soed.hs16.srs.controller.exceptions.BookerLoginException;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.BookerNotFoundException;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.RoomNotFoundException;
 import ch.bfh.ti.soed.hs16.srs.db.DataAccess;
-import ch.bfh.ti.soed.hs16.srs.model.IBooker;
-import ch.bfh.ti.soed.hs16.srs.view.IBookerController;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IBooker;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IBookerController;
 
 public class BookerController implements IBookerController {
 	/** Implementation for administrate booker */

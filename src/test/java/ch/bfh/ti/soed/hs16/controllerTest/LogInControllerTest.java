@@ -10,8 +10,8 @@ import org.junit.Test;
 
 import ch.bfh.ti.soed.hs16.srs.controller.LogInController;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.UserLoginFailedException;
-import ch.bfh.ti.soed.hs16.srs.model.ISystemUser;
 import ch.bfh.ti.soed.hs16.srs.model.SystemUser;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.ISystemUser;
 
 public class LogInControllerTest {
 

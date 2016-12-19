@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import ch.bfh.ti.soed.hs16.srs.srsSurface.ISystemUser;
+
 @Entity(name = "SystemUser")
 public class SystemUser implements ISystemUser {
 	@Id

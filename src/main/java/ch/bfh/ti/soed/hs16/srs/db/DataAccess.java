@@ -8,11 +8,11 @@ package ch.bfh.ti.soed.hs16.srs.db;
 import java.util.List;
 
 import ch.bfh.due1.time.TimeSlot;
-import ch.bfh.ti.soed.hs16.srs.model.IBooker;
-import ch.bfh.ti.soed.hs16.srs.model.IReservation;
-import ch.bfh.ti.soed.hs16.srs.model.IRoom;
-import ch.bfh.ti.soed.hs16.srs.model.ISystemUser;
 import ch.bfh.ti.soed.hs16.srs.model.RoomEquipment;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IBooker;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IReservation;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.IRoom;
+import ch.bfh.ti.soed.hs16.srs.srsSurface.ISystemUser;
 
 public abstract class DataAccess {
 
