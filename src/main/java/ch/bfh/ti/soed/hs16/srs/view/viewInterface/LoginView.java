@@ -16,6 +16,7 @@ import com.vaadin.ui.VerticalLayout;
  *
  */
 public class LoginView {
+
 	private LoginViewController loginView;
 
 	public LoginView(LoginViewController loginView) {
