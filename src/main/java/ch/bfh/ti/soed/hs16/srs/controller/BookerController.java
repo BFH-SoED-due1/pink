@@ -9,7 +9,6 @@ import java.util.List;
 
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.BookerLoginException;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.BookerNotFoundException;
-import ch.bfh.ti.soed.hs16.srs.controller.exceptions.RoomNotFoundException;
 import ch.bfh.ti.soed.hs16.srs.db.DataAccess;
 import ch.bfh.ti.soed.hs16.srs.model.IBooker;
 import ch.bfh.ti.soed.hs16.srs.view.IBookerController;
@@ -27,7 +26,7 @@ public class BookerController implements IBookerController {
 			dataAccess.registerBooker(firstName, lastName, email);
 
 		} else
-			throw new BookerLoginException("A booker with this login allready exists.\nChose another email.");
+			throw new BookerLoginException("A booker with this login allready exists.\nChoose another email.");
 	}
 
 	@Override
@@ -53,7 +52,7 @@ public class BookerController implements IBookerController {
 				return bookerList.get(i);
 			}
 		}
-		throw new RoomNotFoundException("Room does not exist!");
+		throw new BookerNotFoundException("Booker does not exist!");
 	}
 
 	@Override
