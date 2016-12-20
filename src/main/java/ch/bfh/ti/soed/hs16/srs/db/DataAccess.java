@@ -218,6 +218,15 @@ public abstract class DataAccess {
 	 */
 	public abstract void deleteSystemUser(Long id);
 
+	/**
+	 * sets the User's admin state
+	 * @param isAdmin
+	 *            the admin state
+	 * @param id
+	 *            the SystemUser's id
+	 */
+	public abstract void setUserAdmin(boolean isAdmin, Long id);
+
 	// Methods for reservations
 	/**
 	 * Inserts Reservation into DB

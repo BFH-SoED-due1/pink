@@ -29,6 +29,7 @@ public class SystemUser implements ISystemUser {
 		this.login = email;
 		this.password = password;
 		this.isAdmin = isAdmin;
+		this.isLoggedIn = false;
 	}
 
 	///////////////////////// Setter /////////////////////////
@@ -73,6 +74,7 @@ public class SystemUser implements ISystemUser {
 	}
 
 	///////////////////////// Getter /////////////////////////
+	@Override
 	public Long getId() {
 		return this.id;
 	}

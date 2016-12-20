@@ -79,7 +79,7 @@ public class BookerControllerTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void deleteNotExistingBookerTest() {
-		Booker donald = new Booker("Donald", "Duck", "donald@duck.com");
+		IBooker donald = new Booker("Donald", "Duck", "donald@duck.com");
 
 		this.bookerController.deleteBooker(donald);
 	}
@@ -110,7 +110,7 @@ public class BookerControllerTest {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void getWrongRoomByNameTest() {
+	public void getWrongBookerByNameTest() {
 		this.bookerController.getBookerByEmail("du@hast.ch");
 	}
 

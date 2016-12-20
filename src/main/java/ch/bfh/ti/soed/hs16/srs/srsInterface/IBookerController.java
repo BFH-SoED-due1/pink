@@ -35,7 +35,7 @@ public interface IBookerController {
 	public List<IBooker> listAllBookers();
 
 	/**
-	 * Delete a room from list
+	 * get booker by email
 	 * @param email
 	 *            the Booker's email
 	 * @return booker
