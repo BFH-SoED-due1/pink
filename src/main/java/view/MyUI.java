@@ -3,18 +3,18 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package ch.bfh.ti.soed.hs16.srs.view;
+package view;
 
-import com.vaadin.ui.UI;
 import javax.servlet.annotation.WebServlet;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.PasswordField;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.UI;
+
+/**
+ * @author Nathalie
+ */
 
 /**
  * This UI is the application entry point. A UI may either represent a browser
@@ -25,30 +25,14 @@ import com.vaadin.ui.VerticalLayout;
  * intended to be overridden to add component to the user interface and
  * initialize non-component functionality.
  */
-
+@SuppressWarnings("serial")
 @Theme("mytheme")
 public class MyUI extends UI {
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-		final VerticalLayout layout = new VerticalLayout();
+		// TODO
 
-		final TextField loginTxtFld = new TextField();
-		final PasswordField pwFld = new PasswordField();
-
-		loginTxtFld.setCaption("Enter your login: ");
-		pwFld.setCaption("Enter your passowrd: ");
-
-		Button button = new Button("Login");
-		button.addClickListener(e -> {
-			// TODO load login-view...
-		});
-
-		layout.addComponents(loginTxtFld, pwFld, button);
-		layout.setMargin(true);
-		layout.setSpacing(true);
-
-		setContent(layout);
 	}
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
