@@ -3,7 +3,7 @@
  * Project Smart Reservation System.
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package ch.bfh.ti.soed.hs16.srs.view.views;
+package ch.bfh.ti.soed.hs16.srs.view.views.helpers;
 
 import com.vaadin.navigator.Navigator;
 
@@ -11,9 +11,9 @@ import com.vaadin.navigator.Navigator;
  * @author Nathalie
  *
  */
-public class OverView {
+public class Links {
 
-	public OverView(Navigator nav) {
+	public Links(Navigator nav) {
 
 	}
 }

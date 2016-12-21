@@ -14,7 +14,6 @@ import com.vaadin.ui.VerticalLayout;
 import ch.bfh.ti.soed.hs16.srs.model.SystemUser;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.ISystemUser;
 import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Footer;
-import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Header;
 
 /**
  * @author Nathalie
@@ -27,8 +26,8 @@ public class LoginView {
 	private Button btn;
 	private TextField loginFld;
 	private PasswordField pwFld;
-	private Footer footer;
-	private Header header;
+	// private Footer footer;
+	// private Header header;
 
 	public LoginView(Navigator nav) {
 		/** Initalize objects */
@@ -37,8 +36,8 @@ public class LoginView {
 		this.btn = new Button("Login");
 		this.loginFld = new TextField();
 		this.pwFld = new PasswordField();
-		this.footer = new Footer("BFH", "Biel-Bienne", "Schweiz");
-		this.header = new Header();
+		// this.footer = new Footer("BFH", "Biel-Bienne", "Schweiz");
+		// this.header = new Header();
 		this.layout.addComponents(this.loginFld, this.pwFld, this.btn);
 		pwHandling(nav);
 	}
