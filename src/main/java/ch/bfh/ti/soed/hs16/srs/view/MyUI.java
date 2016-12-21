@@ -8,9 +8,18 @@ package ch.bfh.ti.soed.hs16.srs.view;
 import javax.servlet.annotation.WebServlet;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
+
+import ch.bfh.ti.soed.hs16.srs.view.views.LoginView;
+import ch.bfh.ti.soed.hs16.srs.view.views.OverView;
+import ch.bfh.ti.soed.hs16.srs.view.views.ReservationView;
+import ch.bfh.ti.soed.hs16.srs.view.views.RoomView;
+import ch.bfh.ti.soed.hs16.srs.view.views.SysUsrView;
+import ch.bfh.ti.soed.hs16.srs.view.views.BookerView;
 
 /**
  * @author Nathalie
@@ -29,10 +38,22 @@ import com.vaadin.ui.UI;
 @Theme("mytheme")
 public class MyUI extends UI {
 
+	private Navigator navigator;
+
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-		// TODO
+		this.navigator = new Navigator(this, this);
+		this.navigator.addView("Login View", (View) new LoginView(this.navigator));
+		this.navigator.addView("System Overview", (View) new OverView(this.navigator));
+		this.navigator.addView("System User Overview", (View) new SysUsrView(this.navigator));
+		this.navigator.addView("Booker View", (View) new BookerView(this.navigator));
+		this.navigator.addView("Room View", (View) new RoomView(this.navigator));
+		this.navigator.addView("Reservation View", (View) new ReservationView(navigator));
+	}
 
+	@Override
+	public Navigator getNavigator() {
+		return this.navigator;
 	}
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
