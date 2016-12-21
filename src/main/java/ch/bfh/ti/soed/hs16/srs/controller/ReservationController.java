@@ -10,6 +10,7 @@ import java.util.List;
 import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.ReservationException;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.ReservationNotFoundException;
+import ch.bfh.ti.soed.hs16.srs.db.DataAccess;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IBooker;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IReservation;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IReservationController;
@@ -18,18 +19,16 @@ import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoom;
 public class ReservationController implements IReservationController {
 	/** Implementation for administrate the reservations */
 
-	private List<IReservation> reservationList;
-
-	public ReservationController(List<IReservation> reservations) {
-		this.reservationList = reservations;
+	public ReservationController() {
 	}
 
 	/*
 	 * @see controller.IReservationController#showReservations()
 	 */
 	@Override
-	public List<IReservation> showReservations() {
-		return this.reservationList;
+	public List<IReservation> listAllReservations() {
+		DataAccess dataAccess = DataAccess.getInstance();
+		return dataAccess.getAllReservations();
 	}
 
 	/*
@@ -37,48 +36,58 @@ public class ReservationController implements IReservationController {
 	 * java.util.Date, java.sql.Time, java.sql.Time, srs.Room)
 	 */
 	@Override
-	public List<IReservation> reservate(IReservation reservation) {
+	public void reservate(IReservation reservation) {
 		if (validateInput(reservation.getBooker(), reservation.getTimeSlot(), reservation.getRoom())) {
+			DataAccess dataAccess = DataAccess.getInstance();
+			dataAccess.insertReservation(reservation);
 			reservation.getRoom().setBooked();
-			this.reservationList.add(reservation);
-			return this.reservationList;
 		} else
-			throw new ReservationException(
-					"Check your input. A booker needs a first name, last name, login, the room has to be free.");
+			throw new ReservationException("Check your input. A booker needs a first name, last name, login, the room has to be free.");
 	}
 
 	/*
 	 * @see controller.IReservationController#cancel(srs.Booker, java.util.Date,
 	 * java.sql.Time, java.sql.Time, srs.Room)
 	 */
-	@SuppressWarnings("unused")
 	@Override
-	public List<IReservation> cancel(IReservation reservation) throws ReservationNotFoundException {
-		for (int i = 0; i < this.reservationList.size(); i++) {
-			if (this.reservationList.get(i).getBooker().equals(reservation.getBooker())
-					&& this.reservationList.get(i).getRoom().equals(reservation.getRoom())
-					&& this.reservationList.get(i).getTimeSlot().equals(reservation.getTimeSlot())) {
-				this.reservationList.remove(i);
-				reservation.getRoom().removeBooking();
-				break;
-			} else {
-				throw new ReservationNotFoundException("Reservation not found");
-			}
-
+	public void cancel(IReservation reservation) {
+		if (reservationExists(reservation.getId())) {
+			DataAccess dataAccess = DataAccess.getInstance();
+			dataAccess.cancelReservation(reservation.getId());
+			reservation.getRoom().removeBooking();
 		}
-		return this.reservationList;
 	}
 
 	public boolean validateInput(IBooker booker, TimeSlot timeSlot, IRoom room) {
 		boolean isValid = false;
 
-		if (booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || room.isBooked()
-				|| booker.getFirstName().isEmpty() || booker.getLastName().isEmpty() || booker.getLogin().isEmpty()
-				|| timeSlot == null)
+		if (room.isBooked() || timeSlot == null)
 			isValid = false;
 		else
 			isValid = true;
 
 		return isValid;
+	}
+
+	/**
+	 * Checks if a reservation exists
+	 * @param id
+	 *            the uniqe id of the reservation
+	 * @return true if reservation exists
+	 */
+	public boolean reservationExists(Long id) {
+		DataAccess dataAccess = DataAccess.getInstance();
+		List<IReservation> reservationList = dataAccess.getAllReservations();
+		boolean exists = false;
+		for (int i = 0; i < reservationList.size(); i++) {
+			if (reservationList.get(i).getId().equals(id)) {
+				exists = true;
+				break;
+			}
+		}
+		if (!exists)
+			throw new ReservationNotFoundException("Reservation not found!");
+
+		return exists;
 	}
 }

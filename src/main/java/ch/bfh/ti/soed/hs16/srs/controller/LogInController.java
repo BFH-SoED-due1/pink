@@ -144,6 +144,8 @@ public class LogInController implements ILogInController {
 	 *            the users firstname
 	 * @param lastName
 	 *            the users lastname
+	 * @param password
+	 *            the users password
 	 * @return true if firstname and lastname are not empty
 	 */
 	public boolean notEmpty(String firstName, String lastName, String password) {

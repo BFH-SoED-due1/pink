@@ -15,6 +15,7 @@ import org.junit.Test;
 import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.due1.time.TimeSlotFactory;
 import ch.bfh.ti.soed.hs16.srs.db.DataAccess;
+import ch.bfh.ti.soed.hs16.srs.model.Reservation;
 import ch.bfh.ti.soed.hs16.srs.model.RoomEquipment;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IBooker;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IReservation;
@@ -228,7 +229,9 @@ public class DataAccessTest {
 		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
 		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
 
-		IReservation r = this.dataAccess.insertReservation(room, timeSlot, booker);
+		IReservation res = new Reservation(room, timeSlot, booker);
+
+		IReservation r = this.dataAccess.insertReservation(res);
 		List<IReservation> all = this.dataAccess.getAllReservations();
 		assertNotNull(all);
 		assertTrue(all.size() > 0);
@@ -248,17 +251,20 @@ public class DataAccessTest {
 		LocalDateTime otherFinish = LocalDateTime.of(2016, 11, 24, 9, 45);
 		TimeSlot otherRimeSlot = this.factory.createTimeSlot(otherStart, otherFinish);
 
-		IReservation r = this.dataAccess.insertReservation(room, timeSlot, booker);
-		IReservation otherr = this.dataAccess.insertReservation(otherRoom, otherRimeSlot, otherBbooker);
+		IReservation res = new Reservation(room, timeSlot, booker);
+		IReservation resOther = new Reservation(room, timeSlot, booker);
+
+		IReservation r = this.dataAccess.insertReservation(res);
+		IReservation other = this.dataAccess.insertReservation(resOther);
 		List<IReservation> all = this.dataAccess.getAllReservations();
 
 		assertTrue(all.contains(r));
-		assertTrue(all.contains(otherr));
+		assertTrue(all.contains(other));
 
 		this.dataAccess.cancelReservation(r.getId());
 		all = this.dataAccess.getAllReservations();
 
-		assertTrue(all.contains(otherr));
+		assertTrue(all.contains(other));
 		assertFalse(all.contains(r));
 	}
 }

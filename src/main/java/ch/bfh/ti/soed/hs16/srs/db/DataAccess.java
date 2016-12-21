@@ -7,7 +7,6 @@ package ch.bfh.ti.soed.hs16.srs.db;
 
 import java.util.List;
 
-import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.ti.soed.hs16.srs.model.RoomEquipment;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IBooker;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IReservation;
@@ -109,6 +108,8 @@ public abstract class DataAccess {
 
 	/**
 	 * Gets all Equipments from Room
+	 * @param id
+	 *            the Room's id
 	 * @return List of Equipments
 	 */
 	public abstract List<RoomEquipment> getAllEquipments(Long id);
@@ -230,15 +231,11 @@ public abstract class DataAccess {
 	// Methods for reservations
 	/**
 	 * Inserts Reservation into DB
-	 * @param room
-	 *            the reserved room
-	 * @param timeSlot
-	 *            the time slot of the reservation
-	 * @param booker
-	 *            the booker who reservs
+	 * @param reservation
+	 *            the reservation
 	 * @return the inserted Reservation
 	 */
-	public abstract IReservation insertReservation(IRoom room, TimeSlot timeSlot, IBooker booker);
+	public abstract IReservation insertReservation(IReservation reservation);
 
 	/**
 	 * Gets all Reservations from DB

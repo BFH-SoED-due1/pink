@@ -1,12 +1,10 @@
 /**Copyright(c)2016 Berner Fachhochschule,Switzerland.*Project Smart Reservation System.*Distributable under GPL license.See terms of license at gnu.org.*/
 package ch.bfh.ti.soed.hs16.controllerTest;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -14,7 +12,9 @@ import org.junit.Test;
 
 import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.due1.time.TimeSlotFactory;
+import ch.bfh.ti.soed.hs16.srs.controller.BookerController;
 import ch.bfh.ti.soed.hs16.srs.controller.ReservationController;
+import ch.bfh.ti.soed.hs16.srs.controller.RoomController;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.ReservationException;
 import ch.bfh.ti.soed.hs16.srs.controller.exceptions.ReservationNotFoundException;
 import ch.bfh.ti.soed.hs16.srs.model.Booker;
@@ -25,6 +25,9 @@ import ch.bfh.ti.soed.hs16.srs.srsInterface.IReservation;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoom;
 
 public class ReservationControllerTest {
+	private ReservationController resController;
+	private RoomController roomController;
+	private BookerController bookerController;
 	public final String DEFAULTTIMESLOTFACTORYNAME = "ch.bfh.due1.time.pojo.TimeSlotFactoryImpl";
 
 	private TimeSlotFactory factory;
@@ -47,6 +50,9 @@ public class ReservationControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
+		resController = new ReservationController();
+		roomController = new RoomController();
+		bookerController = new BookerController();
 		String className = System.getProperty("timeslotfactory.name", DEFAULTTIMESLOTFACTORYNAME);
 		Class<?> clazz = Class.forName(className);
 		this.factory = (TimeSlotFactory) clazz.newInstance();
@@ -58,17 +64,25 @@ public class ReservationControllerTest {
 		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
 		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
 
-		List<IReservation> list = new ArrayList<IReservation>();
-		ReservationController ctrl = new ReservationController(list);
+		String name = "9911";
+		int size = 24;
+		String descr = "Classroom";
+		this.roomController.addRoom(size, name, descr);
+		IRoom room = this.roomController.getRoomByName(name);
 
-		IReservation res = new Reservation(r1, timeSlot, donald);
+		String firstName = "Hans";
+		String lastName = "Muster";
+		String email = "hans91@muster.ch";
+		this.bookerController.saveBooker(firstName, lastName, email);
+		IBooker booker = this.bookerController.getBookerByEmail(email);
 
-		list = ctrl.reservate(res);
+		IReservation r = new Reservation(room, timeSlot, booker);
 
-		List<Reservation> list2 = new ArrayList<Reservation>();
-		list2.add((Reservation) res);
+		this.resController.reservate(r);
 
-		assertEquals(list2, list);
+		List<IReservation> list = this.resController.listAllReservations();
+
+		assertTrue(list.contains(r));
 	}
 
 	@Test(expected = ReservationException.class)
@@ -77,43 +91,23 @@ public class ReservationControllerTest {
 		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
 		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
 
-		List<IReservation> list = new ArrayList<IReservation>();
-		ReservationController ctrl = new ReservationController(list);
+		String name = "9912";
+		int size = 24;
+		String descr = "Classroom";
+		this.roomController.addRoom(size, name, descr);
+		IRoom room = this.roomController.getRoomByName(name);
 
-		IReservation res = new Reservation(r1, timeSlot, donald);
-		IReservation error = new Reservation(r1, timeSlot, micky);
+		String firstName = "Hans";
+		String lastName = "Muster";
+		String email = "hans92@muster.ch";
+		this.bookerController.saveBooker(firstName, lastName, email);
+		IBooker booker = this.bookerController.getBookerByEmail(email);
 
-		list = ctrl.reservate(res);
-		list = ctrl.reservate(error);
-	}
+		IReservation r = new Reservation(room, timeSlot, booker);
+		IReservation error = new Reservation(room, timeSlot, new Booker("Mickey", "Mouse", "mickey@mouse.ch"));
 
-	@Test(expected = ReservationNotFoundException.class)
-	public void testCancelThrowException() throws ReservationNotFoundException {
-		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
-		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
-		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
-		LocalDateTime newStart = LocalDateTime.of(2016, 12, 24, 10, 15);
-		LocalDateTime newFinish = LocalDateTime.of(2016, 12, 24, 10, 45);
-		TimeSlot newTimeSlot = this.factory.createTimeSlot(newStart, newFinish);
-
-		List<IReservation> list = new ArrayList<IReservation>();
-		ReservationController ctrl = new ReservationController(list);
-		IReservation res = new Reservation(r1, timeSlot, donald);
-		IReservation res2 = new Reservation(r2, newTimeSlot, micky);
-
-		list = ctrl.reservate(res);
-
-		List<IReservation> temp = new ArrayList<IReservation>();
-		temp = list;
-
-		assertEquals(list, temp);
-		assertEquals(list.size(), 1);
-
-		list = ctrl.cancel(res2);
-		temp = list;
-
-		assertEquals(list, temp);
-		assertEquals(list.size(), 1);
+		this.resController.reservate(r);
+		this.resController.reservate(error);
 	}
 
 	/* TODO */
@@ -126,24 +120,41 @@ public class ReservationControllerTest {
 		LocalDateTime otherFinish = LocalDateTime.of(2016, 12, 24, 10, 45);
 		TimeSlot otherTimeSlot = this.factory.createTimeSlot(otherStart, otherFinish);
 
-		List<IReservation> list = new ArrayList<IReservation>();
-		ReservationController ctrl = new ReservationController(list);
-		IReservation res = new Reservation(r1, timeSlot, donald);
-		IReservation res2 = new Reservation(r2, otherTimeSlot, donald);
+		String name = "9913";
+		int size = 24;
+		String descr = "Classroom";
+		this.roomController.addRoom(size, name, descr);
+		IRoom room = this.roomController.getRoomByName(name);
 
-		ctrl.reservate(res);
-		ctrl.reservate(res2);
+		String name2 = "9914";
+		int size2 = 24;
+		String descr2 = "Classroom";
+		this.roomController.addRoom(size2, name2, descr2);
+		IRoom room2 = this.roomController.getRoomByName(name2);
 
-		list = ctrl.showReservations();
+		String firstName = "Hans";
+		String lastName = "Muster";
+		String email = "hans93@muster.ch";
+		this.bookerController.saveBooker(firstName, lastName, email);
+		IBooker booker = this.bookerController.getBookerByEmail(email);
 
-		assertTrue(list.contains(res));
-		assertTrue(list.contains(res2));
+		IReservation r = new Reservation(room, timeSlot, booker);
+		IReservation rOther = new Reservation(room2, otherTimeSlot, booker);
 
-		ctrl.cancel(res);
-		list = ctrl.showReservations();
+		this.resController.reservate(r);
+		this.resController.reservate(rOther);
 
-		assertTrue(list.contains(res2));
-		assertFalse(list.contains(res));
+		List<IReservation> list = this.resController.listAllReservations();
+
+		assertTrue(list.contains(r));
+		assertTrue(list.contains(rOther));
+
+		this.resController.cancel(r);
+
+		list = this.resController.listAllReservations();
+
+		assertFalse(list.contains(r));
+		assertTrue(list.contains(rOther));
 	}
 
 	@Test
@@ -152,14 +163,24 @@ public class ReservationControllerTest {
 		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
 		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
 
-		List<IReservation> list = new ArrayList<IReservation>();
-		ReservationController ctrl = new ReservationController(list);
-		IReservation res = new Reservation(r3, timeSlot, donald);
+		String name = "9915";
+		int size = 24;
+		String descr = "Classroom";
+		this.roomController.addRoom(size, name, descr);
+		IRoom room = this.roomController.getRoomByName(name);
 
-		list = ctrl.reservate(res);
+		String firstName = "Hans";
+		String lastName = "Muster";
+		String email = "hans95@muster.ch";
+		this.bookerController.saveBooker(firstName, lastName, email);
+		IBooker booker = this.bookerController.getBookerByEmail(email);
 
-		assertEquals(list.get(0).getBooker(), res.getBooker());
-		assertEquals(list.get(0).getTimeSlot(), res.getTimeSlot());
-		assertEquals(list.get(0).getRoom(), res.getRoom());
+		IReservation r = new Reservation(room, timeSlot, booker);
+
+		this.resController.reservate(r);
+
+		List<IReservation> list = this.resController.listAllReservations();
+
+		assertTrue(list.size() >= 1);
 	}
 }

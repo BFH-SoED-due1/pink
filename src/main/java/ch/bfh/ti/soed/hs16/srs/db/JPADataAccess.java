@@ -11,7 +11,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import ch.bfh.due1.time.TimeSlot;
 import ch.bfh.ti.soed.hs16.srs.model.Booker;
 import ch.bfh.ti.soed.hs16.srs.model.Reservation;
 import ch.bfh.ti.soed.hs16.srs.model.Room;
@@ -324,9 +323,8 @@ public class JPADataAccess extends DataAccess {
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
-	public IReservation insertReservation(IRoom room, TimeSlot timeSlot, IBooker booker) {
+	public IReservation insertReservation(IReservation reservation) {
 		this.entityManager.getTransaction().begin();
-		Reservation reservation = new Reservation(room, timeSlot, booker);
 		this.entityManager.persist(reservation);
 		this.entityManager.getTransaction().commit();
 		return reservation;

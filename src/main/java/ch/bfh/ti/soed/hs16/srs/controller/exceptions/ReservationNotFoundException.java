@@ -5,9 +5,7 @@
  */
 package ch.bfh.ti.soed.hs16.srs.controller.exceptions;
 
-import java.io.IOException;
-
-public class ReservationNotFoundException extends IOException {
+public class ReservationNotFoundException extends IllegalArgumentException {
 
 	private static final long serialVersionUID = 1L;
 
