@@ -300,9 +300,7 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 * 
-	 * @see ch.bfh.ti.soed.hs16.srs.db.DataAccess#setUserAdmin(boolean,
-	 * java.lang.Long)
+	 * @see ch.bfh.ti.soed.hs16.srs.db.DataAccess#setUserAdmin(boolean, java.lang.Long)
 	 */
 	@Override
 	public void setUserAdmin(boolean isAdmin, Long id) {

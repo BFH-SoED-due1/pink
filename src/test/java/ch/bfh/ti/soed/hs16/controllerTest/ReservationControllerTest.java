@@ -110,7 +110,6 @@ public class ReservationControllerTest {
 		this.resController.reservate(error);
 	}
 
-	/* TODO */
 	@Test
 	public void testCancel() throws ReservationNotFoundException {
 		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
@@ -155,6 +154,29 @@ public class ReservationControllerTest {
 
 		assertFalse(list.contains(r));
 		assertTrue(list.contains(rOther));
+	}
+
+	@Test(expected = ReservationNotFoundException.class)
+	public void testCancelNotExistingReservation() throws ReservationNotFoundException {
+		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
+		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
+		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
+
+		String name = "9916";
+		int size = 24;
+		String descr = "Classroom";
+		this.roomController.addRoom(size, name, descr);
+		IRoom room = this.roomController.getRoomByName(name);
+
+		String firstName = "Hans";
+		String lastName = "Muster";
+		String email = "hans96@muster.ch";
+		this.bookerController.saveBooker(firstName, lastName, email);
+		IBooker booker = this.bookerController.getBookerByEmail(email);
+
+		IReservation r = new Reservation(room, timeSlot, booker);
+
+		this.resController.cancel(r);
 	}
 
 	@Test
