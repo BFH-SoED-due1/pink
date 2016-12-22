@@ -14,11 +14,6 @@ import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
-import ch.bfh.ti.soed.hs16.srs.model.SystemUser;
-import ch.bfh.ti.soed.hs16.srs.srsInterface.ISystemUser;
-import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Footer;
-import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Header;
-
 /**
  * @author Nathalie
  *
@@ -26,23 +21,21 @@ import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Header;
 public class LoginView extends CustomComponent implements View {
 
 	private static final long serialVersionUID = 1L;
-	private ISystemUser sysUsr;
 	private VerticalLayout layout;
 	private Button btn;
 	private TextField loginFld;
 	private PasswordField pwFld;
-	private Footer footer;
-	private Header header;
+	// private Footer footer;
+	// private Header header;
 
 	public LoginView(Navigator nav) {
 		/** Initalize objects */
-		this.sysUsr = new SystemUser();
 		this.layout = new VerticalLayout();
 		this.btn = new Button("Login");
 		this.loginFld = new TextField("username");
 		this.pwFld = new PasswordField("password");
-		this.footer = new Footer("BFH", "Biel-Bienne", "Schweiz");
-		this.header = new Header();
+		// this.footer = new Footer("BFH", "Biel-Bienne", "Schweiz");
+		// this.header = new Header();
 		this.layout.addComponents(this.loginFld, this.pwFld, this.btn);
 		pwHandling(nav);
 

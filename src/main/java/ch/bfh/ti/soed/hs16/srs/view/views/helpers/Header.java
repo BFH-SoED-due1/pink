@@ -15,7 +15,6 @@ public class Header {
 
 	private HorizontalLayout headerLayout;
 
-	@SuppressWarnings("deprecation")
 	public Header() {
 		this.headerLayout = new HorizontalLayout();
 	}

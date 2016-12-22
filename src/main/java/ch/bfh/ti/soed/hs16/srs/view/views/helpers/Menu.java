@@ -18,6 +18,10 @@ import com.vaadin.ui.Layout;
  */
 public class Menu extends CustomComponent implements View {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Layout menu;
 	private Button bookerBtn;
 	private Button roomBtn;

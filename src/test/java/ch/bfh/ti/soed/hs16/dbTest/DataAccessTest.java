@@ -241,15 +241,10 @@ public class DataAccessTest {
 	@Test
 	public void testDeleteReservation() {
 		IRoom room = this.dataAccess.insertRoom(68, "126", "Classroom");
-		IRoom otherRoom = this.dataAccess.insertRoom(68, "127", "Classroom");
 		IBooker booker = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster7.ch");
-		IBooker otherBbooker = this.dataAccess.registerBooker("Hans", "Muster", "hans@muster8.ch");
 		LocalDateTime start = LocalDateTime.of(2016, 11, 24, 9, 15);
 		LocalDateTime finish = LocalDateTime.of(2016, 11, 24, 9, 45);
 		TimeSlot timeSlot = this.factory.createTimeSlot(start, finish);
-		LocalDateTime otherStart = LocalDateTime.of(2016, 11, 24, 9, 15);
-		LocalDateTime otherFinish = LocalDateTime.of(2016, 11, 24, 9, 45);
-		TimeSlot otherRimeSlot = this.factory.createTimeSlot(otherStart, otherFinish);
 
 		IReservation res = new Reservation(room, timeSlot, booker);
 		IReservation resOther = new Reservation(room, timeSlot, booker);
