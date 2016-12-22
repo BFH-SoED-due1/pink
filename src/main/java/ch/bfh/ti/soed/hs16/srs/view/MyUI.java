@@ -14,6 +14,7 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
 
+import ch.bfh.ti.soed.hs16.srs.db.DataGenerator;
 import ch.bfh.ti.soed.hs16.srs.view.views.BookerView;
 import ch.bfh.ti.soed.hs16.srs.view.views.LoginView;
 import ch.bfh.ti.soed.hs16.srs.view.views.ReservationView;
@@ -53,6 +54,10 @@ public class MyUI extends UI {
 	// e.printStackTrace();
 	// }
 	// }
+
+	static {
+		DataGenerator.create();
+	}
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
