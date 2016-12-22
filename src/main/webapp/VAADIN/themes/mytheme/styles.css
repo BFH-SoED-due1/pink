@@ -12967,3 +12967,59 @@ div.v-layout.v-horizontal.v-widget {
 	width: 19px;
 	overflow: hidden;
 }
+
+.mytheme .v-panel {
+	border: 0;
+}
+
+.mytheme .v-caption {
+	text-align: center;
+	margin-top: 3em;
+	margin-bottom: 1em;
+}
+
+.mytheme .v-caption .v-captiontext {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.mytheme .v-widget {
+	text-align: center;
+}
+
+.mytheme .v-widget .v-label {
+	margin-top: 9em;
+	font-size: 1.4em;
+}
+
+.mytheme .v-scrollable {
+	background-color: white;
+}
+
+.mytheme .buttonLogin {
+	margin-top: 3em;
+}
+
+.mytheme .menu {
+	margin-top: 3em;
+	margin-bottom: 3em;
+	text-align: center;
+	border-bottom: 0.5em;
+}
+
+.mytheme .menu .menu-button {
+	margin-left: 2em;
+	margin-right: 2em;
+	font-size: 1.5em;
+	font-weight: bold;
+	border: 0em;
+	outline: none;
+	background: transparent;
+}
+
+.mytheme .menu .menu-button:active, .mytheme .menu .menu-button:focus, .mytheme .menu .menu-button:hover {
+	outline: none;
+	border: none;
+	background: transparent;
+	color: #2d55cd;
+}
