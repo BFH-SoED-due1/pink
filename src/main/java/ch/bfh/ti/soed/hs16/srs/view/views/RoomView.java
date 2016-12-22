@@ -9,6 +9,9 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.CustomComponent;
+import com.vaadin.ui.GridLayout;
+
+import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Menu;
 
 /**
  * @author Nathalie
@@ -16,7 +19,24 @@ import com.vaadin.ui.CustomComponent;
  */
 public class RoomView extends CustomComponent implements View {
 
+	private GridLayout layout;
+	private Menu menu;
+
 	public RoomView(Navigator nav) {
+
+		/*---------------------------------
+		initalize Objects
+		---------------------------------*/
+		this.layout = new GridLayout(6, 6);
+		this.menu = new Menu(nav);
+
+		/*---------------------------------
+		add objects to root layout
+		---------------------------------*/
+		layout.addComponent(menu.getMenu(), 0, 0, 5, 0);
+
+		setCompositionRoot(layout);
+		setSizeFull();
 
 	}
 

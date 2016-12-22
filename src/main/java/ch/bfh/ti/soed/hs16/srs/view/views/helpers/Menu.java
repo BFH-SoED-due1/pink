@@ -19,8 +19,8 @@ import com.vaadin.ui.Layout;
 public class Menu extends CustomComponent implements View {
 
 	private Layout menu;
-	private Button myReservationButton;
-	private Button roomsButton;
+	private Button bookerBtn;
+	private Button roomBtn;
 	private Navigator navigator;
 	private String CLASSNAME = "menu";
 
@@ -31,27 +31,27 @@ public class Menu extends CustomComponent implements View {
 		---------------------------------*/
 		this.navigator = nav;
 		this.menu = new HorizontalLayout();
-		this.myReservationButton = new Button("my reservation");
-		this.roomsButton = new Button("rooms");
+		this.bookerBtn = new Button("booker   ");
+		this.roomBtn = new Button("   room");
 
 		/*-------------------------------
 		add to css
 		-------------------------------*/
 		menu.setPrimaryStyleName(CLASSNAME);
-		myReservationButton.setPrimaryStyleName(CLASSNAME + "-button");
-		roomsButton.setPrimaryStyleName(CLASSNAME + "-button");
+		bookerBtn.setPrimaryStyleName(CLASSNAME + "-button");
+		roomBtn.setPrimaryStyleName(CLASSNAME + "-button");
 
 		/*-------------------------------
 		add Buttons to Layout
 		--------------------------------*/
-		menu.addComponent(myReservationButton);
-		menu.addComponent(roomsButton);
+		menu.addComponent(bookerBtn);
+		menu.addComponent(roomBtn);
 
 		/*------------------------------
 		Event Handling Buttons
 		------------------------------*/
-		myReservationButton.addClickListener((Button.ClickListener) event -> navigator.navigateTo("my Reservation"));
-		roomsButton.addClickListener((Button.ClickListener) event -> navigator.navigateTo("rooms"));
+		bookerBtn.addClickListener((Button.ClickListener) event -> navigator.navigateTo("BookerView"));
+		roomBtn.addClickListener((Button.ClickListener) event -> navigator.navigateTo("RoomView"));
 
 	}
 

@@ -38,12 +38,25 @@ public class LoginView extends CustomComponent implements View {
 		this.sysUsr = new SystemUser();
 		this.layout = new VerticalLayout();
 		this.btn = new Button("Login");
-		this.loginFld = new TextField();
-		this.pwFld = new PasswordField();
+		this.loginFld = new TextField("username");
+		this.pwFld = new PasswordField("password");
 		this.footer = new Footer("BFH", "Biel-Bienne", "Schweiz");
 		this.header = new Header();
 		this.layout.addComponents(this.loginFld, this.pwFld, this.btn);
 		pwHandling(nav);
+
+		/** Add to css */ // geht nicht!!!!!
+		layout.setPrimaryStyleName("rootLogin");
+		btn.setStyleName("buttonLogin");
+
+		/** Add to layout */
+		layout.addComponents(loginFld, pwFld, btn);
+		setCompositionRoot(layout);
+
+		btn.addClickListener((Button.ClickListener) clickEvent -> {
+			// handle userlogin
+			nav.navigateTo("RoomView");
+		});
 	}
 
 	public void pwHandling(Navigator nav) {

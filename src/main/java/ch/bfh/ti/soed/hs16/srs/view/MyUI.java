@@ -40,21 +40,6 @@ public class MyUI extends UI {
 
 	private Navigator navigator;
 
-	// static {
-	// try {
-	// DataGenerator.create();
-	// } catch (ClassNotFoundException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// } catch (InstantiationException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// } catch (IllegalAccessException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
-	// }
-
 	static {
 		DataGenerator.create();
 	}
@@ -63,10 +48,10 @@ public class MyUI extends UI {
 	protected void init(VaadinRequest vaadinRequest) {
 		this.navigator = new Navigator(this, this);
 		this.navigator.addView("", new LoginView(this.navigator));
-		this.navigator.addView("System Overview", new Links(this.navigator));
-		this.navigator.addView("Booker View", new BookerView(this.navigator));
-		this.navigator.addView("Room View", new RoomView(this.navigator));
-		this.navigator.addView("Reservation View", new ReservationView(navigator));
+		this.navigator.addView("SystemOverview", new Links(this.navigator));
+		this.navigator.addView("BookerView", new BookerView(this.navigator));
+		this.navigator.addView("RoomView", new RoomView(this.navigator));
+		this.navigator.addView("ReservationView", new ReservationView(navigator));
 	}
 
 	@Override
