@@ -37,7 +37,6 @@ public class LoginView extends CustomComponent implements View {
 		// this.footer = new Footer("BFH", "Biel-Bienne", "Schweiz");
 		// this.header = new Header();
 		this.layout.addComponents(this.loginFld, this.pwFld, this.btn);
-		pwHandling(nav);
 
 		/** Add to css */
 		layout.setPrimaryStyleName("rootLogin");
@@ -51,10 +50,6 @@ public class LoginView extends CustomComponent implements View {
 			// handle userlogin
 			nav.navigateTo("RoomView");
 		});
-	}
-
-	public void pwHandling(Navigator nav) {
-
 	}
 
 	@Override
