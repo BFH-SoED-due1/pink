@@ -19,6 +19,10 @@ import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Menu;
  */
 public class RoomView extends CustomComponent implements View {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private GridLayout layout;
 	private Menu menu;
 

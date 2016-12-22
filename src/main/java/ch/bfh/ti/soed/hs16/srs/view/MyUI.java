@@ -17,9 +17,7 @@ import com.vaadin.ui.UI;
 import ch.bfh.ti.soed.hs16.srs.db.DataGenerator;
 import ch.bfh.ti.soed.hs16.srs.view.views.BookerView;
 import ch.bfh.ti.soed.hs16.srs.view.views.LoginView;
-import ch.bfh.ti.soed.hs16.srs.view.views.ReservationView;
 import ch.bfh.ti.soed.hs16.srs.view.views.RoomView;
-import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Links;
 
 /**
  * @author Nathalie
@@ -48,10 +46,8 @@ public class MyUI extends UI {
 	protected void init(VaadinRequest vaadinRequest) {
 		this.navigator = new Navigator(this, this);
 		this.navigator.addView("", new LoginView(this.navigator));
-		this.navigator.addView("SystemOverview", new Links(this.navigator));
 		this.navigator.addView("BookerView", new BookerView(this.navigator));
 		this.navigator.addView("RoomView", new RoomView(this.navigator));
-		this.navigator.addView("ReservationView", new ReservationView(navigator));
 	}
 
 	@Override
