@@ -11,16 +11,19 @@ import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.GridLayout;
 
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoomController;
 import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Menu;
 
 public class BookerView extends CustomComponent implements View {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private GridLayout layout;
 	private Menu menu;
+
+	public static final String VIEWNAME = "RoomListView";
+
+	private GridLayout gridLayout = new GridLayout();
+	private IRoomController roomController;
 
 	public BookerView(Navigator nav) {
 
@@ -33,9 +36,9 @@ public class BookerView extends CustomComponent implements View {
 		/*---------------------------------
 		add objects to root layout
 		---------------------------------*/
-		layout.addComponent(menu.getMenu(), 0, 0, 5, 0);
+		gridLayout.addComponent(menu.getMenu(), 0, 0, 5, 0);
 
-		setCompositionRoot(layout);
+		setCompositionRoot(gridLayout);
 		setSizeFull();
 	}
 
@@ -48,7 +51,6 @@ public class BookerView extends CustomComponent implements View {
 	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
 
 	}
 }
