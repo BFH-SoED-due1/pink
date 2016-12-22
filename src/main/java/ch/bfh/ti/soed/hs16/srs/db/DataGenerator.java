@@ -7,6 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.db;
 
+import ch.bfh.ti.soed.hs16.srs.model.RoomEquipment;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoom;
+
 public class DataGenerator {
 
 	public static void create() {
@@ -17,9 +20,14 @@ public class DataGenerator {
 		dataAccess.registerBooker("Gimmli", "Gloins Sohn", "gimmli@gloinssohn.ch");
 		dataAccess.registerBooker("Legolas", "Greenleaf", "legolas@greenleaf.ch");
 		// make a few rooms
-		dataAccess.insertRoom(64, "4006", "Classroom");
+		IRoom room = dataAccess.insertRoom(64, "4006", "Classroom");
 		dataAccess.insertRoom(58, "4008", "Conference Room");
 		dataAccess.insertRoom(89, "4012", "Classroom");
 		dataAccess.insertRoom(22, "4999", "Toilet");
+		// make a few roomequipments
+		RoomEquipment eq = dataAccess.insertRoomEquipment("Beamer", 1);
+		dataAccess.addEquipment(eq, room.getId());
+		// make one systemuser
+		dataAccess.registerSystemUser("admin", "admin", "admin@admi.ch", "admin", true);
 	}
 }

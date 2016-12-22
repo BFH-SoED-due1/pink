@@ -5,13 +5,19 @@
  */
 package ch.bfh.ti.soed.hs16.srs.view.views;
 
+import java.util.List;
+
+import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.CustomComponent;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.GridLayout;
 
-import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoomController;
+import ch.bfh.ti.soed.hs16.srs.controller.BookerController;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IBooker;
+import ch.bfh.ti.soed.hs16.srs.srsInterface.IBookerController;
 import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Menu;
 
 public class BookerView extends CustomComponent implements View {
@@ -20,10 +26,8 @@ public class BookerView extends CustomComponent implements View {
 	private GridLayout layout;
 	private Menu menu;
 
-	public static final String VIEWNAME = "RoomListView";
-
-	private GridLayout gridLayout = new GridLayout();
-	private IRoomController roomController;
+	private Grid grid = new Grid();
+	private IBookerController bookerController;
 
 	public BookerView(Navigator nav) {
 
@@ -32,25 +36,23 @@ public class BookerView extends CustomComponent implements View {
 		---------------------------------*/
 		this.layout = new GridLayout(6, 6);
 		this.menu = new Menu(nav);
+		this.bookerController = new BookerController();
 
 		/*---------------------------------
 		add objects to root layout
 		---------------------------------*/
-		gridLayout.addComponent(menu.getMenu(), 0, 0, 5, 0);
+		layout.addComponent(menu.getMenu(), 0, 0, 5, 0);
+		grid.setWidth("1000px");
+		layout.addComponent(this.grid);
 
-		setCompositionRoot(gridLayout);
+		setCompositionRoot(layout);
 		setSizeFull();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.vaadin.navigator.View#enter(com.vaadin.navigator.ViewChangeListener.
-	 * ViewChangeEvent)
-	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
-
+		// Notification.show("Welcome to the 'Room List View'!");
+		List<IBooker> bookers = this.bookerController.listAllBookers();
+		this.grid.setContainerDataSource(new BeanItemContainer<>(IBooker.class, bookers));
 	}
 }

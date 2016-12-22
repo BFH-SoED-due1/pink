@@ -49,7 +49,7 @@ public class LoginView extends CustomComponent implements View {
 		this.layout.addComponents(this.loginFld, this.pwFld, this.btn);
 		pwHandling(nav);
 
-		/** Add to css */ // geht nicht!!!!
+		/** Add to css */
 		layout.setPrimaryStyleName("rootLogin");
 		btn.setStyleName("buttonLogin");
 
@@ -67,13 +67,6 @@ public class LoginView extends CustomComponent implements View {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.vaadin.navigator.View#enter(com.vaadin.navigator.ViewChangeListener.
-	 * ViewChangeEvent)
-	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub

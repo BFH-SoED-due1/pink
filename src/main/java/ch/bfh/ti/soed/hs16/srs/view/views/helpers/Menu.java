@@ -31,8 +31,8 @@ public class Menu extends CustomComponent implements View {
 		---------------------------------*/
 		this.navigator = nav;
 		this.menu = new HorizontalLayout();
-		this.bookerBtn = new Button("booker   ");
-		this.roomBtn = new Button("   room");
+		this.bookerBtn = new Button("booker");
+		this.roomBtn = new Button("room");
 
 		/*-------------------------------
 		add to css
@@ -44,8 +44,8 @@ public class Menu extends CustomComponent implements View {
 		/*-------------------------------
 		add Buttons to Layout
 		--------------------------------*/
-		menu.addComponent(bookerBtn);
 		menu.addComponent(roomBtn);
+		menu.addComponent(bookerBtn);
 
 		/*------------------------------
 		Event Handling Buttons
