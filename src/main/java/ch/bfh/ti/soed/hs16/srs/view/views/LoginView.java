@@ -6,7 +6,10 @@
 package ch.bfh.ti.soed.hs16.srs.view.views;
 
 import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
@@ -20,7 +23,7 @@ import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Header;
  * @author Nathalie
  *
  */
-public class LoginView {
+public class LoginView extends CustomComponent implements View {
 
 	private ISystemUser sysUsr;
 	private VerticalLayout layout;
@@ -44,6 +47,19 @@ public class LoginView {
 	}
 
 	public void pwHandling(Navigator nav) {
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.vaadin.navigator.View#enter(com.vaadin.navigator.ViewChangeListener.
+	 * ViewChangeEvent)
+	 */
+	@Override
+	public void enter(ViewChangeEvent event) {
+		// TODO Auto-generated method stub
 
 	}
 }

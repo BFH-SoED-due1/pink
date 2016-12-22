@@ -6,19 +6,19 @@
 package ch.bfh.ti.soed.hs16.srs.view;
 
 import javax.servlet.annotation.WebServlet;
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.navigator.Navigator;
-import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
 
+import ch.bfh.ti.soed.hs16.srs.view.views.BookerView;
 import ch.bfh.ti.soed.hs16.srs.view.views.LoginView;
 import ch.bfh.ti.soed.hs16.srs.view.views.ReservationView;
 import ch.bfh.ti.soed.hs16.srs.view.views.RoomView;
 import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Links;
-import ch.bfh.ti.soed.hs16.srs.view.views.BookerView;
 
 /**
  * @author Nathalie
@@ -39,14 +39,29 @@ public class MyUI extends UI {
 
 	private Navigator navigator;
 
+	// static {
+	// try {
+	// DataGenerator.create();
+	// } catch (ClassNotFoundException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// } catch (InstantiationException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// } catch (IllegalAccessException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// }
+
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
 		this.navigator = new Navigator(this, this);
-		this.navigator.addView("Login View", (View) new LoginView(this.navigator));
-		this.navigator.addView("System Overview", (View) new Links(this.navigator));
-		this.navigator.addView("Booker View", (View) new BookerView(this.navigator));
-		this.navigator.addView("Room View", (View) new RoomView(this.navigator));
-		this.navigator.addView("Reservation View", (View) new ReservationView(navigator));
+		this.navigator.addView("", new LoginView(this.navigator));
+		this.navigator.addView("System Overview", new Links(this.navigator));
+		this.navigator.addView("Booker View", new BookerView(this.navigator));
+		this.navigator.addView("Room View", new RoomView(this.navigator));
+		this.navigator.addView("Reservation View", new ReservationView(navigator));
 	}
 
 	@Override

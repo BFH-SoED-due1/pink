@@ -6,14 +6,30 @@
 package ch.bfh.ti.soed.hs16.srs.view.views.helpers;
 
 import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.ui.CustomComponent;
 
 /**
  * @author Nathalie
  *
  */
-public class Links {
+public class Links extends CustomComponent implements View {
 
 	public Links(Navigator nav) {
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.vaadin.navigator.View#enter(com.vaadin.navigator.ViewChangeListener.
+	 * ViewChangeEvent)
+	 */
+	@Override
+	public void enter(ViewChangeEvent event) {
+		// TODO Auto-generated method stub
 
 	}
 }
