@@ -34,8 +34,8 @@ public class DGTest {
 		List<IRoom> roomList = roomController.listAllRooms();
 		List<IBooker> bookerList = bookerController.listAllBookers();
 
-		assertTrue(roomList.size() == 4);
-		assertTrue(bookerList.size() == 4);
+		assertTrue(roomList.size() >= 4);
+		assertTrue(bookerList.size() >= 4);
 	}
 
 }
