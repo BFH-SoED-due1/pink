@@ -107,19 +107,4 @@ public class Room implements IRoom {
 	public List<RoomEquipment> getEquipmentList() {
 		return equipmentList;
 	}
-
-	// @Override
-	// public List<Reservation> getReservations() {
-	// return this.reservations;
-	// }
-	//
-	// @Override
-	// public void addReservation(Reservation reservation) {
-	// this.reservations.add(reservation);
-	// }
-	//
-	// @Override
-	// public void removeReservation(Reservation reservation) {
-	// this.reservations.remove(reservation);
-	// }
 }
