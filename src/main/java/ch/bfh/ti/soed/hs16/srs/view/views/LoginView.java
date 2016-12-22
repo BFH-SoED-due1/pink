@@ -25,9 +25,6 @@ import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Header;
  */
 public class LoginView extends CustomComponent implements View {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private ISystemUser sysUsr;
 	private VerticalLayout layout;
