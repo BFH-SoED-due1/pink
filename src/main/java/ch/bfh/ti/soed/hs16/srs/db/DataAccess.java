@@ -38,6 +38,7 @@ public abstract class DataAccess {
 	// Methods for bookers
 	/**
 	 * Inserts Booker into DB
+	 * 
 	 * @param firstName
 	 *            the Booker's firstname
 	 * @param lastName
@@ -50,12 +51,14 @@ public abstract class DataAccess {
 
 	/**
 	 * Gets all Bookers from DB
+	 * 
 	 * @return List of Bookers
 	 */
 	public abstract List<IBooker> getAllBookers();
 
 	/**
 	 * Edits the Room's name and description
+	 * 
 	 * @param firstName
 	 *            the Booker's new firstname
 	 * @param lastName
@@ -68,6 +71,7 @@ public abstract class DataAccess {
 
 	/**
 	 * Delets Booker from DB
+	 * 
 	 * @param id
 	 *            the Booker's id
 	 */
@@ -76,6 +80,7 @@ public abstract class DataAccess {
 	// Methods for rooms
 	/**
 	 * Inserts Room into DB
+	 * 
 	 * @param size
 	 *            the Room's size
 	 * @param name
@@ -88,12 +93,14 @@ public abstract class DataAccess {
 
 	/**
 	 * Gets all Rooms from DB
+	 * 
 	 * @return List of Rooms
 	 */
 	public abstract List<IRoom> getAllRooms();
 
 	/**
 	 * Edits the Room's name and description
+	 * 
 	 * @param size
 	 *            the Room's size
 	 * @param name
@@ -108,6 +115,7 @@ public abstract class DataAccess {
 
 	/**
 	 * Gets all Equipments from Room
+	 * 
 	 * @param id
 	 *            the Room's id
 	 * @return List of Equipments
@@ -116,6 +124,7 @@ public abstract class DataAccess {
 
 	/**
 	 * Adds an equipment to the Room
+	 * 
 	 * @param equipment
 	 *            the new equipment
 	 * @param id
@@ -126,6 +135,7 @@ public abstract class DataAccess {
 
 	/**
 	 * Adds an equipment to the Room
+	 * 
 	 * @param equipment
 	 *            the new equipment
 	 * @param id
@@ -136,6 +146,7 @@ public abstract class DataAccess {
 
 	/**
 	 * Delets Room from DB
+	 * 
 	 * @param id
 	 *            the Room's id
 	 */
@@ -143,7 +154,8 @@ public abstract class DataAccess {
 
 	// Methods for roomEquipment
 	/**
-	 * Inserts Room into DB
+	 * Inserts Equipment into DB
+	 * 
 	 * @param name
 	 *            the Eqiupment's name
 	 * @param qty
@@ -153,13 +165,15 @@ public abstract class DataAccess {
 	public abstract RoomEquipment insertRoomEquipment(String name, int qty);
 
 	/**
-	 * Gets all Rooms from DB
+	 * Gets all Equipment from DB
+	 * 
 	 * @return List of Rooms
 	 */
 	public abstract List<RoomEquipment> getAllRoomEquipments();
 
 	/**
-	 * Edits the Room's name and descriptio
+	 * Edits the Equipment's name and description
+	 * 
 	 * @param qty
 	 *            the Eqiupment's quantity
 	 * @param id
@@ -169,7 +183,8 @@ public abstract class DataAccess {
 	public abstract RoomEquipment editRoomEquipment(int qty, Long id);
 
 	/**
-	 * Delets Room from DB
+	 * Delets Equipment from DB
+	 * 
 	 * @param id
 	 *            the Eqiupment's id
 	 */
@@ -178,6 +193,7 @@ public abstract class DataAccess {
 	// Methods for systemUser
 	/**
 	 * Inserts SystemUser into DB
+	 * 
 	 * @param firstName
 	 *            the SystemUser's firstname
 	 * @param lastName
@@ -190,16 +206,19 @@ public abstract class DataAccess {
 	 *            true if User is Admin
 	 * @return the inserted SystemUser
 	 */
-	public abstract ISystemUser registerSystemUser(String firstName, String lastName, String email, String password, boolean isAdmin);
+	public abstract ISystemUser registerSystemUser(String firstName, String lastName, String email, String password,
+			boolean isAdmin);
 
 	/**
 	 * Gets all SystemUsers from DB
+	 * 
 	 * @return List of SystemUsers
 	 */
 	public abstract List<ISystemUser> getAllSystemUsers();
 
 	/**
 	 * Edits the Users's name and description
+	 * 
 	 * @param firstName
 	 *            the Users's new firstname
 	 * @param lastName
@@ -214,13 +233,15 @@ public abstract class DataAccess {
 
 	/**
 	 * Delets SystemUser from DB
+	 * 
 	 * @param id
 	 *            the SystemUser's id
 	 */
 	public abstract void deleteSystemUser(Long id);
 
 	/**
-	 * sets the User's admin state
+	 * Sets the User's admin state
+	 * 
 	 * @param isAdmin
 	 *            the admin state
 	 * @param id
@@ -231,6 +252,7 @@ public abstract class DataAccess {
 	// Methods for reservations
 	/**
 	 * Inserts Reservation into DB
+	 * 
 	 * @param reservation
 	 *            the reservation
 	 * @return the inserted Reservation
@@ -239,12 +261,14 @@ public abstract class DataAccess {
 
 	/**
 	 * Gets all Reservations from DB
+	 * 
 	 * @return List of Reservations
 	 */
 	public abstract List<IReservation> getAllReservations();
 
 	/**
 	 * Delets Reservation from DB
+	 * 
 	 * @param id
 	 *            the Reservations's id
 	 */
