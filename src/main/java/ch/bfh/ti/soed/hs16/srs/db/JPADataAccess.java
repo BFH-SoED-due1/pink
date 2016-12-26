@@ -248,7 +248,8 @@ public class JPADataAccess extends DataAccess {
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
-	public SystemUser registerSystemUser(String firstName, String lastName, String email, String password, boolean isAdmin) {
+	public SystemUser registerSystemUser(String firstName, String lastName, String email, String password,
+			boolean isAdmin) {
 		this.entityManager.getTransaction().begin();
 		SystemUser user = new SystemUser(firstName, lastName, email, password, isAdmin);
 		this.entityManager.persist(user);
@@ -300,7 +301,9 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 * @see ch.bfh.ti.soed.hs16.srs.db.DataAccess#setUserAdmin(boolean, java.lang.Long)
+	 * 
+	 * @see ch.bfh.ti.soed.hs16.srs.db.DataAccess#setUserAdmin(boolean,
+	 * java.lang.Long)
 	 */
 	@Override
 	public void setUserAdmin(boolean isAdmin, Long id) {
