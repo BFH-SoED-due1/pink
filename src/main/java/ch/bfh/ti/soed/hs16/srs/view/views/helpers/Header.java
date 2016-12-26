@@ -5,7 +5,12 @@
  */
 package ch.bfh.ti.soed.hs16.srs.view.views.helpers;
 
-import com.vaadin.ui.HorizontalLayout;
+import java.io.File;
+
+import com.vaadin.server.FileResource;
+import com.vaadin.server.VaadinService;
+import com.vaadin.ui.Image;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * @author Nathalie
@@ -13,13 +18,18 @@ import com.vaadin.ui.HorizontalLayout;
  */
 public class Header {
 
-	private HorizontalLayout headerLayout;
+	private VerticalLayout layout;
 
 	public Header() {
-		this.headerLayout = new HorizontalLayout();
+		this.layout = new VerticalLayout();
+		String basePath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
+		System.out.println(basePath);
+		FileResource resource = new FileResource(new File(basePath));
+		Image pic = new Image("srsLogo.jpg", resource);
+		this.layout.addComponent(pic);
 	}
 
-	public HorizontalLayout getHeaderLayout() {
-		return this.headerLayout;
+	public VerticalLayout getHeaderLayout() {
+		return this.layout;
 	}
 }

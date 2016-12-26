@@ -15,19 +15,27 @@ import com.vaadin.ui.TextField;
 public class Footer {
 
 	private HorizontalLayout footerLayout;
+	private TextField txtFld;
 
 	public Footer(String enterprise, String city, String country) {
+
+		/* init objects */
 		this.footerLayout = new HorizontalLayout();
 		StringBuilder stringBuilder = new StringBuilder();
+
+		/* create String */
 		stringBuilder.append("© 2015 by ");
 		stringBuilder.append(enterprise);
 		stringBuilder.append(", ");
 		stringBuilder.append(city);
 		stringBuilder.append(", ");
 		stringBuilder.append(country);
-		TextField footer = new TextField(stringBuilder.toString());
 
-		footerLayout.addComponents(footer);
+		/* add to textfield */
+		this.txtFld = new TextField(stringBuilder.toString());
+
+		/* add components to layout */
+		this.footerLayout.addComponents(this.txtFld);
 	}
 
 	public HorizontalLayout getFooterLayout() {

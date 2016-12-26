@@ -40,7 +40,6 @@ public class LoginView extends CustomComponent implements View {
 		this.pwFld = new PasswordField("password");
 		this.footer = new Footer("BFH", "Biel-Bienne", "Schweiz");
 		this.header = new Header();
-		this.layout.addComponents(this.loginFld, this.pwFld, this.btn);
 
 		/* add to css */
 		this.layout.setPrimaryStyleName("rootLogin");
@@ -48,7 +47,8 @@ public class LoginView extends CustomComponent implements View {
 
 		/* add components to layout */
 		// this.layout.addComponent(this.header.getHeaderLayout());
-		this.layout.addComponents(this.loginFld, this.pwFld, this.btn, this.footer.getFooterLayout());
+		this.layout.addComponents(this.loginFld, this.pwFld, this.btn);
+		// this.layout.addComponent(this.header.getHeaderLayout());
 		setCompositionRoot(layout);
 
 		/* event handling */
@@ -61,6 +61,5 @@ public class LoginView extends CustomComponent implements View {
 	@Override
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub
-
 	}
 }

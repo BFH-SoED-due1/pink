@@ -35,22 +35,22 @@ public class Menu extends CustomComponent implements View {
 		this.roomBtn = new Button("room");
 
 		/* add to css */
-		layout.setPrimaryStyleName(CLASSNAME);
-		bookerBtn.setPrimaryStyleName(CLASSNAME + "-button");
-		roomBtn.setPrimaryStyleName(CLASSNAME + "-button");
+		this.layout.setPrimaryStyleName(CLASSNAME);
+		this.bookerBtn.setPrimaryStyleName(CLASSNAME + "-button");
+		this.roomBtn.setPrimaryStyleName(CLASSNAME + "-button");
 
 		/* add components to layout */
-		layout.addComponent(roomBtn);
-		layout.addComponent(bookerBtn);
+		this.layout.addComponent(roomBtn);
+		this.layout.addComponent(bookerBtn);
 
 		/* event handling */
-		bookerBtn.addClickListener((Button.ClickListener) event -> navigator.navigateTo("BookerView"));
-		roomBtn.addClickListener((Button.ClickListener) event -> navigator.navigateTo("RoomView"));
+		this.bookerBtn.addClickListener((Button.ClickListener) e -> navigator.navigateTo("BookerView"));
+		this.roomBtn.addClickListener((Button.ClickListener) e -> navigator.navigateTo("RoomView"));
 
 	}
 
 	public Layout getLayout() {
-		return layout;
+		return this.layout;
 	}
 
 	@Override
