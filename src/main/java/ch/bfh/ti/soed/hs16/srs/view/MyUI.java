@@ -21,6 +21,7 @@ import ch.bfh.ti.soed.hs16.srs.view.views.RoomView;
 
 /**
  * @author Nathalie
+ *
  */
 
 /**

@@ -20,6 +20,10 @@ import ch.bfh.ti.soed.hs16.srs.srsInterface.IBooker;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IBookerController;
 import ch.bfh.ti.soed.hs16.srs.view.views.helpers.Menu;
 
+/**
+ * @author Nathalie
+ *
+ */
 public class BookerView extends CustomComponent implements View {
 
 	private static final long serialVersionUID = 1L;
@@ -31,17 +35,13 @@ public class BookerView extends CustomComponent implements View {
 
 	public BookerView(Navigator nav) {
 
-		/*---------------------------------
-		initalize Objects
-		---------------------------------*/
+		/* init objects */
 		this.layout = new GridLayout(6, 6);
 		this.menu = new Menu(nav);
 		this.bookerController = new BookerController();
 
-		/*---------------------------------
-		add objects to root layout
-		---------------------------------*/
-		layout.addComponent(menu.getMenu(), 0, 0, 5, 0);
+		/* add components to layout */
+		layout.addComponent(menu.getLayout(), 0, 0, 5, 0);
 		grid.setWidth("1000px");
 		layout.addComponent(this.grid);
 
@@ -51,7 +51,6 @@ public class BookerView extends CustomComponent implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// Notification.show("Welcome to the 'Room List View'!");
 		List<IBooker> bookers = this.bookerController.listAllBookers();
 		this.grid.setContainerDataSource(new BeanItemContainer<>(IBooker.class, bookers));
 	}

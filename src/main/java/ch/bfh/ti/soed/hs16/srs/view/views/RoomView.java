@@ -35,21 +35,17 @@ public class RoomView extends CustomComponent implements View {
 
 	public RoomView(Navigator nav) {
 
-		/*---------------------------------
-		initalize Objects
-		---------------------------------*/
+		/* init objects */
 		this.layout = new GridLayout(6, 6);
 		this.menu = new Menu(nav);
 		this.roomController = new RoomController();
 
-		/*---------------------------------
-		add objects to root layout
-		---------------------------------*/
-		layout.addComponent(menu.getMenu(), 0, 0, 5, 0);
-		grid.setWidth("1000px");
-		layout.addComponent(this.grid);
+		/* add components to layout */
+		this.layout.addComponent(menu.getLayout(), 0, 0, 5, 0);
+		this.grid.setWidth("1000px");
+		this.layout.addComponent(this.grid);
 
-		setCompositionRoot(layout);
+		setCompositionRoot(this.layout);
 		setSizeFull();
 	}
 

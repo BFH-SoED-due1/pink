@@ -31,7 +31,6 @@ public class JPADataAccess extends DataAccess {
 	///////////////////////// Booker /////////////////////////
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -45,7 +44,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@SuppressWarnings("unchecked")
@@ -56,8 +54,6 @@ public class JPADataAccess extends DataAccess {
 	}
 
 	/*
-	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -73,7 +69,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -88,7 +83,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -102,7 +96,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@SuppressWarnings("unchecked")
@@ -114,7 +107,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -131,7 +123,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -144,7 +135,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -159,7 +149,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -174,7 +163,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -188,7 +176,6 @@ public class JPADataAccess extends DataAccess {
 	///////////////////////// RoomEquipment /////////////////////////
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#insertRoomEquipment(java.lang.String, int)
 	 */
 	@Override
@@ -202,7 +189,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@SuppressWarnings("unchecked")
@@ -214,7 +200,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#editRoomEquipment(java.lang.String, int,
 	 * java.lang.Long)
 	 */
@@ -230,7 +215,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#deleteRoomRoomEquipment(java.lang.Long)
 	 */
 	@Override
@@ -244,7 +228,6 @@ public class JPADataAccess extends DataAccess {
 	///////////////////////// SystemUser /////////////////////////
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -259,7 +242,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@SuppressWarnings("unchecked")
@@ -271,7 +253,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -288,7 +269,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -301,7 +281,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see ch.bfh.ti.soed.hs16.srs.db.DataAccess#setUserAdmin(boolean,
 	 * java.lang.Long)
 	 */
@@ -320,7 +299,6 @@ public class JPADataAccess extends DataAccess {
 	///////////////////////// Reservation /////////////////////////
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override
@@ -333,7 +311,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@SuppressWarnings("unchecked")
@@ -345,7 +322,6 @@ public class JPADataAccess extends DataAccess {
 
 	/*
 	 * (non-Javadoc)
-	 *
 	 * @see data.DataAccess#cancelReservation(java.lang.Long)
 	 */
 	@Override

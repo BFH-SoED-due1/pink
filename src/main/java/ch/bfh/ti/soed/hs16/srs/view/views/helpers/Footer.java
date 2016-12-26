@@ -5,8 +5,6 @@
  */
 package ch.bfh.ti.soed.hs16.srs.view.views.helpers;
 
-import java.sql.Date;
-
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
 
@@ -18,13 +16,10 @@ public class Footer {
 
 	private HorizontalLayout footerLayout;
 
-	@SuppressWarnings("deprecation")
 	public Footer(String enterprise, String city, String country) {
 		this.footerLayout = new HorizontalLayout();
-		Date date = new Date(0);
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("© by ");
-		stringBuilder.append(date.getDate());
+		stringBuilder.append("© 2015 by ");
 		stringBuilder.append(enterprise);
 		stringBuilder.append(", ");
 		stringBuilder.append(city);

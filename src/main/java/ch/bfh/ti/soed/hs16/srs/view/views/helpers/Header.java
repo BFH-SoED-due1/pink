@@ -19,7 +19,7 @@ public class Header {
 		this.headerLayout = new HorizontalLayout();
 	}
 
-	public HorizontalLayout getFooterLayout() {
+	public HorizontalLayout getHeaderLayout() {
 		return this.headerLayout;
 	}
 }
