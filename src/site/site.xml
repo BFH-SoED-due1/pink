@@ -29,18 +29,18 @@
             -->
             <item name="About" href="index.html"/>
             <item name="The Vision" href="doc/vision.pdf"/>
-            <item name="Introduction" href="doc/Intro.pdf"/>
-            <item name="Information UML" href="doc/InformationUML.pdf"/>
-            <item name="Domain Model" href="doc/DomainModel.pdf"/>
-            <item name="Class Diagram" href="doc/ClassDiagram.pdf"/>
-            <item name="Object Diagram" href="doc/ObjectDiagram.pdf"/>
-            <item name="Package Diagram" href="doc/PackageDiagram.pdf"/>
-            <item name="Use Case Diagram" href="doc/UseCaseDiagram.pdf"/>
-            <item name="User Stories" href="doc/UserStories.pdf"/>
-            <item name="Product Backlog" href="doc/ProductBacklog.pdf"/>
-            <item name="Sprint Backlog" href="doc/SprintBacklog.pdf"/>
-            <item name="Glossary" href="doc/Glossary.pdf"/>
-            <item name="Project Documentation (AiO)" href="doc/ProjectDocumentation.pdf"/>
+            <item name="Introduction" href="doc/Introduction.pdf"/>
+            <item name="Information UML" href="doc/UML-Info.pdf"/>
+            <item name="Domain Model" href="doc/UML-DomainModel.pdf"/>
+            <item name="Class Diagram" href="doc/UML-ClassD.pdf"/>
+            <item name="Object Diagram" href="doc/UML-ObjectD.pdf"/>
+            <item name="Package Diagram" href="doc/UML-PackageD.pdf"/>
+            <item name="Use Case Diagram" href="doc/UML-UseCaseD.pdf"/>
+            <item name="User Stories" href="doc/UML-UserStories.pdf"/>
+            <item name="Product Backlog" href="doc/Backlog-ProductB.pdf"/>
+            <item name="Sprint Backlog" href="doc/Backlog-SprintB.pdf"/>
+            <item name="Glossary" href="doc/Glossar.pdf"/>
+            <item name="Project Documentation (AiO)" href="doc/ProjectDoc.pdf"/>
             <!--
             <item name="System Sequence Diagram" href="system_sequence_diagram.html" />
             <item name="Detailed Design Document" href="detailed_design_document.html" />
