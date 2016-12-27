@@ -6,7 +6,7 @@
 package ch.bfh.ti.soed.hs16.srs.view.views.helpers;
 
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.TextField;
+import com.vaadin.ui.Label;
 
 /**
  * @author Nathalie
@@ -15,13 +15,14 @@ import com.vaadin.ui.TextField;
 public class Footer {
 
 	private HorizontalLayout footerLayout;
-	private TextField txtFld;
+	private Label txtFld;
 
 	public Footer(String enterprise, String city, String country) {
 
 		/* init objects */
 		this.footerLayout = new HorizontalLayout();
 		StringBuilder stringBuilder = new StringBuilder();
+		String footerTxt = "© 2015 by " + enterprise + ", " + city + ", " + country;
 
 		/* create String */
 		stringBuilder.append("© 2015 by ");
@@ -32,10 +33,10 @@ public class Footer {
 		stringBuilder.append(country);
 
 		/* add to textfield */
-		this.txtFld = new TextField(stringBuilder.toString());
+		this.txtFld = new Label(stringBuilder.toString());
 
 		/* add components to layout */
-		this.footerLayout.addComponents(this.txtFld);
+		this.footerLayout.addComponent(this.txtFld);
 	}
 
 	public HorizontalLayout getFooterLayout() {

@@ -38,17 +38,17 @@ public class LoginView extends CustomComponent implements View {
 		this.btn = new Button("Login");
 		this.loginFld = new TextField("username");
 		this.pwFld = new PasswordField("password");
-		this.footer = new Footer("BFH", "Biel-Bienne", "Schweiz");
 		this.header = new Header();
+		this.footer = new Footer("BFH", "Biel-Bienne", "Schweiz");
 
 		/* add to css */
 		this.layout.setPrimaryStyleName("rootLogin");
 		this.btn.setStyleName("buttonLogin");
 
 		/* add components to layout */
-		// this.layout.addComponent(this.header.getHeaderLayout());
+		this.layout.addComponent(this.header.getHeaderLayout());
 		this.layout.addComponents(this.loginFld, this.pwFld, this.btn);
-		// this.layout.addComponent(this.header.getHeaderLayout());
+		this.layout.addComponent(this.footer.getFooterLayout());
 		setCompositionRoot(layout);
 
 		/* event handling */
