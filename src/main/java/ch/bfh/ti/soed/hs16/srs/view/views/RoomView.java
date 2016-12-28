@@ -51,7 +51,6 @@ public class RoomView extends CustomComponent implements View {
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// Notification.show("Welcome to the 'Room List View'!");
 		List<IRoom> rooms = this.roomController.listAllRooms();
 		this.grid.setContainerDataSource(new BeanItemContainer<>(IRoom.class, rooms));
 	}

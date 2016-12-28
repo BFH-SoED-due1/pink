@@ -10,7 +10,6 @@ import java.io.File;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinService;
 import com.vaadin.ui.Image;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -26,8 +25,6 @@ public class Header {
 
 		/* init objects */
 		this.layout = new VerticalLayout();
-		Label txtLbl = new Label();
-		txtLbl.setCaption("SRS - Smart Reservation System");
 
 		// find application in directory
 		String basePath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
@@ -36,7 +33,7 @@ public class Header {
 		Image pic = new Image("", fileResource);
 
 		/* add components to layout */
-		this.layout.addComponents(pic, txtLbl);
+		this.layout.addComponents(pic);
 	}
 
 	public VerticalLayout getHeaderLayout() {

@@ -22,7 +22,6 @@ public class Footer {
 		/* init objects */
 		this.footerLayout = new HorizontalLayout();
 		StringBuilder stringBuilder = new StringBuilder();
-		String footerTxt = "© 2015 by " + enterprise + ", " + city + ", " + country;
 
 		/* create String */
 		stringBuilder.append("© 2015 by ");
