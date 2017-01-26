@@ -14,7 +14,7 @@ import ch.bfh.ti.soed.hs16.srs.srsInterface.IBooker;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IBookerController;
 
 public class BookerController implements IBookerController {
-	/** Implementation for administrate booker */
+	/** Implementation for administer booker */
 
 	public BookerController() {
 	}
@@ -64,6 +64,7 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Checks if a booker exists
+	 * 
 	 * @param email
 	 *            the uniqe email of the booker
 	 * @return true if booker exists
@@ -86,6 +87,7 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Checks if a booker exists. Only used for save a new booker
+	 * 
 	 * @param email
 	 *            the uniqe email of the booker
 	 * @return true if booker exists
@@ -102,6 +104,7 @@ public class BookerController implements IBookerController {
 
 	/**
 	 * Checks if the firstname or the lastname are not empty
+	 * 
 	 * @param firstName
 	 *            the bookers firstname
 	 * @param lastName

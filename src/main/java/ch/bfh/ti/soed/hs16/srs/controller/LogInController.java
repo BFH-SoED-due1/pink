@@ -14,13 +14,14 @@ import ch.bfh.ti.soed.hs16.srs.srsInterface.ILogInController;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.ISystemUser;
 
 public class LogInController implements ILogInController {
-	/** Implementation for login/lougout */
+	/** Implementation for login/logout */
 
 	public LogInController() {
 	}
 
 	/**
 	 * Sets the status to logged in
+	 * 
 	 * @param login
 	 *            the login of a specific user
 	 * @param password
@@ -36,6 +37,7 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Sets the status to logged out
+	 * 
 	 * @param login
 	 *            the login of a specific user
 	 */
@@ -101,6 +103,7 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Checks if a user exists
+	 * 
 	 * @param login
 	 *            the login of a specific user
 	 * @return true if user exists
@@ -124,6 +127,7 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Checks if a user exists. Only used for save a new user
+	 * 
 	 * @param email
 	 *            the uniqe email of the user
 	 * @return true if user exists
@@ -140,6 +144,7 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Checks if the firstname or the lastname are not empty
+	 * 
 	 * @param firstName
 	 *            the users firstname
 	 * @param lastName
@@ -161,6 +166,7 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Checks if user entered the right password
+	 * 
 	 * @param login
 	 *            the login of a specific user
 	 * @param password
@@ -186,6 +192,7 @@ public class LogInController implements ILogInController {
 
 	/**
 	 * Checks if a user is allready logged in
+	 * 
 	 * @param login
 	 *            the login of a specific user
 	 * @return true if user is allready logged in
