@@ -3,7 +3,7 @@
 		-------------
 		Eric Dubuis
 		-------------
-		December 4, 2016
+		December 4, 2016; updated January 25, 2017.
 
 
 Deliverable 4
@@ -130,35 +130,78 @@ hours) as soon as you'll have finished the first task.
 	<<100>> points at most per team member are attributed to this deliverable. Points may
 not be equally distributed among team members. (However, this is the goal.)
 
-*-------------------------------------------+---------------*-----------------*
-| Item										| Max. points	| Points received |
-*-------------------------------------------+---------------*-----------------*
-| Product backlog items at the beginning\	| 		 		| 		 		  |
-| COMMENTS:\								| 				| 				  |
-| -											| 				| 				  |
-*-------------------------------------------+---------------*-----------------*
-| Sprint backlog items / tasks and their states\ | 			| 		 		  |
-| COMMENTS:\								| 				| 				  |
-| - Okay									| 				| 				  |
-*-------------------------------------------+---------------*-----------------*
-| ...\ 										| 				| 				  |
-| - 										| 				| 				  |
-*-------------------------------------------+---------------*-----------------*
-| ...\ 										| 				| 				  |
-| - 										| 				| 				  |
-*-------------------------------------------+---------------*-----------------*
-| Miscellaneous\							| 				| 		6 		  |
-| COMMENTS:\								| 				| 			  	  |
-| - ...\ 									| 				| 				  |
-| - ...\ 									| 				| 				  |
-| - Corrections of errors in past evaluations:\ | 			| 				  |
-| -- E2: Test coverage: +2\ 				| 				| 				  |
-| -- E2: UI missing okay: +2\ 				| 				| 				  |
-| -- E2: Miscellaneous: +1 \ 				| 				| 				  |
-| -- E3: UI missing okay: +1 				| 				| 				  |
-*-------------------------------------------+---------------*-----------------*
-| Total										| 		50		| 				  |
-*-------------------------------------------+---------------*-----------------*
+*---------------------------------------------------------------+---------------*-----------------*
+| Item															| Max. points	| Points received |
+*---------------------------------------------------------------+---------------*-----------------*
+| Product backlog items at the beginning						| 		5 		| 		5 		  |
+| COMMENTS:\													| 				| 				  |
+| -	Good														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| The sprint backlog items / task list with task estimates	 	| 	 	10		| 		10 		  |
+| COMMENTS:\													| 				| 				  |
+| -	Good														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| The list of finished sprint backlog items / tasks and			| 		5		|   	5		  |
+| measurements of your efforts (in hours)\ 						| 				|   			  |
+| COMMENTS:\													| 				| 				  |
+| -	Good														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Stable structure in terms of Java packages respecting the		| 		10 		| 		 9		  |
+| SOLID design principles\ 										| 		 		| 		 		  |
+| COMMENTS:\													| 				| 				  |
+| - @Override missing (-1)										| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Production Java interfaces and classes for logical			| 		10		| 		 10		  |
+| and persistence layer\										| 		 		| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Good								 						| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Production Java interfaces and classes for the user			| 		5 		| 		5 		  |
+| interface layer\												| 		 		| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Good														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| JUnit test classes for the core layers of the software,		| 		10 		| 		10 		  |
+| coverage: 90% (UI components excluded)\						| 		 		| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Good														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| The JDepend report\											| 		5		| 		5 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Good														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| The Checkstyle report \										| 		5		| 		 5		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Good														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| JavaDoc quality \												| 		5		| 		 3		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Some comments missing (-2)									| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Running application, UI, functionality\						| 		20		| 		 6		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Simple UI only, limited functionality\						| 				| 				  |
+| - Use File.separator for building file system paths.\			| 				| 				  |
+| - Logo should be in JAR file, however. See TODO.				| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Software (architecture) documentation\						| 		10		| 		 9		  |
+| COMMENTS:\													| 				| 			  	  |
+| - A-I graph missing (-1)										| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Miscellaneous 1\												| 				| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - None														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Miscellaneous 2\												| 				| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - None														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Miscellaneous 3\												| 				| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - None														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Total															| 		100		| 		82		  |
+*---------------------------------------------------------------+---------------*-----------------*
 Distribution of points for this deliverable.
 
 

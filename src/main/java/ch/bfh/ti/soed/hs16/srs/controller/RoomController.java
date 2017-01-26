@@ -14,7 +14,7 @@ import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoom;
 import ch.bfh.ti.soed.hs16.srs.srsInterface.IRoomController;
 
 public class RoomController implements IRoomController {
-	/** Implementation for administrate the rooms */
+	/** Implementation for administer the rooms */
 
 	public RoomController() {
 	}
@@ -65,6 +65,7 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Checks if a room exists
+	 * 
 	 * @param roomName
 	 *            the uniqe name of the room
 	 * @return true if room exists
@@ -87,6 +88,7 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Checks if a room exists. Only used for save a new room
+	 * 
 	 * @param roomName
 	 *            the uniqe name of the room
 	 * @return true if room exists
@@ -103,6 +105,7 @@ public class RoomController implements IRoomController {
 
 	/**
 	 * Checks if the size or the description are not empty
+	 * 
 	 * @param size
 	 *            the rooms size
 	 * @param description

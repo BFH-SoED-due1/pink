@@ -20,7 +20,8 @@ public class Header {
 
 	private VerticalLayout layout;
 
-	@SuppressWarnings("deprecation")
+	// TODO Unused @SuppressWarnings()
+	// @SuppressWarnings("deprecation")
 	public Header() {
 
 		/* init objects */
@@ -29,7 +30,11 @@ public class Header {
 		// find application in directory
 		String basePath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
 		// image as file resource
-		FileResource fileResource = new FileResource(new File(basePath + "\\VAADIN\\themes\\mytheme\\srsLogo.jpg"));
+		// TODO Yep, logo appears. However, file should be retrieved from
+		// location within JAR file. Consult Vaadin documentation on how to do
+		// this.
+		FileResource fileResource = new FileResource(new File(basePath + File.separator + "VAADIN" + File.separator
+				+ "themes" + File.separator + "mytheme" + File.separator + "srsLogo.jpg"));
 		Image pic = new Image("", fileResource);
 
 		/* add components to layout */
