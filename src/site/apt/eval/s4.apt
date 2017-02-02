@@ -3,7 +3,7 @@
 		-------------
 		Eric Dubuis
 		-------------
-		December 4, 2016; updated January 25, 2017.
+		December 4, 2016; updated January 25, 2017; February 2, 2017
 
 
 Deliverable 4
@@ -178,9 +178,10 @@ not be equally distributed among team members. (However, this is the goal.)
 | COMMENTS:\													| 				| 			  	  |
 | - Some comments missing (-2)									| 				| 				  |
 *---------------------------------------------------------------+---------------*-----------------*
-| Running application, UI, functionality\						| 		20		| 		 6		  |
+| Running application, UI, functionality\						| 		20		| 		 10		  |
 | COMMENTS:\													| 				| 			  	  |
-| - Simple UI only, limited functionality\						| 				| 				  |
+| - Simple UI only, limited functionality, 2 persons only (+6) \ | 				| 				  |
+| - However, rich and well tested functions in business layer (+4) \ | 			| 				  |
 | - Use File.separator for building file system paths.\			| 				| 				  |
 | - Logo should be in JAR file, however. See TODO.				| 				| 				  |
 *---------------------------------------------------------------+---------------*-----------------*
@@ -188,9 +189,9 @@ not be equally distributed among team members. (However, this is the goal.)
 | COMMENTS:\													| 				| 			  	  |
 | - A-I graph missing (-1)										| 				| 				  |
 *---------------------------------------------------------------+---------------*-----------------*
-| Miscellaneous 1\												| 				| 		 		  |
+| Miscellaneous 1\												| 				| 		 6		  |
 | COMMENTS:\													| 				| 			  	  |
-| - None														| 				| 				  |
+| - Unrecognized goodies from sprint 3							| 				| 				  |
 *---------------------------------------------------------------+---------------*-----------------*
 | Miscellaneous 2\												| 				| 		 		  |
 | COMMENTS:\													| 				| 			  	  |
@@ -200,7 +201,7 @@ not be equally distributed among team members. (However, this is the goal.)
 | COMMENTS:\													| 				| 			  	  |
 | - None														| 				| 				  |
 *---------------------------------------------------------------+---------------*-----------------*
-| Total															| 		100		| 		82		  |
+| Total															| 		100		| 		92		  |
 *---------------------------------------------------------------+---------------*-----------------*
 Distribution of points for this deliverable.
 
